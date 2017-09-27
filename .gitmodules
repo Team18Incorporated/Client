@@ -1,0 +1,3 @@
+[submodule "app/src/main/java/edu/byu/cs/team18/tickettoride/Common"]
+	path = app/src/main/java/edu/byu/cs/team18/tickettoride/Common
+	url = https://github.com/Team18Incorporated/Common
