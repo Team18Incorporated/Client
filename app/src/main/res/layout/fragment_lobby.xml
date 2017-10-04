@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.byu.cs.team18.tickettoride.LobbyFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/lobbyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Players:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/player1Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 1:"
+        android:layout_below="@+id/lobbyText"
+        android:layout_alignStart="@+id/startButton"
+        android:layout_marginTop="17dp" />
+
+    <TextView
+        android:id="@+id/player1Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open"
+        android:layout_alignBaseline="@+id/player1Text"
+        android:layout_alignBottom="@+id/player1Text"
+        android:layout_alignEnd="@+id/startButton" />
+
+    <TextView
+        android:id="@+id/player2Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/player1Text"
+        android:layout_below="@+id/player1Text"
+        android:text="Player 2:" />
+
+    <TextView
+        android:id="@+id/player2Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/player1Name"
+        android:layout_below="@+id/player1Name"
+        android:text="Open" />
+
+    <TextView
+        android:id="@+id/player3Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/player2Text"
+        android:layout_below="@+id/player2Text"
+        android:text="Player 3:" />
+
+    <TextView
+        android:id="@+id/player3Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/player2Name"
+        android:layout_below="@+id/player2Name"
+        android:text="Open" />
+
+    <TextView
+        android:id="@+id/player4Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/player3Text"
+        android:layout_below="@+id/player3Text"
+        android:text="Player 4:" />
+
+    <TextView
+        android:id="@+id/player4Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/player3Name"
+        android:layout_below="@+id/player3Name"
+        android:text="Open" />
+
+    <TextView
+        android:id="@+id/player5Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/player4Text"
+        android:layout_below="@+id/player4Text"
+        android:text="Player 5:" />
+
+    <TextView
+        android:id="@+id/player5Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/player4Name"
+        android:layout_below="@+id/player4Name"
+        android:text="Open" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="55dp"
+        android:text="Start Game"
+        android:layout_below="@+id/player5Name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp" />
+
+
+</RelativeLayout>
