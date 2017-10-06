@@ -6,10 +6,12 @@ import java.util.List;
 /**
  * Created by Antman 537 on 10/5/2017.
  */
+//TODO: make observer to model
 
 public class LobbyPresenter {
     public static LobbyPresenter instance = new LobbyPresenter();
     private LobbyFragment view;
+    private int gameID;
 
     private LobbyPresenter (){}
 
@@ -36,6 +38,22 @@ public class LobbyPresenter {
      */
     public List<String> getPlayers(){
         List<String> players = new ArrayList<>();
+        //TODO: call model fetchPlayers
         return players;
+    }
+
+    /*
+    Tells LobbyFragment to update
+    @Pre: none
+    @Post: if view!=null, view.refreshView
+     */
+    public void sendUpdate(){
+        if (view!=null){
+            view.refreshView();
+        }
+    }
+
+    public void setGame(int idIn){
+        gameID = idIn;
     }
 }

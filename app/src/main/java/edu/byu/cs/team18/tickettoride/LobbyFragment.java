@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -14,26 +15,46 @@ import java.util.List;
 public class LobbyFragment extends Fragment {
 
     private LobbyActivity activity;
+    private View view;
+    private Button start;
 
     public LobbyFragment() {
         // Required empty public constructor
     }
 
+
+    /*
+        Pulls data from LobbyPresenter and updates
+        @Pre: none
+        @Post: none
+         */
     public void refreshView(){
         List<String> players = LobbyPresenter.instance.getPlayers();
         while (players.size()<5){
             players.add("Open");
         }
-        TextView playerName = (TextView) findViewById(R.id.player1Name);
+        TextView playerName = (TextView) view.findViewById(R.id.player1Name);
         playerName.setText(players.get(1));
-        playerName = (TextView) findViewById(R.id.player1Name);
+        playerName = (TextView) view.findViewById(R.id.player1Name);
         playerName.setText(players.get(2));
-        playerName = (TextView) findViewById(R.id.player1Name);
+        playerName = (TextView) view.findViewById(R.id.player1Name);
         playerName.setText(players.get(3));
-        playerName = (TextView) findViewById(R.id.player1Name);
+        playerName = (TextView) view.findViewById(R.id.player1Name);
         playerName.setText(players.get(4));
-        playerName = (TextView) findViewById(R.id.player1Name);
+        playerName = (TextView) view.findViewById(R.id.player1Name);
         playerName.setText(players.get(5));
+    }
+
+    /*
+    Checks for minimum players, then launches GameActivity
+    @Pre: none
+    @Post: LobyPresenter.view = null;
+     */
+    public void startButtonPressed(){
+        if (LobbyPresenter.instance.getPlayers().size()>1){
+            LobbyPresenter.instance.clearView();
+            activity.startGame();
+        }
     }
 
     @Override
@@ -45,7 +66,17 @@ public class LobbyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lobby, container, false);
+        view = inflater.inflate(R.layout.fragment_lobby, container, false);
+        refreshView();
+        start = (Button) view.findViewById(R.id.startButton);
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startButtonPressed();
+            }
+        });
+        LobbyPresenter.instance.setView(this);
+        return view;
     }
 
     @Override
