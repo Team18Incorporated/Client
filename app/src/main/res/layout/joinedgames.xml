@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Current Games"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/gamesTextView"
+        android:textAppearance="@android:style/TextAppearance"
+        android:textAlignment="center" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/joined_recycler_view"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gamesTextView"
+        />
+
+    <Button
+        android:text="Join Game"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/Join_Button"
+        style="@android:style/Widget.Button"
+        android:textSize="12sp"
+        android:layout_marginBottom="24dp"
+        android:layout_alignBaseline="@+id/Create_Button"
+        android:layout_alignBottom="@+id/Create_Button"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="50dp" />
+
+    <Button
+        android:text="Create Game"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/Create_Button"
+        style="@android:style/Widget.Button"
+        android:textSize="12sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp" />
+
+</RelativeLayout>
