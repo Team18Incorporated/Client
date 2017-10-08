@@ -90,6 +90,15 @@ public class JoinedGamesFragment extends Fragment {
         startedAdapter.notifyDataSetChanged();
     }
 
+    private void onCreateButtonClicked()
+    {
+        //NEEDS TO SWITCH TO LOBBY VIEW
+    }
+
+    private void onJoinButtonClicked()
+    {
+        //NEEDS TO SWITCH TO JOIN GAME VIEW
+    }
 
     //PRIVATE CLASSES
     //----------------------------------------------------------------------------------------------
@@ -112,8 +121,8 @@ public class JoinedGamesFragment extends Fragment {
             joinButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TO DO: IMPLEMENT TRANSITION TO JOIN GAME
-                    //joinGame(gameInfo.getGameID());
+                    //NEED TO IMPLEMENT TRANSITION TO JOIN GAME
+                    JoinedGamesPresenter.instance.joinGame(gameInfo.getGameID());
                 }
             });
 

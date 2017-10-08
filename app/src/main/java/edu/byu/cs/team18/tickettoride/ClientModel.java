@@ -13,6 +13,8 @@ public class ClientModel {
     private Player currentPlayer;
     private User currentUser;
 
+    //needs Observable
+
 
     public static ClientModel SINGLETON = new ClientModel();
 
@@ -62,5 +64,24 @@ public class ClientModel {
 
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
+    }
+
+    public GameInfo getGame(int gameID)
+    {
+        GameInfo gameInfo = null;
+        if(joinableGamesList.getGameByID(gameID)!= null)
+        {
+           gameInfo=joinableGamesList.getGameByID(gameID);
+        }
+        else if(joinedGamesList.getGameByID(gameID)!=null)
+        {
+            gameInfo=joinedGamesList.getGameByID(gameID);
+        }
+        else if(startedGamesList.getGameByID(gameID)!=null)
+        {
+            gameInfo=startedGamesList.getGameByID(gameID);
+        }
+
+        return gameInfo;
     }
 }
