@@ -24,14 +24,16 @@
             android:layout_centerVertical="true"/>
 
         <Button
-            android:text="PLAY"
+            android:text="->"
             android:layout_width="50dp"
             android:layout_height="25dp"
             android:layout_alignParentEnd="true"
             android:id="@+id/play_button"
             style="@android:style/Widget.Button"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:textSize="8sp"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/maxNumPlayers"
