@@ -16,7 +16,10 @@ public class GameList {
         gameList = new ArrayList<GameInfo>();
     }
 
-
+    public GameList(ArrayList<GameInfo> gameList)
+    {
+        this.gameList=gameList;
+    }
     //METHODS---------------------------------------------------------------------------------------
 
     /*addGame adds a Game to the GameList
