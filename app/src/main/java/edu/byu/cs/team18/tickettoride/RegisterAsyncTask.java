@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.example.abram.phase1main.ModelClasses.AuthToken;
 import com.example.abram.phase1main.Results.CommandResult;
 import com.example.abram.phase1main.Commands.RegisterCommand;
+import com.example.abram.phase1main.ClientCommunicator;
+import com.example.abram.phase1main.Results.LoginResult;
+import com.example.abram.phase1main.Results.RegisterResult;
 import com.example.abram.phase1main.ServerProxy;
 
 /**
@@ -29,7 +33,17 @@ public class RegisterAsyncTask extends AsyncTask<RegisterCommand,Void,CommandRes
     }
 
     protected CommandResult doInBackground(RegisterCommand... params){
-        return ServerProxy.getServerProxy().register(params[0],"register");
+        AuthToken token = ServerProxy.getServerProxy().userLogin(params[0].getUsername(), params[0].getPassword());
+        if(token == null)
+        {
+            String m = "Registration invalid.";
+            return new RegisterResult(token.getToken(), m);
+        }
+        else{
+            String m = "Registration successful.";
+            return new RegisterResult(token.getToken(), m);
+        }
+
     }
 
     protected void onProgressUpdate(){

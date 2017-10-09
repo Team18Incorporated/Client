@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.example.abram.phase1main.ModelClasses.AuthToken;
 import com.example.abram.phase1main.Results.CommandResult;
 import com.example.abram.phase1main.Commands.LoginCommand;
 import com.example.abram.phase1main.Results.LoginResult;
+import com.example.abram.phase1main.ClientCommunicator;
 import com.example.abram.phase1main.ServerProxy;
 
 
@@ -31,7 +33,17 @@ public class LoginAsyncTask extends AsyncTask<LoginCommand,Void,LoginResult> {
     }
 
     protected LoginResult doInBackground(LoginCommand... params){
-        return ServerProxy.getServerProxy().login(params[0],"login");
+        AuthToken token = ServerProxy.getServerProxy().userLogin(params[0].getUsername(), params[0].getPassword());
+        if(token == null)
+        {
+            String m = "Login invalid.";
+            return new LoginResult(token.getToken(), m);
+        }
+        else{
+            String m = "Login successful.";
+            return new LoginResult(token.getToken(), m);
+        }
+
     }
 
     protected void onProgressUpdate(){
