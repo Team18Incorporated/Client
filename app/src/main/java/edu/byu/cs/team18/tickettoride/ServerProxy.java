@@ -1,320 +1,116 @@
 package com.example.abram.phase1main;
 
-import com.example.abram.phase1main.Commands.Command;
 import com.example.abram.phase1main.Commands.CreateCommand;
-import com.example.abram.phase1main.Commands.JoinCommand;
+import com.example.abram.phase1main.Commands.LoginCommand;
 import com.example.abram.phase1main.Commands.RegisterCommand;
 import com.example.abram.phase1main.Commands.StartCommand;
-import com.example.abram.phase1main.Commands.UpdateLobbyCommand;
+import com.example.abram.phase1main.Commands.UpdateInProgressCommand;
+import com.example.abram.phase1main.Commands.UpdateOpenCommand;
+import com.example.abram.phase1main.Commands.UpdateUnstartedCommand;
 import com.example.abram.phase1main.ModelClasses.AuthToken;
 import com.example.abram.phase1main.ModelClasses.GameInfo;
-import com.example.abram.phase1main.ModelClasses.GameList;
-import com.example.abram.phase1main.ModelClasses.User;
-import com.example.abram.phase1main.Results.CommandResult;
-import com.example.abram.phase1main.Commands.LoginCommand;
-import com.example.abram.phase1main.Results.JoinResult;
-import com.example.abram.phase1main.Results.LoginResult;
-import com.example.abram.phase1main.Results.RegisterResult;
-import com.example.abram.phase1main.Results.UpdateResult;
-import com.google.gson.Gson;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
- * Created by abram on 10/7/2017.
+ * Created by abram on 10/9/2017.
  */
 
-public class ServerProxy {
+public class ServerProxy implements IServer {
 
-        public static String port = "8080";
-        public static String IPAddress = "192.168.1.7";
-        private static ServerProxy serverProxy = null;
+    private static ServerProxy serverProxy = null;
 
-        private ServerProxy(){}
+    private ServerProxy(){}
 
-        public static ServerProxy getServerProxy()
+    public static ServerProxy getServerProxy()
+    {
+        if(serverProxy == null)
         {
-            if(serverProxy == null)
-            {
-                serverProxy = new ServerProxy();
-            }
-            return serverProxy;
+            serverProxy = new ServerProxy();
         }
-
-        public LoginResult login(LoginCommand loginCommand, String suffix)
-        {
-            try {
-                URL url = new URL("http://" + IPAddress + ":" + port + "/" + suffix);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("POST");
-                connection.setDoOutput(true);
-                connection.addRequestProperty("Content-Type", "application/json");
-                connection.connect();
-
-                String request = "{\"username\": \"" + loginCommand.getUsername()+ "\"," +
-                        "\"password\": \"" + loginCommand.getPassword() + "\"" + "}";
-
-                OutputStream body = connection.getOutputStream();
-                writeString(body, request);
-                body.close();
-
-
-                if(connection.getResponseCode() == HttpURLConnection.HTTP_OK){
-
-                    InputStreamReader isr = new InputStreamReader(connection.getInputStream());
-                    Gson gson = new Gson();
-                    LoginResult command_result = gson.fromJson(isr, LoginResult.class);
-                    if(!command_result.getToken().equals("null"))
-                    {
-                        //If the login was successful, the server proxy calls the client communicator in order
-                        //to create the new user.
-                        User user = new User(loginCommand.getUsername(), new AuthToken(command_result.getToken()));
-                        ClientCommunicator.getClientcommunicator().updateUser(user);
-                    }
-                    return command_result;
-                }
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException ioe){
-                ioe.printStackTrace();
-            }
-            return new LoginResult("null","Server Error");
-        }
-
-        public RegisterResult register(RegisterCommand registerCommand, String suffix)
-        {
-            try {
-                URL url = new URL("http://" + IPAddress + ":" + port + "/" + suffix);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("POST");
-                connection.setDoOutput(true);
-                connection.addRequestProperty("Content-Type", "application/json");
-                connection.connect();
-
-                String request = "{\"username\": \"" + registerCommand.getUsername()+ "\"," +
-                        "\"password\": \"" + registerCommand.getPassword() + "\"" + "}";
-
-                OutputStream body = connection.getOutputStream();
-                writeString(body, request);
-                body.close();
-
-
-                if(connection.getResponseCode() == HttpURLConnection.HTTP_OK){
-
-                    InputStreamReader isr = new InputStreamReader(connection.getInputStream());
-                    Gson gson = new Gson();
-                    RegisterResult command_result = gson.fromJson(isr, RegisterResult.class);
-                    if(!command_result.getToken().equals("null"))
-                    {
-                        //If the registration was successful, the server proxy calls the client communicator in order
-                        //to create the new user.
-                        User user = new User(registerCommand.getUsername(), new AuthToken(command_result.getToken()));
-                        ClientCommunicator.getClientcommunicator().updateUser(user);
-                    }
-                    return command_result;
-                }
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException ioe){
-                ioe.printStackTrace();
-            }
-            return new RegisterResult("null","Server Error");
-        }
-
-    public JoinResult join(JoinCommand joinCommand, String suffix)
-    {
-        try {
-            URL url = new URL("http://" + IPAddress + ":" + port + "/" + suffix);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setDoOutput(true);
-            connection.addRequestProperty("Content-Type", "application/json");
-            connection.connect();
-
-            String request = "{\"username\": \"" + joinCommand.getUsername()+ "\"," +
-                    "\"gameID\": \"" + joinCommand.getGameID() + "\"," +
-                    "\"token\": \"" + joinCommand.getToken() + "\"}";
-
-            OutputStream body = connection.getOutputStream();
-            writeString(body, request);
-            body.close();
-
-
-            if(connection.getResponseCode() == HttpURLConnection.HTTP_OK){
-
-                InputStreamReader isr = new InputStreamReader(connection.getInputStream());
-                Gson gson = new Gson();
-                JoinResult command_result = gson.fromJson(isr, JoinResult.class);
-                if(!command_result.getGameInfo().equals(null))
-                {
-                    //If the registration was successful, the server proxy calls the client communicator in order
-                    //to create the new user
-                    ClientCommunicator.getClientcommunicator().updateGame(command_result.getGameInfo());
-                }
-                return command_result;
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
-        return new JoinResult(null,"Server Error");
-    }
-
-    public JoinResult create(CreateCommand createCommand, String suffix)
-    {
-        try {
-            URL url = new URL("http://" + IPAddress + ":" + port + "/" + suffix);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setDoOutput(true);
-            connection.addRequestProperty("Content-Type", "application/json");
-            connection.connect();
-
-            String request = "{\"username\": \"" + createCommand.getUsername()+ "\"," +
-                    "\"token\": \"" + createCommand.getToken() + "\"}";
-
-            OutputStream body = connection.getOutputStream();
-            writeString(body, request);
-            body.close();
-
-
-            if(connection.getResponseCode() == HttpURLConnection.HTTP_OK){
-
-                InputStreamReader isr = new InputStreamReader(connection.getInputStream());
-                Gson gson = new Gson();
-                JoinResult command_result = gson.fromJson(isr, JoinResult.class);
-                if(!command_result.getGameInfo().equals(null))
-                {
-                    //If the registration was successful, the server proxy calls the client communicator in order
-                    //to create the new user
-
-                    //MUST CREATE NEW GAME, NOT SURE HOW TO DO THIS.
-                    ClientCommunicator.getClientcommunicator().updateGame(command_result.getGameInfo());
-                }
-                return command_result;
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
-        return new JoinResult(null,"Server Error");
-    }
-
-    public JoinResult start(StartCommand startCommand, String suffix)
-    {
-        try {
-            URL url = new URL("http://" + IPAddress + ":" + port + "/" + suffix);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setDoOutput(true);
-            connection.addRequestProperty("Content-Type", "application/json");
-            connection.connect();
-
-            String request = "{\"gameID\": \"" + startCommand.getGameID()+ "\"," +
-                    "\"token\": \"" + startCommand.getGameID() + "\"}";
-
-            OutputStream body = connection.getOutputStream();
-            writeString(body, request);
-            body.close();
-
-
-            if(connection.getResponseCode() == HttpURLConnection.HTTP_OK){
-
-                InputStreamReader isr = new InputStreamReader(connection.getInputStream());
-                Gson gson = new Gson();
-                JoinResult command_result = gson.fromJson(isr, JoinResult.class);
-                if(!command_result.getGameInfo().equals(null))
-                {
-                    //If the registration was successful, the server proxy calls the client communicator in order
-                    //to create the new user
-
-                    //Find game that matches gameID and update that one.
-                    GameInfo info = command_result.getGameInfo();
-                    ClientCommunicator.getClientcommunicator().updateGame(info);
-                }
-                return command_result;
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
-        return new JoinResult(null,"Server Error");
-    }
-
-    public UpdateResult updateLobby(UpdateLobbyCommand updateLobbyCommand, String suffix)
-    {
-        try {
-            URL url = new URL("http://" + IPAddress + ":" + port + "/" + suffix);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setDoOutput(true);
-            connection.addRequestProperty("Content-Type", "application/json");
-            connection.connect();
-
-            String request = "{\"username\": \"" + updateLobbyCommand.getUsername()+ "\"," +
-                    "\"token\": \"" + updateLobbyCommand.getToken() + "\"}";
-
-            OutputStream body = connection.getOutputStream();
-            writeString(body, request);
-            body.close();
-
-
-            if(connection.getResponseCode() == HttpURLConnection.HTTP_OK){
-
-                InputStreamReader isr = new InputStreamReader(connection.getInputStream());
-                Gson gson = new Gson();
-                UpdateResult command_result = gson.fromJson(isr, UpdateResult.class);
-                if(!command_result.getGameList().equals(null))
-                {
-                    //If the registration was successful, the server proxy calls the client communicator in order
-                    //to create the new user
-                    GameList list = command_result.getGameList();
-                    ClientCommunicator.getClientcommunicator().updateCurrentGamesList(list);
-                    ClientCommunicator.getClientcommunicator().updateJoinGameList(list);
-                }
-                return command_result;
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
-        return new UpdateResult(null,"Server Error");
+        return serverProxy;
     }
 
 
 
+    /*
+	 * logs user in and returns authToken. Throws login exceptions
+	 * @Pre: user&&password !=null && != ""
+	 * @Post: 0 < int authToken < 10000 || exception
+	 */
+    public AuthToken userLogin(String user, String password)
+    {
+        return (AuthToken) ClientCommunicator.getClientCommunicator().send(new LoginCommand(user, password));
+    }
+    /*
+     * Registers a new user and logs them in. Returns authToken
+     * Throws existingUser exception
+     * @Pre: user&&password != null && != ""
+     * @Post: 0 < int authToken < 10000 || existingUser exception
+     */
+    public AuthToken registerUser(String user, String password)
+    {
+        return (AuthToken) ClientCommunicator.getClientCommunicator().send(new RegisterCommand(user, password));
+    }
+    /*
+     * creates a new game, using authToken to determine the creator. Returns gameID
+     * @Pre: 0 < authToken < 10000
+     * @Post: 0 < int gameID < 10000
+     */
+    public GameInfo newGame(AuthToken authToken, String name)
+    {
+        return (GameInfo) ClientCommunicator.getClientCommunicator().send(new CreateCommand(name, authToken));
+    }
+    /*
+     * adds authToken user to gameID game
+     * @Pre: 0 < authToken&&gameID < 10000
+     * @Post: None
+     */
+    public void join(AuthToken authToken, String gameID)
+    {
 
+    }
+    /*
+     * removes authToken user from gameID game
+     * @Pre: 0 < authToken&&gameID < 10000
+     * @Post: None
+     */
+    public void leave(AuthToken authToken, String gameID)
+    {
 
-
-
-
-
-
-        public static void writeString(OutputStream os, String s) throws IOException {
-            OutputStreamWriter writer = new OutputStreamWriter(os);
-            writer.write(s);
-            writer.flush();
-        }
-
-        public static String readString(InputStream is) throws IOException {
-            StringBuilder sb = new StringBuilder();
-            InputStreamReader sr = new InputStreamReader(is);
-            char[] buf = new char[1024];
-            int len;
-            while ((len = sr.read(buf)) > 0) {
-                sb.append(buf, 0, len);
-            }
-            return sb.toString();
-        }
+    }
+    /*
+     * returns a list of the join-able games on the server
+     * @Pre: None
+     * @Post: Object gamesList !=null && isType List<String> of gameIDs
+     */
+    public Object openGames()
+    {
+        return ClientCommunicator.getClientCommunicator().send(new UpdateOpenCommand());
+    }
+    /*
+     * returns a list of in-progress games authToken user is currently in
+     * @Pre: 0 < authToken < 10000
+     * @Post: Object gamesList !=null && isType List<String> of gameIDs
+     */
+    public Object inProgressGames(AuthToken authToken)
+    {
+        return ClientCommunicator.getClientCommunicator().send(new UpdateInProgressCommand(authToken));
+    }
+    /*
+     * returns a list of unstarted games authToken user is currently in
+     * @Pre: 0 < authToken < 10000
+     * @Post: Object gamesList !=null && isType List<String> of gameIDs
+     */
+    public Object unstartedGames(AuthToken authToken)
+    {
+        return ClientCommunicator.getClientCommunicator().send(new UpdateUnstartedCommand(authToken));
+    }
+    /*
+     * flags gameID game as started. Initializes game objects for gameID
+     * @Pre: 0 < gameID < 10000
+     * @Post: None
+     */
+    public void startGame(String gameID)
+    {
+        Object o = ClientCommunicator.getClientCommunicator().send(new StartCommand(gameID));
+    }
 }
