@@ -8,6 +8,7 @@ public class GameInfo {
 
     private String gameID;
     private int numPlayers;
+    private String gameName;
     private ArrayList<Player> playerList;
     private ArrayList<String> playerNames;
     private boolean hasStarted = false;
@@ -36,4 +37,5 @@ public class GameInfo {
         return hasStarted;
     }
     public String getGameID(){ return gameID;};
+    public String getGameName(){return gameName;}
 }

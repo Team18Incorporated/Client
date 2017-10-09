@@ -37,5 +37,6 @@ public class GameList {
         return null;
     }
 
-    public 
+    public int getSize(){ return gameList.size();}
+    public GameInfo getGame(int position) {return gameList.get(position);}
 }
