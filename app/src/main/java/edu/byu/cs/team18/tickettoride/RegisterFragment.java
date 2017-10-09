@@ -1,4 +1,4 @@
-package com.example.abram.phase1main.Fragments;
+package edu.byu.cs.team18.tickettoride;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
