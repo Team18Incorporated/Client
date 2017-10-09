@@ -1,31 +1,21 @@
 package edu.byu.cs.team18.tickettoride;
 
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-
 import edu.byu.cs.team18.tickettoride.Common.*;
 
 /**
- * Created by Solomons on 10/7/2017.
+ * Created by Tesla on 10/9/2017.
  */
 
-public class JoinedGamesPresenter {
+public class JoinPresenter {
 
-
-    //NEEDS TO BE MADE AN OBSERVER
-
-    public static JoinedGamesPresenter instance = new JoinedGamesPresenter();
-    private JoinedGamesFragment view;
+    public static JoinPresenter instance = new JoinPresenter();
+    private JoinFragment view;
     private AuthToken userAuthToken;
 
-    private JoinedGamesPresenter(){}
+    private JoinPresenter(){}
 
 
-    public void setView(JoinedGamesFragment viewIn){
+    public void setView(JoinFragment viewIn){
         view = viewIn;
     }
 
