@@ -40,6 +40,7 @@ public class JoinFragment extends Fragment {
     private Button joinButton;
     private GameList joinableGameList;
     private View view;
+    private LobbyActivity activity;
 
     public JoinFragment() {}
 
@@ -78,6 +79,7 @@ public class JoinFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+        activity = (LobbyActivity) context;
     }
 
     @Override
@@ -105,6 +107,18 @@ public class JoinFragment extends Fragment {
         joinableGameList=JoinPresenter.instance.getJoinedGamesList();
         joinableAdapter.notifyDataSetChanged();
     }
+    /*
+    detaches presenter from view in preparation for view closing
+    @pre: none
+    @post: none
+    */
+    private void detachPresenter(){
+        JoinedGamesPresenter.instance.clearView();
+    }
+    public void joinLobby(){
+        detachPresenter();
+        activity.openLobby(ClientModel.SINGLETON.getCurrentLobby().getGameID());
+    }
 
     //PRIVATE CLASSES
     //----------------------------------------------------------------------------------------------
@@ -128,7 +142,12 @@ public class JoinFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     //NEED TO IMPLEMENT TRANSITION TO Lobby GAME
-                    JoinedGamesPresenter.instance.joinGame(gameInfo.getGameID());
+                    try {
+                        JoinPresenter.instance.joinGame(gameInfo.getGameID());
+                    }
+                    catch (Exception e){
+
+                    }
                 }
             });
 
