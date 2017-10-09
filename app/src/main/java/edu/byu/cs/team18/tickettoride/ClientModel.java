@@ -68,7 +68,7 @@ public class ClientModel {
         this.currentUser = currentUser;
     }
 
-    public GameInfo getGame(int gameID)
+    public GameInfo getGame(String gameID)
     {
         GameInfo gameInfo = null;
         if(joinableGamesList.getGameByID(gameID)!= null)

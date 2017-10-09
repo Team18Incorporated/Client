@@ -46,7 +46,7 @@ public class JoinPresenter {
     * @pre valid gameID
     * @post plays game if the game has already started, joins the game lobby otherwise
     * */
-    public void joinGame(int gameID)
+    public void joinGame(String gameID)
     {
         GameInfo selectedGame = ClientModel.SINGLETON.getGame(gameID);
 

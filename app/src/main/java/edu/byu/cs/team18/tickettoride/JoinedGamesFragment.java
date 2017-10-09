@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import edu.byu.cs.team18.tickettoride.Common.GameList;
+import edu.byu.cs.team18.tickettoride.Common.*;
 import edu.byu.cs.team18.tickettoride.R;
 
 
