@@ -25,16 +25,12 @@ public class ClientCommunicator {
     private static String HTTP_GET = "GET";
     private static String URL_PREFIX = "http://" + SERVER_HOST + ":" + SERVER_PORT;
 
-    public Object send(String url, Object command){
+    public Object send(String url, Object command, Class<?> klass){
         HttpURLConnection connection = openConnection("/"+url, HTTP_GET, true);
         sendToServerCommunicator(connection, command);
         Object result = null;
-        try {
-            result = returnResult(connection, Class.forName("Common."+url+"Command"));
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        result = returnResult(connection, klass);
+
         return result;
     }
 

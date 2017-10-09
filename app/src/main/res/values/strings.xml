@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">TicketToRide</string>
-
-    <string name="app_name">Phase1Main</string>
     <string name="welcome_message">Welcome to Ticket To Ride!</string>
     <string name="register_button">Register</string>
     <string name="login_button">Login</string>
