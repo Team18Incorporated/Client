@@ -1,13 +1,19 @@
-package com.example.abram.phase1main.Commands;
+package edu.byu.cs.team18.tickettoride.Common.Commands;
 
 /**
  * Created by abram on 10/2/2017.
  */
 
-public class LoginCommand{
+public class LoginCommand implements ICommand{
 
     private String username;
     private String password;
+    private String suffix = "Login";
+
+    @Override
+    public String getSuffix() {
+        return suffix;
+    }
 
     public String getUsername() {
         return username;

@@ -1,10 +1,10 @@
-package com.example.abram.phase1main.Presenters;
+package edu.byu.cs.team18.tickettoride;
 
 import android.app.Activity;
 import android.widget.Toast;
 
-import com.example.abram.phase1main.AsyncTasks.LoginAsyncTask;
-import com.example.abram.phase1main.Commands.LoginCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
+
 
 /**
  * Created by abram on 10/7/2017.
@@ -49,6 +49,7 @@ public class LoginPresenter {
         {
             LoginCommand loginCommand = new LoginCommand(username, password);
             new LoginAsyncTask(A).execute(loginCommand);
+
         }
     }
 }

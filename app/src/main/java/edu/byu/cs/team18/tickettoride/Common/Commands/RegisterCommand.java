@@ -1,14 +1,19 @@
-package edu.byu.cs.team18.tickettoride.Common;
-
+package edu.byu.cs.team18.tickettoride.Common.Commands;
 
 /**
  * Created by abram on 10/2/2017.
  */
 
-public class RegisterCommand {
+public class RegisterCommand implements ICommand{
 
     private String username;
     private String password;
+    private String suffix = "Register";
+
+    @Override
+    public String getSuffix() {
+        return suffix;
+    }
 
     public String getUsername() {
         return username;

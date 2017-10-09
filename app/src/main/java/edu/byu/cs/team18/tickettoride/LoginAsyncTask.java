@@ -1,15 +1,11 @@
-package com.example.abram.phase1main.AsyncTasks;
+package edu.byu.cs.team18.tickettoride;
 
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import com.example.abram.phase1main.ModelClasses.AuthToken;
-import com.example.abram.phase1main.Results.CommandResult;
-import com.example.abram.phase1main.Commands.LoginCommand;
-import com.example.abram.phase1main.Results.LoginResult;
-import com.example.abram.phase1main.ClientCommunicator;
-import com.example.abram.phase1main.ServerProxy;
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
+import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
 
 
 /**
