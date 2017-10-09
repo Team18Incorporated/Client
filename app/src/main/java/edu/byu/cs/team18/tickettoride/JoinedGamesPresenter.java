@@ -56,7 +56,7 @@ public class JoinedGamesPresenter {
     * @pre valid gameID
     * @post plays game if the game has already started, joins the game lobby otherwise
     * */
-    public void joinGame(int gameID)
+    public void joinGame(String gameID)
     {
         GameInfo selectedGame = ClientModel.SINGLETON.getGame(gameID);
 
@@ -65,12 +65,12 @@ public class JoinedGamesPresenter {
             if(selectedGame.hasStarted())
             {
                 //NEED TO KNOW HOW TO PLAY
-                playGame(selectedGame.getGameID());
+                //playGame(selectedGame.getGameID());
             }
             else
             {
                 //NEEDS TO SWITCH TO LOBBY VIEW
-                joinGame(selectedGame);
+                //joinGame(selectedGame);
             }
         }
     }

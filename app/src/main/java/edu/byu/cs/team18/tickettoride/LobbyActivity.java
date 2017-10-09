@@ -14,7 +14,7 @@ public class LobbyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lobby);
 
         manager = getSupportFragmentManager();
-        manager.beginTransaction().add(R.id.latice,new joinedGamesFragment()).commit();
+        manager.beginTransaction().add(R.id.latice,new JoinedGamesFragment()).commit();
     }
 
     /*

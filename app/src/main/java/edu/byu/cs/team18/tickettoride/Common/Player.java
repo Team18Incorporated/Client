@@ -11,7 +11,7 @@ public class Player {
     //CONSTRUCTOR-----------------------------------------------------------------------------------
 
 
-    public Player(int playerID, String playerName, Color color) {
+    public Player(String playerID, String playerName, Color color) {
         this.playerID = playerID;
         this.playerName = playerName;
         this.color = color;
@@ -32,7 +32,7 @@ public class Player {
 	return playerName;
     }
 
-    public int getPlayerID(){
+    public String getPlayerID(){
 	return playerID;
     }
 }

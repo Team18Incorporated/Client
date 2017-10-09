@@ -20,7 +20,7 @@ import edu.byu.cs.team18.tickettoride.R;
  * Activities that contain this fragment must implement the
  * {@link JoinFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link JoinFragment#newInstance} factory method to
+ * Use the {@link JoinFragment} factory method to
  * create an instance of this fragment.
  */
 public class JoinFragment extends Fragment {
@@ -56,7 +56,7 @@ public class JoinFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_join, container, false);
         refreshView();
 
-        joinableGamesRV = (RecyclerView) view.findViewById(R.id.joinable_recycler_view);
+        joinableGamesRV = (RecyclerView) view.findViewById(R.id.join_recycler_view);
 
         joinableLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         joinableGamesRV.setLayoutManager(joinableLayoutManager);
@@ -147,7 +147,7 @@ public class JoinFragment extends Fragment {
     }
 
     //----------------------------------------------------------------------------------------------
-    private class GameInfoAdapter extends RecyclerView.Adapter<JoinedGamesFragment.gamesViewHolder>
+    private class GameInfoAdapter extends RecyclerView.Adapter<JoinFragment.gamesViewHolder>
     {
         private GameList gameList;
 
@@ -157,15 +157,15 @@ public class JoinFragment extends Fragment {
         }
 
         @Override
-        public JoinedGamesFragment.gamesViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+        public JoinFragment.gamesViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
         {
             LayoutInflater inflater= LayoutInflater.from(getActivity());
             View view= inflater.inflate(R.layout.game_view, parent, false);
-            return new JoinedGamesFragment.gamesViewHolder(view);
+            return new JoinFragment.gamesViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(JoinedGamesFragment.gamesViewHolder holder, int position) {
+        public void onBindViewHolder(JoinFragment.gamesViewHolder holder, int position) {
             GameInfo gameInfo= gameList.getGame(position);
             holder.bindObject(gameInfo);
         }

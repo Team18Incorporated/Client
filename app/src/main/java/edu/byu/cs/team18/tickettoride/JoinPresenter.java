@@ -55,12 +55,12 @@ public class JoinPresenter {
             if(selectedGame.hasStarted())
             {
                 //NEED TO KNOW HOW TO PLAY
-                playGame(selectedGame.getGameID());
+                //playGame(selectedGame.getGameID());
             }
             else
             {
                 //NEEDS TO SWITCH TO LOBBY VIEW
-                joinGame(selectedGame);
+                //joinGame(selectedGame);
             }
         }
     }
