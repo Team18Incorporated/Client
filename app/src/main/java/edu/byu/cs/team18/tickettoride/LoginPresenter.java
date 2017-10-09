@@ -1,12 +1,10 @@
 package com.example.abram.phase1main.Presenters;
 
 import android.app.Activity;
-import android.view.View;
 import android.widget.Toast;
 
 import com.example.abram.phase1main.AsyncTasks.LoginAsyncTask;
 import com.example.abram.phase1main.Commands.LoginCommand;
-import com.example.abram.phase1main.ServerProxy;
 
 /**
  * Created by abram on 10/7/2017.
