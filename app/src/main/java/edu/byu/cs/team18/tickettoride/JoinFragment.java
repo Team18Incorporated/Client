@@ -102,7 +102,7 @@ public class JoinFragment extends Fragment {
     }
 
     public void refreshView(){
-        joinableGameList=JoinPresenter.instance.getJoinedGamesList();
+        joinableGameList=JoinPresenter.instance.getJoinableGamesList();
         joinableAdapter.notifyDataSetChanged();
     }
 

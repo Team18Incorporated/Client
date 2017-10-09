@@ -19,17 +19,6 @@ public class JoinPresenter {
         view = viewIn;
     }
 
-
-    public GameList getStartedGamesList()
-    {
-        return ClientModel.SINGLETON.getStartedGamesList();
-    }
-
-    public GameList getJoinedGamesList()
-    {
-        return ClientModel.SINGLETON.getJoinedGamesList();
-    }
-
     public GameList getJoinableGamesList()
     {
         return ClientModel.SINGLETON.getJoinableGamesList();
