@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.abram.phase1main.AsyncTasks.RegisterAsyncTask;
-import com.example.abram.phase1main.Commands.RegisterCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
+
 
 /**
  * Created by abram on 10/7/2017.

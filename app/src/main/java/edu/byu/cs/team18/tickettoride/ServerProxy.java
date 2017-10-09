@@ -2,6 +2,15 @@ package edu.byu.cs.team18.tickettoride;
 
 
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
+import edu.byu.cs.team18.tickettoride.Common.Commands.CreateCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.StartCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.UpdateInProgressCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.UpdateOpenCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.UpdateUnstartedCommand;
+import edu.byu.cs.team18.tickettoride.Common.GameInfo;
+import edu.byu.cs.team18.tickettoride.Common.GameList;
 import edu.byu.cs.team18.tickettoride.Common.IServer;
 
 /**
@@ -32,7 +41,7 @@ public class ServerProxy implements IServer {
 	 */
     public AuthToken userLogin(String user, String password)
     {
-        return (AuthToken) ClientCommunicator.getClientCommunicator().send(new LoginCommand(user, password));
+        return (AuthToken) ClientCommunicator.getSingleton().send("login",new LoginCommand(user, password),AuthToken.class);
     }
     /*
      * Registers a new user and logs them in. Returns authToken
@@ -42,7 +51,7 @@ public class ServerProxy implements IServer {
      */
     public AuthToken registerUser(String user, String password)
     {
-        return (AuthToken) ClientCommunicator.getClientCommunicator().send(new RegisterCommand(user, password));
+        return (AuthToken) ClientCommunicator.getSingleton().send("register",new RegisterCommand(user, password),AuthToken.class);
     }
     /*
      * creates a new game, using authToken to determine the creator. Returns gameID
@@ -51,7 +60,7 @@ public class ServerProxy implements IServer {
      */
     public GameInfo newGame(AuthToken authToken, String name)
     {
-        return (GameInfo) ClientCommunicator.getClientCommunicator().send(new CreateCommand(name, authToken));
+        return (GameInfo) ClientCommunicator.getSingleton().send("create",new CreateCommand(name, authToken),GameInfo.class);
     }
     /*
      * adds authToken user to gameID game
@@ -78,7 +87,7 @@ public class ServerProxy implements IServer {
      */
     public Object openGames()
     {
-        return ClientCommunicator.getClientCommunicator().send(new UpdateOpenCommand());
+        return ClientCommunicator.getSingleton().send("updateOpen",new UpdateOpenCommand(), GameList.class);
     }
     /*
      * returns a list of in-progress games authToken user is currently in
@@ -87,7 +96,7 @@ public class ServerProxy implements IServer {
      */
     public Object inProgressGames(AuthToken authToken)
     {
-        return ClientCommunicator.getClientCommunicator().send(new UpdateInProgressCommand(authToken));
+        return ClientCommunicator.getSingleton().send("updateInProgress",new UpdateInProgressCommand(authToken),GameList.class);
     }
     /*
      * returns a list of unstarted games authToken user is currently in
@@ -96,7 +105,7 @@ public class ServerProxy implements IServer {
      */
     public Object unstartedGames(AuthToken authToken)
     {
-        return ClientCommunicator.getClientCommunicator().send(new UpdateUnstartedCommand(authToken));
+        return ClientCommunicator.getSingleton().send("updateUnstarted",new UpdateUnstartedCommand(authToken),GameList.class);
     }
     /*
      * flags gameID game as started. Initializes game objects for gameID
@@ -105,6 +114,6 @@ public class ServerProxy implements IServer {
      */
     public void startGame(String gameID)
     {
-        Object o = ClientCommunicator.getClientCommunicator().send(new StartCommand(gameID));
+        Object o = ClientCommunicator.getSingleton().send("start",new StartCommand(gameID),    );
     }
 }

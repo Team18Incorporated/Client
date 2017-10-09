@@ -6,13 +6,14 @@ import android.widget.Toast;
 
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
+import edu.byu.cs.team18.tickettoride.Common.User;
 
 
 /**
  * Created by abram on 3/31/2017.
  */
 
-public class LoginAsyncTask extends AsyncTask<LoginCommand,Void,LoginResult> {
+public class LoginAsyncTask extends AsyncTask<LoginCommand,Void,User> {
 
     public Activity getActivity() {
         return activity;
@@ -28,32 +29,23 @@ public class LoginAsyncTask extends AsyncTask<LoginCommand,Void,LoginResult> {
         activity = act;
     }
 
-    protected LoginResult doInBackground(LoginCommand... params){
+    protected User doInBackground(LoginCommand... params){
         AuthToken token = ServerProxy.getServerProxy().userLogin(params[0].getUsername(), params[0].getPassword());
-        if(token == null)
-        {
-            String m = "Login invalid.";
-            return new LoginResult(token.getToken(), m);
-        }
-        else{
-            String m = "Login successful.";
-            return new LoginResult(token.getToken(), m);
-        }
-
+        return new User(token,params[0].getUsername());
     }
 
     protected void onProgressUpdate(){
 
     }
 
-    protected void onPostExecute(CommandResult login_result) {
-        if(login_result!=null) {
-            CharSequence cs = login_result.getMessage();
-            Toast.makeText(getActivity(), cs, Toast.LENGTH_SHORT).show();
-            /*if (!cs.toString().contains("Error") && !cs.toString().contains("Incorrect")) {
-                MainActivity.sAuthToken = login_result.getAuthToken();
-            }*/
-
+    protected void onPostExecute(User user) {
+        if(user.getAuthToken()!=null) {
+            ClientFacade.getClientFacade().updateUser(user);
+            Toast.makeText(getActivity().getApplicationContext(), "Login succeeded.", Toast.LENGTH_LONG);
+        }
+        else
+        {
+            Toast.makeText(getActivity().getApplicationContext(), "Login succeeded.", Toast.LENGTH_LONG);
         }
     }
 

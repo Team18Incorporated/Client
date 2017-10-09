@@ -12,12 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.abram.phase1main.Presenters.LoginPresenter;
-import com.example.abram.phase1main.R;
 
-//import com.example.abram.fm_client.Asynchronous_Tasks.Login_Async_Task;
-//import com.example.abram.fm_client.Requests.LoginRequest;
-//import com.example.abram.fm_client.Server_Proxy;
+//impo
 
 public class LoginFragment extends Fragment {
 

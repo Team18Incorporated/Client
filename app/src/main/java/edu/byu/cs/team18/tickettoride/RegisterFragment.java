@@ -13,10 +13,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.example.abram.phase1main.Presenters.RegisterPresenter;
-import com.example.abram.phase1main.R;
-
-
 /**
  * Created by abram on 3/31/2017.
  */
