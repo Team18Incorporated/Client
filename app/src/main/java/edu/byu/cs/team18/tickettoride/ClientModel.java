@@ -19,6 +19,8 @@ public class ClientModel extends Observable{
     private Player currentPlayer;
     private User currentUser;
 
+    private PollerAsyncTask poller = new PollerAsyncTask();
+
     /*
     notifies observers of changes
     @pre: none
@@ -107,6 +109,8 @@ public class ClientModel extends Observable{
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
         echo();
+        poller.cancel(true);
+        poller.execute();
     }
 
     public GameInfo getGame(String gameID)
