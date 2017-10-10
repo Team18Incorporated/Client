@@ -2,9 +2,12 @@ package edu.byu.cs.team18.tickettoride;
 
 import android.os.AsyncTask;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
+import edu.byu.cs.team18.tickettoride.Common.GameInfo;
 import edu.byu.cs.team18.tickettoride.Common.GameList;
 
 
@@ -21,9 +24,10 @@ public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
             timer.scheduleAtFixedRate(new TimerTask() {
 
                 public void run() {
-                    GameList joinableGames = new GameList(ServerProxy.getServerProxy.openGames());
-                    GameList joinedGames= new GameList(ServerProxy.getServerProxy.unstartedGames());;
-                    GameList startedGames= new GameList(ServerProxy.getServerProxy.inProgressGames());;
+                    AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
+                    GameList joinableGames = new GameList((ArrayList<GameInfo>) ServerProxy.getServerProxy().openGames());
+                    GameList joinedGames= new GameList((ArrayList<GameInfo>)ServerProxy.getServerProxy().unstartedGames(token));;
+                    GameList startedGames= new GameList((ArrayList<GameInfo>)ServerProxy.getServerProxy().inProgressGames(token));;
 
                     ClientModel.SINGLETON.setJoinableGamesList(joinableGames);
                     ClientModel.SINGLETON.setJoinedGamesList(joinedGames);

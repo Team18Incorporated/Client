@@ -1,12 +1,12 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands;
 
-import com.example.abram.phase1main.Results.CommandResult;
+//import com.example.abram.phase1main.Results.CommandResult;
 
 /**
  * Created by abram on 9/18/2017.
  */
 
-public class Command implements ICommand {
+public class Command {
     protected String type;
     protected String text;
 
@@ -34,8 +34,9 @@ public class Command implements ICommand {
 
     public Command(){}
 
-    public CommandResult execute()
+
+    /*public CommandResult execute()
     {
         return null;
-    }
+    }*/
 }
