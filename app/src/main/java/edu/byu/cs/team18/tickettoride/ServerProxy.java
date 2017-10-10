@@ -40,6 +40,7 @@ public class ServerProxy implements IServer {
 	 * @Pre: user&&password !=null && != ""
 	 * @Post: 0 < int authToken < 10000 || exception
 	 */
+    @Override
     public AuthToken userLogin(String user, String password)
     {
         return (AuthToken) ClientCommunicator.getSingleton().send("login",new LoginCommand(user, password),AuthToken.class);
@@ -50,6 +51,7 @@ public class ServerProxy implements IServer {
      * @Pre: user&&password != null && != ""
      * @Post: 0 < int authToken < 10000 || existingUser exception
      */
+    @Override
     public AuthToken registerUser(String user, String password)
     {
         return (AuthToken) ClientCommunicator.getSingleton().send("register",new RegisterCommand(user, password),AuthToken.class);
@@ -59,6 +61,7 @@ public class ServerProxy implements IServer {
      * @Pre: 0 < authToken < 10000
      * @Post: 0 < int gameID < 10000
      */
+    @Override
     public GameInfo newGame(AuthToken authToken, String name)
     {
         return (GameInfo) ClientCommunicator.getSingleton().send("create",new CreateCommand(name, authToken),GameInfo.class);
@@ -68,6 +71,7 @@ public class ServerProxy implements IServer {
      * @Pre: 0 < authToken&&gameID < 10000
      * @Post: None
      */
+    @Override
     public void join(AuthToken authToken, String gameID)
     {
         Object o = ClientCommunicator.getSingleton().send("join",new JoinCommand(gameID,authToken),Object.class);
@@ -77,6 +81,7 @@ public class ServerProxy implements IServer {
      * @Pre: 0 < authToken&&gameID < 10000
      * @Post: None
      */
+    @Override
     public void leave(AuthToken authToken, String gameID)
     {
 
@@ -86,6 +91,7 @@ public class ServerProxy implements IServer {
      * @Pre: None
      * @Post: Object gamesList !=null && isType List<String> of gameIDs
      */
+    @Override
     public Object openGames()
     {
         return ClientCommunicator.getSingleton().send("updateOpen",new UpdateOpenCommand(), GameList.class);
@@ -95,6 +101,7 @@ public class ServerProxy implements IServer {
      * @Pre: 0 < authToken < 10000
      * @Post: Object gamesList !=null && isType List<String> of gameIDs
      */
+    @Override
     public Object inProgressGames(AuthToken authToken)
     {
         return ClientCommunicator.getSingleton().send("updateInProgress",new UpdateInProgressCommand(authToken),GameList.class);
@@ -104,6 +111,7 @@ public class ServerProxy implements IServer {
      * @Pre: 0 < authToken < 10000
      * @Post: Object gamesList !=null && isType List<String> of gameIDs
      */
+    @Override
     public Object unstartedGames(AuthToken authToken)
     {
         return ClientCommunicator.getSingleton().send("updateUnstarted",new UpdateUnstartedCommand(authToken),GameList.class);
@@ -113,6 +121,7 @@ public class ServerProxy implements IServer {
      * @Pre: 0 < gameID < 10000
      * @Post: None
      */
+    @Override
     public void startGame(String gameID)
     {
         Object o = ClientCommunicator.getSingleton().send("start",new StartCommand(gameID),Object.class);

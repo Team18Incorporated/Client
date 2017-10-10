@@ -29,7 +29,7 @@ public class RegisterAsyncTask extends AsyncTask<RegisterCommand,Void,User> {
     }
 
     protected User doInBackground(RegisterCommand... params){
-        AuthToken token = ServerProxy.getServerProxy().userLogin(params[0].getUsername(), params[0].getPassword());
+        AuthToken token = ServerProxy.getServerProxy().registerUser(params[0].getUsername(), params[0].getPassword());
         return new User(token, params[0].getUsername());
     }
 
