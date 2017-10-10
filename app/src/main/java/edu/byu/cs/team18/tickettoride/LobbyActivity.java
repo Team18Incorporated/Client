@@ -7,7 +7,6 @@ import android.os.Bundle;
 public class LobbyActivity extends AppCompatActivity {
     private android.support.v4.app.FragmentManager manager;
 
-    //TODO: add import for joinedGamesFragment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,12 +21,18 @@ public class LobbyActivity extends AppCompatActivity {
     @Pre: 0<gameID<10000
     @Post: new LobbyFragment
      */
-    public void openLobby(int gameID){
+    public void openLobby(String gameID){
         LobbyPresenter.instance.setGame(gameID);
         manager.beginTransaction().replace(R.id.latice,new LobbyFragment()).commit();
     }
 
-    //TODO: add openJoinedGames and openJoin functions
+    public void openJoin(){
+        manager.beginTransaction().replace(R.id.latice,new JoinFragment()).commit();
+    }
+
+    public void openJoinedGames(){
+        manager.beginTransaction().replace(R.id.latice,new JoinedGamesFragment()).commit();
+    }
 
     /*
     Starts game. Called by LobbyFragment

@@ -1,5 +1,6 @@
 package edu.byu.cs.team18.tickettoride;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +29,7 @@ public class JoinedGamesFragment extends Fragment {
     private GameList joinedGameList;
     private GameList startedGameList;
     private View view;
+    private LobbyActivity activity;
 
     public JoinedGamesFragment(){}
 
@@ -93,12 +95,31 @@ public class JoinedGamesFragment extends Fragment {
 
     private void onCreateButtonClicked()
     {
-        //NEEDS TO SWITCH TO LOBBY VIEW
+        JoinedGamesPresenter.instance.create();
     }
 
     private void onJoinButtonClicked()
     {
-        //NEEDS TO SWITCH TO JOIN GAME VIEW
+        detachPresenter();
+        activity.openJoin();
+    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        activity = (LobbyActivity) context;
+    }
+    /*
+    detaches presenter from view in preparation for view closing
+    @pre: none
+    @post: none
+     */
+    private void detachPresenter(){
+        JoinedGamesPresenter.instance.clearView();
+    }
+
+    public void joinLobby(){
+        detachPresenter();
+        activity.openLobby(ClientModel.SINGLETON.getCurrentLobby().getGameID());
     }
 
     //PRIVATE CLASSES

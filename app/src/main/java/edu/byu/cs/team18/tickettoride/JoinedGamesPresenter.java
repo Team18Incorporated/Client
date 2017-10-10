@@ -7,13 +7,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import edu.byu.cs.team18.tickettoride.Common.*;
 
 /**
  * Created by Solomons on 10/7/2017.
  */
 
-public class JoinedGamesPresenter {
+public class JoinedGamesPresenter implements Observer{
 
 
     //NEEDS TO BE MADE AN OBSERVER
@@ -27,6 +30,7 @@ public class JoinedGamesPresenter {
 
     public void setView(JoinedGamesFragment viewIn){
         view = viewIn;
+        ClientModel.SINGLETON.observerRegister(this);
     }
 
 
@@ -69,9 +73,32 @@ public class JoinedGamesPresenter {
             }
             else
             {
-                //NEEDS TO SWITCH TO LOBBY VIEW
-                //joinGame(selectedGame);
+                ClientModel.SINGLETON.setCurrentLobby(selectedGame);
             }
         }
+    }
+
+    /*
+    clears view and stops observing ClientModel
+    @Pre: none
+    @Post: view = null
+     */
+    public void clearView(){
+        view = null;
+        ClientModel.SINGLETON.observerRemove(this);
+    }
+    @Override
+    public void update(Observable observable, Object o) {
+        updateView();
+        if (o!=null && o instanceof GameInfo){
+            view.joinLobby();
+        }
+    }
+
+    public void create(){
+        User user = ClientModel.SINGLETON.getCurrentUser();
+        StringBuilder name  = new StringBuilder(user.getUsername());
+        name.append("'s game");
+        //ServerProxy.getServerProxy().newGame(user.getAuthToken(),name.toString());
     }
 }

@@ -1,12 +1,15 @@
 package edu.byu.cs.team18.tickettoride;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import edu.byu.cs.team18.tickettoride.Common.*;
 
 /**
  * Created by Tesla on 10/9/2017.
  */
 
-public class JoinPresenter {
+public class JoinPresenter implements Observer{
 
     public static JoinPresenter instance = new JoinPresenter();
     private JoinFragment view;
@@ -17,6 +20,7 @@ public class JoinPresenter {
 
     public void setView(JoinFragment viewIn){
         view = viewIn;
+        ClientModel.SINGLETON.observerRegister(this);
     }
 
     public GameList getJoinableGamesList()
@@ -35,7 +39,7 @@ public class JoinPresenter {
     * @pre valid gameID
     * @post plays game if the game has already started, joins the game lobby otherwise
     * */
-    public void joinGame(String gameID)
+    public void joinGame(String gameID) throws Exception
     {
         GameInfo selectedGame = ClientModel.SINGLETON.getGame(gameID);
 
@@ -43,14 +47,32 @@ public class JoinPresenter {
         {
             if(selectedGame.hasStarted())
             {
-                //NEED TO KNOW HOW TO PLAY
-                //playGame(selectedGame.getGameID());
+                throw new Exception("Game in progress");
             }
             else
             {
-                //NEEDS TO SWITCH TO LOBBY VIEW
-                //joinGame(selectedGame);
+                ClientModel.SINGLETON.setCurrentLobby(selectedGame);
             }
+        }
+        else {
+            throw new Exception("Game doesn't exist");
+        }
+    }
+
+    /*
+    clears view and stops observing ClientModel
+    @Pre: none
+    @Post: view = null
+     */
+    public void clearView(){
+        view = null;
+        ClientModel.SINGLETON.observerRemove(this);
+    }
+    @Override
+    public void update(Observable observable, Object o) {
+        updateView();
+        if (o!=null && o instanceof GameInfo){
+            view.joinLobby();
         }
     }
 }

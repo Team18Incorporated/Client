@@ -10,7 +10,7 @@ public class GameInfo {
     private int numPlayers;
     private String gameName;
     private ArrayList<Player> playerList;
-    private ArrayList<String> playerNames;
+    private ArrayList<String> playerNames = new ArrayList<>();
     private boolean hasStarted = false;
 
     //CONSTRUCTOR-----------------------------------------------------------------------------------
