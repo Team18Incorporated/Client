@@ -3,6 +3,7 @@ package edu.byu.cs.team18.tickettoride;
 
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CreateCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.JoinCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.StartCommand;
@@ -69,7 +70,7 @@ public class ServerProxy implements IServer {
      */
     public void join(AuthToken authToken, String gameID)
     {
-
+        Object o = ClientCommunicator.getSingleton().send("join",new JoinCommand(gameID,authToken),Object.class);
     }
     /*
      * removes authToken user from gameID game

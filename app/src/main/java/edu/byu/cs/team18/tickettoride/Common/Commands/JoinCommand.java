@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands;
 
-import com.example.abram.phase1main.ModelClasses.AuthToken;
+
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 
 /**
  * Created by abram on 10/2/2017.
@@ -8,7 +9,6 @@ import com.example.abram.phase1main.ModelClasses.AuthToken;
 
 public class JoinCommand implements ICommand{
 
-    private String username;
     private String gameID;
     private AuthToken token;
     private String suffix = "Join";
@@ -16,14 +16,6 @@ public class JoinCommand implements ICommand{
     @Override
     public String getSuffix() {
         return suffix;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getGameID() {
@@ -42,9 +34,8 @@ public class JoinCommand implements ICommand{
         this.token = token;
     }
 
-    public JoinCommand(String un, String ID, AuthToken t)
+    public JoinCommand(String ID, AuthToken t)
     {
-        username = un;
         gameID = ID;
         token = t;
     }
