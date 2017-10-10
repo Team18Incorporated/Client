@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 public class LobbyActivity extends AppCompatActivity {
     private android.support.v4.app.FragmentManager manager;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
