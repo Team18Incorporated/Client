@@ -114,6 +114,6 @@ public class ServerProxy implements IServer {
      */
     public void startGame(String gameID)
     {
-        Object o = ClientCommunicator.getSingleton().send("start",new StartCommand(gameID),    );
+        Object o = ClientCommunicator.getSingleton().send("start",new StartCommand(gameID),Object.class);
     }
 }
