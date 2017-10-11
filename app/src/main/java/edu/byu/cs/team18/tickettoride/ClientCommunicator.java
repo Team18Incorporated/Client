@@ -19,7 +19,7 @@ import com.google.gson.JsonSyntaxException;
 public class ClientCommunicator {
     private static ClientCommunicator SINGLETON;
     private static Gson gson = new Gson();
-    private static String SERVER_HOST = "localhost";
+    private static String SERVER_HOST = "192.168.2.171";
     private static String SERVER_PORT = "8080";
     private static String HTTP_POST = "POST";
     private static String HTTP_GET = "GET";
@@ -67,9 +67,14 @@ public class ClientCommunicator {
                     System.out.println("Response body was empty");
                 } else if(connection.getContentLength() == -1) {
                     //-1 means the body was not empty but has an unknown about of information
-                    JsonParser jsonParser = new JsonParser();
+                    /*JsonParser jsonParser = new JsonParser();
                     JsonObject jsonObject = jsonParser.parse(new BufferedReader(new InputStreamReader(connection.getInputStream()))).getAsJsonObject();
-                    result = gson.fromJson(jsonObject, klass);
+                    result = gson.fromJson(jsonObject, klass);*/
+                    InputStreamReader inputStreamReader = new InputStreamReader(connection.getInputStream());
+                    /******************************************/
+                    result = gson.fromJson(inputStreamReader, klass);
+                    /******************************************/
+                    inputStreamReader.close();
 
                 }
             } else {

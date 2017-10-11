@@ -89,8 +89,15 @@ public class JoinedGamesFragment extends Fragment {
     public void refreshView(){
         joinedGameList=JoinedGamesPresenter.instance.getJoinedGamesList();
         startedGameList=JoinedGamesPresenter.instance.getStartedGamesList();
-        joinedAdapter.notifyDataSetChanged();
-        startedAdapter.notifyDataSetChanged();
+        if(joinedGameList.getSize()>0)
+        {
+            joinedAdapter.notifyDataSetChanged();
+        }
+        if(startedGameList.getSize()>0)
+        {
+            startedAdapter.notifyDataSetChanged();
+        }
+
     }
 
     private void onCreateButtonClicked()
@@ -182,8 +189,10 @@ public class JoinedGamesFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(JoinedGamesFragment.gamesViewHolder holder, int position) {
-            GameInfo gameInfo= gameList.getGame(position);
-            holder.bindObject(gameInfo);
+           if(gameList.getSize()>0) {
+               GameInfo gameInfo = gameList.getGame(position);
+               holder.bindObject(gameInfo);
+           }
         }
 
         @Override

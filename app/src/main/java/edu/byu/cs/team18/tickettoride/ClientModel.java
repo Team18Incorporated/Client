@@ -13,9 +13,9 @@ public class ClientModel extends Observable{
 
     private Game currentGame;
     private GameInfo currentLobby;
-    private GameList joinableGamesList;
-    private GameList joinedGamesList;
-    private GameList startedGamesList;
+    private GameList joinableGamesList = new GameList();
+    private GameList joinedGamesList = new GameList();
+    private GameList startedGamesList = new GameList();
     private Player currentPlayer;
     private User currentUser;
 
@@ -26,9 +26,9 @@ public class ClientModel extends Observable{
     @pre: none
     @post: none
      */
-    public void echo(){
+    public void echo(Object arg){
         setChanged();
-        notifyObservers();
+        notifyObservers(arg);
     }
     /*
     adds observer for clientModel
@@ -54,7 +54,7 @@ public class ClientModel extends Observable{
 
     public void setCurrentLobby(GameInfo in) {
         currentLobby = in;
-        echo();
+        echo(in);
     }
 
     public Game getCurrentGame() {
@@ -63,7 +63,7 @@ public class ClientModel extends Observable{
 
     public void setCurrentGame(Game currentGame) {
         this.currentGame = currentGame;
-        echo();
+        echo(currentGame);
     }
 
     public GameList getJoinableGamesList() {
@@ -72,7 +72,7 @@ public class ClientModel extends Observable{
 
     public void setJoinableGamesList(GameList joinableGamesList) {
         this.joinableGamesList = joinableGamesList;
-        echo();
+        echo(joinableGamesList);
     }
 
     public GameList getJoinedGamesList() {
@@ -81,7 +81,7 @@ public class ClientModel extends Observable{
 
     public void setJoinedGamesList(GameList joinedGamesList) {
         this.joinedGamesList = joinedGamesList;
-        echo();
+        echo(joinedGamesList);
     }
 
     public GameList getStartedGamesList() {
@@ -90,7 +90,7 @@ public class ClientModel extends Observable{
 
     public void setStartedGamesList(GameList startedGamesList) {
         this.startedGamesList = startedGamesList;
-        echo();
+        echo(startedGamesList);
     }
 
     public Player getCurrentPlayer() {
@@ -99,7 +99,7 @@ public class ClientModel extends Observable{
 
     public void setCurrentPlayer(Player currentPlayer) {
         this.currentPlayer = currentPlayer;
-        echo();
+        echo(currentPlayer);
     }
 
     public User getCurrentUser() {
@@ -108,7 +108,7 @@ public class ClientModel extends Observable{
 
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
-        echo();
+        echo(currentUser);
         poller.cancel(true);
         poller.execute();
     }

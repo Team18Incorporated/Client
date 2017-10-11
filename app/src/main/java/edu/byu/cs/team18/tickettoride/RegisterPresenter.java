@@ -4,15 +4,21 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
+import edu.byu.cs.team18.tickettoride.Common.GameInfo;
+import edu.byu.cs.team18.tickettoride.Common.User;
 
 
 /**
  * Created by abram on 10/7/2017.
  */
 
-public class RegisterPresenter {
+public class RegisterPresenter implements Observer{
     private static RegisterPresenter registerPresenter = null;
+    private RegisterFragment view = null;
 
     private RegisterPresenter(){}
 
@@ -23,6 +29,20 @@ public class RegisterPresenter {
             registerPresenter = new RegisterPresenter();
         }
         return registerPresenter;
+    }
+
+    public void setView(RegisterFragment viewIn){
+        view = viewIn;
+        ClientModel.SINGLETON.observerRegister(this);
+    }
+    /*
+    clears view and stops observing ClientModel
+    @Pre: none
+    @Post: view = null
+     */
+    public void clearView(){
+        view = null;
+        ClientModel.SINGLETON.observerRemove(this);
     }
 
 
@@ -54,6 +74,15 @@ public class RegisterPresenter {
         {
             RegisterCommand registerCommand = new RegisterCommand(username, password);
             new RegisterAsyncTask(A).execute(registerCommand);
+        }
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+        if (o!=null && o instanceof User){
+            MainActivity temp = (MainActivity) view.getActivity();
+            clearView();
+            temp.openLobby();
         }
     }
 }
