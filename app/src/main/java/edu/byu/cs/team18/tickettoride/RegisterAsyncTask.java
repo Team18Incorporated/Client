@@ -41,11 +41,11 @@ public class RegisterAsyncTask extends AsyncTask<RegisterCommand,Void,User> {
       if(user.getAuthToken()!=null)
       {
           ClientFacade.getClientFacade().updateUser(user);
-          Toast.makeText(getActivity().getApplicationContext(), "Registration succeeded.", Toast.LENGTH_LONG);
+          Toast.makeText(getActivity().getApplicationContext(), "Registration succeeded.", Toast.LENGTH_LONG).show();
       }
       else
       {
-          Toast.makeText(getActivity().getApplicationContext(), "Registration failed.", Toast.LENGTH_LONG);
+          Toast.makeText(getActivity().getApplicationContext(), "Registration failed.", Toast.LENGTH_LONG).show();
       }
     }
 }

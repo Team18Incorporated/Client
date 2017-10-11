@@ -33,7 +33,7 @@ public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
                     ClientModel.SINGLETON.setStartedGamesList(startedGames);
 
                 }
-            }, 0, 5*1000);
+            }, 500, 5*1000);
         return null;
     }
 }

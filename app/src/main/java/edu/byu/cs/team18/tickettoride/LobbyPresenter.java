@@ -1,9 +1,15 @@
 package edu.byu.cs.team18.tickettoride;
 
+import android.os.AsyncTask;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+
+import edu.byu.cs.team18.tickettoride.Common.Commands.StartCommand;
+import edu.byu.cs.team18.tickettoride.Common.StartedGameResult;
 
 /**
  * Created by Antman 537 on 10/5/2017.
@@ -67,6 +73,56 @@ public class LobbyPresenter implements Observer {
 
     private void updateView()
     {
-        view.refreshView();
+        if(view!=null)
+        {
+            if(view.getActivity()!=null) {
+                view.getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(view!=null)
+                        {
+                            view.refreshView();
+                        }
+                    }
+                });
+                //view.refreshView();
+            }
+        }
+
+    }
+
+    public void start()
+    {
+        StartCommand startCommand= new StartCommand(ClientModel.SINGLETON.getCurrentLobby().getGameID());
+        StartAsyncTask startAsyncTask = new StartAsyncTask();
+        startAsyncTask.execute(startCommand);
+    }
+
+    public void checkStarted(boolean started)
+    {
+        if(started)
+        {
+            Toast.makeText(view.getActivity(), "Game Starting", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(view.getActivity(), "Not Enough Players", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private class StartAsyncTask extends AsyncTask<StartCommand, Void, StartedGameResult>
+    {
+        @Override
+        protected StartedGameResult doInBackground(StartCommand... startCommands) {
+            StartedGameResult result = ServerProxy.getServerProxy().startGame(startCommands[0].getGameID());
+
+            return result;
+        }
+
+        protected void onPostExecute(StartedGameResult started)
+        {
+            boolean result= started.hasStarted();
+            LobbyPresenter.instance.checkStarted(result);
+        }
     }
 }

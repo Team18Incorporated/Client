@@ -42,4 +42,16 @@ public class GameList {
 
     public int getSize(){ return gameList.size();}
     public GameInfo getGame(int position) {return gameList.get(position);}
+
+    public void clear(){
+        gameList.clear();
+    }
+
+    public void addAll(List<GameInfo> g){
+        gameList.addAll(g);
+    }
+
+    public List<GameInfo> getList(){
+        return gameList;
+    }
 }

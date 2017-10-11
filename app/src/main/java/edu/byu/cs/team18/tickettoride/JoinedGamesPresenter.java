@@ -53,7 +53,19 @@ public class JoinedGamesPresenter implements Observer{
 
     public void updateView()
     {
-        view.refreshView();
+        if(view.getActivity()!=null) {
+            view.getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(view!=null)
+                    {
+                        view.refreshView();
+                    }
+
+                }
+            });
+            //view.refreshView();
+        }
     }
 
 

@@ -13,6 +13,7 @@ public class GameInfo {
     private ArrayList<Player> playerList;
     private ArrayList<String> playerNames = new ArrayList<>();
     private boolean hasStarted = false;
+    private boolean maxPlayers=false;
 
     //CONSTRUCTOR-----------------------------------------------------------------------------------
 
@@ -40,4 +41,9 @@ public class GameInfo {
     }
     public String getGameID(){ return gameID;};
     public String getGameName(){return gameName;}
+
+    public boolean hasMaxPlayers()
+    {
+        return maxPlayers;
+    }
 }

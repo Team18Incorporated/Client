@@ -35,7 +35,7 @@ public class JoinFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     private RecyclerView joinableGamesRV;
-    private RecyclerView.Adapter joinableAdapter;
+    private GameInfoAdapter joinableAdapter;
     private RecyclerView.LayoutManager joinableLayoutManager;
     private Button joinButton;
     private GameList joinableGameList;
@@ -64,6 +64,8 @@ public class JoinFragment extends Fragment {
         joinableAdapter = new GameInfoAdapter(joinableGameList);
         joinableGamesRV.setAdapter(joinableAdapter);
         refreshView();
+
+        JoinPresenter.instance.setView(this);
         return view;
     }
 
@@ -100,8 +102,14 @@ public class JoinFragment extends Fragment {
     public void refreshView(){
         joinableGameList=JoinPresenter.instance.getJoinableGamesList();
         if (joinableGameList.getSize()>0){
-            joinableAdapter.notifyDataSetChanged();
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    joinableAdapter.notifyDataSetChanged();
+                }
+            });
         }
+        joinableAdapter.swap(joinableGameList);
     }
     /*
     detaches presenter from view in preparation for view closing
@@ -142,7 +150,7 @@ public class JoinFragment extends Fragment {
                         JoinPresenter.instance.joinGame(gameInfo.getGameID());
                     }
                     catch (Exception e){
-
+                        System.out.print(e.getStackTrace());
                     }
                 }
             });
@@ -154,7 +162,7 @@ public class JoinFragment extends Fragment {
             this.gameInfo=gameInfo;
 
             gameName.setText(gameInfo.getGameName());
-            numPlayers.setText(gameInfo.getNumPlayers());
+            numPlayers.setText(Integer.toString(gameInfo.getNumPlayers()));
 
         }
 
@@ -185,6 +193,17 @@ public class JoinFragment extends Fragment {
                 GameInfo gameInfo = gameList.getGame(position);
                 holder.bindObject(gameInfo);
             }
+        }
+
+        public void swap (GameList g){
+            if (g != null){
+                gameList.clear();
+                gameList.addAll(g.getList());
+            }
+            else{
+                gameList = g;
+            }
+            notifyDataSetChanged();
         }
 
         @Override

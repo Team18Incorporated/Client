@@ -52,8 +52,8 @@ public class LobbyFragment extends Fragment {
      */
     public void startButtonPressed(){
         if (LobbyPresenter.instance.getPlayers().size()>1){
-            LobbyPresenter.instance.clearView();
-            activity.startGame();
+            //LobbyPresenter.instance.clearView();
+            LobbyPresenter.instance.start();
         }
     }
 

@@ -41,11 +41,11 @@ public class LoginAsyncTask extends AsyncTask<LoginCommand,Void,User> {
     protected void onPostExecute(User user) {
         if(user.getAuthToken()!=null) {
             ClientFacade.getClientFacade().updateUser(user);
-            Toast.makeText(getActivity().getApplicationContext(), "Login succeeded.", Toast.LENGTH_LONG);
+            Toast.makeText(getActivity().getApplicationContext(), "Login succeeded.", Toast.LENGTH_LONG).show();
         }
         else
         {
-            Toast.makeText(getActivity().getApplicationContext(), "Login succeeded.", Toast.LENGTH_LONG);
+            Toast.makeText(getActivity().getApplicationContext(), "Login failed.", Toast.LENGTH_LONG).show();
         }
     }
 

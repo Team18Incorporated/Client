@@ -112,7 +112,7 @@ public class ClientModel extends Observable{
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
         echo(currentUser);
-        //poller.cancel(true);
+        //if(poller.getStatus() != AsyncTask.Status.RUNNING)
         poller.execute();
     }
 

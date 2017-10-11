@@ -22,7 +22,7 @@ public class JoinedGamesFragment extends Fragment {
 
     private RecyclerView joinedGamesRV;
     private RecyclerView startedGamesRV;
-    private RecyclerView.Adapter joinedAdapter,startedAdapter;
+    private GameInfoAdapter joinedAdapter,startedAdapter;
     private RecyclerView.LayoutManager joinedLayoutManager,startedLayoutManager;
     private Button createButton;
     private Button joinButton;
@@ -43,8 +43,10 @@ public class JoinedGamesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.joinedgames, container, false);
-        refreshView();
+        initiateView();
 
+
+        //refreshView();
 
         createButton= (Button)view.findViewById(R.id.create_Button);
         createButton.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +85,7 @@ public class JoinedGamesFragment extends Fragment {
 
 
         JoinedGamesPresenter.instance.setView(this);
+
         return view;
     }
 
@@ -91,13 +94,32 @@ public class JoinedGamesFragment extends Fragment {
         startedGameList=JoinedGamesPresenter.instance.getStartedGamesList();
         if(joinedGameList.getSize()>0)
         {
-            joinedAdapter.notifyDataSetChanged();
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    joinedAdapter.notifyDataSetChanged();
+                }
+            });
+            //joinedAdapter.notifyDataSetChanged();
         }
+        joinedAdapter.swap(joinedGameList);
         if(startedGameList.getSize()>0)
         {
-            startedAdapter.notifyDataSetChanged();
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    startedAdapter.notifyDataSetChanged();
+                }
+            });
+            //startedAdapter.notifyDataSetChanged();
         }
 
+    }
+
+    public void initiateView()
+    {
+        joinedGameList=JoinedGamesPresenter.instance.getJoinedGamesList();
+        startedGameList=JoinedGamesPresenter.instance.getStartedGamesList();
     }
 
     private void onCreateButtonClicked()
@@ -167,7 +189,7 @@ public class JoinedGamesFragment extends Fragment {
             this.gameInfo=gameInfo;
 
             gameName.setText(gameInfo.getGameName());
-            numPlayers.setText(gameInfo.getNumPlayers());
+            numPlayers.setText(Integer.toString(gameInfo.getNumPlayers()));
 
         }
 
@@ -199,6 +221,19 @@ public class JoinedGamesFragment extends Fragment {
                holder.bindObject(gameInfo);
            }
         }
+
+        public void swap (GameList g){
+            if (g != null){
+                gameList.clear();
+                gameList.addAll(g.getList());
+            }
+            else{
+                gameList = g;
+            }
+            notifyDataSetChanged();
+        }
+
+
 
         @Override
         public int getItemCount() {

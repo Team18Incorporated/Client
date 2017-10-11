@@ -13,6 +13,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.UpdateUnstartedCommand;
 import edu.byu.cs.team18.tickettoride.Common.GameInfo;
 import edu.byu.cs.team18.tickettoride.Common.GameList;
 import edu.byu.cs.team18.tickettoride.Common.IServer;
+import edu.byu.cs.team18.tickettoride.Common.StartedGameResult;
 
 /**
  * Created by abram on 10/9/2017.
@@ -72,9 +73,9 @@ public class ServerProxy implements IServer {
      * @Post: None
      */
     @Override
-    public void join(AuthToken authToken, String gameID)
+    public GameInfo join(AuthToken authToken, String gameID)
     {
-        Object o = ClientCommunicator.getSingleton().send("Join",new JoinCommand(gameID,authToken),Object.class);
+        return (GameInfo) ClientCommunicator.getSingleton().send("Join",new JoinCommand(gameID,authToken),GameInfo.class);
     }
     /*
      * removes authToken user from gameID game
@@ -122,8 +123,8 @@ public class ServerProxy implements IServer {
      * @Post: None
      */
     @Override
-    public void startGame(String gameID)
+    public StartedGameResult startGame(String gameID)
     {
-        Object o = ClientCommunicator.getSingleton().send("Start",new StartCommand(gameID),Object.class);
+        return (StartedGameResult) ClientCommunicator.getSingleton().send("Start",new StartCommand(gameID),StartedGameResult.class);
     }
 }
