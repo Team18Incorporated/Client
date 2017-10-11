@@ -99,6 +99,6 @@ public class JoinedGamesPresenter implements Observer{
         User user = ClientModel.SINGLETON.getCurrentUser();
         StringBuilder name  = new StringBuilder(user.getUsername());
         name.append("'s game");
-        //ServerProxy.getServerProxy().newGame(user.getAuthToken(),name.toString());
+        ServerProxy.getServerProxy().newGame(user.getAuthToken(),name.toString());
     }
 }
