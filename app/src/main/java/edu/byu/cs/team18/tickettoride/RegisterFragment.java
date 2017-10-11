@@ -123,6 +123,7 @@ public class RegisterFragment extends Fragment {
                 RegisterPresenter.getRegisterPresenter().presentRegister(mUsername, mPassword, mReEnterPassword, getActivity());
             }
         });
+        RegisterPresenter.getRegisterPresenter().setView(this);
         return v;
     }
 }

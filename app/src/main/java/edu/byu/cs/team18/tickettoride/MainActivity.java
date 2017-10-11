@@ -1,5 +1,6 @@
 package edu.byu.cs.team18.tickettoride;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RegisterPresenter.getRegisterPresenter().clearView();
                 switchToLogin();
             }
         });
@@ -42,12 +44,18 @@ public class MainActivity extends AppCompatActivity {
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LoginPresenter.getLoginPresenter().clearView();
                 switchToRegister();
             }
         });
 
     }
 
+    public void openLobby()
+    {
+        Intent intent = new Intent(this, LobbyActivity.class);
+        startActivity(intent);
+    }
   /*
     @Override
     protected void onResume() {

@@ -117,6 +117,7 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        LoginPresenter.getLoginPresenter().setView(this);
         return v;
     }
 }
