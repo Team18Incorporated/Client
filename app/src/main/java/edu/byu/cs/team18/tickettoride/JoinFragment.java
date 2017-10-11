@@ -55,8 +55,7 @@ public class JoinFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_join, container, false);
-        refreshView();
-
+        joinableGameList = ClientModel.SINGLETON.getJoinableGamesList();
         joinableGamesRV = (RecyclerView) view.findViewById(R.id.join_recycler_view);
 
         joinableLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -64,7 +63,7 @@ public class JoinFragment extends Fragment {
 
         joinableAdapter = new GameInfoAdapter(joinableGameList);
         joinableGamesRV.setAdapter(joinableAdapter);
-
+        refreshView();
         return view;
     }
 
@@ -73,12 +72,7 @@ public class JoinFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+
         activity = (LobbyActivity) context;
     }
 
@@ -105,7 +99,9 @@ public class JoinFragment extends Fragment {
 
     public void refreshView(){
         joinableGameList=JoinPresenter.instance.getJoinableGamesList();
-        joinableAdapter.notifyDataSetChanged();
+        if (joinableGameList.getSize()>0){
+            joinableAdapter.notifyDataSetChanged();
+        }
     }
     /*
     detaches presenter from view in preparation for view closing
@@ -168,7 +164,7 @@ public class JoinFragment extends Fragment {
     //----------------------------------------------------------------------------------------------
     private class GameInfoAdapter extends RecyclerView.Adapter<JoinFragment.gamesViewHolder>
     {
-        private GameList gameList;
+        private GameList gameList = new GameList();
 
         public GameInfoAdapter(GameList gameList)
         {
@@ -185,8 +181,10 @@ public class JoinFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(JoinFragment.gamesViewHolder holder, int position) {
-            GameInfo gameInfo= gameList.getGame(position);
-            holder.bindObject(gameInfo);
+            if(gameList.getSize()>0) {
+                GameInfo gameInfo = gameList.getGame(position);
+                holder.bindObject(gameInfo);
+            }
         }
 
         @Override

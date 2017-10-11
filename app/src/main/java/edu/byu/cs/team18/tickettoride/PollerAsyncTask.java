@@ -17,17 +17,16 @@ public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
     @Override
     protected Void doInBackground(Void... voids) {
 
-        while(true)
-        {
+
             Timer timer = new Timer();
 
             timer.scheduleAtFixedRate(new TimerTask() {
 
                 public void run() {
                     AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
-                    GameList joinableGames = new GameList((ArrayList<GameInfo>) ServerProxy.getServerProxy().openGames());
-                    GameList joinedGames= new GameList((ArrayList<GameInfo>)ServerProxy.getServerProxy().unstartedGames(token));;
-                    GameList startedGames= new GameList((ArrayList<GameInfo>)ServerProxy.getServerProxy().inProgressGames(token));;
+                    GameList joinableGames = (GameList) ServerProxy.getServerProxy().openGames();
+                    GameList joinedGames= (GameList)(ServerProxy.getServerProxy().unstartedGames(token));
+                    GameList startedGames= (GameList)(ServerProxy.getServerProxy().inProgressGames(token));
 
                     ClientModel.SINGLETON.setJoinableGamesList(joinableGames);
                     ClientModel.SINGLETON.setJoinedGamesList(joinedGames);
@@ -35,7 +34,6 @@ public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
 
                 }
             }, 0, 5*1000);
-        }
-
+        return null;
     }
 }

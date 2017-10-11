@@ -34,15 +34,15 @@ public class LobbyFragment extends Fragment {
             players.add("Open");
         }
         TextView playerName = (TextView) view.findViewById(R.id.player1Name);
+        playerName.setText(players.get(0));
+        playerName = (TextView) view.findViewById(R.id.player2Name);
         playerName.setText(players.get(1));
-        playerName = (TextView) view.findViewById(R.id.player1Name);
+        playerName = (TextView) view.findViewById(R.id.player3Name);
         playerName.setText(players.get(2));
-        playerName = (TextView) view.findViewById(R.id.player1Name);
+        playerName = (TextView) view.findViewById(R.id.player4Name);
         playerName.setText(players.get(3));
-        playerName = (TextView) view.findViewById(R.id.player1Name);
+        playerName = (TextView) view.findViewById(R.id.player5Name);
         playerName.setText(players.get(4));
-        playerName = (TextView) view.findViewById(R.id.player1Name);
-        playerName.setText(players.get(5));
     }
 
     /*

@@ -2,6 +2,7 @@ package edu.byu.cs.team18.tickettoride.Common;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 public class GameInfo {
@@ -15,8 +16,9 @@ public class GameInfo {
 
     //CONSTRUCTOR-----------------------------------------------------------------------------------
 
-    public GameInfo(String gameID, List<Player> playerList) {
-        this.gameID = gameID;
+    public GameInfo(String gameName, List<Player> playerList) {
+        this.gameName = gameName;
+        this.gameID = UUID.randomUUID().toString();
         this.playerList=(ArrayList<Player>)playerList;
         numPlayers=this.playerList.size();
         for(int i=0; i<numPlayers; i++)

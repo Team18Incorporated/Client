@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride;
 
 
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import edu.byu.cs.team18.tickettoride.Common.*;
+import edu.byu.cs.team18.tickettoride.Common.Commands.CreateCommand;
 
 /**
  * Created by Solomons on 10/7/2017.
@@ -60,7 +62,7 @@ public class JoinedGamesPresenter implements Observer{
     * @pre valid gameID
     * @post plays game if the game has already started, joins the game lobby otherwise
     * */
-    public void joinGame(String gameID)
+    public void joinGame(String gameID) throws Exception
     {
         GameInfo selectedGame = ClientModel.SINGLETON.getGame(gameID);
 
@@ -70,11 +72,16 @@ public class JoinedGamesPresenter implements Observer{
             {
                 //NEED TO KNOW HOW TO PLAY
                 //playGame(selectedGame.getGameID());
+                throw new Exception("Game in progress");
             }
             else
             {
                 ClientModel.SINGLETON.setCurrentLobby(selectedGame);
             }
+        }
+        else
+        {
+            throw new Exception("Game doesn't exist");
         }
     }
 
@@ -99,6 +106,24 @@ public class JoinedGamesPresenter implements Observer{
         User user = ClientModel.SINGLETON.getCurrentUser();
         StringBuilder name  = new StringBuilder(user.getUsername());
         name.append("'s game");
-        ServerProxy.getServerProxy().newGame(user.getAuthToken(),name.toString());
+        CreateCommand createCommand = new CreateCommand(name.toString(), user.getAuthToken());
+        CreateAsyncTask createAsyncTask = new CreateAsyncTask();
+        createAsyncTask.execute(createCommand);
+    }
+
+
+
+    private class CreateAsyncTask extends AsyncTask<CreateCommand, Void, GameInfo>
+    {
+        @Override
+        protected GameInfo doInBackground(CreateCommand... createCommands) {
+            GameInfo newGame = ServerProxy.getServerProxy().newGame(createCommands[0].getToken(), createCommands[0].getUsername());
+            return newGame;
+        }
+
+        protected void onPostExecute(GameInfo gameInfo)
+        {
+            ClientModel.SINGLETON.setCurrentLobby(gameInfo);
+        }
     }
 }

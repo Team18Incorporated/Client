@@ -21,6 +21,9 @@ public class ClientModel extends Observable{
 
     private PollerAsyncTask poller = new PollerAsyncTask();
 
+    private ClientModel (){
+    }
+
     /*
     notifies observers of changes
     @pre: none
@@ -109,7 +112,7 @@ public class ClientModel extends Observable{
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
         echo(currentUser);
-        poller.cancel(true);
+        //poller.cancel(true);
         poller.execute();
     }
 

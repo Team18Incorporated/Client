@@ -26,7 +26,7 @@ public class ClientCommunicator {
     private static String URL_PREFIX = "http://" + SERVER_HOST + ":" + SERVER_PORT;
 
     public Object send(String url, Object command, Class<?> klass){
-        HttpURLConnection connection = openConnection("/"+url, HTTP_GET, true);
+        HttpURLConnection connection = openConnection("/"+url, HTTP_POST, true);
         sendToServerCommunicator(connection, command);
         Object result = null;
         result = returnResult(connection, klass);

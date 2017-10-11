@@ -151,7 +151,12 @@ public class JoinedGamesFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     //NEED TO IMPLEMENT TRANSITION TO JOIN GAME
-                    JoinedGamesPresenter.instance.joinGame(gameInfo.getGameID());
+                    try{
+                        JoinedGamesPresenter.instance.joinGame(gameInfo.getGameID());
+                    }catch (Exception e)
+                    {
+
+                    }
                 }
             });
 
