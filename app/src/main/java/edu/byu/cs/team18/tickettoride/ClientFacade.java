@@ -33,7 +33,7 @@ public class ClientFacade implements IClient {
     * @post will update the JoinableGames GameList on the Client to match the incoming GameList
     * */
     public void updateJoinGameList(GameList gameList){
-
+        ClientModel.SINGLETON.setJoinableGamesList(gameList);
     }
 
     /*updateCurrentGamesList updates list of game the player is currently in
@@ -43,7 +43,7 @@ public class ClientFacade implements IClient {
     * */
     public void updateCurrentGamesList(GameList gameList)
     {
-
+        ClientModel.SINGLETON.setJoinedGamesList(gameList);
     }
 
     /*updateUser updates the info stored in the client about the current user
@@ -63,7 +63,7 @@ public class ClientFacade implements IClient {
     * */
     public void updatePlayer(Player player)
     {
-
+        ClientModel.SINGLETON.setCurrentPlayer(player);
     }
 
     /*updateGame updates the current game in the client
@@ -74,7 +74,7 @@ public class ClientFacade implements IClient {
     * */
     public void updateGame(Game game)
     {
-
+        ClientModel.SINGLETON.setCurrentGame(game);
     }
 
     /*updateGame updates parts of the game without passing over the whole Game object
