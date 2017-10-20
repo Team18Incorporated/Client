@@ -13,7 +13,6 @@ public class JoinCommand implements ICommand{
     private AuthToken token;
     private String suffix = "Join";
 
-    @Override
     public String getSuffix() {
         return suffix;
     }
@@ -41,5 +40,6 @@ public class JoinCommand implements ICommand{
     }
 
 
+    public void execute(){}
 
 }

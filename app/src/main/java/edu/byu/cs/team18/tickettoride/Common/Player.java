@@ -62,4 +62,16 @@ public class Player {
     public ArrayList<DestinationCard> getDestinationCards() {
         return destinationCards;
     }
+
+    public ArrayList<Route> getClaimedRoutes() {
+        return claimedRoutes;
+    }
+
+    public int getNumTrainPieces() {
+        return numTrainPieces;
+    }
+
+    public void setNumTrainPieces(int numTrainPieces) {
+        this.numTrainPieces = numTrainPieces;
+    }
 }

@@ -10,7 +10,6 @@ public class RegisterCommand implements ICommand{
     private String password;
     private String suffix = "Register";
 
-    @Override
     public String getSuffix() {
         return suffix;
     }
@@ -39,4 +38,5 @@ public class RegisterCommand implements ICommand{
 
 
 
+    public void execute(){}
 }

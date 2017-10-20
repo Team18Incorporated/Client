@@ -1,6 +1,10 @@
 package edu.byu.cs.team18.tickettoride.Common;
 
 
+import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ClaimRouteCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateScoreCommand;
+
 public interface IServer {
 	/*
 	 * logs user in and returns authToken. Throws login exceptions
@@ -57,5 +61,18 @@ public interface IServer {
 	 * @Post: None
 	 */
 	public StartedGameResult startGame(String gameID);
+
+	/*
+	* @pre route is not null
+	* @pre 0 < authToken&&gameID < 10000
+	* @post returns a list of commands to be executed on the client.
+	 */
+	public CommandList claimRoute(AuthToken authToken, String gameID, Route route);
+
+	/*
+	* @pre 0 < authToken&&gameID < 10000
+	* @post returns a list of commands (UpdateTrainHand and UpdateTrainDeckSize)
+	 */
+	public CommandList drawTrainCard(AuthToken authToken, String gameID);
 
 }

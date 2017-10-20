@@ -9,7 +9,6 @@ public class StartCommand implements ICommand{
     private String gameID;
     private String suffix = "Start";
 
-    @Override
     public String getSuffix() {
         return suffix;
     }
@@ -27,4 +26,7 @@ public class StartCommand implements ICommand{
         gameID = ID;
     }
 
+
+
+    public void execute(){}
 }

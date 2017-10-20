@@ -10,7 +10,7 @@ public class UpdateInProgressCommand implements ICommand{
     private AuthToken token;
     private String suffix = "UpdateInProgress";
 
-    @Override
+
     public String getSuffix() {
         return suffix;
     }
@@ -30,4 +30,7 @@ public class UpdateInProgressCommand implements ICommand{
 
         token = t;
     }
+
+
+    public void execute(){}
 }

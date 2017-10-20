@@ -44,4 +44,16 @@ public class PlayerInfo {
     public int getPoints() {
         return points;
     }
+
+    public void setNumTrainCards(int numTrainCards) {
+        this.numTrainCards = numTrainCards;
+    }
+
+    public void setNumDestinationCards(int numDestinationCards) {
+        this.numDestinationCards = numDestinationCards;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
 }

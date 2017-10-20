@@ -7,6 +7,6 @@ package edu.byu.cs.team18.tickettoride.Common.Commands;
 public interface ICommand {
 
 
-    public String getSuffix();
+    public void execute();
 
 }

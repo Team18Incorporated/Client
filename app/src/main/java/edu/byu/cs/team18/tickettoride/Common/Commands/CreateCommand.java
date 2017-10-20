@@ -12,7 +12,6 @@ public class CreateCommand implements ICommand{
     private AuthToken token;
     private String suffix = "Create";
 
-    @Override
     public String getSuffix()
     {return suffix;}
 
@@ -39,4 +38,5 @@ public class CreateCommand implements ICommand{
     }
 
 
+    public void execute(){}
 }

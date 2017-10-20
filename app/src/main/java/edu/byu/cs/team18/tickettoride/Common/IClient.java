@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common;
 
 
+import java.util.List;
 
 public interface IClient {
 
@@ -48,5 +49,65 @@ public interface IClient {
     * */
     public void updateGame(GameInfo gameInfo);
 
+    /*updateTrainDeckSize updates the size of the train card deck in the specified game
 
+     * @pre gameID matches current game in the model
+     * @pre 0<=size<=maximum number of train cards
+     * @post The specified game's train card deck will have the specified size.
+     */
+    public void updateTrainDeckSize(int size);
+
+    /*updateDestinationDeckSize updates the size of the train card deck in the specified game
+
+         * @pre gameID matches current game in the model
+         * @pre 0<=size<=maximum number of train cards
+         * @post The specified game's train card deck will have the specified size.
+         */
+    public void updateDestinationDeckSize(int size);
+
+    /*updateScore updates a given player's score.
+
+    * @pre gameID matches current game in the model
+    * @pre playerID matches a player in that game
+    * @pre points >= 0
+    * @post The score of the player will be changed.
+     */
+    public void updateScore(int points);
+
+    /*claimRoute marks a route with tokens of the player's color
+
+     * @pre gameID matches current game in the model
+     * @pre playerID matches a player in the game
+     * @pre route is not null
+     * @post The route will be marked with a player's color
+     */
+    public void claimRoute(String gameID, String playerID, Route route);
+
+    /*updateTrainHand Adds two train cards to this player's hand.
+    * @pre gameID matches model's current game
+    * @pre neither card is null
+    * @post The player's hand is given the two cards
+     */
+    public void updateTrainHand(TrainCard card1, TrainCard card2);
+
+    /*updateDestinationHand Gives the player one to three destination cards.
+    * @pre 0 < number of cards < 4
+    * @pre gameID matches current game in the model
+
+     */
+    public void updateDestinationHand(List<DestinationCard> list);
+
+    /*updateEnemyTrainHand updates the number of train cards an opponent has.
+    *@ pre playerID matches a player in the model's current game.
+    *@ pre size > 0
+    *@ post opponent's number of train cards is changed.
+     */
+    public void updateEnemyTrainHand(String playerID, int size);
+
+    /*updateEnemyDestinationhand updates the number of train cards an opponent has.
+     * @pre playerID matches a player in the model's current game.
+     * @pre size > 0
+     * @post opponent's number of destination cards is changed.
+     */
+    public void updateEnemyDestinationHand(String playerID, int size);
 }

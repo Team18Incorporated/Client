@@ -1,10 +1,16 @@
 package edu.byu.cs.team18.tickettoride;
 
+import java.util.List;
+
+import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
 import edu.byu.cs.team18.tickettoride.Common.Game;
 import edu.byu.cs.team18.tickettoride.Common.GameInfo;
 import edu.byu.cs.team18.tickettoride.Common.GameList;
 import edu.byu.cs.team18.tickettoride.Common.IClient;
 import edu.byu.cs.team18.tickettoride.Common.Player;
+import edu.byu.cs.team18.tickettoride.Common.PlayerInfo;
+import edu.byu.cs.team18.tickettoride.Common.Route;
+import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 import edu.byu.cs.team18.tickettoride.Common.User;
 
 /**
@@ -85,6 +91,67 @@ public class ClientFacade implements IClient {
     public void updateGame(GameInfo gameInfo)
     {
 
+    }
+
+    public void updateTrainDeckSize(int size)
+    {
+        ClientModel.SINGLETON.getCurrentGame().setNumTrainDeck(size);
+    }
+
+    public void updateDestinationDeckSize(int size)
+    {
+        ClientModel.SINGLETON.getCurrentGame().setNumDestinationDeck(size);
+    }
+
+    public void updateScore(int points)
+    {
+        ClientModel.SINGLETON.getCurrentPlayer().setPoints(points);
+    }
+
+    public void claimRoute(String gameID, String playerID, Route route)
+    {
+        //Add route to player's list
+        ClientModel.SINGLETON.getCurrentPlayer().getClaimedRoutes().add(route);
+        //Subtract length of route from number of player's train pieces
+        ClientModel.SINGLETON.getCurrentPlayer().setNumTrainPieces(ClientModel.SINGLETON.getCurrentPlayer().getNumTrainPieces() - route.getLength());
+
+
+        //Still needs to find the right game and mark it with tokens of the player's color.
+    }
+
+    public void updateTrainHand(TrainCard card1, TrainCard card2)
+    {
+        ClientModel.SINGLETON.getCurrentPlayer().getHand().add(card1);
+        ClientModel.SINGLETON.getCurrentPlayer().getHand().add(card2);
+    }
+
+    public void updateDestinationHand(List<DestinationCard> list)
+    {
+        ClientModel.SINGLETON.getCurrentPlayer().getDestinationCards().addAll(list);
+    }
+
+    public void updateEnemyTrainHand(String playerID, int size)
+    {
+        for(int i = 0; i < ClientModel.SINGLETON.getCurrentGame().getPlayerList().size(); i++)
+        {
+            if(ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).getPlayerID().equals(playerID))
+            {
+                ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).setNumTrainCards(size);
+                return;
+            }
+        }
+    }
+
+    public void updateEnemyDestinationHand(String playerID, int size)
+    {
+        for(int i = 0; i < ClientModel.SINGLETON.getCurrentGame().getPlayerList().size(); i++)
+        {
+            if(ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).getPlayerID().equals(playerID))
+            {
+                ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).setNumDestinationCards(size);
+                return;
+            }
+        }
     }
 
 }

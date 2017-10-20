@@ -9,7 +9,7 @@ public class UpdateOpenCommand implements ICommand{
 
     private String suffix = "UpdateOpen";
 
-    @Override
+
     public String getSuffix() {
         return suffix;
     }
@@ -20,4 +20,7 @@ public class UpdateOpenCommand implements ICommand{
 
     }
 
+
+
+    public void execute(){}
 }

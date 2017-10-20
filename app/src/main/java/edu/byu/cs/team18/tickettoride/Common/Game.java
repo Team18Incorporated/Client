@@ -51,4 +51,32 @@ public class Game {
     public int getPlayerTurn() {
         return playerTurn;
     }
+
+    public void setPlayerList(List<PlayerInfo> playerList) {
+        this.playerList = playerList;
+    }
+
+    public void setGameID(String gameID) {
+        this.gameID = gameID;
+    }
+
+    public void setMap(GameMap map) {
+        this.map = map;
+    }
+
+    public void setVisibleCards(ArrayList<TrainCard> visibleCards) {
+        this.visibleCards = visibleCards;
+    }
+
+    public void setNumTrainDeck(int numTrainDeck) {
+        this.numTrainDeck = numTrainDeck;
+    }
+
+    public void setNumDestinationDeck(int numDestinationDeck) {
+        this.numDestinationDeck = numDestinationDeck;
+    }
+
+    public void setPlayerTurn(int playerTurn) {
+        this.playerTurn = playerTurn;
+    }
 }

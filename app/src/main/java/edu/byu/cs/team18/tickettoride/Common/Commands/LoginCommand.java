@@ -10,7 +10,6 @@ public class LoginCommand implements ICommand{
     private String password;
     private String suffix = "Login";
 
-    @Override
     public String getSuffix() {
         return suffix;
     }
@@ -38,4 +37,5 @@ public class LoginCommand implements ICommand{
     }
 
 
+    public void execute(){}
 }

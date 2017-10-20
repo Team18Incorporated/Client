@@ -13,7 +13,7 @@ public class UpdateUnstartedCommand implements ICommand {
     private AuthToken token;
     private String suffix = "UpdateUnstarted";
 
-    @Override
+
     public String getSuffix() {
         return suffix;
     }
@@ -32,4 +32,7 @@ public class UpdateUnstartedCommand implements ICommand {
     {
         token = t;
     }
+
+
+    public void execute(){}
 }
