@@ -1,12 +1,19 @@
 package edu.byu.cs.team18.tickettoride.Common;
 
 
+import java.util.ArrayList;
+
 public class Player {
 
-    private String playerID; //we may not need this if we just use the userID
+    private String playerID;
     private String playerName;
-    private enum Color{RED, BLUE, GREEN, YELLOW, BLACK}
+    public enum Color{RED, BLUE, GREEN, YELLOW, BLACK}
     private Color color;
+    private ArrayList<TrainCard> hand;
+    private ArrayList<DestinationCard> destinationCards;
+    private int points;
+    private ArrayList<Route> claimedRoutes;
+    private int numTrainPieces;
 
     //CONSTRUCTOR-----------------------------------------------------------------------------------
 
@@ -34,5 +41,25 @@ public class Player {
 
     public String getPlayerID(){
 	return playerID;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public ArrayList<TrainCard> getHand() {
+        return hand;
+    }
+
+    public ArrayList<DestinationCard> getDestinationCards() {
+        return destinationCards;
     }
 }
