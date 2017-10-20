@@ -17,7 +17,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
 import edu.byu.cs.team18.tickettoride.Common.User;
 
 
@@ -110,11 +113,17 @@ public class ClientCommunicator {
         }
     }
 
-    private class CCAsyncTask extends AsyncTask<ICommand,Void,User>{
+    public Object sendCmd(ICommand in){
+        Object out = new CCAsyncTask().execute(in);
+        return out;
+    }
+
+    private class CCAsyncTask extends AsyncTask<ICommand,Void,Object>{
 
         @Override
-        protected User doInBackground(ICommand... iCommands) {
-            return null;
+        protected Object doInBackground(ICommand... iCommands) {
+            Object out = send(iCommands[0].getSuffix(),iCommands[0],AuthToken.class);;
+            return out;
         }
     }
 

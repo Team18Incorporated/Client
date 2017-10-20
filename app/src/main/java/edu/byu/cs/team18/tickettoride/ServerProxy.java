@@ -44,7 +44,7 @@ public class ServerProxy implements IServer {
     @Override
     public AuthToken userLogin(String user, String password)
     {
-        return (AuthToken) ClientCommunicator.getSingleton().send("Login",new LoginCommand(user, password),AuthToken.class);
+        return (AuthToken) ClientCommunicator.getSingleton().sendCmd(new LoginCommand(user, password));
     }
     /*
      * Registers a new user and logs them in. Returns authToken
@@ -55,7 +55,7 @@ public class ServerProxy implements IServer {
     @Override
     public AuthToken registerUser(String user, String password)
     {
-        return (AuthToken) ClientCommunicator.getSingleton().send("Register",new RegisterCommand(user, password),AuthToken.class);
+        return (AuthToken) ClientCommunicator.getSingleton().sendCmd(new RegisterCommand(user,password));
     }
     /*
      * creates a new game, using authToken to determine the creator. Returns gameID
@@ -65,7 +65,7 @@ public class ServerProxy implements IServer {
     @Override
     public GameInfo newGame(AuthToken authToken, String name)
     {
-        return (GameInfo) ClientCommunicator.getSingleton().send("Create",new CreateCommand(name, authToken),GameInfo.class);
+        return (GameInfo) ClientCommunicator.getSingleton().sendCmd(new CreateCommand(name, authToken));
     }
     /*
      * adds authToken user to gameID game
@@ -75,7 +75,7 @@ public class ServerProxy implements IServer {
     @Override
     public GameInfo join(AuthToken authToken, String gameID)
     {
-        return (GameInfo) ClientCommunicator.getSingleton().send("Join",new JoinCommand(gameID,authToken),GameInfo.class);
+        return (GameInfo) ClientCommunicator.getSingleton().sendCmd(new JoinCommand(gameID,authToken));
     }
     /*
      * removes authToken user from gameID game
@@ -95,7 +95,7 @@ public class ServerProxy implements IServer {
     @Override
     public Object openGames()
     {
-        return ClientCommunicator.getSingleton().send("UpdateOpen",new UpdateOpenCommand(), GameList.class);
+        return ClientCommunicator.getSingleton().sendCmd(new UpdateOpenCommand());
     }
     /*
      * returns a list of in-progress games authToken user is currently in
@@ -105,7 +105,7 @@ public class ServerProxy implements IServer {
     @Override
     public Object inProgressGames(AuthToken authToken)
     {
-        return ClientCommunicator.getSingleton().send("UpdateInProgress",new UpdateInProgressCommand(authToken),GameList.class);
+        return ClientCommunicator.getSingleton().sendCmd(new UpdateInProgressCommand(authToken));
     }
     /*
      * returns a list of unstarted games authToken user is currently in
@@ -115,7 +115,7 @@ public class ServerProxy implements IServer {
     @Override
     public Object unstartedGames(AuthToken authToken)
     {
-        return ClientCommunicator.getSingleton().send("UpdateUnstarted",new UpdateUnstartedCommand(authToken),GameList.class);
+        return ClientCommunicator.getSingleton().sendCmd(new UpdateUnstartedCommand(authToken));
     }
     /*
      * flags gameID game as started. Initializes game objects for gameID
@@ -125,6 +125,6 @@ public class ServerProxy implements IServer {
     @Override
     public StartedGameResult startGame(String gameID)
     {
-        return (StartedGameResult) ClientCommunicator.getSingleton().send("Start",new StartCommand(gameID),StartedGameResult.class);
+        return (StartedGameResult) ClientCommunicator.getSingleton().sendCmd(new StartCommand(gameID));
     }
 }
