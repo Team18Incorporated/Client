@@ -1,5 +1,7 @@
 package edu.byu.cs.team18.tickettoride;
 
+import android.os.AsyncTask;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,6 +16,9 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
+
+import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
+import edu.byu.cs.team18.tickettoride.Common.User;
 
 
 public class ClientCommunicator {
@@ -102,6 +107,14 @@ public class ClientCommunicator {
             if(printWriter != null) {
                 printWriter.close();
             }
+        }
+    }
+
+    private class CCAsyncTask extends AsyncTask<ICommand,Void,User>{
+
+        @Override
+        protected User doInBackground(ICommand... iCommands) {
+            return null;
         }
     }
 
