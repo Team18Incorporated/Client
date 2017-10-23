@@ -115,6 +115,12 @@ public interface IClient {
     public void updateEnemyDestinationHand(String playerID, int size);
 
     /*
+    * @pre playerID matches a player in the model's current game.
+    * @post opponent's score will be displayed with the correct value.
+     */
+    public void updateEnemyScore(String playerID, int score);
+
+    /*
 	* @pre 0 < authToken&&gameID < 10000
 	* @post returns a command that will display the destination card choices taken from the deck.
      */
@@ -125,5 +131,6 @@ public interface IClient {
     * @post Changes the game's face-up card list to the one we give it.
      */
     public void updateFaceUp(List<TrainCard> list);
+
 
 }

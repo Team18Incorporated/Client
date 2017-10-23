@@ -155,6 +155,19 @@ public class ClientFacade implements IClient {
             }
         }
     }
+    public void updateEnemyScore(String playerID, int points)
+    {
+        for(int i = 0; i < ClientModel.SINGLETON.getCurrentGame().getPlayerList().size(); i++)
+        {
+            if(ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).getPlayerID().equals(playerID))
+            {
+                ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).setPoints(points);
+                return;
+            }
+        }
+    }
+
+
 
     public void showDestinationCardChoices(List<DestinationCard> list)
     {
