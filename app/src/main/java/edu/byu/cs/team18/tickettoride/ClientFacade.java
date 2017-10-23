@@ -2,6 +2,8 @@ package edu.byu.cs.team18.tickettoride;
 
 import java.util.List;
 
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
 import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
 import edu.byu.cs.team18.tickettoride.Common.Game;
 import edu.byu.cs.team18.tickettoride.Common.GameInfo;
@@ -153,5 +155,17 @@ public class ClientFacade implements IClient {
             }
         }
     }
+
+    public void showDestinationCardChoices(List<DestinationCard> list)
+    {
+        //We need some way to display these cards in the GUI without adding them to the player's hand.
+    }
+
+    public void updateFaceUp(List<TrainCard> list)
+    {
+        ClientModel.SINGLETON.getCurrentGame().getVisibleCards().clear();
+        ClientModel.SINGLETON.getCurrentGame().getVisibleCards().addAll(list);
+    }
+
 
 }

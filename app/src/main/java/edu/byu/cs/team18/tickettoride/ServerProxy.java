@@ -1,8 +1,18 @@
 package edu.byu.cs.team18.tickettoride;
 
 
+import java.util.List;
+
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
+import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CreateCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ClaimRouteCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawDestinationCardCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawFromFaceUpCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawTrainCardCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.SendBackDestinationsCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateFaceUpCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.JoinCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
@@ -10,10 +20,13 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.StartCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.UpdateInProgressCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.UpdateOpenCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.UpdateUnstartedCommand;
+import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
 import edu.byu.cs.team18.tickettoride.Common.GameInfo;
 import edu.byu.cs.team18.tickettoride.Common.GameList;
 import edu.byu.cs.team18.tickettoride.Common.IServer;
+import edu.byu.cs.team18.tickettoride.Common.Route;
 import edu.byu.cs.team18.tickettoride.Common.StartedGameResult;
+import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 
 /**
  * Created by abram on 10/9/2017.
@@ -127,4 +140,46 @@ public class ServerProxy implements IServer {
     {
         return (StartedGameResult) ClientCommunicator.getSingleton().send("Start",new StartCommand(gameID),StartedGameResult.class);
     }
+
+    /*
+	* @pre route is not null
+	* @pre 0 < authToken&&gameID < 10000
+	* @post returns a list of commands to be executed on the client.
+	 */
+    public CommandList claimRoute(AuthToken authToken, String gameID, Route route)
+    {
+        return (CommandList)ClientCommunicator.getSingleton().send("ClaimRoute",new ClaimRouteCommand(authToken,gameID,route),CommandList.class);
+    }
+
+    /*
+    * @pre 0 < authToken&&gameID < 10000
+    * @post returns a list of commands (UpdateTrainHand and UpdateTrainDeckSize)
+     */
+    public CommandList drawTrainCard(AuthToken authToken, String gameID)
+    {
+        return (CommandList)ClientCommunicator.getSingleton().send("DrawTrainCard",new DrawTrainCardCommand(authToken,gameID),DrawTrainCardCommand.class);
+    }
+
+    /*
+     * @pre 0 < authToken&&gameID < 10000
+     * @post returns a command which shows choosable cards in the GUI.
+     */
+    public ShowDestinationChoicesCommand drawDestinationCard(AuthToken authToken, String gameID)
+    {
+        return (ShowDestinationChoicesCommand) ClientCommunicator.getSingleton()
+                .send("DrawDestinationCard",new DrawDestinationCardCommand(authToken,gameID),DrawDestinationCardCommand.class);
+    }
+
+    public CommandList sendBackDestinations(AuthToken authToken, String gameID, List<DestinationCard> list)
+    {
+        return (CommandList) ClientCommunicator.getSingleton()
+                .send("SendBackDestinations",new SendBackDestinationsCommand(authToken,gameID,list),SendBackDestinationsCommand.class);
+    }
+
+    public UpdateFaceUpCommand drawFromFaceUp(AuthToken authToken, String gameID, TrainCard card)
+    {
+        return (UpdateFaceUpCommand)ClientCommunicator.getSingleton()
+                .send("DrawFromFaceUp",new DrawFromFaceUpCommand(authToken,gameID,card),UpdateFaceUpCommand.class);
+    }
+
 }

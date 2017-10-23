@@ -24,6 +24,11 @@ public class ClaimRouteCommand implements ICommand {
         this.route = route;
     }
 
+    public ClaimRouteCommand(AuthToken authToken, String gameID, Route route){
+        this.authToken = authToken;
+        this.gameID = gameID;
+        this.route = route;
+    }
 
     //To be implemented differently on the server.
     public void execute() {

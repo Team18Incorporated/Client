@@ -3,6 +3,9 @@ package edu.byu.cs.team18.tickettoride.Common;
 
 import java.util.List;
 
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateFaceUpCommand;
+
 public interface IClient {
 
 
@@ -110,4 +113,17 @@ public interface IClient {
      * @post opponent's number of destination cards is changed.
      */
     public void updateEnemyDestinationHand(String playerID, int size);
+
+    /*
+	* @pre 0 < authToken&&gameID < 10000
+	* @post returns a command that will display the destination card choices taken from the deck.
+     */
+    public void showDestinationCardChoices(List<DestinationCard> list);
+
+    /*
+    * @pre list.size() <= 5
+    * @post Changes the game's face-up card list to the one we give it.
+     */
+    public void updateFaceUp(List<TrainCard> list);
+
 }
