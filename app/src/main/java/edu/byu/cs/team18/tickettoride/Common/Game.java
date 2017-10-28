@@ -81,7 +81,6 @@ public class Game {
         this.playerTurn = playerTurn;
     }
 
-<<<<<<< HEAD
     public ChatHistory getChatHistory() {
         return chatHistory;
     }
@@ -89,7 +88,4 @@ public class Game {
     public void setChatHistory(ChatHistory chatHistory) {
         this.chatHistory = chatHistory;
     }
-=======
-
->>>>>>> f9d0382267c2cc5fe2dd63644353605a2ed96578
 }
