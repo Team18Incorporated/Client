@@ -6,6 +6,7 @@ import java.util.List;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ClaimRouteCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateChatHistoryCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateFaceUpCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateScoreCommand;
 
@@ -97,4 +98,6 @@ public interface IServer {
 	* @post returns a list containing an update hand command and update
 	 */
 	public UpdateFaceUpCommand drawFromFaceUp(AuthToken authToken, String gameID, TrainCard card);
+
+	public UpdateChatHistoryCommand sendChat(AuthToken authToken, ChatMessage chatMessage);
 }

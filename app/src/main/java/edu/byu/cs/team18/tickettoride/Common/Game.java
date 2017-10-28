@@ -14,6 +14,7 @@ public class Game {
     private int numTrainDeck;
     private int numDestinationDeck;
     private int playerTurn;
+    private ChatHistory chatHistory;
 
     //CONSTRUCTOR-----------------------------------------------------------------------------------
     public Game()
@@ -78,5 +79,13 @@ public class Game {
 
     public void setPlayerTurn(int playerTurn) {
         this.playerTurn = playerTurn;
+    }
+
+    public ChatHistory getChatHistory() {
+        return chatHistory;
+    }
+
+    public void setChatHistory(ChatHistory chatHistory) {
+        this.chatHistory = chatHistory;
     }
 }

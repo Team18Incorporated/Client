@@ -4,6 +4,7 @@ package edu.byu.cs.team18.tickettoride;
 import java.util.List;
 
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
+import edu.byu.cs.team18.tickettoride.Common.ChatMessage;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CreateCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ClaimRouteCommand;
@@ -11,7 +12,9 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawDestina
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawFromFaceUpCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawTrainCardCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.SendBackDestinationsCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.SendChatCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateChatHistoryCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateFaceUpCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.JoinCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
@@ -182,4 +185,9 @@ public class ServerProxy implements IServer {
                 .send("DrawFromFaceUp",new DrawFromFaceUpCommand(authToken,gameID,card),UpdateFaceUpCommand.class);
     }
 
+
+    public UpdateChatHistoryCommand sendChat(AuthToken authToken, ChatMessage chatMessage)
+    {
+        return (UpdateChatHistoryCommand) ClientCommunicator.getSingleton().send("SendChat",new SendChatCommand(), SendChatCommand.class);
+    }
 }

@@ -9,13 +9,13 @@ import java.util.Date;
 public class ChatMessage {
     private String message;
     private String messageID;
-    private String playerID;
+    private String playerName;
     private Date time;
 
-    public ChatMessage(String message, String messageID, String playerID, Date time) {
+    public ChatMessage(String message, String messageID, String playerName, Date time) {
         this.message = message;
         this.messageID = messageID;
-        this.playerID = playerID;
+        this.playerName = playerName;
         this.time = time;
     }
 
@@ -35,12 +35,12 @@ public class ChatMessage {
         this.messageID = messageID;
     }
 
-    public String getPlayerID() {
-        return playerID;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public void setPlayerID(String playerID) {
-        this.playerID = playerID;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     public Date getTime() {

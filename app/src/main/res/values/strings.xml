@@ -7,4 +7,6 @@
     <string name="password_hint">Password</string>
     <string name="re_enter_password_hint">Re-Enter Password</string>
     <string name="submit_text">Submit</string>
+    <string name="chat_hint">Enter message here</string>
+    <string name="send_button_text">SEND</string>
 </resources>

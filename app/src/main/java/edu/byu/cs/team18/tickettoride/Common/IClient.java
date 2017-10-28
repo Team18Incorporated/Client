@@ -132,5 +132,10 @@ public interface IClient {
      */
     public void updateFaceUp(List<TrainCard> list);
 
+    /*
+    * @pre chatHistory != null
+    * @post the chatMessages in the passed-in history will be added to the game's chat history.
+     */
+    public void updateChatHistory(ChatHistory chatHistory);
 
 }
