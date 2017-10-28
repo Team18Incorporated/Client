@@ -12,7 +12,7 @@ public class Player {
     private ArrayList<TrainCard> hand;
     private ArrayList<DestinationCard> destinationCards;
     private int points;
-    private ArrayList<Route> claimedRoutes;
+    private ArrayList<Route> claimedRoutes = new ArrayList<>();
     private int numTrainPieces;
 
     //CONSTRUCTOR-----------------------------------------------------------------------------------
@@ -74,4 +74,11 @@ public class Player {
     public void setNumTrainPieces(int numTrainPieces) {
         this.numTrainPieces = numTrainPieces;
     }
+
+    public void claimRoute(Route route)
+    {
+        claimedRoutes.add(route);
+    }
+
+
 }

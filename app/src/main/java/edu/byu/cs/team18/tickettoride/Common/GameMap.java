@@ -22,7 +22,8 @@ public class GameMap {
 
     public void claimRoute(Route route, Player player)
     {
-
+        route.setOwner(player.getPlayerID());
+        player.claimRoute(route);
     }
 
 

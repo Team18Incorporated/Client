@@ -8,6 +8,7 @@ public class Route {
     private City city2;
     private int length;
     private CardColor color;
+    private String ownerID;
 
 
     public Route (String cityName1, String cityName2, int length, CardColor color1)
@@ -16,6 +17,7 @@ public class Route {
         city1=new City(cityName1);
         city2=new City(cityName2);
         this.color=color1;
+        ownerID=null;
     }
 
     public Route (City city1, City city2, String color, String length)
@@ -24,6 +26,7 @@ public class Route {
         this.city2=city2;
         this.length=Integer.parseInt(length);
         this.color= new CardColor(color);
+        ownerID=null;
 
     }
 
@@ -42,6 +45,8 @@ public class Route {
     public CardColor getColor() {
         return color;
     }
+
+    public void setOwner(String playerID){ownerID=playerID;}
 
 
 }
