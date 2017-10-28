@@ -1,23 +1,25 @@
 package edu.byu.cs.team18.tickettoride.Common;
 
-/**
- * Created by Solomons on 10/18/2017.
- */
+
 
 public class TrainCard extends Card {
 
-    public enum Color{PURPLE, WHITE, RED, BLUE, GREEN, YELLOW, BLACK, ORANGE, WILD}
-    private Color color;
+    private CardColor color;
 
-    public TrainCard(Color color) {
+    public TrainCard(CardColor color) {
         this.color = color;
     }
 
-    public Color getColor() {
+    public TrainCard(String color)
+    {
+        this.color = new CardColor(color);
+    }
+
+    public CardColor getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(CardColor color) {
         this.color = color;
     }
 }

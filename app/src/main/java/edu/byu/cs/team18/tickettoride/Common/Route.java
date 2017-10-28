@@ -1,24 +1,33 @@
 package edu.byu.cs.team18.tickettoride.Common;
 
-/**
- * Created by Solomons on 10/18/2017.
- */
+
 
 public class Route {
 
     private City city1;
     private City city2;
     private int length;
-    private TrainCard.Color color1;
-    private TrainCard.Color color2;
+    private CardColor color;
+    private String ownerID;
 
-    public Route (String cityName1, String cityName2, int length, TrainCard.Color color1, TrainCard.Color color2)
+
+    public Route (String cityName1, String cityName2, int length, CardColor color1)
     {
         this.length=length;
         city1=new City(cityName1);
         city2=new City(cityName2);
-        this.color1=color1;
-        this.color2=color2;
+        this.color=color1;
+        ownerID=null;
+    }
+
+    public Route (City city1, City city2, String color, String length)
+    {
+        this.city1=city1;
+        this.city2=city2;
+        this.length=Integer.parseInt(length);
+        this.color= new CardColor(color);
+        ownerID=null;
+
     }
 
     public City getCity1() {
@@ -33,11 +42,11 @@ public class Route {
         return length;
     }
 
-    public TrainCard.Color getColor1() {
-        return color1;
+    public CardColor getColor() {
+        return color;
     }
 
-    public TrainCard.Color getColor2() {
-        return color2;
-    }
+    public void setOwner(String playerID){ownerID=playerID;}
+
+
 }

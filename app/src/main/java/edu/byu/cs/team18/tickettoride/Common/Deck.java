@@ -28,40 +28,40 @@ public class Deck {
         deckList=new ArrayList<>();
         for(int i=0; i<12; i++)
         {
-            deckList.add(new TrainCard(TrainCard.Color.RED));
+            deckList.add(new TrainCard("red"));
         }
         for(int i=0; i<12; i++)
         {
-            deckList.add(new TrainCard(TrainCard.Color.BLUE));
+            deckList.add(new TrainCard("blue"));
         }
         for(int i=0; i<12; i++)
         {
-            deckList.add(new TrainCard(TrainCard.Color.GREEN));
+            deckList.add(new TrainCard("green"));
         }
         for(int i=0; i<12; i++)
         {
-            deckList.add(new TrainCard(TrainCard.Color.YELLOW));
+            deckList.add(new TrainCard("yellow"));
         }
         for(int i=0; i<12; i++)
         {
-            deckList.add(new TrainCard(TrainCard.Color.ORANGE));
+            deckList.add(new TrainCard("orange"));
         }
         for(int i=0; i<12; i++)
         {
-            deckList.add(new TrainCard(TrainCard.Color.WHITE));
+            deckList.add(new TrainCard("white"));
         }
         for(int i=0; i<12; i++)
         {
-            deckList.add(new TrainCard(TrainCard.Color.BLACK));
+            deckList.add(new TrainCard("black"));
         }
         for(int i=0; i<12; i++)
         {
-            deckList.add(new TrainCard(TrainCard.Color.PURPLE));
+            deckList.add(new TrainCard("purple"));
         }
 
         for(int i=0; i<14; i++)
         {
-            deckList.add(new TrainCard(TrainCard.Color.WILD));
+            deckList.add(new TrainCard("wild"));
         }
     }
 
@@ -69,7 +69,7 @@ public class Deck {
     {
         deckList.add(new DestinationCard("Los Angeles", "New York City", 21));
         deckList.add(new DestinationCard("Duluth", "Houston", 8));
-        deckList.add(new DestinationCard("Sault Ste. Marie", "Nashville", 8));
+        deckList.add(new DestinationCard("Sault St Marie", "Nashville", 8));
         deckList.add(new DestinationCard("New York City", "Atlanta", 6));
         deckList.add(new DestinationCard("Portland", "Nashville", 17));
         deckList.add(new DestinationCard("Vancouver", "Montreal", 20));
@@ -95,7 +95,7 @@ public class Deck {
         deckList.add(new DestinationCard("Helena", "Los Angeles", 8));
         deckList.add(new DestinationCard("Winnipeg", "Houston", 12));
         deckList.add(new DestinationCard("Montreal", "New Orleans", 13));
-        deckList.add(new DestinationCard("Sault Ste. Marie", "Oklahoma City", 9));
+        deckList.add(new DestinationCard("Sault St Marie", "Oklahoma City", 9));
         deckList.add(new DestinationCard("Seattle", "Los Angeles", 9));
 
     }
