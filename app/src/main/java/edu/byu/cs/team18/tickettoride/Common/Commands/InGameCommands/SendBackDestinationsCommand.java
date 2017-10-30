@@ -15,6 +15,13 @@ public class SendBackDestinationsCommand implements ICommand {
     private String gameID;
     private List<DestinationCard> list;
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute()
     {
         //To be executed by the server

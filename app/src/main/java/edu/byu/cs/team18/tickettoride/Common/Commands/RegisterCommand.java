@@ -8,11 +8,7 @@ public class RegisterCommand implements ICommand{
 
     private String username;
     private String password;
-    private String suffix = "Register";
 
-    public String getSuffix() {
-        return suffix;
-    }
 
     public String getUsername() {
         return username;
@@ -38,5 +34,12 @@ public class RegisterCommand implements ICommand{
 
 
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute(){}
 }

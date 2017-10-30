@@ -17,6 +17,12 @@ public class ClaimRouteCommand implements ICommand {
     private String playerID;
     private Route route;
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
     public ClaimRouteCommand(AuthToken authToken, String gameID, String playerID, Route route) {
         this.authToken = authToken;
         this.gameID = gameID;
@@ -31,6 +37,7 @@ public class ClaimRouteCommand implements ICommand {
     }
 
     //To be implemented differently on the server.
+    @Override
     public void execute() {
         ClientFacade.getClientFacade().claimRoute(gameID, playerID, route);
     }

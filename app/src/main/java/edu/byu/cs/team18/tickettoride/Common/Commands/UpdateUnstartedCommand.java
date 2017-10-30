@@ -11,12 +11,6 @@ public class UpdateUnstartedCommand implements ICommand {
 
 
     private AuthToken token;
-    private String suffix = "UpdateUnstarted";
-
-
-    public String getSuffix() {
-        return suffix;
-    }
 
 
 
@@ -34,5 +28,12 @@ public class UpdateUnstartedCommand implements ICommand {
     }
 
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute(){}
 }

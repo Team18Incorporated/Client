@@ -10,10 +10,7 @@ public class CreateCommand implements ICommand{
 
     private String username;
     private AuthToken token;
-    private String suffix = "Create";
 
-    public String getSuffix()
-    {return suffix;}
 
     public AuthToken getToken() {
         return token;
@@ -38,5 +35,12 @@ public class CreateCommand implements ICommand{
     }
 
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute(){}
 }

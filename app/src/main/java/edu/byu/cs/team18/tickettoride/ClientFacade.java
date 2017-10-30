@@ -41,6 +41,7 @@ public class ClientFacade implements IClient {
     * @pre gameList cannot be null
     * @post will update the JoinableGames GameList on the Client to match the incoming GameList
     * */
+    @Override
     public void updateJoinGameList(GameList gameList){
         ClientModel.SINGLETON.setJoinableGamesList(gameList);
     }
@@ -50,6 +51,7 @@ public class ClientFacade implements IClient {
     * @pre gameList cannot be null
     * @post will update the PlayerGames GameList on the Client to match the incoming GameList
     * */
+    @Override
     public void updateCurrentGamesList(GameList gameList)
     {
         ClientModel.SINGLETON.setJoinedGamesList(gameList);
@@ -60,6 +62,7 @@ public class ClientFacade implements IClient {
     * @pre user cannot be null
     * @post stored User info will be updated
     * */
+    @Override
     public void updateUser(User user)
     {
         ClientModel.SINGLETON.setCurrentUser(user);
@@ -70,6 +73,7 @@ public class ClientFacade implements IClient {
     *@pre player cannot be null
     *@post Player in the client will be updated
     * */
+    @Override
     public void updatePlayer(Player player)
     {
         ClientModel.SINGLETON.setCurrentPlayer(player);
@@ -81,6 +85,7 @@ public class ClientFacade implements IClient {
     * @post current game will be updated
     *
     * */
+    @Override
     public void updateGame(Game game)
     {
         ClientModel.SINGLETON.setCurrentGame(game);
@@ -91,26 +96,31 @@ public class ClientFacade implements IClient {
     * @pre gameInfo cannot be null. CurrentGame on the client cannot be null
     * @post CurrentGame will be updated
     * */
+    @Override
     public void updateGame(GameInfo gameInfo)
     {
 
     }
 
+    @Override
     public void updateTrainDeckSize(int size)
     {
         ClientModel.SINGLETON.getCurrentGame().setNumTrainDeck(size);
     }
 
+    @Override
     public void updateDestinationDeckSize(int size)
     {
         ClientModel.SINGLETON.getCurrentGame().setNumDestinationDeck(size);
     }
 
+    @Override
     public void updateScore(int points)
     {
         ClientModel.SINGLETON.getCurrentPlayer().setPoints(points);
     }
 
+    @Override
     public void claimRoute(String gameID, String playerID, Route route)
     {
         //Add route to player's list
@@ -122,17 +132,20 @@ public class ClientFacade implements IClient {
         //Still needs to find the right game and mark it with tokens of the player's color.
     }
 
+    @Override
     public void updateTrainHand(TrainCard card1, TrainCard card2)
     {
         ClientModel.SINGLETON.getCurrentPlayer().getHand().add(card1);
         ClientModel.SINGLETON.getCurrentPlayer().getHand().add(card2);
     }
 
+    @Override
     public void updateDestinationHand(List<DestinationCard> list)
     {
         ClientModel.SINGLETON.getCurrentPlayer().getDestinationCards().addAll(list);
     }
 
+    @Override
     public void updateEnemyTrainHand(String playerID, int size)
     {
         for(int i = 0; i < ClientModel.SINGLETON.getCurrentGame().getPlayerList().size(); i++)
@@ -145,6 +158,7 @@ public class ClientFacade implements IClient {
         }
     }
 
+    @Override
     public void updateEnemyDestinationHand(String playerID, int size)
     {
         for(int i = 0; i < ClientModel.SINGLETON.getCurrentGame().getPlayerList().size(); i++)
@@ -156,6 +170,8 @@ public class ClientFacade implements IClient {
             }
         }
     }
+
+    @Override
     public void updateEnemyScore(String playerID, int points)
     {
         for(int i = 0; i < ClientModel.SINGLETON.getCurrentGame().getPlayerList().size(); i++)
@@ -169,18 +185,20 @@ public class ClientFacade implements IClient {
     }
 
 
-
+    @Override
     public void showDestinationCardChoices(List<DestinationCard> list)
     {
         //We need some way to display these cards in the GUI without adding them to the player's hand.
     }
 
+    @Override
     public void updateFaceUp(List<TrainCard> list)
     {
         ClientModel.SINGLETON.getCurrentGame().getVisibleCards().clear();
         ClientModel.SINGLETON.getCurrentGame().getVisibleCards().addAll(list);
     }
 
+    @Override
     public void updateChatHistory(ChatHistory chatHistory)
     {
         if(chatHistory != null)
@@ -188,6 +206,16 @@ public class ClientFacade implements IClient {
             ClientModel.SINGLETON.getCurrentGame().getChatHistory().getHistory().addAll(chatHistory.getHistory());
         }
     }
+
+
+
+
+
+
+
+
+
+
 
     public String findPlayerName(String playerID)
     {

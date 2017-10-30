@@ -19,9 +19,6 @@ import com.google.gson.JsonSyntaxException;
 
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
-import edu.byu.cs.team18.tickettoride.Common.User;
 
 
 public class ClientCommunicator {
@@ -122,7 +119,7 @@ public class ClientCommunicator {
 
         @Override
         protected Object doInBackground(ICommand... iCommands) {
-            Object out = send(iCommands[0].getSuffix(),iCommands[0],AuthToken.class);;
+            Object out = send(iCommands[0].getSuffix(),iCommands[0],AuthToken.class);
             return out;
         }
     }
