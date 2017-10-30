@@ -26,7 +26,7 @@ public class UpdateEnemyDestinationHandCommand implements ICommand {
         ClientFacade.getClientFacade().updateEnemyDestinationHand(playerID,size);
     }
 
-
+    @Override
     public String toString()
     {
         String name = ClientFacade.getClientFacade().findPlayerName(playerID);

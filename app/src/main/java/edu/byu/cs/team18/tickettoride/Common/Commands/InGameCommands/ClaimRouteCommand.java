@@ -42,6 +42,7 @@ public class ClaimRouteCommand implements ICommand {
         ClientFacade.getClientFacade().claimRoute(gameID, playerID, route);
     }
 
+    @Override
     public String toString()
     {
         String name = ClientFacade.getClientFacade().findPlayerName(playerID);
