@@ -7,6 +7,7 @@ import android.widget.Toast;
 import java.util.Observable;
 import java.util.Observer;
 
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
 import edu.byu.cs.team18.tickettoride.Common.GameInfo;
 import edu.byu.cs.team18.tickettoride.Common.User;
@@ -72,8 +73,12 @@ public class RegisterPresenter implements Observer{
     {
         if(canDo(username,password,reEnterPassword,A))
         {
-            RegisterCommand registerCommand = new RegisterCommand(username, password);
-            new RegisterAsyncTask(A).execute(registerCommand);
+            /*RegisterCommand registerCommand = new RegisterCommand(username, password);
+            new RegisterAsyncTask(A).execute(registerCommand);*/
+            AuthToken token = ServerProxy.getServerProxy().registerUser(username,password);
+            if (token!=null) {
+                ClientFacade.getClientFacade().updateUser(new User(token, username));
+            }
         }
     }
 
