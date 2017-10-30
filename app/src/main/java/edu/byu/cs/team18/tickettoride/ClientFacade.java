@@ -189,4 +189,16 @@ public class ClientFacade implements IClient {
         }
     }
 
+    public String findPlayerName(String playerID)
+    {
+        for(int i = 0; i < ClientModel.SINGLETON.getCurrentGame().getPlayerList().size(); i++)
+        {
+            if(playerID.equals(ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).getPlayerID()))
+            {
+                return ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).getPlayerName();
+            }
+        }
+        return "";
+    }
+
 }

@@ -35,6 +35,12 @@ public class ClaimRouteCommand implements ICommand {
         ClientFacade.getClientFacade().claimRoute(gameID, playerID, route);
     }
 
+    public String toString()
+    {
+        String name = ClientFacade.getClientFacade().findPlayerName(playerID);
+        return name + " claimed route: " + route.getCity1().getCityName() + ", " + route.getCity2() + ".";
+    }
+
 
     public AuthToken getAuthToken() {
         return authToken;
