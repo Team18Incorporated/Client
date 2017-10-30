@@ -6,6 +6,7 @@ import android.widget.Toast;
 import java.util.Observable;
 import java.util.Observer;
 
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
 import edu.byu.cs.team18.tickettoride.Common.User;
 
@@ -66,9 +67,12 @@ public class LoginPresenter implements Observer{
     {
         if(canDo(username,password,A))
         {
-            LoginCommand loginCommand = new LoginCommand(username, password);
-            new LoginAsyncTask(A).execute(loginCommand);
-
+            /*LoginCommand loginCommand = new LoginCommand(username, password);
+            new LoginAsyncTask(A).execute(loginCommand);*/
+            AuthToken token = ServerProxy.getServerProxy().userLogin(username,password);
+            if (token!=null) {
+                ClientFacade.getClientFacade().updateUser(new User(token, username));
+            }
         }
     }
 
