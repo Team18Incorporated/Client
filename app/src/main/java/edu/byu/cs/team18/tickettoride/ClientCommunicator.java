@@ -19,7 +19,7 @@ import com.google.gson.JsonSyntaxException;
 public class ClientCommunicator {
     private static ClientCommunicator SINGLETON;
     private static Gson gson = new Gson();
-    private static String SERVER_HOST = "192.168.2.171";
+    private static String SERVER_HOST = "67.205.155.130";
     private static String SERVER_PORT = "8080";
     private static String HTTP_POST = "POST";
     private static String HTTP_GET = "GET";

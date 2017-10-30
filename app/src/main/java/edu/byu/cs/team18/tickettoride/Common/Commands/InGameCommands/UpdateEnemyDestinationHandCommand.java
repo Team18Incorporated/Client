@@ -20,6 +20,13 @@ public class UpdateEnemyDestinationHandCommand implements ICommand {
         ClientFacade.getClientFacade().updateEnemyDestinationHand(playerID,size);
     }
 
+
+    public String toString()
+    {
+        String name = ClientFacade.getClientFacade().findPlayerName(playerID);
+        return name + " drew destinations! " + name + " has " + size + " destination cards!";
+    }
+
     public String getPlayerID() {
         return playerID;
     }

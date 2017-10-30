@@ -16,6 +16,12 @@ public class UpdateEnemyTrainHandCommand implements ICommand {
         ClientFacade.getClientFacade().updateEnemyTrainHand(playerID,size);
     }
 
+    public String toString()
+    {
+        String name = ClientFacade.getClientFacade().findPlayerName(playerID);
+        return name + " now has " + size + " cards.";
+    }
+
     public String getPlayerID() {
         return playerID;
     }
