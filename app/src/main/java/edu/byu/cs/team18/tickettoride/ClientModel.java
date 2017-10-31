@@ -18,6 +18,7 @@ public class ClientModel extends Observable{
     private GameList startedGamesList = new GameList();
     private Player currentPlayer;
     private User currentUser;
+    private Route currentRoute;
 
     private PollerAsyncTask poller = new PollerAsyncTask();
 
@@ -114,6 +115,14 @@ public class ClientModel extends Observable{
         echo(currentUser);
         //if(poller.getStatus() != AsyncTask.Status.RUNNING)
         poller.execute();
+    }
+
+    public Route getCurrentRoute() {
+        return currentRoute;
+    }
+
+    public void setCurrentRoute(Route currentRoute) {
+        this.currentRoute = currentRoute;
     }
 
     public GameInfo getGame(String gameID)
