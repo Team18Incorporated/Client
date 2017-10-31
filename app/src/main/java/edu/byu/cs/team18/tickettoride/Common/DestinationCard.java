@@ -5,9 +5,10 @@ import java.util.ArrayList;
 
 public class DestinationCard extends Card {
 
-    City startCity;
-    City endCity;
-    int points;
+    private City startCity;
+    private City endCity;
+    private int points;
+    private boolean isChecked=false;
 
     public DestinationCard(String startCityName, String endCityName, int points) {
         startCity= new City(startCityName);
@@ -39,6 +40,18 @@ public class DestinationCard extends Card {
             }
         }
         return false;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 
     private boolean checkRoute(City currentCity, Route route, ArrayList<Route> routeList, int index)

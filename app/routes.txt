@@ -14,7 +14,6 @@ Calgary Winnipeg white 6
 Calgary Helena any 4
 Calgary Seattle any 4
 Charleston Raleigh any 2
-Charleston Atlanta any 2
 Charleston Miami purple 4
 Chicago Pittsburgh orange 3
 Chicago Pittsburgh black 3
@@ -40,7 +39,6 @@ Denver SantaFe any 2
 Denver OklahomaCity red 4
 Duluth Omaha any 2
 Duluth Omaha any 2
-Duluth Chicago red 3
 Duluth Toronto purple 6
 Duluth SaultStMarie any 3
 Duluth Winnipeg black 4

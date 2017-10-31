@@ -15,6 +15,7 @@ public class Game {
     private int numDestinationDeck;
     private int playerTurn;
     private ChatHistory chatHistory;
+    private boolean startStatus=false;
 
     //CONSTRUCTOR-----------------------------------------------------------------------------------
     public Game()
@@ -87,5 +88,13 @@ public class Game {
 
     public void setChatHistory(ChatHistory chatHistory) {
         this.chatHistory = chatHistory;
+    }
+
+    public boolean getStartStatus() {
+        return startStatus;
+    }
+
+    public void setStartStatus(boolean startStatus) {
+        this.startStatus = startStatus;
     }
 }

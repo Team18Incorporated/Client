@@ -2,6 +2,7 @@ package edu.byu.cs.team18.tickettoride.Common;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
 
@@ -14,7 +15,7 @@ public class Player {
     private int points;
     private ArrayList<Route> claimedRoutes = new ArrayList<>();
     private int numTrainPieces;
-
+    private List<DestinationCard> destinationCardChoices;
     //CONSTRUCTOR-----------------------------------------------------------------------------------
 
 
@@ -80,5 +81,11 @@ public class Player {
         claimedRoutes.add(route);
     }
 
+    public List<DestinationCard> getDestinationCardChoices() {
+        return destinationCardChoices;
+    }
 
+    public void setDestinationCardChoices(List<DestinationCard> destinationCardChoices) {
+        this.destinationCardChoices = destinationCardChoices;
+    }
 }

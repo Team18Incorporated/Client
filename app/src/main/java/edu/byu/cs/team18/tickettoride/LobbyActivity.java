@@ -1,12 +1,7 @@
 package edu.byu.cs.team18.tickettoride;
 
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
-
-import edu.byu.cs.team18.tickettoride.Common.Commands.StartCommand;
 
 public class LobbyActivity extends AppCompatActivity {
     private android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
@@ -60,5 +55,10 @@ public class LobbyActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Created by Solomons on 10/30/2017.
+     */
 
+    public static class DestinationSelectFragment {
+    }
 }
