@@ -30,8 +30,9 @@ public class UpdateUnstartedCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        String suffix = this.getClass().toString();
-        return suffix.substring(0,suffix.length() - 7);
+         /*String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);*/
+        return "UpdateUnstarted";
     }
 
     @Override

@@ -118,9 +118,10 @@ public class JoinedGamesPresenter implements Observer{
         User user = ClientModel.SINGLETON.getCurrentUser();
         StringBuilder name  = new StringBuilder(user.getUsername());
         name.append("'s game");
-        CreateCommand createCommand = new CreateCommand(name.toString(), user.getAuthToken());
+        /*CreateCommand createCommand = new CreateCommand(name.toString(), user.getAuthToken());
         CreateAsyncTask createAsyncTask = new CreateAsyncTask();
-        createAsyncTask.execute(createCommand);
+        createAsyncTask.execute(createCommand);*/
+        ClientModel.SINGLETON.setCurrentLobby(ServerProxy.getServerProxy().newGame(user.getAuthToken(), name.toString()));
     }
 
 

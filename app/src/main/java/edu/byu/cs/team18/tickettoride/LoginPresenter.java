@@ -73,6 +73,10 @@ public class LoginPresenter implements Observer{
             if (token!=null) {
                 ClientFacade.getClientFacade().updateUser(new User(token, username));
             }
+            else
+            {
+                Toast.makeText(A.getApplicationContext(), "Invalid Login Information", Toast.LENGTH_LONG).show();
+            }
         }
     }
 

@@ -18,6 +18,7 @@ import edu.byu.cs.team18.tickettoride.ServerProxy;
 public class GamePresenter {
     public static GamePresenter SINGLETON = new GamePresenter();
 
+    private int testStep=0;
 
     private GamePresenter (){}
 
@@ -71,6 +72,54 @@ public class GamePresenter {
         int out = -1;
         //Todo: add call to get piece count
         return out;
+    }
+
+    public void incrementTest()
+    {
+        if(testStep==0)
+        {
+
+        }
+        else if(testStep==1)
+        {
+
+        }
+        else if(testStep==2)
+        {
+
+        }
+        else if(testStep==3)
+        {
+
+        }
+        else if(testStep==4)
+        {
+
+        }
+        else if(testStep==5)
+        {
+
+        }
+        else if(testStep==6)
+        {
+
+        }
+        else if(testStep==7)
+        {
+
+        }
+        else if(testStep==8)
+        {
+
+        }
+        else if(testStep==9)
+        {
+
+        }
+        else if(testStep==10)
+        {
+
+        }
     }
 
 }

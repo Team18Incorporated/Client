@@ -5,9 +5,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import edu.byu.cs.team18.tickettoride.Common.*;
-/**
- * Created by Solomons on 10/7/2017.
- */
+
 
 public class ClientModel extends Observable{
 

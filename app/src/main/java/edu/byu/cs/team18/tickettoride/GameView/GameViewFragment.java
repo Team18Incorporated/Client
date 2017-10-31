@@ -32,6 +32,7 @@ public class GameViewFragment extends Fragment {
     private ImageButton hand;
     private ImageButton deck;
     private ImageButton destinationDeck;
+    private Button testButton;
 
     public GameViewFragment() {
         // Required empty public constructor
@@ -63,6 +64,15 @@ public class GameViewFragment extends Fragment {
             }
         });
         //Todo: implement destinationDeck
+
+
+        testButton=(Button) view.findViewById(R.id.test_button);
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GamePresenter.SINGLETON.incrementTest();
+            }
+        });
         return view;
     }
     /*
