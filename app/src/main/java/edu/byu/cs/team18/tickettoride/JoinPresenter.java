@@ -57,9 +57,11 @@ public class JoinPresenter implements Observer{
     * */
     public void joinGame(String gameID){
         User user = ClientModel.SINGLETON.getCurrentUser();
-        JoinCommand joinCommand = new JoinCommand(gameID, user.getAuthToken());
+        /*JoinCommand joinCommand = new JoinCommand(gameID, user.getAuthToken());
         JoinAsyncTask joinAsyncTask = new JoinAsyncTask();
-        joinAsyncTask.execute(joinCommand);
+        joinAsyncTask.execute(joinCommand);*/
+        gameToJoin= ServerProxy.getServerProxy().join(user.getAuthToken(), gameID);
+        joinCheck();
 
     }
 
