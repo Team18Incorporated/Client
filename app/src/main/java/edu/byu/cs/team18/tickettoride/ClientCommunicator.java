@@ -10,6 +10,9 @@ import java.lang.reflect.Constructor;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
@@ -24,11 +27,13 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 public class ClientCommunicator {
     private static ClientCommunicator SINGLETON;
     private static Gson gson = new Gson();
-    private static String SERVER_HOST = "67.205.155.130";
+    private static String SERVER_HOST = "192.168.2.30";//""67.205.155.130";
     private static String SERVER_PORT = "8080";
     private static String HTTP_POST = "POST";
     private static String HTTP_GET = "GET";
     private static String URL_PREFIX = "http://" + SERVER_HOST + ":" + SERVER_PORT;
+
+    private Object returnObject;
 
     public Object send(String url, Object command, Class<?> klass){
         HttpURLConnection connection = openConnection("/"+url, HTTP_POST, true);
@@ -110,18 +115,34 @@ public class ClientCommunicator {
         }
     }
 
-    public Object sendCmd(ICommand in){
-        Object out = new CCAsyncTask().execute(in);
+    public Object sendCmd(ICommand in, Class<?> klass){
+        Object out = null;
+        try {
+            out = new CCAsyncTask(klass).execute(in).get();//100, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }/* catch (TimeoutException e) {
+            e.printStackTrace();
+        }*/
         return out;
     }
 
     private class CCAsyncTask extends AsyncTask<ICommand,Void,Object>{
 
+        private Class<?> klass;
+        public CCAsyncTask(Class<?> klass)
+        {
+            this.klass=klass;
+        }
         @Override
         protected Object doInBackground(ICommand... iCommands) {
-            Object out = send(iCommands[0].getSuffix(),iCommands[0],AuthToken.class);
+            Object out = send(iCommands[0].getSuffix(),iCommands[0],klass);
             return out;
         }
+
+
     }
 
 }
