@@ -4,9 +4,12 @@ import android.graphics.Point;
 import android.widget.ImageView;
 
 import edu.byu.cs.team18.tickettoride.ClientModel;
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
+import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
 import edu.byu.cs.team18.tickettoride.Common.Player;
 import edu.byu.cs.team18.tickettoride.Common.Route;
+import edu.byu.cs.team18.tickettoride.ServerProxy;
 
 /**
  * Created by Antman 537 on 10/25/2017.
@@ -24,7 +27,9 @@ public class GamePresenter {
     @post: none
      */
     public void drawCard(){
-        //todo: connect to model
+        AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
+        String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
+        CommandList temp = ServerProxy.getServerProxy().drawTrainCard(token,id);
     }
     /*
     adds designated DestinationCard to the user's destinations

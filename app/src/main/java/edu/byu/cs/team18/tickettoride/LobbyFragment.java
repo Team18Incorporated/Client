@@ -57,6 +57,15 @@ public class LobbyFragment extends Fragment {
         }
     }
 
+    /*
+    launches the game
+    @pre: 1<#players<5 , game.checkStarted = true;
+    @post: launches
+     */
+    public void launchGame(){
+        activity.launchGame();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

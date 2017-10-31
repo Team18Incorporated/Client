@@ -93,9 +93,13 @@ public class LobbyPresenter implements Observer {
 
     public void start()
     {
-        StartCommand startCommand= new StartCommand(ClientModel.SINGLETON.getCurrentLobby().getGameID());
+        /*StartCommand startCommand= new StartCommand(ClientModel.SINGLETON.getCurrentLobby().getGameID());
         StartAsyncTask startAsyncTask = new StartAsyncTask();
-        startAsyncTask.execute(startCommand);
+        startAsyncTask.execute(startCommand);*/
+        StartedGameResult result = ServerProxy.getServerProxy().startGame
+                (ClientModel.SINGLETON.getCurrentLobby().getGameID());
+        boolean started= result.hasStarted();
+        LobbyPresenter.instance.checkStarted(started);
     }
 
     public void checkStarted(boolean started)
@@ -103,6 +107,9 @@ public class LobbyPresenter implements Observer {
         if(started)
         {
             Toast.makeText(view.getActivity(), "Game Starting", Toast.LENGTH_LONG).show();
+
+            view.launchGame();
+            clearView();
         }
         else
         {

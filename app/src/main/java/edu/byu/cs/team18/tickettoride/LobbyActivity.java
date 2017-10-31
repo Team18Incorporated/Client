@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import edu.byu.cs.team18.tickettoride.Common.Commands.StartCommand;
+import edu.byu.cs.team18.tickettoride.GameView.GameActivity;
 
 public class LobbyActivity extends AppCompatActivity {
     private android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
@@ -38,6 +39,11 @@ public class LobbyActivity extends AppCompatActivity {
 
     public void openJoinedGames(){
         manager.beginTransaction().replace(R.id.latice,new JoinedGamesFragment()).addToBackStack(null).commit();
+    }
+
+    public void launchGame(){
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
     }
 
     /*
