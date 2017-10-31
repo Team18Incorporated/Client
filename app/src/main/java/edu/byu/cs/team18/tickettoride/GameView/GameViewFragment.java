@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import edu.byu.cs.team18.tickettoride.Common.Route;
 import edu.byu.cs.team18.tickettoride.R;
 
 /**
@@ -70,7 +71,7 @@ public class GameViewFragment extends Fragment {
     @pre: pos != null && is the position of the car on the map, angle!=null
     @post: ImageView is initialized, connected, and has its onclick listener set
      */
-    public ImageView generateCar(Point pos, int angle){
+    public ImageView generateCar(Point pos, int angle, Route route){
         ImageView iv = new ImageView(activity);
         iv.setImageResource(R.drawable.car_clear);
         //set car position and add to xml
@@ -87,15 +88,15 @@ public class GameViewFragment extends Fragment {
         matrix.postRotate((float) angle, 0, 0);
         iv.setImageMatrix(matrix);
         //set onclick listener
-        setCarClick(iv);
+        setCarClick(iv, route);
         return iv;
     }
 
-    private void setCarClick(final ImageView car){
+    private void setCarClick(ImageView car, final Route route){
         car.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GamePresenter.SINGLETON.selectRoute(car);
+                GamePresenter.SINGLETON.selectRoute(route);
             }
         });
     }

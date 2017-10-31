@@ -24,7 +24,7 @@ public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
 
                 public void run() {
                     AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
-                    GameList joinableGames = (GameList) ServerProxy.getServerProxy().openGames();
+                    GameList joinableGames = (GameList) ServerProxy.getServerProxy().openGames(token);
                     GameList joinedGames= (GameList)(ServerProxy.getServerProxy().unstartedGames(token));
                     GameList startedGames= (GameList)(ServerProxy.getServerProxy().inProgressGames(token));
 
