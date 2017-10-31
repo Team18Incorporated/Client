@@ -106,8 +106,9 @@ public class LobbyPresenter implements Observer {
         if(started)
         {
             Toast.makeText(view.getActivity(), "Game Starting", Toast.LENGTH_LONG).show();
-
-
+            LobbyActivity temp = (LobbyActivity) view.getActivity();
+            clearView();
+            temp.openGame();
         }
         else
         {

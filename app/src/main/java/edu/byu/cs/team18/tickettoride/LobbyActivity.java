@@ -58,16 +58,6 @@ public class LobbyActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * Created by Solomons on 10/30/2017.
-     */
-
-    public static class DestinationSelectFragment {
-    }
-
-
-
-
 
     public void openGame()
     {
@@ -76,4 +66,11 @@ public class LobbyActivity extends AppCompatActivity {
     }
 
 
+
+    /**
+     * Created by Solomons on 10/30/2017.
+     */
+
+    public static class DestinationSelectFragment {
+    }
 }
