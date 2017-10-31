@@ -12,9 +12,16 @@ public class DrawDestinationCardCommand implements ICommand{
     private AuthToken authToken;
     private String gameID;
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute()
     {
-
+        //To be done on the server
     }
 
     public DrawDestinationCardCommand(AuthToken authToken, String gameID) {

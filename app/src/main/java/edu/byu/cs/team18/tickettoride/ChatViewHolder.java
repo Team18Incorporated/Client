@@ -23,8 +23,6 @@ public class ChatViewHolder extends RecyclerView.ViewHolder{
         name = (TextView) v.findViewById(R.id.chat_name_text_view);
         message = (TextView) v.findViewById(R.id.chat_message_text_view);
         date = (TextView) v.findViewById(R.id.chat_date_text_view);
-
-
     }
 
     public ChatMessage getChatMessage() {

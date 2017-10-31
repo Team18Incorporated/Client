@@ -13,6 +13,13 @@ public class UpdateChatHistoryCommand implements ICommand {
     private ChatHistory history;
     //private String gameID;
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute()
     {
         ClientFacade.getClientFacade().updateChatHistory(history);

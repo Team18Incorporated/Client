@@ -11,11 +11,6 @@ public class JoinCommand implements ICommand{
 
     private String gameID;
     private AuthToken token;
-    private String suffix = "Join";
-
-    public String getSuffix() {
-        return suffix;
-    }
 
     public String getGameID() {
         return gameID;
@@ -40,6 +35,13 @@ public class JoinCommand implements ICommand{
     }
 
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute(){}
 
 }

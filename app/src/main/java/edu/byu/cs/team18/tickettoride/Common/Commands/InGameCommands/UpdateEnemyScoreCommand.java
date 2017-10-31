@@ -11,6 +11,14 @@ public class UpdateEnemyScoreCommand implements ICommand {
     private String playerID;
     private int points;
 
+
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute()
     {
         ClientFacade.getClientFacade().updateEnemyScore(playerID,points);

@@ -14,6 +14,13 @@ public class SendChatCommand implements ICommand {
     private ChatMessage message;
     private AuthToken authToken;
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute() {
         //The server will do this.
     }

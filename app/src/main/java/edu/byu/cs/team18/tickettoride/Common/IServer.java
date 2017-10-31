@@ -47,7 +47,7 @@ public interface IServer {
 	 * @Pre: None
 	 * @Post: Object gamesList !=null && isType List<String> of gameIDs
 	 */
-	public Object openGames();
+	public Object openGames(AuthToken token);
 	/*
 	 * returns a list of in-progress games authToken user is currently in
 	 * @Pre: 0 < authToken < 10000

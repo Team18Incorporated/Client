@@ -14,6 +14,13 @@ public class UpdateTrainHandCommand implements ICommand {
     private TrainCard card2;
 
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute()
     {
         ClientFacade.getClientFacade().updateTrainHand(card1, card2);

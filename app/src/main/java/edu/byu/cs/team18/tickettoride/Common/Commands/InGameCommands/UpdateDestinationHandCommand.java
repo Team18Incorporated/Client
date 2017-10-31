@@ -14,7 +14,13 @@ public class UpdateDestinationHandCommand implements ICommand {
 
     List<DestinationCard> list;
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
 
+    @Override
     public void execute()
     {
         ClientFacade.getClientFacade().updateDestinationHand(list);

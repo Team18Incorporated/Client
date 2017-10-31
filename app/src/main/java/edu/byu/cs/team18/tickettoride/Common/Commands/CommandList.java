@@ -9,6 +9,13 @@ import java.util.List;
 public class CommandList implements ICommand{
     private List<ICommand> list;
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute()
     {
         for(int i = 0; i < list.size(); i++)

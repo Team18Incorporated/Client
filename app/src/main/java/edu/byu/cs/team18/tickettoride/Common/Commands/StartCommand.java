@@ -7,11 +7,6 @@ package edu.byu.cs.team18.tickettoride.Common.Commands;
 public class StartCommand implements ICommand{
 
     private String gameID;
-    private String suffix = "Start";
-
-    public String getSuffix() {
-        return suffix;
-    }
 
     public String getGameID() {
         return gameID;
@@ -28,5 +23,12 @@ public class StartCommand implements ICommand{
 
 
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute(){}
 }

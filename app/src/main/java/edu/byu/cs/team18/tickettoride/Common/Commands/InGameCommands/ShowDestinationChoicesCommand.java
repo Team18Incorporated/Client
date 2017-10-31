@@ -14,6 +14,13 @@ import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
 public class ShowDestinationChoicesCommand implements ICommand {
     List<DestinationCard> list;
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute()
     {
         ClientFacade.getClientFacade().showDestinationCardChoices(list);

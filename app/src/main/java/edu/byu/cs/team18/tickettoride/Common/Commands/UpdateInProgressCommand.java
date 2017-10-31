@@ -8,12 +8,6 @@ import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 
 public class UpdateInProgressCommand implements ICommand{
     private AuthToken token;
-    private String suffix = "UpdateInProgress";
-
-
-    public String getSuffix() {
-        return suffix;
-    }
 
 
 
@@ -32,5 +26,12 @@ public class UpdateInProgressCommand implements ICommand{
     }
 
 
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute(){}
 }

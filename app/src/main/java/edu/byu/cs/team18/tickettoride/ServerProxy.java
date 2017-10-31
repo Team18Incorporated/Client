@@ -109,9 +109,9 @@ public class ServerProxy implements IServer {
      * @Post: Object gamesList !=null && isType List<String> of gameIDs
      */
     @Override
-    public Object openGames()
+    public Object openGames(AuthToken token)
     {
-        return ClientCommunicator.getSingleton().sendCmd(new UpdateOpenCommand());
+        return ClientCommunicator.getSingleton().sendCmd(new UpdateOpenCommand(token));
     }
     /*
      * returns a list of in-progress games authToken user is currently in
@@ -149,45 +149,50 @@ public class ServerProxy implements IServer {
 	* @pre 0 < authToken&&gameID < 10000
 	* @post returns a list of commands to be executed on the client.
 	 */
+    @Override
     public CommandList claimRoute(AuthToken authToken, String gameID, Route route)
     {
-        return (CommandList)ClientCommunicator.getSingleton().send("ClaimRoute",new ClaimRouteCommand(authToken,gameID,route),CommandList.class);
+        return (CommandList)ClientCommunicator.getSingleton().sendCmd(new ClaimRouteCommand(authToken,gameID,route));
     }
 
     /*
     * @pre 0 < authToken&&gameID < 10000
     * @post returns a list of commands (UpdateTrainHand and UpdateTrainDeckSize)
      */
+    @Override
     public CommandList drawTrainCard(AuthToken authToken, String gameID)
     {
-        return (CommandList)ClientCommunicator.getSingleton().send("DrawTrainCard",new DrawTrainCardCommand(authToken,gameID),DrawTrainCardCommand.class);
+        return (CommandList)ClientCommunicator.getSingleton().sendCmd(new DrawTrainCardCommand(authToken,gameID));
     }
 
     /*
      * @pre 0 < authToken&&gameID < 10000
      * @post returns a command which shows choosable cards in the GUI.
      */
+    @Override
     public ShowDestinationChoicesCommand drawDestinationCard(AuthToken authToken, String gameID)
     {
         return (ShowDestinationChoicesCommand) ClientCommunicator.getSingleton()
-                .send("DrawDestinationCard",new DrawDestinationCardCommand(authToken,gameID),DrawDestinationCardCommand.class);
+                .sendCmd(new DrawDestinationCardCommand(authToken,gameID));
     }
 
+    @Override
     public CommandList sendBackDestinations(AuthToken authToken, String gameID, List<DestinationCard> list)
     {
         return (CommandList) ClientCommunicator.getSingleton()
-                .send("SendBackDestinations",new SendBackDestinationsCommand(authToken,gameID,list),SendBackDestinationsCommand.class);
+                .sendCmd(new SendBackDestinationsCommand(authToken,gameID,list));
     }
 
+    @Override
     public UpdateFaceUpCommand drawFromFaceUp(AuthToken authToken, String gameID, TrainCard card)
     {
         return (UpdateFaceUpCommand)ClientCommunicator.getSingleton()
-                .send("DrawFromFaceUp",new DrawFromFaceUpCommand(authToken,gameID,card),UpdateFaceUpCommand.class);
+                .sendCmd(new DrawFromFaceUpCommand(authToken,gameID,card));
     }
 
-
+    @Override
     public UpdateChatHistoryCommand sendChat(AuthToken authToken, ChatMessage chatMessage)
     {
-        return (UpdateChatHistoryCommand) ClientCommunicator.getSingleton().send("SendChat",new SendChatCommand(), SendChatCommand.class);
+        return (UpdateChatHistoryCommand) ClientCommunicator.getSingleton().sendCmd(new SendChatCommand(chatMessage, authToken));
     }
 }

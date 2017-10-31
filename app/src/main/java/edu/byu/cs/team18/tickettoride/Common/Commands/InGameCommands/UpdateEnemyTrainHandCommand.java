@@ -11,9 +11,24 @@ public class UpdateEnemyTrainHandCommand implements ICommand {
     private String playerID;
     private int size;
 
+
+    @Override
+    public String getSuffix() {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
+    }
+
+    @Override
     public void execute()
     {
         ClientFacade.getClientFacade().updateEnemyTrainHand(playerID,size);
+    }
+
+    @Override
+    public String toString()
+    {
+        String name = ClientFacade.getClientFacade().findPlayerName(playerID);
+        return name + " now has " + size + " cards.";
     }
 
     public String getPlayerID() {
