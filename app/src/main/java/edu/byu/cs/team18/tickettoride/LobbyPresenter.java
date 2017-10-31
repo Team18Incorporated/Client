@@ -114,7 +114,7 @@ public class LobbyPresenter implements Observer {
             Toast.makeText(view.getActivity(), "Not Enough Players", Toast.LENGTH_LONG).show();
         }
     }
-
+/*
     private class StartAsyncTask extends AsyncTask<StartCommand, Void, StartedGameResult>
     {
         @Override
@@ -130,4 +130,5 @@ public class LobbyPresenter implements Observer {
             LobbyPresenter.instance.checkStarted(result);
         }
     }
+*/
 }

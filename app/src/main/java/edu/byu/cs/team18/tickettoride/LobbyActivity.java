@@ -1,7 +1,10 @@
 package edu.byu.cs.team18.tickettoride;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import edu.byu.cs.team18.tickettoride.GameView.GameActivity;
 
 public class LobbyActivity extends AppCompatActivity {
     private android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
@@ -61,4 +64,16 @@ public class LobbyActivity extends AppCompatActivity {
 
     public static class DestinationSelectFragment {
     }
+
+
+
+
+
+    public void openGame()
+    {
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+    }
+
+
 }
