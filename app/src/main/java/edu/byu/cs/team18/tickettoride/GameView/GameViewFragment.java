@@ -38,6 +38,9 @@ public class GameViewFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public void refreshView(){
+        //todo: implement refresh
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,7 @@ public class GameViewFragment extends Fragment {
                 GamePresenter.SINGLETON.incrementTest();
             }
         });
+        GamePresenter.SINGLETON.setView(this);
         return view;
     }
     /*
