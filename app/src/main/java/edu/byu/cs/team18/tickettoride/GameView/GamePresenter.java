@@ -89,10 +89,13 @@ public class GamePresenter implements Observer{
      */
     public void selectRoute(Route in){
         ClientModel.SINGLETON.setCurrentRoute(in);
-        int largestSet = 0;
-        ArrayList<TrainCard> hand = ClientModel.SINGLETON.getCurrentPlayer().getHand();
-
-        //todo: write conditions for claimRoute to appear
+        Player player = ClientModel.SINGLETON.getCurrentPlayer();
+        if (in.getLength()<=player.cardCount(in.getColor())){
+            view.toggleClaim(true);
+        }
+        else{
+            view.toggleClaim(false);
+        }
     }
     /*
     Claims designated route for currentPlayer;

@@ -92,4 +92,14 @@ public class Player {
     public void setHand(ArrayList<TrainCard> hand) {
         this.hand = hand;
     }
+
+    public int cardCount(CardColor color){
+        int out = 0;
+        for (int i=0; i<hand.size(); i++){
+            if (hand.get(i).getColor() == color || hand.get(i).getColor().getColor().equals("wild")){
+                out++;
+            }
+        }
+        return out;
+    }
 }
