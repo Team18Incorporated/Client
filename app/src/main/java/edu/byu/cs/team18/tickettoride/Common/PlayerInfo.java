@@ -10,6 +10,7 @@ public class PlayerInfo {
     private int numTrainCards;
     private int numDestinationCards;
     private int points;
+    private int numTrainPieces;
 
     public PlayerInfo(Player player)
     {
@@ -19,6 +20,7 @@ public class PlayerInfo {
         points=player.getPoints();
         numTrainCards=player.getHand().size();
         numDestinationCards=player.getDestinationCards().size();
+        numTrainPieces=player.getNumTrainPieces();
     }
 
     public String getPlayerID() {
@@ -45,6 +47,8 @@ public class PlayerInfo {
         return points;
     }
 
+    public int getNumTrainPieces(){return numTrainPieces;}
+
     public void setNumTrainCards(int numTrainCards) {
         this.numTrainCards = numTrainCards;
     }
@@ -56,4 +60,6 @@ public class PlayerInfo {
     public void setPoints(int points) {
         this.points = points;
     }
+
+    public void setNumTrainPieces(int pieces){numTrainPieces = pieces;}
 }

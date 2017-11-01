@@ -1,7 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/playerName"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.byu.cs.team18.tickettoride.GameView.PlayerFragment">
@@ -12,8 +11,11 @@
         android:id="@+id/playerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Player Name:" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:text="Player Name:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/playerScore"
@@ -39,8 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/playerName"
         android:layout_alignBottom="@+id/playerName"
-        android:layout_toEndOf="@+id/playerName"
-        android:text="NAME" />
+        android:layout_toEndOf="@+id/playerName" />
 
     <TextView
         android:id="@+id/score"
@@ -48,8 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/playerScore"
         android:layout_alignBottom="@+id/playerScore"
-        android:layout_toEndOf="@+id/hand"
-        android:text="SCORE" />
+        android:layout_toEndOf="@+id/hand" />
 
     <TextView
         android:id="@+id/cars"
@@ -57,8 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/playerCars"
         android:layout_alignBottom="@+id/playerCars"
-        android:layout_toEndOf="@+id/playerCars"
-        android:text="CARS" />
+        android:layout_toEndOf="@+id/playerCars" />
 
     <TextView
         android:id="@+id/handSize"
@@ -66,8 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/hand"
         android:layout_marginTop="14dp"
-        android:layout_toEndOf="@+id/hand"
-        android:text="HAND" />
+        android:layout_toEndOf="@+id/hand" />
 
     <ImageView
         android:id="@+id/hand"
@@ -76,4 +74,12 @@
         android:layout_alignEnd="@+id/playerScore"
         android:layout_below="@+id/playerCars"
         android:src="@drawable/hand" />
+
+    <Spinner
+        android:id="@+id/playerSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:entries="@array/players"/>
 </RelativeLayout>

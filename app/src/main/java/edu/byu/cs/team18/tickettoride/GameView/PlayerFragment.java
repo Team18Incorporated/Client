@@ -1,28 +1,33 @@
 package edu.byu.cs.team18.tickettoride.GameView;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import edu.byu.cs.team18.tickettoride.ClientModel;
+import edu.byu.cs.team18.tickettoride.Common.Game;
+import edu.byu.cs.team18.tickettoride.Common.Player;
+import edu.byu.cs.team18.tickettoride.Common.PlayerInfo;
 import edu.byu.cs.team18.tickettoride.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link PlayerFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link PlayerFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class PlayerFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private View view;
+    private TextView name;
+    private TextView score;
+    private TextView cars;
+    private TextView handSize;
+    private String nullText = "";
+
 
 
     public PlayerFragment() {
@@ -35,13 +40,52 @@ public class PlayerFragment extends Fragment {
 
     }
 
+    private void displayPlayer(PlayerInfo player){
+        if (player != null) {
+            name.setText(player.getPlayerName());
+            score.setText(player.getPoints());
+            cars.setText(player.getNumTrainPieces());
+            handSize.setText(player.getNumTrainCards());
+        }
+        else{
+            name.setText(nullText);
+            score.setText(nullText);
+            cars.setText(nullText);
+            handSize.setText(nullText);
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_player, container, false);
-        TextView name = (TextView) view.findViewById(R.id.name);
-        //name.setText();
+        name = (TextView) view.findViewById(R.id.name);
+        score = (TextView) view.findViewById(R.id.score);
+        cars = (TextView) view.findViewById(R.id.cars);
+        handSize = (TextView) view.findViewById(R.id.score);
+
+        final String[] spinnerPlayers = getResources().getStringArray((R.array.players));
+        Spinner spinner = (Spinner) view.findViewById(R.id.playerSpinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            Game game = ClientModel.SINGLETON.getCurrentGame();
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position>game.getPlayerList().size()) {
+                    displayPlayer(null);
+                }
+                else {
+                    displayPlayer(game.getPlayerList().get(position));
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //Must be orverridden but we don't use it.
+                Game game = ClientModel.SINGLETON.getCurrentGame();
+                displayPlayer(game.getPlayerList().get(0));
+            }
+        });
+
         return view;
     }
 
