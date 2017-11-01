@@ -4,12 +4,17 @@
     tools:context="edu.byu.cs.team18.tickettoride.GameView.ScrollingActivity">
     <item
         android:id="@+id/drawDestinations"
-        android:orderInCategory="101"
+        android:orderInCategory="102"
         android:title="Draw Destination Cards" />
     <item
         android:id="@+id/history"
         android:orderInCategory="104"
         android:title="History" />
+    <item
+        android:id="@+id/hand"
+        android:icon="@drawable/hand"
+        android:orderInCategory="101"
+        android:title="Hand" />
     <item
         android:id="@+id/chat"
         android:orderInCategory="103"

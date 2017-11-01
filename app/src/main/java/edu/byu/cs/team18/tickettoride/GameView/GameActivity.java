@@ -57,6 +57,9 @@ public class GameActivity extends AppCompatActivity {
         Intent intent;
         // go back to main activity //
         switch(item.getItemId()) {
+            case R.id.hand:
+                openHand();
+                break;
             case R.id.drawDestinations:
                 openDestination();
                 break;

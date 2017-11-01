@@ -18,20 +18,11 @@
         android:layout_alignParentEnd="true" />
 
     <ImageButton
-        android:id="@+id/hand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        app:srcCompat="@drawable/hand" />
-
-    <ImageButton
         android:id="@+id/cardDeck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="25dp"
         app:srcCompat="@drawable/card_deck" />
 
     <Button
@@ -57,8 +48,9 @@
         android:id="@+id/faceUpCard2"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_above="@+id/faceUpCard4"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
+        android:layout_marginBottom="32dp"
         android:scaleType="fitCenter"
         android:src="@drawable/card_rainbow" />
 
@@ -66,7 +58,26 @@
         android:id="@+id/faceUpCard3"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_above="@+id/hand"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/faceUpCard1"
+        android:layout_marginTop="30dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/card_rainbow" />
+
+    <ImageView
+        android:id="@+id/faceUpCard4"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/claimRoute"
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/card_rainbow" />
+
+    <ImageView
+        android:id="@+id/faceUpCard5"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:scaleType="fitCenter"
         android:src="@drawable/card_rainbow" />
