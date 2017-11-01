@@ -63,8 +63,9 @@ public class GamePresenter implements Observer{
     public void drawCard(){
         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
         String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
-        CommandList temp = ServerProxy.getServerProxy().drawTrainCard(token,id);
-        temp.execute();
+        ServerProxy.getServerProxy().drawTrainCard(token,id);
+//        CommandList temp = ServerProxy.getServerProxy().drawTrainCard(token,id);
+//        temp.execute();
     }
     public void drawFaceUpCard(int in){
         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
@@ -109,8 +110,9 @@ public class GamePresenter implements Observer{
     public void claimRoute(Route in){
         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
         String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
-        CommandList temp = ServerProxy.getServerProxy().claimRoute(token, id, in);
-        temp.execute();
+        ServerProxy.getServerProxy().claimRoute(token, id, in);
+//        CommandList temp = ServerProxy.getServerProxy().claimRoute(token, id, in);
+//        temp.execute();
     }
     /*
     counts the given player's pieces
