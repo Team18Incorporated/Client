@@ -83,4 +83,8 @@ public class GameMap {
         }
         return null;
     }
+
+    public ArrayList<Route> getRouteList() {
+        return routeList;
+    }
 }

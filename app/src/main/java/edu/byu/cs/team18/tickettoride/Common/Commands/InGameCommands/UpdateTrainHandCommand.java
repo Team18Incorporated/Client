@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import edu.byu.cs.team18.tickettoride.ClientFacade;
+import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 
@@ -45,5 +46,10 @@ public class UpdateTrainHandCommand implements ICommand {
 
     public void setCard2(TrainCard card2) {
         this.card2 = card2;
+    }
+
+    public String toString()
+    {
+        return ClientModel.SINGLETON.getCurrentPlayer().getPlayerName()+" drew a "+ card1.getColor()+" card, and a "+card2.getColor()+" from the deck.";
     }
 }

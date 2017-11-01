@@ -73,6 +73,7 @@ public class GameViewFragment extends Fragment {
                 GamePresenter.SINGLETON.incrementTest();
             }
         });
+        GamePresenter.SINGLETON.setView(view);
         return view;
     }
     /*

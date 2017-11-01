@@ -88,4 +88,8 @@ public class Player {
     public void setDestinationCardChoices(List<DestinationCard> destinationCardChoices) {
         this.destinationCardChoices = destinationCardChoices;
     }
+
+    public void setHand(ArrayList<TrainCard> hand) {
+        this.hand = hand;
+    }
 }
