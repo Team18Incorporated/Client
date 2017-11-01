@@ -66,6 +66,12 @@ public class GamePresenter implements Observer{
         CommandList temp = ServerProxy.getServerProxy().drawTrainCard(token,id);
         temp.execute();
     }
+    public void drawFaceUpCard(int in){
+        AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
+        String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
+        TrainCard card = ClientModel.SINGLETON.getCurrentGame().getVisibleCards().get(in);
+        ServerProxy.getServerProxy().drawFromFaceUp(token,id,card);
+    }
     /*
     adds designated DestinationCard to the user's destinations
     @pre: in!=null
@@ -228,7 +234,8 @@ public class GamePresenter implements Observer{
 
     @Override
     public void update(Observable observable, Object o) {
-
+        updateView();
+        //todo: add conditions
     }
     private void updateView()
     {

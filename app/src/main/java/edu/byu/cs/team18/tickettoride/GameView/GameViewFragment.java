@@ -40,6 +40,12 @@ public class GameViewFragment extends Fragment {
     private Button claim;
     private Boolean claimable = false;
 
+    private ImageView faceUpCard1;
+    private ImageView faceUpCard2;
+    private ImageView faceUpCard3;
+    private ImageView faceUpCard4;
+    private ImageView faceUpCard5;
+
     public GameViewFragment() {
         // Required empty public constructor
     }
@@ -51,6 +57,18 @@ public class GameViewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    /*
+    sets the images for the faceUp cards
+    @pre: there are exactly 5 face up cards
+    @post: none
+     */
+    public void setFaceUpCards(){
+        ArrayList<TrainCard> temp = ClientModel.SINGLETON.getCurrentGame().getVisibleCards();
+        for (int i=0; i<4; i++){
+
+        }
     }
 
     @Override
@@ -75,8 +93,43 @@ public class GameViewFragment extends Fragment {
                 }
             }
         });
-        // initialize visible cards
-        ArrayList<TrainCard> temp = ClientModel.SINGLETON.getCurrentGame().getVisibleCards();
+        //initialize cards
+        faceUpCard1 = (ImageView) view.findViewById(R.id.faceUpCard1);
+        faceUpCard1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GamePresenter.SINGLETON.drawFaceUpCard(0);
+            }
+        });
+        faceUpCard2 = (ImageView) view.findViewById(R.id.faceUpCard1);
+        faceUpCard2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GamePresenter.SINGLETON.drawFaceUpCard(1);
+            }
+        });
+        faceUpCard3 = (ImageView) view.findViewById(R.id.faceUpCard1);
+        faceUpCard3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GamePresenter.SINGLETON.drawFaceUpCard(2);
+            }
+        });
+        faceUpCard4 = (ImageView) view.findViewById(R.id.faceUpCard1);
+        faceUpCard4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GamePresenter.SINGLETON.drawFaceUpCard(3);
+            }
+        });
+        faceUpCard5 = (ImageView) view.findViewById(R.id.faceUpCard1);
+        faceUpCard5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GamePresenter.SINGLETON.drawFaceUpCard(4);
+            }
+        });
+        setFaceUpCards();
 
         testButton=(Button) view.findViewById(R.id.test_button);
         testButton.setOnClickListener(new View.OnClickListener() {
