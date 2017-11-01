@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import edu.byu.cs.team18.tickettoride.ClientFacade;
+import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 /**
@@ -22,6 +23,7 @@ public class UpdateEnemyTrainHandCommand implements ICommand {
     public void execute()
     {
         ClientFacade.getClientFacade().updateEnemyTrainHand(playerID,size);
+        ClientModel.SINGLETON.getCurrentGame().addToGameHistory(this);
     }
 
     @Override
