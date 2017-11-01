@@ -67,7 +67,7 @@ public class GameViewFragment extends Fragment {
             }
         });
         //Todo: implement destinationDeck
-
+        //destinationDeck = (ImageButton) view.findViewById(R.id.d)
 
         testButton=(Button) view.findViewById(R.id.test_button);
         testButton.setOnClickListener(new View.OnClickListener() {

@@ -84,7 +84,10 @@ public class GamePresenter implements Observer{
     Claims designated route for currentPlayer;
      */
     public void claimRoute(Route in){
-        //todo: implement route class, connect to model
+        AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
+        String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
+        CommandList temp = ServerProxy.getServerProxy().claimRoute(token, id, in);
+        temp.execute();
     }
     /*
     counts the given player's pieces
@@ -92,8 +95,7 @@ public class GamePresenter implements Observer{
     @post: 0<=int out<=48 -1 = error
      */
     public int countPieces(Player in){
-        int out = -1;
-        //Todo: add call to get piece count
+        int out = in.getNumTrainPieces();
         return out;
     }
 
