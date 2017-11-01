@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.GameView;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 
 import edu.byu.cs.team18.tickettoride.ClientModel;
+import edu.byu.cs.team18.tickettoride.Common.CardColor;
 import edu.byu.cs.team18.tickettoride.Common.Route;
 import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 import edu.byu.cs.team18.tickettoride.R;
@@ -66,9 +68,43 @@ public class GameViewFragment extends Fragment {
      */
     public void setFaceUpCards(){
         ArrayList<TrainCard> temp = ClientModel.SINGLETON.getCurrentGame().getVisibleCards();
-        for (int i=0; i<4; i++){
-
+        faceUpCard1.setImageResource(pickGraphic(temp.get(0).getColor()));
+        faceUpCard2.setImageResource(pickGraphic(temp.get(1).getColor()));
+        faceUpCard3.setImageResource(pickGraphic(temp.get(2).getColor()));
+        faceUpCard4.setImageResource(pickGraphic(temp.get(3).getColor()));
+        faceUpCard5.setImageResource(pickGraphic(temp.get(4).getColor()));
+    }
+    public int pickGraphic(CardColor color){
+        int out = R.drawable.card_rainbow;
+        switch (color.getColor()){
+            case "black":
+                out = R.drawable.card_black;
+                break;
+            case "blue":
+                out = R.drawable.card_blue;
+                break;
+            case "green":
+                out = R.drawable.card_green;
+                break;
+            case "orange":
+                out = R.drawable.card_orange;
+                break;
+            case "purple":
+                out = R.drawable.card_purple;
+                break;
+            case "rainbow":
+                out = R.drawable.card_rainbow;
+                break;
+            case "red":
+                out = R.drawable.card_red;
+                break;
+            case "white":
+                out = R.drawable.card_white;
+                break;
+            case "yellow":
+                out = R.drawable.card_yellow;
         }
+        return out;
     }
 
     @Override
