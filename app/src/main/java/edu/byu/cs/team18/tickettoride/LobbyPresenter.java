@@ -9,6 +9,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 import edu.byu.cs.team18.tickettoride.Common.Commands.StartCommand;
+import edu.byu.cs.team18.tickettoride.Common.Player;
+import edu.byu.cs.team18.tickettoride.Common.PlayerInfo;
 import edu.byu.cs.team18.tickettoride.Common.StartedGameResult;
 
 /**
@@ -96,8 +98,16 @@ public class LobbyPresenter implements Observer {
         /*StartCommand startCommand= new StartCommand(ClientModel.SINGLETON.getCurrentLobby().getGameID());
         StartAsyncTask startAsyncTask = new StartAsyncTask();
         startAsyncTask.execute(startCommand);*/
+        ArrayList<Player> players =ClientModel.SINGLETON.getCurrentLobby().getPlayerList();
+        for(int i=0; i<players.size(); i++)
+        {
+            if(players.get(i).getPlayerName().equals(ClientModel.SINGLETON.getCurrentUser().getUsername()))
+            {
+                ClientModel.SINGLETON.setCurrentPlayer(players.get(i));
+            }
+        }
         StartedGameResult result = ServerProxy.getServerProxy().startGame
-                (ClientModel.SINGLETON.getCurrentLobby().getGameID());
+                (ClientModel.SINGLETON.getCurrentLobby().getGameID(), ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
         if(result!=null)
         {
             boolean started= result.hasStarted();
@@ -112,6 +122,7 @@ public class LobbyPresenter implements Observer {
         {
             Toast.makeText(view.getActivity(), "Game Starting", Toast.LENGTH_LONG).show();
             ClientModel.SINGLETON.setCurrentGame(result.getGame());
+            //ClientModel.SINGLETON.getCurrentPlayer().setHand(result.getPlayerHand());
             view.launchGame();
             clearView();
         }

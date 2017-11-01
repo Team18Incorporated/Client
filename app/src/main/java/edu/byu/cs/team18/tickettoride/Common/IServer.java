@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common;
 
 
+import java.util.Date;
 import java.util.List;
 
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
@@ -65,7 +66,7 @@ public interface IServer {
 	 * @Pre: 0 < gameID < 10000
 	 * @Post: None
 	 */
-	public StartedGameResult startGame(String gameID);
+	public StartedGameResult startGame(String gameID, String playerID);
 
 	/*
 	* @pre route is not null
@@ -101,5 +102,5 @@ public interface IServer {
 
 	public void sendChat(AuthToken authToken, ChatMessage chatMessage);
 
-	public void getHistory(AuthToken token, String gameID);
+	public CommandList getHistory(AuthToken token, String gameID, Date date);
 }

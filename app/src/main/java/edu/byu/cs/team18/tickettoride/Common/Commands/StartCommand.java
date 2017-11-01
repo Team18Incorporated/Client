@@ -7,6 +7,7 @@ package edu.byu.cs.team18.tickettoride.Common.Commands;
 public class StartCommand implements ICommand{
 
     private String gameID;
+    private String playerID;
 
     public String getGameID() {
         return gameID;
@@ -16,9 +17,10 @@ public class StartCommand implements ICommand{
         this.gameID = gameID;
     }
 
-    public StartCommand(String ID)
+    public StartCommand(String ID, String playerId)
     {
         gameID = ID;
+        this.playerID=playerId;
     }
 
 

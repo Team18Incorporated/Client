@@ -15,12 +15,12 @@ import edu.byu.cs.team18.tickettoride.Common.ChatHistory;
 import edu.byu.cs.team18.tickettoride.Common.ChatMessage;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ClaimRouteCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.RemoveCardsCommand;
+//import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.RemoveCardsCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateChatHistoryCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateEnemyScoreCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateEnemyTrainHandCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateFaceUpCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdatePlayerTurnCommand;
+//import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdatePlayerTurnCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateScoreCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateTrainDeckSizeCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateTrainHandCommand;
@@ -114,6 +114,10 @@ public class GamePresenter implements Observer{
 //        CommandList temp = ServerProxy.getServerProxy().claimRoute(token, id, in);
 //        temp.execute();
     }
+    public ArrayList<TrainCard> getHand()
+    {
+        return ClientModel.SINGLETON.getCurrentPlayer().getHand();
+    }
     /*
     counts the given player's pieces
     @pre: player!= null  && player is in game
@@ -160,11 +164,11 @@ public class GamePresenter implements Observer{
          else if(testStep==3)
         {
 
-            RemoveCardsCommand rcc = new RemoveCardsCommand(ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList().get(2));
+            /*RemoveCardsCommand rcc = new RemoveCardsCommand(ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList().get(2));
             rcc.execute();
             ClientModel.SINGLETON.getCurrentGame().addToGameHistory(rcc);
             Toast.makeText(view.getContext(), "Removing Cards", Toast.LENGTH_LONG).show();
-            testStep++;
+            testStep++;*/
         }
         else if(testStep==4)
         {
@@ -224,11 +228,11 @@ public class GamePresenter implements Observer{
         else if(testStep==10)
         {
 
-            UpdatePlayerTurnCommand uptc= new UpdatePlayerTurnCommand(ClientModel.SINGLETON.getCurrentGame().getPlayerTurn()+1);
+            /*UpdatePlayerTurnCommand uptc= new UpdatePlayerTurnCommand(ClientModel.SINGLETON.getCurrentGame().getPlayerTurn()+1);
             uptc.execute();
             ClientModel.SINGLETON.getCurrentGame().addToGameHistory(uptc);
             Toast.makeText(view.getContext(), "Next Player's turn", Toast.LENGTH_LONG).show();
-            testStep++;
+            testStep++;*/
         }
 
         
