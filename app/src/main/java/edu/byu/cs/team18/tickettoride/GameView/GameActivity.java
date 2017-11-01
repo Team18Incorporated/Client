@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import edu.byu.cs.team18.tickettoride.ChatFragment;
 import edu.byu.cs.team18.tickettoride.ClientModel;
+import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.DestinationSelectFragment;
 import edu.byu.cs.team18.tickettoride.GameHistoryFragment;
 import edu.byu.cs.team18.tickettoride.R;
@@ -40,7 +41,9 @@ public class GameActivity extends AppCompatActivity {
         manager.beginTransaction().add(R.id.latice,temp).commit();
     }
     public void openHistory(){
-        manager.beginTransaction().add(R.id.latice,new GameHistoryFragment()).commit();
+        GameHistoryFragment fragment = new GameHistoryFragment();
+        fragment.setCommandList(new CommandList(ClientModel.SINGLETON.getCurrentGame().getGameHistory()));
+        manager.beginTransaction().add(R.id.latice,fragment).commit();
     }
 
     @Override

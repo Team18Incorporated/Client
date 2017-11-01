@@ -109,4 +109,8 @@ public class Game {
     {
         gameHistory.add(command);
     }
+
+    public ArrayList<ICommand> getGameHistory() {
+        return gameHistory;
+    }
 }
