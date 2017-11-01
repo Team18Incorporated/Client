@@ -1,5 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
+import java.util.Date;
+
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
@@ -10,6 +12,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 public class UpdateGameHistoryCommand implements ICommand {
     private AuthToken authToken;
     private String gameID;
+    private Date date;
 
 
 
@@ -24,9 +27,10 @@ public class UpdateGameHistoryCommand implements ICommand {
     }
 
 
-    public UpdateGameHistoryCommand(AuthToken authToken, String gameID) {
+    public UpdateGameHistoryCommand(AuthToken authToken, String gameID, Date date) {
         this.authToken = authToken;
         this.gameID = gameID;
+        this.date=date;
     }
 
     public AuthToken getAuthToken() {
