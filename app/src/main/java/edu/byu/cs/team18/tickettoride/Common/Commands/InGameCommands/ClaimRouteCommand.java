@@ -40,6 +40,7 @@ public class ClaimRouteCommand implements ICommand {
     @Override
     public void execute() {
         ClientFacade.getClientFacade().claimRoute(gameID, playerID, route);
+        ClientModel.SINGLETON.getCurrentGame().addToGameHistory(this);
     }
 
     @Override

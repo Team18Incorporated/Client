@@ -100,4 +100,6 @@ public interface IServer {
 	public UpdateFaceUpCommand drawFromFaceUp(AuthToken authToken, String gameID, TrainCard card);
 
 	public UpdateChatHistoryCommand sendChat(AuthToken authToken, ChatMessage chatMessage);
+
+	public CommandList getHistory(AuthToken token, String gameID);
 }

@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Route;
 import edu.byu.cs.team18.tickettoride.R;
 
@@ -31,8 +32,10 @@ public class GameViewFragment extends Fragment {
     private View view;
     private ImageButton hand;
     private ImageButton deck;
-    private ImageButton destinationDeck;
+    //private ImageButton destinationDeck;
     private Button testButton;
+    private Button claim;
+    private Boolean claimable = false;
 
     public GameViewFragment() {
         // Required empty public constructor
@@ -66,8 +69,15 @@ public class GameViewFragment extends Fragment {
                 GamePresenter.SINGLETON.drawCard();
             }
         });
-        //Todo: implement destinationDeck
-
+        claim = (Button) view.findViewById(R.id.claimRoute);
+        claim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (claimable){
+                    GamePresenter.SINGLETON.claimRoute(ClientModel.SINGLETON.getCurrentRoute());
+                }
+            }
+        });
 
         testButton=(Button) view.findViewById(R.id.test_button);
         testButton.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +123,16 @@ public class GameViewFragment extends Fragment {
                 GamePresenter.SINGLETON.selectRoute(route);
             }
         });
+    }
+
+    public void toggleClaim(boolean in){
+        if (in = true){
+            claim.setVisibility(View.VISIBLE);
+        }
+        else {
+            claim.setVisibility(View.INVISIBLE);
+        }
+        claimable = in;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

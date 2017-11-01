@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,5 +36,40 @@ public class GameHistoryFragment extends Fragment {
 
 
         return view;
+    }
+
+
+    public RecyclerView getRecyclerView() {
+        return recyclerView;
+    }
+
+    public void setRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
+    }
+
+    public CommandList getCommandList() {
+        return commandList;
+    }
+
+    public void setCommandList(CommandList commandList) {
+        this.commandList = commandList;
+    }
+
+    public GameHistoryAdapter getGameHistoryAdapter() {
+        return gameHistoryAdapter;
+    }
+
+    public void setGameHistoryAdapter(GameHistoryAdapter gameHistoryAdapter) {
+        this.gameHistoryAdapter = gameHistoryAdapter;
+    }
+
+    @Nullable
+    @Override
+    public View getView() {
+        return view;
+    }
+
+    public void setView(View view) {
+        this.view = view;
     }
 }

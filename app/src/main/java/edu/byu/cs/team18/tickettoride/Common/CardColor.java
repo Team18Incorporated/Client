@@ -16,4 +16,13 @@ public class CardColor {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean out = false;
+        if (obj instanceof CardColor && ((CardColor) obj).getColor().equals(color)){
+            out = true;
+        }
+        return out;
+    }
 }

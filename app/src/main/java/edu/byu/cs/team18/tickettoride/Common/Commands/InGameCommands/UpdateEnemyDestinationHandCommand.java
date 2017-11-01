@@ -24,6 +24,7 @@ public class UpdateEnemyDestinationHandCommand implements ICommand {
     public void execute()
     {
         ClientFacade.getClientFacade().updateEnemyDestinationHand(playerID,size);
+        ClientModel.SINGLETON.getCurrentGame().addToGameHistory(this);
     }
 
     @Override
