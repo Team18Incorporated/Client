@@ -14,6 +14,10 @@ import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 public class UpdateFaceUpCommand implements ICommand {
     private List<TrainCard> list;
 
+    public UpdateFaceUpCommand(List<TrainCard> list) {
+        this.list = list;
+    }
+
     @Override
     public String getSuffix() {
         String suffix = this.getClass().toString();
@@ -25,6 +29,11 @@ public class UpdateFaceUpCommand implements ICommand {
     public void execute()
     {
         ClientFacade.getClientFacade().updateFaceUp(list);
+    }
+
+    public String toString()
+    {
+        return "Changes made to Face Up Cards";
     }
 
 

@@ -3,6 +3,7 @@ package edu.byu.cs.team18.tickettoride.Common;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 
 public class Game {
@@ -15,6 +16,7 @@ public class Game {
     private int numDestinationDeck;
     private int playerTurn;
     private ChatHistory chatHistory;
+    private ArrayList<ICommand> gameHistory;
     private boolean startStatus=false;
 
     //CONSTRUCTOR-----------------------------------------------------------------------------------
@@ -96,5 +98,15 @@ public class Game {
 
     public void setStartStatus(boolean startStatus) {
         this.startStatus = startStatus;
+    }
+
+    public void addToGameHistory(List<ICommand> list)
+    {
+        gameHistory.addAll(list);
+    }
+
+    public void addToGameHistory(ICommand command)
+    {
+        gameHistory.add(command);
     }
 }
