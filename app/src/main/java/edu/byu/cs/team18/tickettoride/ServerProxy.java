@@ -153,9 +153,9 @@ public class ServerProxy implements IServer {
 	* @post returns a list of commands to be executed on the client.
 	 */
     @Override
-    public CommandList claimRoute(AuthToken authToken, String gameID, Route route)
+    public void claimRoute(AuthToken authToken, String gameID, Route route)
     {
-        return (CommandList)ClientCommunicator.getSingleton().sendCmd(new ClaimRouteCommand(authToken,gameID,route), CommandList.class);
+        ClientCommunicator.getSingleton().sendCmd(new ClaimRouteCommand(authToken,gameID,route), CommandList.class);
     }
 
     /*
@@ -163,9 +163,9 @@ public class ServerProxy implements IServer {
     * @post returns a list of commands (UpdateTrainHand and UpdateTrainDeckSize)
      */
     @Override
-    public CommandList drawTrainCard(AuthToken authToken, String gameID)
+    public void drawTrainCard(AuthToken authToken, String gameID)
     {
-        return (CommandList)ClientCommunicator.getSingleton().sendCmd(new DrawTrainCardCommand(authToken,gameID), CommandList.class);
+        ClientCommunicator.getSingleton().sendCmd(new DrawTrainCardCommand(authToken,gameID), CommandList.class);
     }
 
     /*
@@ -173,36 +173,36 @@ public class ServerProxy implements IServer {
      * @post returns a command which shows choosable cards in the GUI.
      */
     @Override
-    public ShowDestinationChoicesCommand drawDestinationCard(AuthToken authToken, String gameID)
+    public void drawDestinationCard(AuthToken authToken, String gameID)
     {
-        return (ShowDestinationChoicesCommand) ClientCommunicator.getSingleton()
+      ClientCommunicator.getSingleton()
                 .sendCmd(new DrawDestinationCardCommand(authToken,gameID), ShowDestinationChoicesCommand.class);
     }
 
     @Override
-    public CommandList sendBackDestinations(AuthToken authToken, String gameID, List<DestinationCard> list)
+    public void sendBackDestinations(AuthToken authToken, String gameID, List<DestinationCard> list)
     {
-        return (CommandList) ClientCommunicator.getSingleton()
+       ClientCommunicator.getSingleton()
                 .sendCmd(new SendBackDestinationsCommand(authToken,gameID,list), CommandList.class);
     }
 
     @Override
-    public UpdateFaceUpCommand drawFromFaceUp(AuthToken authToken, String gameID, TrainCard card)
+    public void drawFromFaceUp(AuthToken authToken, String gameID, TrainCard card)
     {
-        return (UpdateFaceUpCommand)ClientCommunicator.getSingleton()
+       ClientCommunicator.getSingleton()
                 .sendCmd(new DrawFromFaceUpCommand(authToken,gameID,card), UpdateFaceUpCommand.class);
     }
 
     @Override
-    public UpdateChatHistoryCommand sendChat(AuthToken authToken, ChatMessage chatMessage)
+    public void sendChat(AuthToken authToken, ChatMessage chatMessage)
     {
-        return (UpdateChatHistoryCommand) ClientCommunicator.getSingleton().sendCmd(new SendChatCommand(chatMessage, authToken), UpdateChatHistoryCommand.class);
+        ClientCommunicator.getSingleton().sendCmd(new SendChatCommand(chatMessage, authToken), UpdateChatHistoryCommand.class);
     }
 
     @Override
-    public CommandList getHistory(AuthToken token, String gameID)
+    public void getHistory(AuthToken token, String gameID)
     {
-        return (CommandList) ClientCommunicator.getSingleton()
+        ClientCommunicator.getSingleton()
                 .sendCmd(new UpdateGameHistoryCommand(token, gameID),UpdateGameHistoryCommand.class);
     }
 }
