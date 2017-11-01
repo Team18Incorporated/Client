@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride;
 
 
+import java.util.Date;
 import java.util.List;
 
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
@@ -141,9 +142,9 @@ public class ServerProxy implements IServer {
      * @Post: None
      */
     @Override
-    public StartedGameResult startGame(String gameID)
+    public StartedGameResult startGame(String gameID, String playerID)
     {
-       StartedGameResult sgr=(StartedGameResult) ClientCommunicator.getSingleton().sendCmd(new StartCommand(gameID), StartedGameResult.class);
+       StartedGameResult sgr=(StartedGameResult) ClientCommunicator.getSingleton().sendCmd(new StartCommand(gameID, playerID), StartedGameResult.class);
         return sgr;
     }
 
@@ -200,9 +201,9 @@ public class ServerProxy implements IServer {
     }
 
     @Override
-    public void getHistory(AuthToken token, String gameID)
+    public CommandList getHistory(AuthToken token, String gameID, Date date)
     {
-        ClientCommunicator.getSingleton()
-                .sendCmd(new UpdateGameHistoryCommand(token, gameID),UpdateGameHistoryCommand.class);
+        return (CommandList)ClientCommunicator.getSingleton()
+                .sendCmd(new UpdateGameHistoryCommand(token, gameID, date),CommandList.class);
     }
 }

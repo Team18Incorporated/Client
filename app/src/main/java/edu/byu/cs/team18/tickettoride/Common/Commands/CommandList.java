@@ -1,5 +1,6 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -8,6 +9,7 @@ import java.util.List;
 
 public class CommandList implements ICommand{
     private List<ICommand> list;
+    private Date date;
 
     @Override
     public String getSuffix() {
@@ -34,5 +36,9 @@ public class CommandList implements ICommand{
 
     public CommandList(List<ICommand> list) {
         this.list = list;
+    }
+
+    public Date getDate() {
+        return date;
     }
 }

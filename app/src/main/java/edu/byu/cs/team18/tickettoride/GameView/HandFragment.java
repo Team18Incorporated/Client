@@ -7,7 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 
+import java.util.ArrayList;
+
+import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 import edu.byu.cs.team18.tickettoride.R;
 
 /**
@@ -21,6 +26,10 @@ import edu.byu.cs.team18.tickettoride.R;
 public class HandFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+    private ExpandableListView handList;
+    private HandAdapter handListAdapter;
+    private View view;
+    private ArrayList<TrainCard> hand;
 
     public HandFragment() {
         // Required empty public constructor
@@ -37,7 +46,13 @@ public class HandFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hand, container, false);
+        view =inflater.inflate(R.layout.fragment_hand, container, false);
+        handList=(ExpandableListView)view.findViewById(R.id.hand_expandable_list);
+        hand = GamePresenter.SINGLETON.getHand();
+       // handListAdapter= new HandAdapter();
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -50,12 +65,12 @@ public class HandFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
+        /*if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
-        }
+        }*/
     }
 
     @Override

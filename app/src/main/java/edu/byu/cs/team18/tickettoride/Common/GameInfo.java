@@ -36,6 +36,11 @@ public class GameInfo {
     public ArrayList<String> getPlayerNames() {
         return playerNames;
     }
+
+    public ArrayList<Player> getPlayerList() {
+        return playerList;
+    }
+
     public boolean hasStarted(){
         return hasStarted;
     }

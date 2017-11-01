@@ -11,7 +11,7 @@ public class Game {
     private List<PlayerInfo> playerList;
     private String gameID; //could make ID's into something other than Strings
     private GameMap map;
-    private ArrayList<TrainCard> visibleCards;
+    private ArrayList<TrainCard> faceUpCards;
     private int numTrainDeck;
     private int numDestinationDeck;
     private int playerTurn;
@@ -41,7 +41,7 @@ public class Game {
     }
 
     public ArrayList<TrainCard> getVisibleCards() {
-        return visibleCards;
+        return faceUpCards;
     }
 
     public int getNumTrainDeck() {
@@ -69,7 +69,7 @@ public class Game {
     }
 
     public void setVisibleCards(ArrayList<TrainCard> visibleCards) {
-        this.visibleCards = visibleCards;
+        this.faceUpCards = visibleCards;
     }
 
     public void setNumTrainDeck(int numTrainDeck) {
