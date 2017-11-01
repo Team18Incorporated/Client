@@ -11,6 +11,10 @@
         android:orderInCategory="104"
         android:title="History" />
     <item
+        android:id="@+id/players"
+        android:orderInCategory="105"
+        android:title="Players" />
+    <item
         android:id="@+id/hand"
         android:icon="@drawable/hand"
         android:orderInCategory="101"

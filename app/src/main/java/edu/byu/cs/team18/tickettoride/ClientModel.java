@@ -15,6 +15,7 @@ public class ClientModel extends Observable{
     private GameList joinedGamesList = new GameList();
     private GameList startedGamesList = new GameList();
     private Player currentPlayer;
+    private Player selectedPlayer;
     private User currentUser;
     private Route currentRoute;
 

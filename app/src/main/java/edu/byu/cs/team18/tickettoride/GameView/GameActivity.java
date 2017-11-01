@@ -45,6 +45,10 @@ public class GameActivity extends AppCompatActivity {
         fragment.setCommandList(new CommandList(ClientModel.SINGLETON.getCurrentGame().getGameHistory()));
         manager.beginTransaction().add(R.id.latice,fragment).commit();
     }
+    public void openPlayers(){
+        PlayerFragment fragment = new PlayerFragment();
+        manager.beginTransaction().add(R.id.latice,fragment).commit();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,6 +72,9 @@ public class GameActivity extends AppCompatActivity {
                 break;
             case R.id.history:
                 openHistory();
+                break;
+            case R.id.players:
+                openPlayers();
             default:
         }
         return true;
