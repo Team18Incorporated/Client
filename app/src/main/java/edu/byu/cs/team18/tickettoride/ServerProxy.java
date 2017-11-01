@@ -142,7 +142,8 @@ public class ServerProxy implements IServer {
     @Override
     public StartedGameResult startGame(String gameID)
     {
-        return (StartedGameResult) ClientCommunicator.getSingleton().sendCmd(new StartCommand(gameID), StartedGameResult.class);
+       StartedGameResult sgr=(StartedGameResult) ClientCommunicator.getSingleton().sendCmd(new StartCommand(gameID), StartedGameResult.class);
+        return sgr;
     }
 
     /*
