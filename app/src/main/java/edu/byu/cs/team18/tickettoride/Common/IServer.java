@@ -100,7 +100,7 @@ public interface IServer {
 	 */
 	public void drawFromFaceUp(AuthToken authToken, String gameID, TrainCard card);
 
-	public void sendChat(AuthToken authToken, ChatMessage chatMessage);
+	public void sendChat(AuthToken authToken, ChatMessage chatMessage, String gameID);
 
 	public CommandList getHistory(AuthToken token, String gameID, Date date);
 }

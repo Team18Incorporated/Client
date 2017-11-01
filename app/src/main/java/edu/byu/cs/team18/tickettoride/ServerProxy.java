@@ -195,9 +195,9 @@ public class ServerProxy implements IServer {
     }
 
     @Override
-    public void sendChat(AuthToken authToken, ChatMessage chatMessage)
+    public void sendChat(AuthToken authToken, ChatMessage chatMessage, String gameID)
     {
-        ClientCommunicator.getSingleton().sendCmd(new SendChatCommand(chatMessage, authToken), UpdateChatHistoryCommand.class);
+        ClientCommunicator.getSingleton().sendCmd(new SendChatCommand(chatMessage, authToken, gameID), UpdateChatHistoryCommand.class);
     }
 
     @Override
