@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -82,5 +83,80 @@ public class ChatFragment extends Fragment{
         });
 
         return view;
+    }
+
+
+    public RecyclerView getRecyclerView() {
+        return recyclerView;
+    }
+
+    public void setRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
+    }
+
+    public EditText getEnterChatBar() {
+        return enterChatBar;
+    }
+
+    public void setEnterChatBar(EditText enterChatBar) {
+        this.enterChatBar = enterChatBar;
+    }
+
+    public Button getSendButton() {
+        return sendButton;
+    }
+
+    public void setSendButton(Button sendButton) {
+        this.sendButton = sendButton;
+    }
+
+    public ChatAdapter getChatAdapter() {
+        return chatAdapter;
+    }
+
+    public void setChatAdapter(ChatAdapter chatAdapter) {
+        this.chatAdapter = chatAdapter;
+    }
+
+    @Nullable
+    @Override
+    public View getView() {
+        return view;
+    }
+
+    public void setView(View view) {
+        this.view = view;
+    }
+
+    public ChatHistory getChatHistory() {
+        return chatHistory;
+    }
+
+    public void setChatHistory(ChatHistory chatHistory) {
+        this.chatHistory = chatHistory;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public AuthToken getAuthToken() {
+        return authToken;
+    }
+
+    public void setAuthToken(AuthToken authToken) {
+        this.authToken = authToken;
+    }
+
+    public ChatMessage getMyMessage() {
+        return myMessage;
+    }
+
+    public void setMyMessage(ChatMessage myMessage) {
+        this.myMessage = myMessage;
     }
 }

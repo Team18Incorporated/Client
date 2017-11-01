@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import edu.byu.cs.team18.tickettoride.ChatFragment;
+import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.DestinationSelectFragment;
 import edu.byu.cs.team18.tickettoride.GameHistoryFragment;
 import edu.byu.cs.team18.tickettoride.R;
@@ -33,7 +34,9 @@ public class GameActivity extends AppCompatActivity {
     }
     public void openChat(){
         ChatFragment temp = new ChatFragment();
-        temp.s
+        temp.setPlayerName(ClientModel.SINGLETON.getCurrentPlayer().getPlayerName());
+        temp.setAuthToken(ClientModel.SINGLETON.getCurrentUser().getAuthToken());
+        temp.setChatHistory(ClientModel.SINGLETON.getCurrentGame().getChatHistory());
         manager.beginTransaction().add(R.id.latice,temp).commit();
     }
     public void openHistory(){

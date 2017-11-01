@@ -16,6 +16,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.SendChatCom
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateChatHistoryCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateFaceUpCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateGameHistoryCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.JoinCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
@@ -195,5 +196,12 @@ public class ServerProxy implements IServer {
     public UpdateChatHistoryCommand sendChat(AuthToken authToken, ChatMessage chatMessage)
     {
         return (UpdateChatHistoryCommand) ClientCommunicator.getSingleton().sendCmd(new SendChatCommand(chatMessage, authToken), UpdateChatHistoryCommand.class);
+    }
+
+    @Override
+    public CommandList getHistory(AuthToken token, String gameID)
+    {
+        return (CommandList) ClientCommunicator.getSingleton()
+                .sendCmd(new UpdateGameHistoryCommand(token, gameID),UpdateGameHistoryCommand.class);
     }
 }
