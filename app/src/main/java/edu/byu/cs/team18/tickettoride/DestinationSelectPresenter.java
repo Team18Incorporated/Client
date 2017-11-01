@@ -3,6 +3,7 @@ package edu.byu.cs.team18.tickettoride;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
 
 /**

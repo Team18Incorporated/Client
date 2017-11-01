@@ -98,15 +98,20 @@ public class LobbyPresenter implements Observer {
         startAsyncTask.execute(startCommand);*/
         StartedGameResult result = ServerProxy.getServerProxy().startGame
                 (ClientModel.SINGLETON.getCurrentLobby().getGameID());
-        boolean started= result.hasStarted();
-        LobbyPresenter.instance.checkStarted(started);
+        if(result!=null)
+        {
+            boolean started= result.hasStarted();
+            LobbyPresenter.instance.checkStarted(started, result);
+        }
+
     }
 
-    public void checkStarted(boolean started)
+    public void checkStarted(boolean started, StartedGameResult result)
     {
         if(started)
         {
             Toast.makeText(view.getActivity(), "Game Starting", Toast.LENGTH_LONG).show();
+            ClientModel.SINGLETON.setCurrentGame(result.getGame());
             view.launchGame();
             clearView();
         }
@@ -116,19 +121,5 @@ public class LobbyPresenter implements Observer {
         }
     }
 
-    private class StartAsyncTask extends AsyncTask<StartCommand, Void, StartedGameResult>
-    {
-        @Override
-        protected StartedGameResult doInBackground(StartCommand... startCommands) {
-            StartedGameResult result = ServerProxy.getServerProxy().startGame(startCommands[0].getGameID());
 
-            return result;
-        }
-
-        protected void onPostExecute(StartedGameResult started)
-        {
-            boolean result= started.hasStarted();
-            LobbyPresenter.instance.checkStarted(result);
-        }
-    }
 }
