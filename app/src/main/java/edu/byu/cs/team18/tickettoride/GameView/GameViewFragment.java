@@ -14,8 +14,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import java.util.ArrayList;
+
 import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Route;
+import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 import edu.byu.cs.team18.tickettoride.R;
 
 /**
@@ -30,7 +33,7 @@ public class GameViewFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     GameActivity activity;
     private View view;
-    private ImageButton hand;
+    //private ImageButton hand;
     private ImageButton deck;
     //private ImageButton destinationDeck;
     private Button testButton;
@@ -55,13 +58,7 @@ public class GameViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_game_view, container, false);
-        hand = (ImageButton) view.findViewById(R.id.hand);
-        hand.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openHand();
-            }
-        });
+        //set buttons
         deck = (ImageButton) view.findViewById(R.id.cardDeck);
         deck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +75,8 @@ public class GameViewFragment extends Fragment {
                 }
             }
         });
+        // initialize visible cards
+        ArrayList<TrainCard> temp = ClientModel.SINGLETON.getCurrentGame().getVisibleCards();
 
         testButton=(Button) view.findViewById(R.id.test_button);
         testButton.setOnClickListener(new View.OnClickListener() {
