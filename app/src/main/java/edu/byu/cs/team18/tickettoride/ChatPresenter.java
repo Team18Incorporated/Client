@@ -40,7 +40,7 @@ public class ChatPresenter {
     {
         if(canDo(myMessage,A))
         {
-            ServerProxy.getServerProxy().sendChat(authToken,myMessage);
+            ServerProxy.getServerProxy().sendChat(authToken,myMessage,ClientModel.SINGLETON.getCurrentGame().getGameID());
         }
     }
 
