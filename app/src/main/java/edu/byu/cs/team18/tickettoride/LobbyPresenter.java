@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -122,6 +123,7 @@ public class LobbyPresenter implements Observer {
         {
             Toast.makeText(view.getActivity(), "Game Starting", Toast.LENGTH_LONG).show();
             ClientModel.SINGLETON.setCurrentGame(result.getGame());
+            ClientModel.SINGLETON.setLatestDate(new Date());
             //ClientModel.SINGLETON.getCurrentPlayer().setHand(result.getPlayerHand());
             view.launchGame();
             clearView();
