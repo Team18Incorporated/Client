@@ -112,5 +112,49 @@
         android:layout_marginTop="12dp"
         android:id="@+id/hand_button" />
 
+    //train cars
+    //r1 - atlanta - raleigh
+    <ImageView
+        android:id="@+id/r1s1"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/nfaceUpCard4"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="94dp"
+        android:layout_toStartOf="@+id/nfaceUpCard4"
+        android:rotation="-40"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r1s2"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/nfaceUpCard4"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="80dp"
+        android:layout_toStartOf="@+id/nfaceUpCard4"
+        android:rotation="-40"
+        app:srcCompat="@drawable/car_clear" />
+    //r2 atlanta - raleigh
+    <ImageView
+        android:id="@+id/r2s1"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/nfaceUpCard4"
+        android:layout_marginTop="-3dp"
+        android:layout_marginEnd="98dp"
+        android:layout_toStartOf="@+id/nfaceUpCard4"
+        android:rotation="-40"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r2s2"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/nfaceUpCard4"
+        android:layout_marginTop="-16dp"
+        android:layout_marginEnd="84dp"
+        android:layout_toStartOf="@+id/nfaceUpCard4"
+        android:rotation="-40"
+        app:srcCompat="@drawable/car_clear" />
+
 
 </RelativeLayout>

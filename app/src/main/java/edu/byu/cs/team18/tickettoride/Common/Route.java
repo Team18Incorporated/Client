@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common;
 
 
+import java.util.ArrayList;
 
 public class Route {
 
@@ -9,6 +10,7 @@ public class Route {
     private int length;
     private CardColor color;
     private String ownerID;
+    private ArrayList<Integer> segments = null;
 
 
     public Route (String cityName1, String cityName2, int length, CardColor color1)
@@ -47,6 +49,12 @@ public class Route {
     }
 
     public void setOwner(String playerID){ownerID=playerID;}
+
+    public String getOwnerID(){return ownerID;}
+
+    public void setSegments(ArrayList<Integer> in){segments = in;}
+
+    public ArrayList<Integer> getSegments(){return segments;}
 
 
 }
