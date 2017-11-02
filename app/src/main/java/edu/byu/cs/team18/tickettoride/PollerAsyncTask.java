@@ -15,13 +15,8 @@ import edu.byu.cs.team18.tickettoride.Common.GameList;
 
 public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
 
-    private Date date;
-
-
-    @Override
     protected Void doInBackground(Void... voids) {
 
-            date = new Date();
             Timer timer = new Timer();
 
             timer.scheduleAtFixedRate(new TimerTask() {
@@ -30,11 +25,12 @@ public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
 
                     if(ClientModel.SINGLETON.getCurrentGame()!=null)
                     {
+                        Date date = ClientModel.SINGLETON.getLatestDate();
                         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
 
                         CommandList cl =ServerProxy.getServerProxy().getHistory(token, ClientModel.SINGLETON.getCurrentGame().getGameID(), date);
                         cl.execute();
-                        date = cl.getDate();
+                        ClientModel.SINGLETON.setLatestDate(cl.getDate());
                     }
                     else
                     {
