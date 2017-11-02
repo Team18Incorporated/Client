@@ -58,7 +58,7 @@ public class GameViewFragment extends Fragment {
     }
 
     public void refreshView(){
-        //todo: implement refresh
+        trainDeckSize.setText(Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumTrainDeck()));
     }
 
     @Override
@@ -189,7 +189,7 @@ public class GameViewFragment extends Fragment {
         });
 
         trainDeckSize=(TextView)view.findViewById(R.id.numTrainDeck) ;
-        trainDeckSize.setText(Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumTrainDeck()));
+        refreshView();
 
 
         GamePresenter.SINGLETON.setView(this);
@@ -279,5 +279,11 @@ public class GameViewFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    public GameActivity getGameActivity()
+    {
+        return activity;
     }
 }

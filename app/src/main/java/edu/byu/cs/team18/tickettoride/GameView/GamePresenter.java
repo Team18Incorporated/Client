@@ -244,12 +244,13 @@ public class GamePresenter implements Observer{
         updateView();
         //todo: add conditions
     }
+
     private void updateView()
     {
         if(view!=null)
         {
-            if(view.getActivity()!=null) {
-                view.getActivity().runOnUiThread(new Runnable() {
+            if(view.getGameActivity()!=null) {
+                view.getGameActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         if(view!=null)

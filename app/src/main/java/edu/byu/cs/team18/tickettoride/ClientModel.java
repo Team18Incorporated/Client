@@ -74,6 +74,13 @@ public class ClientModel extends Observable{
         return currentGame;
     }
 
+
+    public void setTrainDeckSize(int i)
+    {
+        currentGame.setNumDestinationDeck(i);
+        echo(null);
+    }
+
     public void setCurrentGame(ClientGame currentGame) {
         this.currentGame = currentGame;
         echo(currentGame);
