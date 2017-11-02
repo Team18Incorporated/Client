@@ -54,23 +54,23 @@ public class HandFragment extends Fragment {
         hand = GamePresenter.SINGLETON.getHand();
         getNumColors();
         numBlackText=(TextView)view.findViewById(R.id.numBlackText);
-        numBlackText.setText(numBlack);
+        numBlackText.setText(Integer.toString(numBlack));
         numBlueText=(TextView)view.findViewById(R.id.numBlueText);
-        numBlueText.setText(numBlue);
+        numBlueText.setText(Integer.toString(numBlue));
         numRedText=(TextView)view.findViewById(R.id.numRedText);
-        numRedText.setText(numRed);
+        numRedText.setText(Integer.toString(numRed));
         numGreenText=(TextView)view.findViewById(R.id.numGreenText);
-        numGreenText.setText(numGreen);
+        numGreenText.setText(Integer.toString(numGreen));
         numYellowText=(TextView)view.findViewById(R.id.numYellowText);
-        numYellowText.setText(numYellow);
+        numYellowText.setText(Integer.toString(numYellow));
         numPurpleText=(TextView)view.findViewById(R.id.numPurpleText);
-        numPurpleText.setText(numPurple);
+        numPurpleText.setText(Integer.toString(numPurple));
         numWhiteText=(TextView)view.findViewById(R.id.numWhiteText);
-        numWhiteText.setText(numWhite);
+        numWhiteText.setText(Integer.toString(numWhite));
         numOrangeText=(TextView)view.findViewById(R.id.numOrangeText);
-        numOrangeText.setText(numOrange);
+        numOrangeText.setText(Integer.toString(numOrange));
         numWildText=(TextView)view.findViewById(R.id.numWildText);
-        numWildText.setText(numWild);
+        numWildText.setText(Integer.toString(numWild));
 
 
         return view;
