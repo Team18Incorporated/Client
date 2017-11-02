@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,7 @@ public class GameViewFragment extends Fragment {
     //private ImageButton hand;
     private ImageButton deck;
     private ImageButton hand;
+
     //private ImageButton destinationDeck;
     private Button testButton;
     private Button claim;
@@ -48,6 +50,8 @@ public class GameViewFragment extends Fragment {
     private ImageView faceUpCard3;
     private ImageView faceUpCard4;
     private ImageView faceUpCard5;
+
+    private TextView trainDeckSize;
 
     public GameViewFragment() {
         // Required empty public constructor
@@ -183,6 +187,11 @@ public class GameViewFragment extends Fragment {
                 GamePresenter.SINGLETON.incrementTest();
             }
         });
+
+        trainDeckSize=(TextView)view.findViewById(R.id.numTrainDeck) ;
+        trainDeckSize.setText(Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumTrainDeck()));
+
+
         GamePresenter.SINGLETON.setView(this);
         return view;
     }

@@ -124,6 +124,7 @@ public class LobbyPresenter implements Observer {
             Toast.makeText(view.getActivity(), "Game Starting", Toast.LENGTH_LONG).show();
             ClientModel.SINGLETON.setCurrentGame(result.getGame());
             ClientModel.SINGLETON.setLatestDate(new Date());
+            ClientModel.SINGLETON.setCurrentPlayer(result.getGame().getCurrentPlayer());
             //ClientModel.SINGLETON.getCurrentPlayer().setHand(result.getPlayerHand());
             view.launchGame();
             clearView();

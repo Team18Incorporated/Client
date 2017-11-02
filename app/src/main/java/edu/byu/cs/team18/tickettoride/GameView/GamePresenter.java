@@ -16,6 +16,7 @@ import edu.byu.cs.team18.tickettoride.Common.ChatMessage;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ClaimRouteCommand;
 //import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.RemoveCardsCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.RemoveCardsCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateChatHistoryCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateEnemyScoreCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateEnemyTrainHandCommand;
@@ -164,11 +165,11 @@ public class GamePresenter implements Observer{
          else if(testStep==3)
         {
 
-            /*RemoveCardsCommand rcc = new RemoveCardsCommand(ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList().get(2));
+            RemoveCardsCommand rcc = new RemoveCardsCommand(ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList().get(2));
             rcc.execute();
             ClientModel.SINGLETON.getCurrentGame().addToGameHistory(rcc);
             Toast.makeText(view.getContext(), "Removing Cards", Toast.LENGTH_LONG).show();
-            testStep++;*/
+            testStep++;
         }
         else if(testStep==4)
         {

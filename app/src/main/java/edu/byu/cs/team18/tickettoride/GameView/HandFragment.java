@@ -4,9 +4,11 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -31,6 +33,7 @@ public class HandFragment extends Fragment {
     private int numWhite=0;
     private int numOrange=0;
     private int numWild=0;
+    private Button closeButton;
 
 
     public HandFragment() {
@@ -48,9 +51,16 @@ public class HandFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        final HandFragment hf=this;
         view =inflater.inflate(R.layout.fragment_hand, container, false);
 
-
+        closeButton=(Button) view.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().remove(hf).commit();
+            }
+        });
         hand = GamePresenter.SINGLETON.getHand();
         getNumColors();
         numBlackText=(TextView)view.findViewById(R.id.numBlackText);
