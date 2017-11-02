@@ -104,9 +104,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/numBlackText"
         android:layout_alignTop="@+id/imageView"
-        android:layout_marginEnd="60dp"
-        android:paddingLeft="30dp"
-        />
+        android:layout_marginEnd="65dp"
+        android:paddingLeft="30dp" />
 
     <TextView
         android:text="0"
@@ -114,70 +113,70 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/numBlackText"
         android:layout_alignBottom="@id/numBlackText"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="61dp"
         android:id="@+id/numRedText" />
 
     <TextView
         android:text="0"
         android:layout_width="10dp"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/numRedText"
+        android:layout_toRightOf="@+id/numRedText"
         android:layout_alignBottom="@id/numRedText"
-        android:paddingLeft="60dp"
-        android:layout_marginStart="11dp"
+        android:layout_marginEnd="60dp"
         android:id="@+id/numBlueText" />
 
-    <TextView
-        android:text="0"
-        android:layout_width="10dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView5"
-        android:layout_alignEnd="@+id/imageView5"
-        android:layout_marginEnd="10dp"
-        android:id="@+id/textView8" />
 
     <TextView
         android:text="0"
         android:layout_width="10dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_toEndOf="@+id/imageView5"
-        android:layout_marginStart="12dp"
-        android:id="@+id/textView9" />
+        android:layout_toRightOf="@+id/numBlueText"
+        android:layout_alignBottom="@id/numBlueText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numGreenText" />
 
     <TextView
         android:text="0"
         android:layout_width="10dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView6"
-        android:layout_alignEnd="@+id/imageView6"
-        android:layout_marginEnd="12dp"
-        android:id="@+id/textView10" />
+        android:layout_toRightOf="@+id/numGreenText"
+        android:layout_alignBottom="@id/numGreenText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numYellowText" />
 
     <TextView
         android:text="0"
         android:layout_width="10dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView10"
-        android:layout_toEndOf="@+id/imageView6"
-        android:layout_marginStart="13dp"
-        android:id="@+id/textView11" />
+        android:layout_toRightOf="@+id/numYellowText"
+        android:layout_alignBottom="@id/numYellowText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numPurpleText" />
 
     <TextView
         android:text="0"
         android:layout_width="10dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView11"
-        android:layout_toEndOf="@+id/imageView7"
-        android:layout_marginStart="11dp"
-        android:id="@+id/textView12" />
+        android:layout_toRightOf="@+id/numPurpleText"
+        android:layout_alignBottom="@id/numPurpleText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numWhiteText" />
 
     <TextView
         android:text="0"
         android:layout_width="10dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView12"
-        android:layout_alignEnd="@+id/imageView9"
-        android:layout_marginEnd="11dp"
-        android:id="@+id/textView13" />
+        android:layout_toRightOf="@+id/numWhiteText"
+        android:layout_alignBottom="@id/numWhiteText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numOrangeText" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/numOrangeText"
+        android:layout_alignBottom="@id/numOrangeText"
+        android:layout_marginEnd="61dp"
+        android:id="@+id/numWildText" />
 </RelativeLayout>
