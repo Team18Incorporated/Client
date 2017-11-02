@@ -66,7 +66,7 @@ public interface IServer {
 	 * @Pre: 0 < gameID < 10000
 	 * @Post: None
 	 */
-	public StartedGameResult startGame(String gameID, String playerID);
+	public StartedGameResult startGame(String gameID, AuthToken token);
 
 	/*
 	* @pre route is not null
@@ -100,7 +100,7 @@ public interface IServer {
 	 */
 	public void drawFromFaceUp(AuthToken authToken, String gameID, TrainCard card);
 
-	public void sendChat(AuthToken authToken, ChatMessage chatMessage);
+	public void sendChat(AuthToken authToken, ChatMessage chatMessage, String gameID);
 
 	public CommandList getHistory(AuthToken token, String gameID, Date date);
 }

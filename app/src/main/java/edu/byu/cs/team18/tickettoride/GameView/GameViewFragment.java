@@ -33,10 +33,11 @@ import edu.byu.cs.team18.tickettoride.R;
 public class GameViewFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    GameActivity activity;
+    private GameActivity activity;
     private View view;
     //private ImageButton hand;
     private ImageButton deck;
+    private ImageButton hand;
     //private ImageButton destinationDeck;
     private Button testButton;
     private Button claim;
@@ -92,7 +93,7 @@ public class GameViewFragment extends Fragment {
             case "purple":
                 out = R.drawable.card_purple;
                 break;
-            case "rainbow":
+            case "wild":
                 out = R.drawable.card_rainbow;
                 break;
             case "red":
@@ -111,15 +112,23 @@ public class GameViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_game_view, container, false);
+        view = inflater.inflate(R.layout.fragment_gameview, container, false);
         //set buttons
-        deck = (ImageButton) view.findViewById(R.id.cardDeck);
+        deck = (ImageButton) view.findViewById(R.id.train_deck_button);
         deck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GamePresenter.SINGLETON.drawCard();
             }
         });
+        hand = (ImageButton) view.findViewById(R.id.hand_button);
+        hand.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        activity.openHand();
+                                    }
+                                }
+        );
         claim = (Button) view.findViewById(R.id.claimRoute);
         claim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,35 +139,35 @@ public class GameViewFragment extends Fragment {
             }
         });
         //initialize cards
-        faceUpCard1 = (ImageView) view.findViewById(R.id.faceUpCard1);
+        faceUpCard1 = (ImageView) view.findViewById(R.id.nfaceUpCard1);
         faceUpCard1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GamePresenter.SINGLETON.drawFaceUpCard(0);
             }
         });
-        faceUpCard2 = (ImageView) view.findViewById(R.id.faceUpCard1);
+        faceUpCard2 = (ImageView) view.findViewById(R.id.nfaceUpCard2);
         faceUpCard2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GamePresenter.SINGLETON.drawFaceUpCard(1);
             }
         });
-        faceUpCard3 = (ImageView) view.findViewById(R.id.faceUpCard1);
+        faceUpCard3 = (ImageView) view.findViewById(R.id.nfaceUpCard3);
         faceUpCard3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GamePresenter.SINGLETON.drawFaceUpCard(2);
             }
         });
-        faceUpCard4 = (ImageView) view.findViewById(R.id.faceUpCard1);
+        faceUpCard4 = (ImageView) view.findViewById(R.id.nfaceUpCard4);
         faceUpCard4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GamePresenter.SINGLETON.drawFaceUpCard(3);
             }
         });
-        faceUpCard5 = (ImageView) view.findViewById(R.id.faceUpCard1);
+        faceUpCard5 = (ImageView) view.findViewById(R.id.nfaceUpCard5);
         faceUpCard5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

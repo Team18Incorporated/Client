@@ -13,11 +13,13 @@ public class SendChatCommand implements ICommand {
 
     private ChatMessage message;
     private AuthToken authToken;
+    private String gameID;
 
     @Override
     public String getSuffix() {
-        String suffix = this.getClass().toString();
-        return suffix.substring(0,suffix.length() - 7);
+       /* String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);*/
+        return "SendChat";
     }
 
     @Override
@@ -25,9 +27,10 @@ public class SendChatCommand implements ICommand {
         //The server will do this.
     }
 
-    public SendChatCommand(ChatMessage message, AuthToken token) {
+    public SendChatCommand(ChatMessage message, AuthToken token, String gameID) {
         this.message = message;
         this.authToken = token;
+        this.gameID=gameID;
     }
 
     public ChatMessage getMessage() {

@@ -9,27 +9,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 import edu.byu.cs.team18.tickettoride.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link HandFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- *
- * create an instance of this fragment.
- */
+
 public class HandFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
-    private ExpandableListView handList;
-    private HandAdapter handListAdapter;
     private View view;
     private ArrayList<TrainCard> hand;
+    private TextView numBlackText, numRedText, numBlueText, numGreenText, numYellowText, numPurpleText, numWhiteText, numOrangeText, numWildText;
+    private int numBlack=0;
+    private int numRed=0;
+    private int numBlue=0;
+    private int numGreen=0;
+    private int numYellow=0;
+    private int numPurple=0;
+    private int numWhite=0;
+    private int numOrange=0;
+    private int numWild=0;
+
 
     public HandFragment() {
         // Required empty public constructor
@@ -47,50 +49,90 @@ public class HandFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view =inflater.inflate(R.layout.fragment_hand, container, false);
-        handList=(ExpandableListView)view.findViewById(R.id.hand_expandable_list);
+
+
         hand = GamePresenter.SINGLETON.getHand();
-       // handListAdapter= new HandAdapter();
+        getNumColors();
+        numBlackText=(TextView)view.findViewById(R.id.numBlackText);
+        numBlackText.setText(Integer.toString(numBlack));
+        numBlueText=(TextView)view.findViewById(R.id.numBlueText);
+        numBlueText.setText(Integer.toString(numBlue));
+        numRedText=(TextView)view.findViewById(R.id.numRedText);
+        numRedText.setText(Integer.toString(numRed));
+        numGreenText=(TextView)view.findViewById(R.id.numGreenText);
+        numGreenText.setText(Integer.toString(numGreen));
+        numYellowText=(TextView)view.findViewById(R.id.numYellowText);
+        numYellowText.setText(Integer.toString(numYellow));
+        numPurpleText=(TextView)view.findViewById(R.id.numPurpleText);
+        numPurpleText.setText(Integer.toString(numPurple));
+        numWhiteText=(TextView)view.findViewById(R.id.numWhiteText);
+        numWhiteText.setText(Integer.toString(numWhite));
+        numOrangeText=(TextView)view.findViewById(R.id.numOrangeText);
+        numOrangeText.setText(Integer.toString(numOrange));
+        numWildText=(TextView)view.findViewById(R.id.numWildText);
+        numWildText.setText(Integer.toString(numWild));
 
 
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        /*if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }*/
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+
+
+
+    private void getNumColors()
+    {
+        for(TrainCard c : hand)
+        {
+            if(c.getColor().getColor().equals("black"))
+            {
+                numBlack++;
+            }
+            else if(c.getColor().getColor().equals("blue"))
+            {
+                numBlue++;
+            }
+            else if(c.getColor().getColor().equals("red"))
+            {
+                numRed++;
+            }
+            else if(c.getColor().getColor().equals("green"))
+            {
+                numGreen++;
+            }
+            else if(c.getColor().getColor().equals("yellow"))
+            {
+                numYellow++;
+            }
+            else if(c.getColor().getColor().equals("purple"))
+            {
+                numPurple++;
+            }
+            else if(c.getColor().getColor().equals("white"))
+            {
+                numWhite++;
+            }
+            else if(c.getColor().getColor().equals("orange"))
+            {
+                numOrange++;
+            }
+            else if(c.getColor().getColor().equals("wild"))
+            {
+                numWild++;
+            }
+        }
     }
 }

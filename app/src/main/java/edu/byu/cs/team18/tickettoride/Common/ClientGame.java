@@ -6,12 +6,13 @@ import java.util.List;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 
-public class Game {
+public class ClientGame {
 
+    private Player currentPlayer;
     private List<PlayerInfo> playerList;
     private String gameID; //could make ID's into something other than Strings
     private GameMap map;
-    private ArrayList<TrainCard> faceUpCards;
+    private ArrayList<TrainCard> visibleCards;
     private int numTrainDeck;
     private int numDestinationDeck;
     private int playerTurn;
@@ -20,7 +21,7 @@ public class Game {
     private boolean startStatus=false;
 
     //CONSTRUCTOR-----------------------------------------------------------------------------------
-    public Game()
+    public ClientGame()
     {
 
     }
@@ -41,7 +42,7 @@ public class Game {
     }
 
     public ArrayList<TrainCard> getVisibleCards() {
-        return faceUpCards;
+        return visibleCards;
     }
 
     public int getNumTrainDeck() {
@@ -69,7 +70,7 @@ public class Game {
     }
 
     public void setVisibleCards(ArrayList<TrainCard> visibleCards) {
-        this.faceUpCards = visibleCards;
+        this.visibleCards = visibleCards;
     }
 
     public void setNumTrainDeck(int numTrainDeck) {
@@ -112,5 +113,10 @@ public class Game {
 
     public ArrayList<ICommand> getGameHistory() {
         return gameHistory;
+    }
+
+    public Player getCurrentPlayer()
+    {
+        return currentPlayer;
     }
 }

@@ -29,7 +29,7 @@ public class GameMap {
 
     private void createMap()
     {
-        try {
+        /*try {
             createCities();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -38,7 +38,7 @@ public class GameMap {
             createRoutes();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 

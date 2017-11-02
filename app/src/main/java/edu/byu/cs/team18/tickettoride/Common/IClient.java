@@ -43,7 +43,7 @@ public interface IClient {
     * @post current game will be updated
     *
     * */
-    public void updateGame(Game game);
+    public void updateGame(ClientGame game);
 
     /*updateGame updates parts of the game without passing over the whole Game object
 

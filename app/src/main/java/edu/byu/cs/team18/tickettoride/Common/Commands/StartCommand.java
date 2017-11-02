@@ -1,5 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands;
 
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
+
 /**
  * Created by abram on 10/2/2017.
  */
@@ -7,7 +9,7 @@ package edu.byu.cs.team18.tickettoride.Common.Commands;
 public class StartCommand implements ICommand{
 
     private String gameID;
-    private String playerID;
+    private AuthToken token;
 
     public String getGameID() {
         return gameID;
@@ -17,10 +19,10 @@ public class StartCommand implements ICommand{
         this.gameID = gameID;
     }
 
-    public StartCommand(String ID, String playerId)
+    public StartCommand(String ID, AuthToken token)
     {
         gameID = ID;
-        this.playerID=playerId;
+        this.token=token;
     }
 
 

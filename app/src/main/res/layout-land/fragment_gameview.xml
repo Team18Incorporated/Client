@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/map"
+        android:layout_alignParentStart="true"
+        android:id="@+id/mapView"
+        android:layout_alignParentTop="true" 
+        android:paddingRight="85dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"/>
+    
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/card_deck"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+
+        android:id="@+id/train_deck_button"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:paddingTop="20dp"
+        android:paddingRight="45dp"
+        android:text="##"
+        android:id="@+id/numTrainDeck"/>
+    
+    <ImageView
+        android:id="@+id/nfaceUpCard1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/train_deck_button"
+        android:layout_below="@+id/train_deck_button"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/card_rainbow" />
+    <ImageView
+        android:id="@+id/nfaceUpCard2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/nfaceUpCard1"
+        android:layout_below="@+id/nfaceUpCard1"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/card_rainbow" />
+    <ImageView
+        android:id="@+id/nfaceUpCard3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/nfaceUpCard2"
+        android:layout_below="@+id/nfaceUpCard2"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/card_rainbow" />
+    <ImageView
+        android:id="@+id/nfaceUpCard4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/nfaceUpCard3"
+        android:layout_below="@+id/nfaceUpCard3"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/card_rainbow" />
+    <ImageView
+        android:id="@+id/nfaceUpCard5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/nfaceUpCard4"
+        android:layout_below="@+id/nfaceUpCard4"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/card_rainbow" />
+
+    <Button
+        android:text="TEST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/nfaceUpCard2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="13dp"
+        android:id="@+id/test_button" />
+    <Button
+        android:id="@+id/claimRoute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="Claim Route"
+        android:visibility="invisible" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/hand"
+        android:layout_below="@+id/nfaceUpCard5"
+        android:layout_alignStart="@+id/nfaceUpCard5"
+        android:layout_marginTop="12dp"
+        android:id="@+id/hand_button" />
+
+
+</RelativeLayout>

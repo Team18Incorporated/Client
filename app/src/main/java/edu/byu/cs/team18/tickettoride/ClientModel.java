@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride;
 
 
+import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -9,7 +10,7 @@ import edu.byu.cs.team18.tickettoride.Common.*;
 
 public class ClientModel extends Observable{
 
-    private Game currentGame;
+    private ClientGame currentGame;
     private GameInfo currentLobby;
     private GameList joinableGamesList = new GameList();
     private GameList joinedGamesList = new GameList();
@@ -18,6 +19,7 @@ public class ClientModel extends Observable{
     private Player selectedPlayer;
     private User currentUser;
     private Route currentRoute;
+    private Date latestDate;
 
     private PollerAsyncTask poller = new PollerAsyncTask();
 
@@ -53,6 +55,14 @@ public class ClientModel extends Observable{
 
     public static ClientModel SINGLETON = new ClientModel();
 
+    public void setLatestDate(Date date){
+        this.latestDate = date;
+    }
+
+    public Date getLatestDate(){
+        return latestDate;
+    }
+
     public GameInfo getCurrentLobby() {return currentLobby;}
 
     public void setCurrentLobby(GameInfo in) {
@@ -60,11 +70,11 @@ public class ClientModel extends Observable{
         echo(in);
     }
 
-    public Game getCurrentGame() {
+    public ClientGame getCurrentGame() {
         return currentGame;
     }
 
-    public void setCurrentGame(Game currentGame) {
+    public void setCurrentGame(ClientGame currentGame) {
         this.currentGame = currentGame;
         echo(currentGame);
     }

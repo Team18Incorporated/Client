@@ -1,0 +1,182 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="edu.byu.cs.team18.tickettoride.GameView.HandFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/card_black"
+        android:id="@+id/imageView"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="10dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/card_red"
+        android:id="@+id/imageView2"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginEnd="10dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/card_blue"
+        android:id="@+id/imageView3"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageView2"
+        android:layout_marginEnd="10dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/card_green"
+        android:id="@+id/imageView5"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageView3"
+        android:layout_marginEnd="10dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/card_yellow"
+        android:id="@+id/imageView4"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageView5"
+        android:layout_marginEnd="10dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/card_purple"
+        android:id="@+id/imageView6"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageView4"
+        android:layout_marginEnd="10dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/card_white"
+        android:id="@+id/imageView7"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageView6"
+        android:layout_marginEnd="10dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/card_orange"
+        android:id="@+id/imageView8"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageView7"
+        android:layout_marginEnd="10dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/card_rainbow"
+        android:id="@+id/imageView9"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageView8"
+        android:layout_marginEnd="10dp"/>
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numBlackText"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_marginEnd="65dp"
+        android:paddingLeft="30dp" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/numBlackText"
+        android:layout_alignBottom="@id/numBlackText"
+        android:layout_marginEnd="61dp"
+        android:id="@+id/numRedText" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/numRedText"
+        android:layout_alignBottom="@id/numRedText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numBlueText" />
+
+
+    <TextView
+        android:text="0"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/numBlueText"
+        android:layout_alignBottom="@id/numBlueText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numGreenText" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/numGreenText"
+        android:layout_alignBottom="@id/numGreenText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numYellowText" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/numYellowText"
+        android:layout_alignBottom="@id/numYellowText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numPurpleText" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/numPurpleText"
+        android:layout_alignBottom="@id/numPurpleText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numWhiteText" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/numWhiteText"
+        android:layout_alignBottom="@id/numWhiteText"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numOrangeText" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/numOrangeText"
+        android:layout_alignBottom="@id/numOrangeText"
+        android:layout_marginEnd="61dp"
+        android:id="@+id/numWildText" />
+</RelativeLayout>
