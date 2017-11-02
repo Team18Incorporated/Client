@@ -10,7 +10,7 @@ import edu.byu.cs.team18.tickettoride.Common.*;
 
 public class ClientModel extends Observable{
 
-    private Game currentGame;
+    private ClientGame currentGame;
     private GameInfo currentLobby;
     private GameList joinableGamesList = new GameList();
     private GameList joinedGamesList = new GameList();
@@ -70,11 +70,11 @@ public class ClientModel extends Observable{
         echo(in);
     }
 
-    public Game getCurrentGame() {
+    public ClientGame getCurrentGame() {
         return currentGame;
     }
 
-    public void setCurrentGame(Game currentGame) {
+    public void setCurrentGame(ClientGame currentGame) {
         this.currentGame = currentGame;
         echo(currentGame);
     }

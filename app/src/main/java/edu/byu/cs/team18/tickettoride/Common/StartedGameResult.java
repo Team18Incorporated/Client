@@ -11,19 +11,19 @@ public class StartedGameResult {
 
 
     private boolean started;
-    private Game game;
-    private Player player;
+    private ClientGame game;
+    //private Player player;
 
     public StartedGameResult(boolean started)
     {
         this.started=started;
     }
 
-    public StartedGameResult(boolean started, Game game, Player player)
+    public StartedGameResult(boolean started, ClientGame game, Player player)
     {
         this.started=started;
         this.game=game;
-        this.player=player;
+        //this.player=player;
     }
 
     public boolean hasStarted()
@@ -31,12 +31,12 @@ public class StartedGameResult {
         return started;
     }
 
-    public Game getGame() {
+    public ClientGame getGame() {
         return game;
     }
 
-    public ArrayList<TrainCard> getPlayerHand()
+    /*public ArrayList<TrainCard> getPlayerHand()
     {
         return player.getHand();
-    }
+    }*/
 }

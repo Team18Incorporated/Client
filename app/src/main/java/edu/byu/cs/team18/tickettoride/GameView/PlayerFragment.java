@@ -13,7 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import edu.byu.cs.team18.tickettoride.ClientModel;
-import edu.byu.cs.team18.tickettoride.Common.Game;
+import edu.byu.cs.team18.tickettoride.Common.ClientGame;
 import edu.byu.cs.team18.tickettoride.Common.Player;
 import edu.byu.cs.team18.tickettoride.Common.PlayerInfo;
 import edu.byu.cs.team18.tickettoride.R;
@@ -68,7 +68,7 @@ public class PlayerFragment extends Fragment {
         final String[] spinnerPlayers = getResources().getStringArray((R.array.players));
         Spinner spinner = (Spinner) view.findViewById(R.id.playerSpinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            Game game = ClientModel.SINGLETON.getCurrentGame();
+            ClientGame game = ClientModel.SINGLETON.getCurrentGame();
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position>game.getPlayerList().size()) {
@@ -81,7 +81,7 @@ public class PlayerFragment extends Fragment {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 //Must be orverridden but we don't use it.
-                Game game = ClientModel.SINGLETON.getCurrentGame();
+                ClientGame game = ClientModel.SINGLETON.getCurrentGame();
                 displayPlayer(game.getPlayerList().get(0));
             }
         });

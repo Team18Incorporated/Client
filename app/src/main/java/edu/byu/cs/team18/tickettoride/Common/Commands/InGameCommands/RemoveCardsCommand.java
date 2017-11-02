@@ -25,7 +25,7 @@ public class RemoveCardsCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return null;
+        return "InGameCommands.RemoveCards";
     }
 
     @Override

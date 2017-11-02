@@ -108,7 +108,7 @@ public class LobbyPresenter implements Observer {
             }
         }
         StartedGameResult result = ServerProxy.getServerProxy().startGame
-                (ClientModel.SINGLETON.getCurrentLobby().getGameID(), ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
+                (ClientModel.SINGLETON.getCurrentLobby().getGameID(), ClientModel.SINGLETON.getCurrentUser().getAuthToken());
         if(result!=null)
         {
             boolean started= result.hasStarted();

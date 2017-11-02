@@ -6,7 +6,7 @@ import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.ChatHistory;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
 import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
-import edu.byu.cs.team18.tickettoride.Common.Game;
+import edu.byu.cs.team18.tickettoride.Common.ClientGame;
 import edu.byu.cs.team18.tickettoride.Common.GameInfo;
 import edu.byu.cs.team18.tickettoride.Common.GameList;
 import edu.byu.cs.team18.tickettoride.Common.IClient;
@@ -86,7 +86,7 @@ public class ClientFacade implements IClient {
     *
     * */
     @Override
-    public void updateGame(Game game)
+    public void updateGame(ClientGame game)
     {
         ClientModel.SINGLETON.setCurrentGame(game);
     }

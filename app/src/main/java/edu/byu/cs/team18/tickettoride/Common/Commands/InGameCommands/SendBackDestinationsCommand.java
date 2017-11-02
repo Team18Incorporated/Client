@@ -17,8 +17,7 @@ public class SendBackDestinationsCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        String suffix = this.getClass().toString();
-        return suffix.substring(0,suffix.length() - 7);
+        return "InGameCommands.SendBackDestinations";
     }
 
     @Override
