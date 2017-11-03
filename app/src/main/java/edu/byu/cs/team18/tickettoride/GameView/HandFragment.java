@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.GameView;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -54,7 +55,9 @@ public class HandFragment extends Fragment {
         final HandFragment hf=this;
         view =inflater.inflate(R.layout.fragment_hand, container, false);
 
-        closeButton=(Button) view.findViewById(R.id.close_button);
+        closeButton=(Button) view.findViewById(R.id.close_hand_button);
+        closeButton.setVisibility(View.VISIBLE);
+        closeButton.setBackgroundColor(Color.TRANSPARENT);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -41,7 +41,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/playerName"
         android:layout_alignBottom="@+id/playerName"
-        android:layout_toEndOf="@+id/playerName" />
+        android:layout_toEndOf="@+id/playerName"
+        android:text="#"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/score"
@@ -49,7 +53,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/playerScore"
         android:layout_alignBottom="@+id/playerScore"
-        android:layout_toEndOf="@+id/hand" />
+        android:layout_toEndOf="@+id/hand"
+        android:text="#"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/cars"
@@ -57,7 +65,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/playerCars"
         android:layout_alignBottom="@+id/playerCars"
-        android:layout_toEndOf="@+id/playerCars" />
+        android:layout_toEndOf="@+id/playerCars"
+        android:text="#"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/handSize"
@@ -65,7 +77,11 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/hand"
         android:layout_marginTop="14dp"
-        android:layout_toEndOf="@+id/hand" />
+        android:layout_toEndOf="@+id/hand"
+        android:text="#"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
 
     <ImageView
         android:id="@+id/hand"
@@ -82,4 +98,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:entries="@array/players"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/playerName"
+        android:id="@+id/back_button"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"
+        android:layout_toEndOf="@+id/score"/>
 </RelativeLayout>

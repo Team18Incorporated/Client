@@ -1,8 +1,11 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
+import java.util.ArrayList;
+
 import edu.byu.cs.team18.tickettoride.ClientFacade;
 import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
+import edu.byu.cs.team18.tickettoride.Common.PlayerInfo;
 
 /**
  * Created by abram on 10/20/2017.
@@ -23,7 +26,15 @@ public class UpdateScoreCommand implements ICommand {
     public void execute()
     {
         ClientFacade.getClientFacade().updateScore(points);
-        ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(0).setPoints(points);
+        String currentPlayer= ClientModel.SINGLETON.getCurrentPlayer().getPlayerID();
+
+        for(PlayerInfo pi :ClientModel.SINGLETON.getCurrentGame().getPlayerList())
+        {
+            if(pi.getPlayerID().equals(currentPlayer))
+            {
+                pi.setPoints(points);
+            }
+        }
     }
 
     public UpdateScoreCommand(int points) {
