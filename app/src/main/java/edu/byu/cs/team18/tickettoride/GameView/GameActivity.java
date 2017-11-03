@@ -90,4 +90,13 @@ public class GameActivity extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            getSupportFragmentManager().popBackStack();
+        } else {
+            finish();
+        }
+    }
 }

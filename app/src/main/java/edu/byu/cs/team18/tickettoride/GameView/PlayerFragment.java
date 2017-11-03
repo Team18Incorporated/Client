@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class PlayerFragment extends Fragment {
     private TextView cars;
     private TextView handSize;
     private String nullText = "";
+    private Button backButton;
 
 
 
@@ -65,6 +67,14 @@ public class PlayerFragment extends Fragment {
         cars = (TextView) view.findViewById(R.id.cars);
         handSize = (TextView) view.findViewById(R.id.handSize);
 
+        backButton=(Button)view.findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                backPressed();
+            }
+        });
+
         final String[] spinnerPlayers = getResources().getStringArray((R.array.players));
         Spinner spinner = (Spinner) view.findViewById(R.id.playerSpinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -85,8 +95,21 @@ public class PlayerFragment extends Fragment {
                 displayPlayer(game.getPlayerList().get(0));
             }
         });
+        spinner.setSelection(getIndex(spinner, GamePresenter.SINGLETON.getCurrentPlayerColor()));
 
         return view;
+    }
+
+    private int getIndex(Spinner spinner, String myString){
+
+        int index = 0;
+
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).equals(myString)){
+                index = i;
+            }
+        }
+        return index;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -107,6 +130,8 @@ public class PlayerFragment extends Fragment {
         }*/
     }
 
+
+
     @Override
     public void onDetach() {
         super.onDetach();
@@ -126,5 +151,11 @@ public class PlayerFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    private void backPressed()
+    {
+        getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
     }
 }

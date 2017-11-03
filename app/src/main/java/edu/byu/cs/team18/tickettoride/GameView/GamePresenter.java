@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
 
+import edu.byu.cs.team18.tickettoride.ClientFacade;
 import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.ChatHistory;
@@ -129,6 +130,12 @@ public class GamePresenter implements Observer{
         return out;
     }
 
+
+    public String getCurrentPlayerColor()
+    {
+        return ClientModel.SINGLETON.getCurrentPlayer().getColorString();
+    }
+
     public void incrementTest()
     {
         if(testStep==0)
@@ -183,7 +190,7 @@ public class GamePresenter implements Observer{
         else if(testStep==5)
         {
 
-            UpdateEnemyTrainHandCommand uethc= new UpdateEnemyTrainHandCommand(ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(1).getPlayerID(), 6);
+            UpdateEnemyTrainHandCommand uethc= new UpdateEnemyTrainHandCommand(ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(0).getPlayerID(), 6);
             uethc.execute();
             ClientModel.SINGLETON.getCurrentGame().addToGameHistory(uethc);
             Toast.makeText(view.getContext(), "Updating Other Player's hand size", Toast.LENGTH_LONG).show();
@@ -192,7 +199,7 @@ public class GamePresenter implements Observer{
         else if(testStep==6)
         {
 
-            UpdateEnemyScoreCommand uesc = new UpdateEnemyScoreCommand(ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(1).getPlayerID(), 6);
+            UpdateEnemyScoreCommand uesc = new UpdateEnemyScoreCommand(ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(0).getPlayerID(), 6);
             uesc.execute();
             ClientModel.SINGLETON.getCurrentGame().addToGameHistory(uesc);
             Toast.makeText(view.getContext(), "Updating Other Player's points", Toast.LENGTH_LONG).show();
@@ -202,7 +209,7 @@ public class GamePresenter implements Observer{
         {
 
             Date date = new Date();
-            ChatMessage cm = new ChatMessage("hello world", "aaaa",ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(1).getPlayerName(), date);
+            ChatMessage cm = new ChatMessage("hello world", "aaaa",ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(0).getPlayerName(), date);
             ArrayList<ChatMessage> chat = new ArrayList<>();
             chat.add(cm);
             UpdateChatHistoryCommand uchc = new UpdateChatHistoryCommand(new ChatHistory(chat));

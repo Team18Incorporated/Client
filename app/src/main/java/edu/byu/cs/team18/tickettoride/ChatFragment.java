@@ -34,6 +34,7 @@ public class ChatFragment extends Fragment{
     private ChatHistory chatHistory;
     private String playerName;
     private AuthToken authToken;
+    private Button closeButton;
     private ChatMessage myMessage = new ChatMessage("","","",null);
 
     @Override
@@ -79,6 +80,15 @@ public class ChatFragment extends Fragment{
             public void onClick(View v) {
                 ChatPresenter.getChatPresenter().presentChat(myMessage,getActivity(),authToken);
                 enterChatBar.setText("");
+            }
+        });
+
+
+        closeButton=(Button)view.findViewById(R.id.close_chat_button);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                backPressed();
             }
         });
 
@@ -158,5 +168,12 @@ public class ChatFragment extends Fragment{
 
     public void setMyMessage(ChatMessage myMessage) {
         this.myMessage = myMessage;
+    }
+
+
+
+    private void backPressed()
+    {
+        getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
     }
 }

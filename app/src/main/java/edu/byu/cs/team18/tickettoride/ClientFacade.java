@@ -123,13 +123,7 @@ public class ClientFacade implements IClient {
     @Override
     public void claimRoute(String gameID, String playerID, Route route)
     {
-        //Add route to player's list
-        ClientModel.SINGLETON.getCurrentPlayer().getClaimedRoutes().add(route);
-        //Subtract length of route from number of player's train pieces
-        ClientModel.SINGLETON.getCurrentPlayer().setNumTrainPieces(ClientModel.SINGLETON.getCurrentPlayer().getNumTrainPieces() - route.getLength());
-
-
-        //Still needs to find the right game and mark it with tokens of the player's color.
+        ClientModel.SINGLETON.claimRoute(gameID, playerID, route);
     }
 
     @Override

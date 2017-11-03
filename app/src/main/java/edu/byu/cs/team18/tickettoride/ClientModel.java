@@ -159,4 +159,14 @@ public class ClientModel extends Observable{
 
         return gameInfo;
     }
+
+    public void claimRoute(String gameID, String playerID, Route route)
+    {
+        //Add route to player's list
+        getCurrentPlayer().getClaimedRoutes().add(route);
+        //Subtract length of route from number of player's train pieces
+        getCurrentPlayer().setNumTrainPieces(ClientModel.SINGLETON.getCurrentPlayer().getNumTrainPieces() - route.getLength());
+        echo(null);
+
+            }
 }

@@ -102,4 +102,29 @@ public class Player {
         }
         return out;
     }
+
+
+    public String getColorString()
+    {
+        if(color==Color.RED)
+        {
+            return "Red";
+        }
+        else if(color==Color.BLUE)
+        {
+            return "Blue";
+        }
+        else if(color==Color.BLACK)
+        {
+            return "Black";
+        }
+        else if(color==Color.GREEN)
+        {
+            return "Green";
+        }
+        else
+        {
+            return "Yellow";
+        }
+    }
 }
