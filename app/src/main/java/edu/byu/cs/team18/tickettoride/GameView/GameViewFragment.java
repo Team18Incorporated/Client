@@ -7,6 +7,7 @@ import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -234,15 +235,16 @@ public class GameViewFragment extends Fragment {
 
     private void initializeRoutes(){
         ArrayList<Route> routes = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList();
-        for (int i=0; i<routes.size(); i++){
+        for (int i=0; i<22; i++){
             Route temp = routes.get(i);
             ArrayList<Integer> segments = new ArrayList<>();
-//            for (int j=0; j<temp.getLength(); j++){
-//                int id = getResources().getIdentifier("r"+i+"s"+j, "id", this.getContext().getPackageName());
-//                ImageView car = (ImageView) view.findViewById(id);
-//                setCarClick(car,temp);
-//                segments.add(id);
-//            }
+            for (int j=0; j<temp.getLength(); j++){
+                Log.d("car", i + " " + j);
+                int id = getResources().getIdentifier("r"+(i+1)+"s"+(j+1), "id", this.getContext().getPackageName());
+                ImageView car = (ImageView) view.findViewById(id);
+                setCarClick(car,temp);
+                segments.add(id);
+            }
             temp.setSegments(segments);
         }
     }
@@ -251,7 +253,7 @@ public class GameViewFragment extends Fragment {
         car.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (route.getOwnerID().equals(null)) {
+                if (route.getOwnerID() == null) {
                     GamePresenter.SINGLETON.selectRoute(route);
                     return true;
                 }
