@@ -188,7 +188,7 @@ public class ServerProxy implements IServer {
     }
 
     @Override
-    public void drawFromFaceUp(AuthToken authToken, String gameID, TrainCard card)
+    public void drawFromFaceUp(AuthToken authToken, String gameID, int card)
     {
        ClientCommunicator.getSingleton()
                 .sendCmd(new DrawFromFaceUpCommand(authToken,gameID,card), UpdateFaceUpCommand.class);

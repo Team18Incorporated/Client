@@ -98,7 +98,7 @@ public interface IServer {
 	* @pre card is not null
 	* @post returns a list containing an update hand command and update
 	 */
-	public void drawFromFaceUp(AuthToken authToken, String gameID, TrainCard card);
+	public void drawFromFaceUp(AuthToken authToken, String gameID, int card);
 
 	public void sendChat(AuthToken authToken, ChatMessage chatMessage, String gameID);
 

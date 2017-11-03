@@ -72,7 +72,7 @@ public class GamePresenter implements Observer{
         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
         String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
         TrainCard card = ClientModel.SINGLETON.getCurrentGame().getVisibleCards().get(in);
-        ServerProxy.getServerProxy().drawFromFaceUp(token,id,card);
+        ServerProxy.getServerProxy().drawFromFaceUp(token,id,in);
     }
     /*
     adds designated DestinationCard to the user's destinations

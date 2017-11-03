@@ -13,7 +13,7 @@ import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 public class DrawFromFaceUpCommand implements ICommand {
     private AuthToken authToken;
     private String gameID;
-    private TrainCard card;
+    private int card;
 
     @Override
     public String getSuffix() {
@@ -28,7 +28,7 @@ public class DrawFromFaceUpCommand implements ICommand {
 
 
 
-    public DrawFromFaceUpCommand(AuthToken authToken, String gameID, TrainCard card) {
+    public DrawFromFaceUpCommand(AuthToken authToken, String gameID, int card) {
         this.card = card;
         this.gameID = gameID;
         this.authToken = authToken;
@@ -51,11 +51,11 @@ public class DrawFromFaceUpCommand implements ICommand {
     }
 
 
-    public TrainCard getCard() {
+    public int getCard() {
         return card;
     }
 
-    public void setCard(TrainCard card) {
+    public void setCard(int card) {
         this.card = card;
     }
 
