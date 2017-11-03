@@ -119,4 +119,14 @@ public class ClientGame {
     {
         return currentPlayer;
     }
+
+    public PlayerInfo getPlayer(String id){
+        PlayerInfo out = null;
+        for (int i=0; i<playerList.size(); i++){
+            if (playerList.get(i).getPlayerID().equals(id)){
+                out = playerList.get(i);
+            }
+        }
+        return out;
+    }
 }
