@@ -249,8 +249,8 @@ public class GamePresenter implements Observer{
     {
         if(view!=null)
         {
-            if(view.getGameActivity()!=null) {
-                view.getGameActivity().runOnUiThread(new Runnable() {
+            if(view.getActivity()!=null) {
+                view.getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         if(view!=null)
@@ -259,9 +259,11 @@ public class GamePresenter implements Observer{
                         }
                     }
                 });
-                //view.refreshView();
-            }
+
+            }//view.refreshView();
         }
 
     }
+
+
 }

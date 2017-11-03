@@ -77,7 +77,7 @@ public class ClientModel extends Observable{
 
     public void setTrainDeckSize(int i)
     {
-        currentGame.setNumDestinationDeck(i);
+        currentGame.setNumTrainDeck(i);
         echo(null);
     }
 
