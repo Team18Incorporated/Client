@@ -27,6 +27,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         openGameView();
+        //showDestinationCardChoices();
     }
 
     public void openGameView(){
@@ -53,6 +54,11 @@ public class GameActivity extends AppCompatActivity {
     }
     public void openPlayers(){
         PlayerFragment fragment = new PlayerFragment();
+        manager.beginTransaction().add(R.id.latice,fragment).commit();
+    }
+    public void showDestinationCardChoices()
+    {
+        DestinationSelectFragment fragment= new DestinationSelectFragment();
         manager.beginTransaction().add(R.id.latice,fragment).commit();
     }
 

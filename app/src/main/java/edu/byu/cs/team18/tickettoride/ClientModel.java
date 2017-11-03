@@ -189,4 +189,10 @@ public class ClientModel extends Observable{
         getCurrentGame().setPlayerTurn(index);
         echo(null);
     }
+
+    public void showDestinationChoices(List<DestinationCard> list)
+    {
+        getCurrentPlayer().setDestinationCardChoices(list);
+        echo(list);
+    }
 }

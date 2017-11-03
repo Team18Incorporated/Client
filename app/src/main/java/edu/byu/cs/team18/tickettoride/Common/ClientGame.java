@@ -18,7 +18,8 @@ public class ClientGame {
     private int playerTurn;
     private ChatHistory chatHistory;
     private ArrayList<ICommand> gameHistory;
-    private boolean startStatus=false;
+    private boolean startStatus;
+    int starttest=0;
 
     //CONSTRUCTOR-----------------------------------------------------------------------------------
     public ClientGame()
@@ -94,6 +95,16 @@ public class ClientGame {
     }
 
     public boolean getStartStatus() {
+
+        if(starttest==0)
+        {
+            starttest++;
+            startStatus=false;
+        }
+        else
+        {
+            startStatus=true;
+        }
         return startStatus;
     }
 

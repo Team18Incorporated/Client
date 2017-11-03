@@ -45,6 +45,7 @@ public class GameViewFragment extends Fragment {
 
     //private ImageButton destinationDeck;
     private Button testButton;
+    private Button destinationDeckButton;
     private Button claim;
     private Boolean claimable = false;
 
@@ -229,6 +230,15 @@ public class GameViewFragment extends Fragment {
         trainDeckSize=(TextView)view.findViewById(R.id.numTrainDeck);
         playerTurn=(TextView) view.findViewById(R.id.turn_textView);
         setPlayerTurn();
+        destinationDeckButton=(Button)view.findViewById(R.id.destination_button);
+        destinationDeckButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawDestionCards();
+            }
+        });
+        setDestinationNum();
+
 
 
         refreshView();
@@ -330,5 +340,15 @@ public class GameViewFragment extends Fragment {
     {
         String playerTurnStr = GamePresenter.SINGLETON.getPlayerTurn();
         playerTurn.setText(playerTurnStr);
+    }
+
+    private void setDestinationNum()
+    {
+        destinationDeckButton.setText("DD: "+GamePresenter.SINGLETON.getDestinationNum());
+    }
+
+    private void drawDestionCards()
+    {
+
     }
 }

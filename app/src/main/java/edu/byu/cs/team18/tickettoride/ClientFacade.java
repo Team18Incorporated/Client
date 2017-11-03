@@ -184,7 +184,7 @@ public class ClientFacade implements IClient {
     {
         //We need some way to display these cards in the GUI without adding them to the player's hand.
 
-        ClientModel.SINGLETON.getCurrentPlayer().setDestinationCardChoices(list);
+        ClientModel.SINGLETON.showDestinationChoices(list);
     }
 
     @Override

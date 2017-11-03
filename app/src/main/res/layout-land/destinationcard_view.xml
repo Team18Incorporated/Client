@@ -11,7 +11,8 @@
         android:id="@+id/textView2"
         android:layout_centerHorizontal="true"
        android:layout_marginTop="40dp"
-        android:layout_marginEnd="11dp" />
+        android:layout_marginEnd="11dp"
+        android:textSize="12sp" />
 
     <TextView
         android:text="Start City"
@@ -21,7 +22,8 @@
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
         android:layout_toStartOf="@+id/textView2"
-        android:layout_marginEnd="11dp" />
+        android:layout_marginEnd="11dp"
+        android:textSize="12sp" />
 
     <TextView
         android:text=" points"
@@ -30,7 +32,8 @@
         android:id="@+id/textView5"
         android:layout_toRightOf="@+id/numPointsText"
         android:layout_below="@+id/endcityText"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="11dp"
+        android:textSize="10sp" />
 
     <TextView
         android:text="End City"
@@ -39,7 +42,8 @@
         android:id="@+id/endcityText"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_toRightOf="@id/textView2" />
+        android:layout_toRightOf="@id/textView2"
+        android:textSize="12sp" />
 
     <TextView
         android:text="##"
@@ -49,7 +53,8 @@
         android:layout_alignBaseline="@+id/textView5"
         android:layout_alignBottom="@+id/textView5"
         android:layout_toLeftOf="@id/numPointsText"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:textSize="10sp" />
 
     <ImageView
         android:id="@+id/rectimage1"
@@ -62,7 +67,6 @@
         android:layout_centerVertical="true"/>
 
     <CheckBox
-        android:text="CheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

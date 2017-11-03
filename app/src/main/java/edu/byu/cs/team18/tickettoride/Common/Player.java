@@ -81,6 +81,18 @@ public class Player {
         claimedRoutes.add(route);
     }
 
+    public void setDestinationCards(ArrayList<DestinationCard> destinationCards) {
+        this.destinationCards = destinationCards;
+    }
+
+    public void setClaimedRoutes(ArrayList<Route> claimedRoutes) {
+        this.claimedRoutes = claimedRoutes;
+    }
+
+    public void setDestinationCardChoices(ArrayList<DestinationCard> destinationCardChoices) {
+        this.destinationCardChoices = destinationCardChoices;
+    }
+
     public List<DestinationCard> getDestinationCardChoices() {
         return destinationCardChoices;
     }
