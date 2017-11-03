@@ -19,7 +19,7 @@ public class SendChatCommand implements ICommand {
     public String getSuffix() {
        /* String suffix = this.getClass().toString();
         return suffix.substring(0,suffix.length() - 7);*/
-        return "SendChat";
+        return "InGameCommands.SendChat";
     }
 
     @Override

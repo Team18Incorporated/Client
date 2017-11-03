@@ -99,17 +99,18 @@ public class JoinedGamesFragment extends Fragment {
                 @Override
                 public void run() {
                     joinedAdapter.notifyDataSetChanged();
+                    joinedAdapter.swap(joinedGameList);
                 }
             });
             //joinedAdapter.notifyDataSetChanged();
         }
-        joinedAdapter.swap(joinedGameList);
         if(startedGameList.getSize()>0)
         {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     startedAdapter.notifyDataSetChanged();
+                    startedAdapter.swap(startedGameList);
                 }
             });
             //startedAdapter.notifyDataSetChanged();

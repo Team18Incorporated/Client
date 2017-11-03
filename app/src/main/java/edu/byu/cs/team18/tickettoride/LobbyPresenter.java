@@ -84,6 +84,7 @@ public class LobbyPresenter implements Observer {
                     public void run() {
                         if(view!=null)
                         {
+
                             view.refreshView();
                         }
                     }
