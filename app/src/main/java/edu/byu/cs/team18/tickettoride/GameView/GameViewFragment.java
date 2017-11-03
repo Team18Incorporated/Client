@@ -230,7 +230,7 @@ public class GameViewFragment extends Fragment {
         setCarClick(iv, route);
         return iv;
 
-        return null;
+        //return null;
     }
 
 
@@ -240,7 +240,7 @@ public class GameViewFragment extends Fragment {
             Route temp = routes.get(i);
             ArrayList<Integer> segments = new ArrayList<>();
             for (int j=0; j<temp.getLength(); j++){
-                int id = getResources().getIdentifier("r"+i+"s"+j, "id", this.getContext.getPackageName());
+                int id = getResources().getIdentifier("r"+i+"s"+j, "id", this.getContext().getPackageName());
                 ImageView car = (ImageView) view.findViewById(routeIDs[i+j]);
                 setCarClick(car,temp);
                 segments.add(routeIDs[i+j]);
