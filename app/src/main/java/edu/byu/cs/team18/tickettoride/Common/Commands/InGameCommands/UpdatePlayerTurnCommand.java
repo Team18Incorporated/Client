@@ -1,5 +1,6 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
+import edu.byu.cs.team18.tickettoride.ClientFacade;
 import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
@@ -21,7 +22,7 @@ public class UpdatePlayerTurnCommand implements ICommand {
 
     @Override
     public void execute() {
-        ClientModel.SINGLETON.getCurrentGame().setPlayerTurn(playerIndex);
+        ClientFacade.getClientFacade().updatePlayerTurn(playerIndex);
     }
 
     public String toString()

@@ -27,18 +27,23 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder>{
 
     @Override
     public void onBindViewHolder(ChatViewHolder holder, int position) {
-        holder.getName().setText(chatHistory.getHistory().get(position).getPlayerName());
+        holder.getName().setText(chatHistory.getHistory().get(position).getPlayerName()+" - ");
         holder.getMessage().setText(chatHistory.getHistory().get(position).getMessage());
-        holder.getMessage().setText(chatHistory.getHistory().get(position).getTime().toString());
+        holder.getDate().setText(chatHistory.getHistory().get(position).getTime().toString());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return chatHistory.getHistory().size();
     }
 
     public ChatAdapter(Context c, ChatHistory chatHistory) {
         C = c;
         this.chatHistory = chatHistory;
+    }
+
+    public void swap (ChatHistory ch){
+        chatHistory=ch;
+        notifyDataSetChanged();
     }
 }

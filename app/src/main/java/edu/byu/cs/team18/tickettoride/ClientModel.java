@@ -1,7 +1,9 @@
 package edu.byu.cs.team18.tickettoride;
 
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -168,5 +170,23 @@ public class ClientModel extends Observable{
         getCurrentPlayer().setNumTrainPieces(ClientModel.SINGLETON.getCurrentPlayer().getNumTrainPieces() - route.getLength());
         echo(null);
 
-            }
+    }
+
+    public void updateChatHistory(ChatHistory chatHistory)
+    {
+        getCurrentGame().getChatHistory().getHistory().addAll(chatHistory.getHistory());
+        echo(null);
+    }
+
+    public void updateFaceUp(List<TrainCard> list)
+    {
+        getCurrentGame().setVisibleCards((ArrayList)list);
+        echo(null);
+    }
+
+    public void updatePlayerTurn(int index)
+    {
+        getCurrentGame().setPlayerTurn(index);
+        echo(null);
+    }
 }

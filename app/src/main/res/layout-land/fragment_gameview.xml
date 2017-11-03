@@ -833,4 +833,36 @@
         android:layout_marginEnd="51dp"
         android:rotation="-33"
         app:srcCompat="@drawable/car_clear" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:text="Turn:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextViewturn"
+        android:textSize="14sp"
+        android:layout_alignTop="@+id/r15s1"
+        android:layout_toStartOf="@+id/r21s3" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/turn_textView"
+        android:textSize="14sp"
+        android:paddingLeft="5dp"
+        android:layout_toRightOf="@+id/TextViewturn"
+        android:layout_alignBottom="@+id/TextViewturn"/>
 </RelativeLayout>
