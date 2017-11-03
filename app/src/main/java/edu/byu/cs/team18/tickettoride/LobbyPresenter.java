@@ -135,5 +135,9 @@ public class LobbyPresenter implements Observer {
         }
     }
 
+    public boolean checkStarted(){
+        return ClientModel.SINGLETON.getCurrentLobby().hasStarted();
+    }
+
 
 }

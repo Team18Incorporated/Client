@@ -85,6 +85,9 @@ public class LobbyFragment extends Fragment {
             }
         });
         LobbyPresenter.instance.setView(this);
+        if(LobbyPresenter.instance.checkStarted())
+            LobbyPresenter.instance.start();
+
         return view;
     }
 

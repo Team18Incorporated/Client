@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -177,7 +178,7 @@ public class JoinedGamesFragment extends Fragment {
                         JoinedGamesPresenter.instance.joinGame(gameInfo.getGameID());
                     }catch (Exception e)
                     {
-
+                        Log.e("Join", e.toString());
                     }
                 }
             });
@@ -190,7 +191,6 @@ public class JoinedGamesFragment extends Fragment {
 
             gameName.setText(gameInfo.getGameName());
             numPlayers.setText(Integer.toString(gameInfo.getNumPlayers()));
-
         }
 
 
