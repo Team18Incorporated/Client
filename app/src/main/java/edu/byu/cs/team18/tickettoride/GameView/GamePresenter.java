@@ -241,6 +241,9 @@ public class GamePresenter implements Observer{
 
     @Override
     public void update(Observable observable, Object o) {
+        if (o!=null && o instanceof Route){
+            view.setRouteColor((Route) o);
+        }
         updateView();
         //todo: add conditions
     }
