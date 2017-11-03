@@ -71,7 +71,7 @@ public class PlayerFragment extends Fragment {
             ClientGame game = ClientModel.SINGLETON.getCurrentGame();
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position>game.getPlayerList().size()) {
+                if (position>=game.getPlayerList().size()) {
                     displayPlayer(null);
                 }
                 else {

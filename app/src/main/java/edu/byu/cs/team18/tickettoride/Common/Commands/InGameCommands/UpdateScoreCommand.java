@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import edu.byu.cs.team18.tickettoride.ClientFacade;
+import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 /**
@@ -22,6 +23,7 @@ public class UpdateScoreCommand implements ICommand {
     public void execute()
     {
         ClientFacade.getClientFacade().updateScore(points);
+        ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(0).setPoints(points);
     }
 
     public UpdateScoreCommand(int points) {

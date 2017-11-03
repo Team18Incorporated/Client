@@ -31,7 +31,7 @@ public class RemoveCardsCommand implements ICommand {
     @Override
     public void execute() {
         ArrayList<TrainCard> hand =ClientModel.SINGLETON.getCurrentPlayer().getHand();
-        int numFound=0;
+       /* int numFound=0;
         for(TrainCard card : hand)
         {
             if(numFound<length)
@@ -53,12 +53,19 @@ public class RemoveCardsCommand implements ICommand {
                     if(card.getColor().getColor().equals("wild"))
                     {
                         discard.add(card);
-                        hand.remove(card);
+                        //hand.remove(card);
                         numFound++;
                     }
                 }
             }
-        }
+            for (TrainCard card : discard)
+            {
+
+            }
+        }*/
+
+        hand.remove(0);
+        hand.remove(0);
         ClientModel.SINGLETON.getCurrentPlayer().setHand(hand);
     }
 }
