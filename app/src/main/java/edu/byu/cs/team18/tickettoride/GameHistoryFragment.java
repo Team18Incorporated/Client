@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 
 /**
@@ -25,6 +27,10 @@ public class GameHistoryFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    public void close(){
+        getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,6 +40,13 @@ public class GameHistoryFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(gameHistoryAdapter);
 
+        Button exit = (Button) view.findViewById(R.id.exit);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                close();
+            }
+        });
 
         return view;
     }

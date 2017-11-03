@@ -121,42 +121,42 @@
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignTop="@+id/nfaceUpCard4"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="94dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="125dp"
         android:layout_toStartOf="@+id/nfaceUpCard4"
         android:rotation="-40"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r1s2"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignTop="@+id/nfaceUpCard4"
-        android:layout_marginTop="-10dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="111dp"
         android:layout_toStartOf="@+id/nfaceUpCard4"
         android:rotation="-40"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r2 atlanta - raleigh
     <ImageView
         android:id="@+id/r2s1"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignTop="@+id/nfaceUpCard4"
-        android:layout_marginTop="-3dp"
-        android:layout_marginEnd="98dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="129dp"
         android:layout_toStartOf="@+id/nfaceUpCard4"
         android:rotation="-40"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r2s2"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignTop="@+id/nfaceUpCard4"
-        android:layout_marginTop="-16dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="115dp"
         android:layout_toStartOf="@+id/nfaceUpCard4"
         android:rotation="-40"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r3 atlanta - Charleston
     <ImageView
         android:id="@+id/r3s1"
@@ -164,20 +164,20 @@
         android:layout_height="20dp"
         android:layout_alignStart="@+id/r1s1"
         android:layout_below="@+id/r1s2"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
         android:rotation="2"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r3s2"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignStart="@+id/r1s1"
         android:layout_below="@+id/r1s2"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="21dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="24dp"
         android:rotation="2"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r4 atlanta - miami
     <ImageView
         android:id="@+id/r4s1"
@@ -185,50 +185,50 @@
         android:layout_height="20dp"
         android:layout_below="@+id/r1s1"
         android:layout_toStartOf="@+id/r2s2"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="-3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="-2dp"
         android:rotation="51"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r4s2"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_below="@+id/r1s1"
         android:layout_toStartOf="@+id/r2s2"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="-14dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="-13dp"
         android:rotation="51"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r4s3"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_below="@+id/r1s1"
         android:layout_toStartOf="@+id/r2s2"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="-26dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="-25dp"
         android:rotation="51"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r4s4"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_below="@+id/r1s1"
         android:layout_toStartOf="@+id/r2s2"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="-37dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="-36dp"
         android:rotation="51"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r4s5"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_below="@+id/r1s1"
         android:layout_toStartOf="@+id/r2s2"
-        android:layout_marginTop="59dp"
-        android:layout_marginEnd="-49dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="-48dp"
         android:rotation="51"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r5 atlanta - newOrleans
 
     <ImageView
@@ -237,40 +237,40 @@
         android:layout_height="20dp"
         android:layout_alignTop="@+id/r3s1"
         android:layout_toStartOf="@+id/r2s1"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="-2dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="1dp"
         android:rotation="-40"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r5s2"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignTop="@+id/r3s1"
         android:layout_toStartOf="@+id/r2s1"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="15dp"
         android:rotation="-50"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r5s3"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignTop="@+id/r3s1"
         android:layout_toStartOf="@+id/r2s1"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="23dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="26dp"
         android:rotation="-56"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r5s4"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignTop="@+id/r3s1"
         android:layout_toStartOf="@+id/r2s1"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="35dp"
         android:rotation="-67"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r6 atlanta - newOrleans
 
     <ImageView
@@ -280,39 +280,39 @@
         android:layout_alignTop="@+id/r3s1"
         android:layout_toStartOf="@+id/r2s1"
         android:layout_marginTop="1dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="6dp"
         android:rotation="-40"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r6s2"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignTop="@+id/r3s1"
         android:layout_toStartOf="@+id/r2s1"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
         android:rotation="-50"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r6s3"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignTop="@+id/r3s1"
         android:layout_toStartOf="@+id/r2s1"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:rotation="-56"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r6s4"
         android:layout_width="17dp"
         android:layout_height="20dp"
         android:layout_alignTop="@+id/r3s1"
         android:layout_toStartOf="@+id/r2s1"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="37dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="41dp"
         android:rotation="-67"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r7 atlanta - nashville
 
     <ImageView
@@ -324,7 +324,7 @@
         android:layout_marginBottom="4dp"
         android:layout_marginStart="-3dp"
         android:rotation="36"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r8 boston - montreal
 
     <ImageView
@@ -333,20 +333,20 @@
         android:layout_height="17dp"
         android:layout_alignStart="@+id/r4s5"
         android:layout_below="@+id/numTrainDeck"
-        android:layout_marginTop="-1dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginStart="26dp"
         android:rotation="40"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r8s2"
         android:layout_width="17dp"
         android:layout_height="17dp"
         android:layout_alignStart="@+id/r4s5"
         android:layout_below="@+id/numTrainDeck"
-        android:layout_marginTop="-13dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginStart="10dp"
         android:rotation="40"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r9 boston - montreal
 
     <ImageView
@@ -355,20 +355,20 @@
         android:layout_height="17dp"
         android:layout_alignStart="@+id/r4s5"
         android:layout_below="@+id/numTrainDeck"
-        android:layout_marginTop="-6dp"
-        android:layout_marginStart="23dp"
+        android:layout_marginTop="-2dp"
+        android:layout_marginStart="30dp"
         android:rotation="40"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r9s2"
         android:layout_width="17dp"
         android:layout_height="17dp"
         android:layout_alignStart="@+id/r4s5"
         android:layout_below="@+id/numTrainDeck"
-        android:layout_marginTop="-18dp"
-        android:layout_marginStart="9dp"
+        android:layout_marginTop="-15dp"
+        android:layout_marginStart="15dp"
         android:rotation="40"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r10 boston - newYork
 
     <ImageView
@@ -377,20 +377,20 @@
         android:layout_height="17dp"
         android:layout_below="@+id/r8s1"
         android:layout_toEndOf="@+id/r8s2"
-        android:layout_marginTop="0dp"
-        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="3dp"
         android:rotation="-57"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r10s2"
         android:layout_width="17dp"
         android:layout_height="17dp"
         android:layout_below="@+id/r8s1"
         android:layout_toEndOf="@+id/r8s2"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="-9dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginStart="-8dp"
         android:rotation="-57"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r11 boston - newYork
 
     <ImageView
@@ -402,7 +402,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginStart="7dp"
         android:rotation="-57"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r11s2"
         android:layout_width="17dp"
@@ -412,7 +412,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="-4dp"
         android:rotation="-57"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r12 calgary - vancouver
 
     <ImageView
@@ -424,7 +424,7 @@
         android:layout_marginTop="-3dp"
         android:layout_marginStart="3dp"
         android:rotation="-9"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r12s2"
         android:layout_width="17dp"
@@ -434,7 +434,7 @@
         android:layout_marginTop="-1dp"
         android:layout_marginStart="-16dp"
         android:rotation="-9"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r12s3"
         android:layout_width="17dp"
@@ -444,7 +444,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginStart="-34dp"
         android:rotation="-9"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r13 calgary - winnipeg
 
     <ImageView
@@ -456,7 +456,7 @@
         android:layout_marginStart="6dp"
         android:layout_toEndOf="@+id/claimRoute"
         android:rotation="-25"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r13s2"
         android:layout_width="17dp"
@@ -466,7 +466,7 @@
         android:layout_marginStart="24dp"
         android:layout_toEndOf="@+id/claimRoute"
         android:rotation="-14"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r13s3"
         android:layout_width="17dp"
@@ -476,7 +476,7 @@
         android:layout_marginStart="42dp"
         android:layout_toEndOf="@+id/claimRoute"
         android:rotation="-3"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r13s4"
         android:layout_width="17dp"
@@ -486,7 +486,7 @@
         android:layout_marginStart="60dp"
         android:layout_toEndOf="@+id/claimRoute"
         android:rotation="5"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r13s5"
         android:layout_width="17dp"
@@ -496,7 +496,7 @@
         android:layout_marginStart="79dp"
         android:layout_toEndOf="@+id/claimRoute"
         android:rotation="18"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r13s6"
         android:layout_width="17dp"
@@ -506,7 +506,7 @@
         android:layout_marginStart="96dp"
         android:layout_toEndOf="@+id/claimRoute"
         android:rotation="25"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r14 calgary - helena
 
     <ImageView
@@ -518,7 +518,7 @@
         android:layout_marginTop="-1dp"
         android:layout_marginStart="2dp"
         android:rotation="50"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r14s2"
         android:layout_width="17dp"
@@ -528,7 +528,7 @@
         android:layout_marginTop="14dp"
         android:layout_marginStart="13dp"
         android:rotation="50"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r14s3"
         android:layout_width="17dp"
@@ -538,7 +538,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginStart="25dp"
         android:rotation="50"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r14s4"
         android:layout_width="17dp"
@@ -548,7 +548,7 @@
         android:layout_marginTop="42dp"
         android:layout_marginStart="37dp"
         android:rotation="50"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r15 calgary - seattle
 
     <ImageView
@@ -560,7 +560,7 @@
         android:layout_marginTop="-1dp"
         android:layout_marginStart="-7dp"
         android:rotation="-64"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r15s2"
         android:layout_width="17dp"
@@ -570,7 +570,7 @@
         android:layout_marginTop="14dp"
         android:layout_marginStart="-19dp"
         android:rotation="-34"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r15s3"
         android:layout_width="17dp"
@@ -580,7 +580,7 @@
         android:layout_marginTop="21dp"
         android:layout_marginStart="-37dp"
         android:rotation="-9"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r15s4"
         android:layout_width="17dp"
@@ -590,7 +590,7 @@
         android:layout_marginTop="22dp"
         android:layout_marginStart="-55dp"
         android:rotation="0"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r16 charlston - raleigh
 
     <ImageView
@@ -602,7 +602,7 @@
         android:layout_marginTop="-2dp"
         android:layout_marginStart="2dp"
         android:rotation="34"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r16s1"
         android:layout_width="17dp"
@@ -612,7 +612,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginStart="12dp"
         android:rotation="-64"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r17 charlston - miami
 
     <ImageView
@@ -624,7 +624,7 @@
         android:layout_marginTop="-2dp"
         android:layout_marginStart="-2dp"
         android:rotation="86"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r17s2"
         android:layout_width="17dp"
@@ -634,7 +634,7 @@
         android:layout_marginTop="17dp"
         android:layout_marginStart="0dp"
         android:rotation="83"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r17s3"
         android:layout_width="17dp"
@@ -644,7 +644,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginStart="4dp"
         android:rotation="73"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r17s4"
         android:layout_width="17dp"
@@ -654,7 +654,7 @@
         android:layout_marginTop="52dp"
         android:layout_marginStart="11dp"
         android:rotation="60"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r18 chicago - pittsburgh
 
     <ImageView
@@ -666,7 +666,7 @@
         android:layout_marginBottom="6dp"
         android:layout_marginStart="1dp"
         android:rotation="-17"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r18s2"
         android:layout_width="17dp"
@@ -676,7 +676,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginStart="19dp"
         android:rotation="-12"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r18s3"
         android:layout_width="17dp"
@@ -686,7 +686,7 @@
         android:layout_marginBottom="11dp"
         android:layout_marginStart="37dp"
         android:rotation="2"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r19 chicago - pittsburgh
 
     <ImageView
@@ -698,7 +698,7 @@
         android:layout_marginBottom="13dp"
         android:layout_marginStart="-2dp"
         android:rotation="-17"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r19s2"
         android:layout_width="17dp"
@@ -708,7 +708,7 @@
         android:layout_marginBottom="17dp"
         android:layout_marginStart="16dp"
         android:rotation="-12"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r19s3"
         android:layout_width="17dp"
@@ -718,7 +718,7 @@
         android:layout_marginBottom="18dp"
         android:layout_marginStart="34dp"
         android:rotation="2"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r20 chicago - toronto
 
     <ImageView
@@ -728,7 +728,7 @@
         android:layout_alignTop="@+id/r19s3"
         android:layout_toStartOf="@+id/r5s3"
         android:rotation="-47"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r20s2"
         android:layout_width="17dp"
@@ -738,7 +738,7 @@
         android:layout_marginTop="-12dp"
         android:layout_marginEnd="-15dp"
         android:rotation="-35"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r20s3"
         android:layout_width="17dp"
@@ -748,7 +748,7 @@
         android:layout_marginTop="-20dp"
         android:layout_marginEnd="-32dp"
         android:rotation="-15"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r20s4"
         android:layout_width="17dp"
@@ -758,7 +758,7 @@
         android:layout_marginTop="-29dp"
         android:layout_marginEnd="-49dp"
         android:rotation="-36"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r21 chicago - duluth
 
     <ImageView
@@ -770,7 +770,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="2dp"
         android:rotation="12"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r21s2"
         android:layout_width="17dp"
@@ -780,7 +780,7 @@
         android:layout_marginTop="-5dp"
         android:layout_marginEnd="20dp"
         android:rotation="19"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r21s3"
         android:layout_width="17dp"
@@ -790,7 +790,7 @@
         android:layout_marginTop="-13dp"
         android:layout_marginEnd="37dp"
         android:rotation="29"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     //r22 chicago - omaha
 
     <ImageView
@@ -802,7 +802,7 @@
         android:layout_marginTop="9dp"
         android:layout_marginEnd="0dp"
         android:rotation="12"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r22s2"
         android:layout_width="17dp"
@@ -812,7 +812,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="18dp"
         android:rotation="12"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r22s3"
         android:layout_width="17dp"
@@ -822,7 +822,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="36dp"
         android:rotation="-33"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
     <ImageView
         android:id="@+id/r22s4"
         android:layout_width="17dp"
@@ -832,7 +832,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="51dp"
         android:rotation="-33"
-        app:srcCompat="@drawable/car_clear" />
+        app:srcCompat="@drawable/car_black" />
 
 
 
