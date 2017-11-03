@@ -1,32 +1,16 @@
 package edu.byu.cs.team18.tickettoride;
 
+/**
+ * Created by dasolomo on 11/3/17.
+ */
 
-import android.support.v4.app.Fragment;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.TextView;
-import android.widget.Toast;
+public class DestinationViewFragment {//extends Fragment {
 
-import java.util.ArrayList;
-
-import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
-
-import static android.support.v7.recyclerview.R.styleable.RecyclerView;
-
-public class DestinationSelectFragment extends Fragment {
-
-    private RecyclerView destinationsRV;
+   /* private RecyclerView destinationsRV;
     private DestinationCardAdapter destinationAdapter;
     private RecyclerView.LayoutManager cardSelectLayoutManager;
     private TextView numCanDiscard;
-    private Button readyButton;
+    private Button backButton;
     private View view;
     private ArrayList<DestinationCard> cardsRecieved;
     private  ArrayList<DestinationCard> discard = new ArrayList<>();
@@ -119,7 +103,7 @@ public class DestinationSelectFragment extends Fragment {
                     }
                     DSPInterface.instance.readyButtonClicked(cardsRecieved, discard);
                 }
-                            }
+            }
         }
         else if(numChecked>0)
         {
@@ -187,18 +171,18 @@ public class DestinationSelectFragment extends Fragment {
 
             discardBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-                    if(buttonView.isChecked())
-                    {
-                        card.setChecked(true);
-                    }
-                    else
-                    {
-                        card.setChecked(false);
-                    }
-                }
-            }
+                                                      @Override
+                                                      public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                                                          if(buttonView.isChecked())
+                                                          {
+                                                              card.setChecked(true);
+                                                          }
+                                                          else
+                                                          {
+                                                              card.setChecked(false);
+                                                          }
+                                                      }
+                                                  }
             );
 
         }
@@ -236,5 +220,6 @@ public class DestinationSelectFragment extends Fragment {
         public int getItemCount() {
             return cardList.size();
         }
-    }
+    }*/
 }
+

@@ -27,7 +27,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         openGameView();
-        //showDestinationCardChoices();
+        showDestinationCardChoices();
     }
 
     public void openGameView(){
