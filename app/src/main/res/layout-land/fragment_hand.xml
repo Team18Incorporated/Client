@@ -103,9 +103,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/numBlackText"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_marginEnd="65dp"
-        android:paddingLeft="30dp" />
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="25dp"
+        android:layout_marginEnd="60dp"
+        android:paddingLeft="30dp"
+        android:textStyle="normal|bold"
+        android:textSize="16sp" />
 
     <TextView
         android:text="0"
@@ -113,8 +116,11 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/numBlackText"
         android:layout_alignBottom="@id/numBlackText"
-        android:layout_marginEnd="61dp"
-        android:id="@+id/numRedText" />
+        android:paddingBottom="25dp"
+        android:layout_marginEnd="60dp"
+        android:id="@+id/numRedText"
+        android:textStyle="normal|bold"
+        android:textSize="16sp" />
 
     <TextView
         android:text="0"
@@ -122,8 +128,11 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/numRedText"
         android:layout_alignBottom="@id/numRedText"
+        android:paddingBottom="25dp"
         android:layout_marginEnd="60dp"
-        android:id="@+id/numBlueText" />
+        android:id="@+id/numBlueText"
+        android:textStyle="normal|bold"
+        android:textSize="16sp" />
 
 
     <TextView
@@ -132,8 +141,11 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/numBlueText"
         android:layout_alignBottom="@id/numBlueText"
+        android:paddingBottom="25dp"
         android:layout_marginEnd="60dp"
-        android:id="@+id/numGreenText" />
+        android:id="@+id/numGreenText"
+        android:textStyle="normal|bold"
+        android:textSize="16sp" />
 
     <TextView
         android:text="0"
@@ -141,8 +153,11 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/numGreenText"
         android:layout_alignBottom="@id/numGreenText"
+        android:paddingBottom="25dp"
         android:layout_marginEnd="60dp"
-        android:id="@+id/numYellowText" />
+        android:id="@+id/numYellowText"
+        android:textStyle="normal|bold"
+        android:textSize="16sp" />
 
     <TextView
         android:text="0"
@@ -150,8 +165,11 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/numYellowText"
         android:layout_alignBottom="@id/numYellowText"
+        android:paddingBottom="25dp"
         android:layout_marginEnd="60dp"
-        android:id="@+id/numPurpleText" />
+        android:id="@+id/numPurpleText"
+        android:textStyle="normal|bold"
+        android:textSize="16sp" />
 
     <TextView
         android:text="0"
@@ -159,8 +177,11 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/numPurpleText"
         android:layout_alignBottom="@id/numPurpleText"
+        android:paddingBottom="25dp"
         android:layout_marginEnd="60dp"
-        android:id="@+id/numWhiteText" />
+        android:id="@+id/numWhiteText"
+        android:textStyle="normal|bold"
+        android:textSize="16sp" />
 
     <TextView
         android:text="0"
@@ -168,8 +189,11 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/numWhiteText"
         android:layout_alignBottom="@id/numWhiteText"
+        android:paddingBottom="25dp"
         android:layout_marginEnd="60dp"
-        android:id="@+id/numOrangeText" />
+        android:id="@+id/numOrangeText"
+        android:textStyle="normal|bold"
+        android:textSize="16sp" />
 
     <TextView
         android:text="0"
@@ -177,6 +201,19 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/numOrangeText"
         android:layout_alignBottom="@id/numOrangeText"
+        android:paddingBottom="25dp"
         android:layout_marginEnd="61dp"
-        android:id="@+id/numWildText" />
+        android:id="@+id/numWildText"
+        android:textStyle="normal|bold"
+        android:textSize="16sp" />
+
+    <Button
+        android:text="Close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/numOrangeText"
+        android:layout_marginStart="32dp"
+        android:id="@+id/close_button"
+        android:textSize="12sp" />
 </RelativeLayout>

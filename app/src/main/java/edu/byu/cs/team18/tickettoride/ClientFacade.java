@@ -105,7 +105,7 @@ public class ClientFacade implements IClient {
     @Override
     public void updateTrainDeckSize(int size)
     {
-        ClientModel.SINGLETON.getCurrentGame().setNumTrainDeck(size);
+        ClientModel.SINGLETON.setTrainDeckSize(size);
     }
 
     @Override
