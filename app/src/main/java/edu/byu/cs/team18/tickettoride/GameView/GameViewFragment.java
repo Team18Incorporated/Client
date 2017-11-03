@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -54,7 +55,8 @@ public class GameViewFragment extends Fragment {
 
     private TextView trainDeckSize;
     private static int[] routeIDs = new int[] {
-            R.id.r1s1,R.id.r1s2,R.id.r2s1,R.id.r2s2
+            R.id.r1s1,R.id.r1s2,
+            R.id.r2s1,R.id.r2s2
     };
 
     public GameViewFragment() {
@@ -195,13 +197,13 @@ public class GameViewFragment extends Fragment {
             }
         });
 
+        initializeRoutes();
         trainDeckSize=(TextView)view.findViewById(R.id.numTrainDeck) ;
         refreshView();
-
-
         GamePresenter.SINGLETON.setView(this);
         return view;
     }
+
     /*
     creates a new ImageView for a car at the specified location, and returns a pointer to the ImageView.
     Should be called by segment creation routine
@@ -209,7 +211,7 @@ public class GameViewFragment extends Fragment {
     @post: ImageView is initialized, connected, and has its onclick listener set
      */
     public ImageView generateCar(Point pos, int angle, Route route){
-        /*ImageView iv = new ImageView(activity);
+        ImageView iv = new ImageView(activity);
         iv.setImageResource(R.drawable.car_clear);
         //set car position and add to xml
         RelativeLayout rl = (RelativeLayout) view.findViewById(R.id.gameViewLayout);
@@ -226,10 +228,11 @@ public class GameViewFragment extends Fragment {
         iv.setImageMatrix(matrix);
         //set onclick listener
         setCarClick(iv, route);
-        return iv;*/
+        return iv;
 
         return null;
     }
+
 
     private void initializeRoutes(){
         ArrayList<Route> routes = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList();
@@ -237,6 +240,7 @@ public class GameViewFragment extends Fragment {
             Route temp = routes.get(i);
             ArrayList<Integer> segments = new ArrayList<>();
             for (int j=0; j<temp.getLength(); j++){
+                int id = getResources().getIdentifier("r"+i+"s"+j, "id", this.getContext.getPackageName());
                 ImageView car = (ImageView) view.findViewById(routeIDs[i+j]);
                 setCarClick(car,temp);
                 segments.add(routeIDs[i+j]);
@@ -246,11 +250,15 @@ public class GameViewFragment extends Fragment {
     }
 
     private void setCarClick(final ImageView car, final Route route){
-        car.setOnClickListener(new View.OnClickListener() {
+        car.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (route.getOwnerID().equals(null)) {
                     GamePresenter.SINGLETON.selectRoute(route);
+                    return true;
+                }
+                else {
+                    return false;
                 }
             }
         });
