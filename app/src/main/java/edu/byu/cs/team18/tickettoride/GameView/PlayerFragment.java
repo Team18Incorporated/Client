@@ -43,9 +43,9 @@ public class PlayerFragment extends Fragment {
     private void displayPlayer(PlayerInfo player){
         if (player != null) {
             name.setText(player.getPlayerName());
-            score.setText(player.getPoints());
-            cars.setText(player.getNumTrainPieces());
-            handSize.setText(player.getNumTrainCards());
+            score.setText(Integer.toString(player.getPoints()));
+            cars.setText(Integer.toString(player.getNumTrainPieces()));
+            handSize.setText(Integer.toString(player.getNumTrainCards()));
         }
         else{
             name.setText(nullText);
@@ -63,7 +63,7 @@ public class PlayerFragment extends Fragment {
         name = (TextView) view.findViewById(R.id.name);
         score = (TextView) view.findViewById(R.id.score);
         cars = (TextView) view.findViewById(R.id.cars);
-        handSize = (TextView) view.findViewById(R.id.score);
+        handSize = (TextView) view.findViewById(R.id.handSize);
 
         final String[] spinnerPlayers = getResources().getStringArray((R.array.players));
         Spinner spinner = (Spinner) view.findViewById(R.id.playerSpinner);
@@ -99,12 +99,12 @@ public class PlayerFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
+        /*if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
-        }
+        }*/
     }
 
     @Override

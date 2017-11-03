@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,7 @@ public class GameViewFragment extends Fragment {
     //private ImageButton hand;
     private ImageButton deck;
     private ImageButton hand;
+
     //private ImageButton destinationDeck;
     private Button testButton;
     private Button claim;
@@ -49,6 +51,7 @@ public class GameViewFragment extends Fragment {
     private ImageView faceUpCard4;
     private ImageView faceUpCard5;
 
+    private TextView trainDeckSize;
     private static int[] routeIDs = new int[] {
             R.id.r1s1,R.id.r1s2,R.id.r2s1,R.id.r2s2
     };
@@ -58,7 +61,7 @@ public class GameViewFragment extends Fragment {
     }
 
     public void refreshView(){
-        //todo: implement refresh
+        trainDeckSize.setText(Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumTrainDeck()));
     }
 
     @Override
@@ -187,6 +190,11 @@ public class GameViewFragment extends Fragment {
                 GamePresenter.SINGLETON.incrementTest();
             }
         });
+
+        trainDeckSize=(TextView)view.findViewById(R.id.numTrainDeck) ;
+        refreshView();
+
+
         GamePresenter.SINGLETON.setView(this);
         return view;
     }
@@ -290,5 +298,11 @@ public class GameViewFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    public GameActivity getGameActivity()
+    {
+        return activity;
     }
 }
