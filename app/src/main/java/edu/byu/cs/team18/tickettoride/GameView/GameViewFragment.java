@@ -46,6 +46,7 @@ public class GameViewFragment extends Fragment {
 
     //private ImageButton destinationDeck;
     private Button testButton;
+    private Button destinationDeckButton;
     private Button claim;
     private Boolean claimable = false;
 
@@ -69,6 +70,20 @@ public class GameViewFragment extends Fragment {
     public void refreshView(){
 
         trainDeckSize.setText(Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumTrainDeck()));
+        Route temp = ClientModel.SINGLETON.getCurrentRoute();
+        if(temp != null) {
+            for (Integer car : temp.getSegments()) {
+                ImageView tempImg = (ImageView) view.findViewById(car);
+                tempImg.setImageResource(R.drawable.car_selected);
+            }
+            if(ClientModel.SINGLETON.getLastRoute() != null){
+                for (Integer car : ClientModel.SINGLETON.getLastRoute().getSegments()) {
+                    ImageView tempImg = (ImageView) view.findViewById(car);
+                    tempImg.setImageResource(R.drawable.car_clear);
+                }
+            }
+        }
+        //set color to select
         setFaceUpCards();
         setPlayerTurn();
     }
@@ -175,6 +190,8 @@ public class GameViewFragment extends Fragment {
             public void onClick(View v) {
                 if (claimable){
                     GamePresenter.SINGLETON.claimRoute(ClientModel.SINGLETON.getCurrentRoute());
+                    ClientModel.SINGLETON.setLastRoute(ClientModel.SINGLETON.getCurrentRoute());
+                    ClientModel.SINGLETON.setCurrentRoute(null);
                 }
             }
         });
@@ -230,6 +247,15 @@ public class GameViewFragment extends Fragment {
         trainDeckSize=(TextView)view.findViewById(R.id.numTrainDeck);
         playerTurn=(TextView) view.findViewById(R.id.turn_textView);
         setPlayerTurn();
+        destinationDeckButton=(Button)view.findViewById(R.id.destination_button);
+        destinationDeckButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawDestionCards();
+            }
+        });
+        setDestinationNum();
+
 
 
         refreshView();
@@ -262,7 +288,7 @@ public class GameViewFragment extends Fragment {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (route.getOwnerID() == null) {
                     GamePresenter.SINGLETON.selectRoute(route);
-                    return true;
+                    return false;
                 }
                 else {
                     return false;
@@ -332,5 +358,15 @@ public class GameViewFragment extends Fragment {
     {
         String playerTurnStr = GamePresenter.SINGLETON.getPlayerTurn();
         playerTurn.setText(playerTurnStr);
+    }
+
+    private void setDestinationNum()
+    {
+        destinationDeckButton.setText("DD: "+GamePresenter.SINGLETON.getDestinationNum());
+    }
+
+    private void drawDestionCards()
+    {
+
     }
 }

@@ -44,6 +44,6 @@ public class DestinationSelectPresenter {
 
     public void readyButtonClicked(List<DestinationCard> cards, List<DestinationCard> discard)
     {
-        //NEEDS TO TELL SERVER WHICH CARDS WERE PICKED AN UPDATE THE DESTINATION CARDS THE PLAYER HAS
+        ClientModel.SINGLETON.getCurrentGame().getCurrentPlayer().setDestinationCards((ArrayList)cards);
     }
 }

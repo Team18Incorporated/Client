@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -99,6 +100,7 @@ public class GamePresenter implements Observer{
     @post:none
      */
     public void selectRoute(Route in){
+        ClientModel.SINGLETON.setLastRoute(ClientModel.SINGLETON.getCurrentRoute());
         ClientModel.SINGLETON.setCurrentRoute(in);
         Player player = ClientModel.SINGLETON.getCurrentPlayer();
         if (in.getLength()<=player.cardCount(in.getColor())){
@@ -144,6 +146,11 @@ public class GamePresenter implements Observer{
         ArrayList<PlayerInfo> playerList = (ArrayList)ClientModel.SINGLETON.getCurrentGame().getPlayerList();
         String returnStr =playerList.get(index).getPlayerName()+" - "+playerList.get(index).getColorString();
         return returnStr;
+    }
+
+    public String getDestinationNum()
+    {
+        return Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumDestinationDeck());
     }
 
 
@@ -260,9 +267,18 @@ public class GamePresenter implements Observer{
 
     @Override
     public void update(Observable observable, Object o) {
-        if (o!=null && o instanceof Route){
-            view.setRouteColor((Route) o);
+        if(o!=null)
+        {
+            if (o instanceof Route){
+                view.setRouteColor((Route) o);
+            }
+            else if(o instanceof ArrayList)
+            {
+                GameActivity ga =(GameActivity)view.getActivity();
+                ga.showDestinationCardChoices();
+            }
         }
+
         updateView();
         //todo: add conditions
     }

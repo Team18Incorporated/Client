@@ -39,8 +39,8 @@
     
     <ImageView
         android:id="@+id/nfaceUpCard1"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/train_deck_button"
         android:layout_below="@+id/train_deck_button"
@@ -49,8 +49,8 @@
         android:src="@drawable/card_rainbow" />
     <ImageView
         android:id="@+id/nfaceUpCard2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/nfaceUpCard1"
         android:layout_below="@+id/nfaceUpCard1"
@@ -59,8 +59,8 @@
         android:src="@drawable/card_rainbow" />
     <ImageView
         android:id="@+id/nfaceUpCard3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/nfaceUpCard2"
         android:layout_below="@+id/nfaceUpCard2"
@@ -69,8 +69,8 @@
         android:src="@drawable/card_rainbow" />
     <ImageView
         android:id="@+id/nfaceUpCard4"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/nfaceUpCard3"
         android:layout_below="@+id/nfaceUpCard3"
@@ -79,8 +79,8 @@
         android:src="@drawable/card_rainbow" />
     <ImageView
         android:id="@+id/nfaceUpCard5"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/nfaceUpCard4"
         android:layout_below="@+id/nfaceUpCard4"
@@ -109,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/hand"
-        android:layout_below="@+id/nfaceUpCard5"
+        android:layout_below="@+id/destination_button"
         android:layout_alignStart="@+id/nfaceUpCard5"
         android:layout_marginTop="12dp"
         android:id="@+id/hand_button" />
@@ -853,8 +853,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/TextViewturn"
         android:textSize="14sp"
-        android:layout_alignTop="@+id/r15s1"
-        android:layout_toStartOf="@+id/r21s3" />
+        android:layout_toLeftOf="@id/train_deck_button"
+        android:layout_toStartOf="@+id/r21s3"
+        android:textColor="@android:color/background_dark" />
 
     <TextView
         android:text="TextView"
@@ -864,5 +865,16 @@
         android:textSize="14sp"
         android:paddingLeft="5dp"
         android:layout_toRightOf="@+id/TextViewturn"
-        android:layout_alignBottom="@+id/TextViewturn"/>
+        android:layout_alignBottom="@+id/TextViewturn"
+        android:textColor="@android:color/background_dark" />
+
+    <Button
+        android:text="DesDeck"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:textSize="10sp"
+        android:layout_below="@+id/nfaceUpCard5"
+        android:layout_alignStart="@+id/numTrainDeck"
+        android:paddingRight="20dp"
+        android:id="@+id/destination_button" />
 </RelativeLayout>
