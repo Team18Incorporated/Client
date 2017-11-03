@@ -15,7 +15,7 @@ public class Player {
     private int points;
     private ArrayList<Route> claimedRoutes = new ArrayList<>();
     private int numTrainPieces;
-    private List<DestinationCard> destinationCardChoices;
+    private ArrayList<DestinationCard> destinationCardChoices = new ArrayList<>();
     //CONSTRUCTOR-----------------------------------------------------------------------------------
 
 
@@ -86,7 +86,7 @@ public class Player {
     }
 
     public void setDestinationCardChoices(List<DestinationCard> destinationCardChoices) {
-        this.destinationCardChoices = destinationCardChoices;
+        this.destinationCardChoices = (ArrayList)destinationCardChoices;
     }
 
     public void setHand(ArrayList<TrainCard> hand) {

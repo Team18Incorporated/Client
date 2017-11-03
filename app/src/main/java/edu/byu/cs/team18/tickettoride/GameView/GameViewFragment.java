@@ -56,6 +56,7 @@ public class GameViewFragment extends Fragment {
     private ImageView faceUpCard5;
 
     private TextView trainDeckSize;
+    private TextView playerTurn;
     private static int[] routeIDs = new int[] {
             R.id.r1s1,R.id.r1s2,
             R.id.r2s1,R.id.r2s2
@@ -68,6 +69,8 @@ public class GameViewFragment extends Fragment {
     public void refreshView(){
 
         trainDeckSize.setText(Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumTrainDeck()));
+        setFaceUpCards();
+        setPlayerTurn();
     }
 
     public void setRouteColor (Route in){
@@ -224,7 +227,11 @@ public class GameViewFragment extends Fragment {
         });
 
         initializeRoutes();
-        trainDeckSize=(TextView)view.findViewById(R.id.numTrainDeck) ;
+        trainDeckSize=(TextView)view.findViewById(R.id.numTrainDeck);
+        playerTurn=(TextView) view.findViewById(R.id.turn_textView);
+        setPlayerTurn();
+
+
         refreshView();
         GamePresenter.SINGLETON.setView(this);
         return view;
@@ -318,5 +325,12 @@ public class GameViewFragment extends Fragment {
     public GameActivity getGameActivity()
     {
         return activity;
+    }
+
+
+    private void setPlayerTurn()
+    {
+        String playerTurnStr = GamePresenter.SINGLETON.getPlayerTurn();
+        playerTurn.setText(playerTurnStr);
     }
 }

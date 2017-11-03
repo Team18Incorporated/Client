@@ -103,6 +103,8 @@ public class JoinPresenter implements Observer{
         view = null;
         ClientModel.SINGLETON.observerRemove(this);
     }
+
+
     @Override
     public void update(Observable observable, Object o) {
         updateView();
@@ -111,7 +113,7 @@ public class JoinPresenter implements Observer{
         }
     }
 
-    private class JoinAsyncTask extends AsyncTask<JoinCommand, Void, GameInfo>
+    /*private class JoinAsyncTask extends AsyncTask<JoinCommand, Void, GameInfo>
     {
         @Override
         protected GameInfo doInBackground(JoinCommand... joinCommands) {
@@ -125,5 +127,5 @@ public class JoinPresenter implements Observer{
             JoinPresenter.instance.joinCheck();
             //ClientModel.SINGLETON.setCurrentLobby(gameInfo);
         }
-    }
+    }*/
 }

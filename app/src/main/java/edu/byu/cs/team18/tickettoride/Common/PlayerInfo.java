@@ -62,4 +62,28 @@ public class PlayerInfo {
     }
 
     public void setNumTrainPieces(int pieces){numTrainPieces = pieces;}
+
+    public String getColorString()
+    {
+        if(color== Player.Color.RED)
+        {
+            return "Red";
+        }
+        else if(color== Player.Color.BLUE)
+        {
+            return "Blue";
+        }
+        else if(color== Player.Color.BLACK)
+        {
+            return "Black";
+        }
+        else if(color== Player.Color.GREEN)
+        {
+            return "Green";
+        }
+        else
+        {
+            return "Yellow";
+        }
+    }
 }

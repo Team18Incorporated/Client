@@ -23,11 +23,13 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateEnemy
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateEnemyTrainHandCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateFaceUpCommand;
 //import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdatePlayerTurnCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdatePlayerTurnCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateScoreCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateTrainDeckSizeCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateTrainHandCommand;
 import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
 import edu.byu.cs.team18.tickettoride.Common.Player;
+import edu.byu.cs.team18.tickettoride.Common.PlayerInfo;
 import edu.byu.cs.team18.tickettoride.Common.Route;
 import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 import edu.byu.cs.team18.tickettoride.ServerProxy;
@@ -136,6 +138,15 @@ public class GamePresenter implements Observer{
         return ClientModel.SINGLETON.getCurrentPlayer().getColorString();
     }
 
+    public String getPlayerTurn()
+    {
+        int index =ClientModel.SINGLETON.getCurrentGame().getPlayerTurn();
+        ArrayList<PlayerInfo> playerList = (ArrayList)ClientModel.SINGLETON.getCurrentGame().getPlayerList();
+        String returnStr =playerList.get(index).getPlayerName()+" - "+playerList.get(index).getColorString();
+        return returnStr;
+    }
+
+
     public void incrementTest()
     {
         if(testStep==0)
@@ -223,6 +234,7 @@ public class GamePresenter implements Observer{
 
             ArrayList<TrainCard> faceup = ClientModel.SINGLETON.getCurrentGame().getVisibleCards();
             faceup.add(2, new TrainCard("purple"));
+            faceup.add(4, new TrainCard("red"));
             UpdateFaceUpCommand ufuc = new UpdateFaceUpCommand(faceup);
             ufuc.execute();
             ClientModel.SINGLETON.getCurrentGame().addToGameHistory(ufuc);
@@ -231,16 +243,16 @@ public class GamePresenter implements Observer{
         }
         else if(testStep==9)
         {
-
+            testStep++;
         }
         else if(testStep==10)
         {
 
-            /*UpdatePlayerTurnCommand uptc= new UpdatePlayerTurnCommand(ClientModel.SINGLETON.getCurrentGame().getPlayerTurn()+1);
+            UpdatePlayerTurnCommand uptc= new UpdatePlayerTurnCommand(ClientModel.SINGLETON.getCurrentGame().getPlayerTurn()+1);
             uptc.execute();
             ClientModel.SINGLETON.getCurrentGame().addToGameHistory(uptc);
             Toast.makeText(view.getContext(), "Next Player's turn", Toast.LENGTH_LONG).show();
-            testStep++;*/
+            testStep++;
         }
 
         

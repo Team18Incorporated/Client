@@ -36,6 +36,8 @@ public class ChatFragment extends Fragment{
     private AuthToken authToken;
     private Button closeButton;
     private ChatMessage myMessage = new ChatMessage("","","",null);
+    private RecyclerView.LayoutManager chatLayoutManager;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,9 @@ public class ChatFragment extends Fragment{
     {
         view = inflater.inflate(R.layout.fragment_chat, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.chat_recycler_view);
+        chatLayoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         chatAdapter = new ChatAdapter(getContext(),chatHistory);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(chatLayoutManager);
         recyclerView.setAdapter(chatAdapter);
 
 
@@ -91,6 +94,8 @@ public class ChatFragment extends Fragment{
                 backPressed();
             }
         });
+
+        ChatPresenter.getChatPresenter().setView(this);
 
         return view;
     }
@@ -175,5 +180,22 @@ public class ChatFragment extends Fragment{
     private void backPressed()
     {
         getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+    }
+
+    public void refreshView()
+    {
+        chatHistory=ChatPresenter.getChatPresenter().getChatHistory();
+
+        if(chatHistory.getHistory().size()>0)
+        {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    chatAdapter.notifyDataSetChanged();
+                    chatAdapter.swap(chatHistory);
+                }
+            });
+
+        }
     }
 }

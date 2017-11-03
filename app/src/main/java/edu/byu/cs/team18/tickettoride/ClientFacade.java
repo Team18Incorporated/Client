@@ -190,8 +190,7 @@ public class ClientFacade implements IClient {
     @Override
     public void updateFaceUp(List<TrainCard> list)
     {
-        ClientModel.SINGLETON.getCurrentGame().getVisibleCards().clear();
-        ClientModel.SINGLETON.getCurrentGame().getVisibleCards().addAll(list);
+        ClientModel.SINGLETON.updateFaceUp(list);
     }
 
     @Override
@@ -199,10 +198,15 @@ public class ClientFacade implements IClient {
     {
         if(chatHistory != null)
         {
-            ClientModel.SINGLETON.getCurrentGame().getChatHistory().getHistory().addAll(chatHistory.getHistory());
+
+            ClientModel.SINGLETON.updateChatHistory(chatHistory);
         }
     }
 
+    public void updatePlayerTurn(int index)
+    {
+        ClientModel.SINGLETON.updatePlayerTurn(index);
+    }
 
 
 
