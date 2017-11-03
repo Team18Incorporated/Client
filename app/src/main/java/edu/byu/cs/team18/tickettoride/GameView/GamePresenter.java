@@ -99,6 +99,7 @@ public class GamePresenter implements Observer{
     @post:none
      */
     public void selectRoute(Route in){
+        ClientModel.SINGLETON.setLastRoute(ClientModel.SINGLETON.getCurrentRoute());
         ClientModel.SINGLETON.setCurrentRoute(in);
         Player player = ClientModel.SINGLETON.getCurrentPlayer();
         if (in.getLength()<=player.cardCount(in.getColor())){

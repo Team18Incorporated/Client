@@ -21,6 +21,7 @@ public class ClientModel extends Observable{
     private Player selectedPlayer;
     private User currentUser;
     private Route currentRoute;
+    private Route lastRoute;
     private Date latestDate;
 
     private PollerAsyncTask poller = new PollerAsyncTask();
@@ -141,6 +142,7 @@ public class ClientModel extends Observable{
 
     public void setCurrentRoute(Route currentRoute) {
         this.currentRoute = currentRoute;
+        echo(null);
     }
 
     public GameInfo getGame(String gameID)
@@ -188,5 +190,12 @@ public class ClientModel extends Observable{
     {
         getCurrentGame().setPlayerTurn(index);
         echo(null);
+    }
+
+    public void setLastRoute(Route route){
+        lastRoute = route;
+    }
+    public Route getLastRoute(){
+        return lastRoute;
     }
 }
