@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -63,6 +64,7 @@ public class GameViewFragment extends Fragment {
     }
 
     public void refreshView(){
+
         trainDeckSize.setText(Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumTrainDeck()));
     }
 
@@ -147,6 +149,8 @@ public class GameViewFragment extends Fragment {
                 }
             }
         });
+
+
         //initialize cards
         faceUpCard1 = (ImageView) view.findViewById(R.id.nfaceUpCard1);
         faceUpCard1.setOnClickListener(new View.OnClickListener() {
@@ -200,12 +204,43 @@ public class GameViewFragment extends Fragment {
         return view;
     }
 
+    /*
+    creates a new ImageView for a car at the specified location, and returns a pointer to the ImageView.
+    Should be called by segment creation routine
+    @pre: pos != null && is the position of the car on the map, angle!=null
+    @post: ImageView is initialized, connected, and has its onclick listener set
+     */
+    public ImageView generateCar(Point pos, int angle, Route route){
+        ImageView iv = new ImageView(activity);
+        iv.setImageResource(R.drawable.car_clear);
+        //set car position and add to xml
+        RelativeLayout rl = (RelativeLayout) view.findViewById(R.id.gameViewLayout);
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        lp.leftMargin = pos.x;
+        lp.topMargin = pos.y;
+        rl.addView(iv, lp);
+        //rotate car
+        Matrix matrix = new Matrix();
+        iv.setScaleType(ImageView.ScaleType.MATRIX);   //required
+        matrix.postRotate((float) angle, 0, 0);
+        iv.setImageMatrix(matrix);
+        //set onclick listener
+        setCarClick(iv, route);
+        return iv;
+
+        return null;
+    }
+
+
     private void initializeRoutes(){
         ArrayList<Route> routes = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList();
         for (int i=0; i<routes.size(); i++){
             Route temp = routes.get(i);
             ArrayList<Integer> segments = new ArrayList<>();
             for (int j=0; j<temp.getLength(); j++){
+                int id = getResources().getIdentifier("r"+i+"s"+j, "id", this.getContext.getPackageName());
                 ImageView car = (ImageView) view.findViewById(routeIDs[i+j]);
                 setCarClick(car,temp);
                 segments.add(routeIDs[i+j]);
