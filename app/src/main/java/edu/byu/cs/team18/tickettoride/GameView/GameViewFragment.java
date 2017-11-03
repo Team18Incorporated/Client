@@ -52,6 +52,9 @@ public class GameViewFragment extends Fragment {
     private ImageView faceUpCard5;
 
     private TextView trainDeckSize;
+    private static int[] routeIDs = new int[] {
+            R.id.r1s1,R.id.r1s2,R.id.r2s1,R.id.r2s2
+    };
 
     public GameViewFragment() {
         // Required empty public constructor
@@ -222,11 +225,27 @@ public class GameViewFragment extends Fragment {
         return iv;
     }
 
-    private void setCarClick(ImageView car, final Route route){
+    private void initializeRoutes(){
+        ArrayList<Route> routes = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList();
+        for (int i=0; i<routes.size(); i++){
+            Route temp = routes.get(i);
+            ArrayList<Integer> segments = new ArrayList<>();
+            for (int j=0; j<temp.getLength(); j++){
+                ImageView car = (ImageView) view.findViewById(routeIDs[i+j]);
+                setCarClick(car,temp);
+                segments.add(routeIDs[i+j]);
+            }
+            temp.setSegments(segments);
+        }
+    }
+
+    private void setCarClick(final ImageView car, final Route route){
         car.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GamePresenter.SINGLETON.selectRoute(route);
+                if (route.getOwnerID().equals(null)) {
+                    GamePresenter.SINGLETON.selectRoute(route);
+                }
             }
         });
     }

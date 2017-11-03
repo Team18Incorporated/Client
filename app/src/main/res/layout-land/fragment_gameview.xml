@@ -112,5 +112,216 @@
         android:layout_marginTop="12dp"
         android:id="@+id/hand_button" />
 
+    //train cars
+    //r1 - atlanta - raleigh
+    <ImageView
+        android:id="@+id/r1s1"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/nfaceUpCard4"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="94dp"
+        android:layout_toStartOf="@+id/nfaceUpCard4"
+        android:rotation="-40"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r1s2"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/nfaceUpCard4"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="80dp"
+        android:layout_toStartOf="@+id/nfaceUpCard4"
+        android:rotation="-40"
+        app:srcCompat="@drawable/car_clear" />
+    //r2 atlanta - raleigh
+    <ImageView
+        android:id="@+id/r2s1"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/nfaceUpCard4"
+        android:layout_marginTop="-3dp"
+        android:layout_marginEnd="98dp"
+        android:layout_toStartOf="@+id/nfaceUpCard4"
+        android:rotation="-40"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r2s2"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/nfaceUpCard4"
+        android:layout_marginTop="-16dp"
+        android:layout_marginEnd="84dp"
+        android:layout_toStartOf="@+id/nfaceUpCard4"
+        android:rotation="-40"
+        app:srcCompat="@drawable/car_clear" />
+    //r3 atlanta - Charleston
+    <ImageView
+        android:id="@+id/r3s1"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/r1s1"
+        android:layout_below="@+id/r1s2"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
+        android:rotation="2"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r3s2"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/r1s1"
+        android:layout_below="@+id/r1s2"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="21dp"
+        android:rotation="2"
+        app:srcCompat="@drawable/car_clear" />
+    //r4 atlanta - miami
+    <ImageView
+        android:id="@+id/r4s1"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/r1s1"
+        android:layout_toStartOf="@+id/r2s2"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="-3dp"
+        android:rotation="51"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r4s2"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/r1s1"
+        android:layout_toStartOf="@+id/r2s2"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="-14dp"
+        android:rotation="51"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r4s3"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/r1s1"
+        android:layout_toStartOf="@+id/r2s2"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="-26dp"
+        android:rotation="51"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r4s4"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/r1s1"
+        android:layout_toStartOf="@+id/r2s2"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="-37dp"
+        android:rotation="51"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r4s5"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/r1s1"
+        android:layout_toStartOf="@+id/r2s2"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="-49dp"
+        android:rotation="51"
+        app:srcCompat="@drawable/car_clear" />
+    //r5 atlanta - newOrleans
+
+    <ImageView
+        android:id="@+id/r5s1"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/r3s1"
+        android:layout_toStartOf="@+id/r2s1"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="-2dp"
+        android:rotation="-40"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r5s2"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/r3s1"
+        android:layout_toStartOf="@+id/r2s1"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="12dp"
+        android:rotation="-50"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r5s3"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/r3s1"
+        android:layout_toStartOf="@+id/r2s1"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="23dp"
+        android:rotation="-56"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r5s4"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/r3s1"
+        android:layout_toStartOf="@+id/r2s1"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="32dp"
+        android:rotation="-67"
+        app:srcCompat="@drawable/car_clear" />
+    //r6 atlanta - newOrleans
+
+    <ImageView
+        android:id="@+id/r6s1"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/r3s1"
+        android:layout_toStartOf="@+id/r2s1"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="4dp"
+        android:rotation="-40"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r6s2"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/r3s1"
+        android:layout_toStartOf="@+id/r2s1"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="17dp"
+        android:rotation="-50"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r6s3"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/r3s1"
+        android:layout_toStartOf="@+id/r2s1"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="28dp"
+        android:rotation="-56"
+        app:srcCompat="@drawable/car_clear" />
+    <ImageView
+        android:id="@+id/r6s4"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/r3s1"
+        android:layout_toStartOf="@+id/r2s1"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="37dp"
+        android:rotation="-67"
+        app:srcCompat="@drawable/car_clear" />
+    //r7 atlanta - nashville
+
+    <ImageView
+        android:id="@+id/r7s1"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_above="@+id/r4s1"
+        android:layout_alignStart="@+id/r6s1"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="-3dp"
+        android:rotation="36"
+        app:srcCompat="@drawable/car_clear" />
 
 </RelativeLayout>
