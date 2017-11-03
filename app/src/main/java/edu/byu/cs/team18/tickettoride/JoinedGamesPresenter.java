@@ -84,7 +84,10 @@ public class JoinedGamesPresenter implements Observer{
             {
                 //NEED TO KNOW HOW TO PLAY
                 //playGame(selectedGame.getGameID());
-                throw new Exception("Game in progress");
+                //throw new Exception("Game in progress");
+                ClientModel.SINGLETON.setCurrentLobby(selectedGame);
+
+
             }
             else
             {

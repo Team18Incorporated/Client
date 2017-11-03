@@ -239,12 +239,12 @@ public class GameViewFragment extends Fragment {
         for (int i=0; i<routes.size(); i++){
             Route temp = routes.get(i);
             ArrayList<Integer> segments = new ArrayList<>();
-            for (int j=0; j<temp.getLength(); j++){
-                int id = getResources().getIdentifier("r"+i+"s"+j, "id", this.getContext().getPackageName());
-                ImageView car = (ImageView) view.findViewById(routeIDs[i+j]);
-                setCarClick(car,temp);
-                segments.add(routeIDs[i+j]);
-            }
+//            for (int j=0; j<temp.getLength(); j++){
+//                int id = getResources().getIdentifier("r"+i+"s"+j, "id", this.getContext().getPackageName());
+//                ImageView car = (ImageView) view.findViewById(id);
+//                setCarClick(car,temp);
+//                segments.add(id);
+//            }
             temp.setSegments(segments);
         }
     }
