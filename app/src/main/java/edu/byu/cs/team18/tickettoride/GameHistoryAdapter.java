@@ -26,6 +26,7 @@ public class GameHistoryAdapter extends RecyclerView.Adapter<GameHistoryViewHold
     @Override
     public void onBindViewHolder(GameHistoryViewHolder holder, int position) {
         holder.getTextView().setText(commandList.getList().get(position).toString());
+
     }
 
     @Override

@@ -65,6 +65,12 @@ public class LobbyPresenter implements Observer {
         }
     }
 
+    /*
+    sets gameID
+    @param: String gameID
+    @pre: string!=null && string is actual id
+    @post: none
+     */
     public void setGame(String idIn){
         gameID = idIn;
     }
@@ -95,11 +101,14 @@ public class LobbyPresenter implements Observer {
 
     }
 
+    /*
+    starts game
+    @param: none
+    @pre: none
+    @post: game is started
+     */
     public void start()
     {
-        /*StartCommand startCommand= new StartCommand(ClientModel.SINGLETON.getCurrentLobby().getGameID());
-        StartAsyncTask startAsyncTask = new StartAsyncTask();
-        startAsyncTask.execute(startCommand);*/
         ArrayList<Player> players =ClientModel.SINGLETON.getCurrentLobby().getPlayerList();
         for(int i=0; i<players.size(); i++)
         {
@@ -118,6 +127,9 @@ public class LobbyPresenter implements Observer {
 
     }
 
+    /*
+    checks if game has started
+     */
     public void checkStarted(boolean started, StartedGameResult result)
     {
         if(started)
@@ -136,6 +148,9 @@ public class LobbyPresenter implements Observer {
         }
     }
 
+    /*
+
+     */
     public boolean checkStarted(){
         return ClientModel.SINGLETON.getCurrentLobby().hasStarted();
     }

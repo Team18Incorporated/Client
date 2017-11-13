@@ -31,6 +31,10 @@ public class GameHistoryFragment extends Fragment {
         getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
     }
 
+    public void refreshView(){
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
