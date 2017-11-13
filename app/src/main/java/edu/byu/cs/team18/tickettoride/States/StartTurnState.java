@@ -25,7 +25,7 @@ public class StartTurnState implements IState {
     public boolean drawFaceUp(int index) {
         //add implementation
         TrainCard card = ClientModel.SINGLETON.getCurrentGame().getVisibleCards().get(index);
-        if (card.getColor().getColor().equals("rainbow"))
+        if (card.getColor().getColor().equals("wild"))
         {
             //is that right? rainbow?
             ServerProxy.getServerProxy().drawFromFaceUp(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
