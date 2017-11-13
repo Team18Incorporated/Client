@@ -66,18 +66,20 @@ public class GamePresenter implements Observer{
     @post: none
      */
     public void drawCard(){
-        AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
-        String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
-        ServerProxy.getServerProxy().drawTrainCard(token,id);
+      ClientFacade.getClientFacade().drawTrainCard();
 //        CommandList temp = ServerProxy.getServerProxy().drawTrainCard(token,id);
 //        temp.execute();
     }
     public void drawFaceUpCard(int in){
-        AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
-        String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
-        TrainCard card = ClientModel.SINGLETON.getCurrentGame().getVisibleCards().get(in);
-        ServerProxy.getServerProxy().drawFromFaceUp(token,id,in);
+        ClientFacade.getClientFacade().drawFaceUp(in);
     }
+    public void drawDestinationCards()
+    {
+        ClientFacade.getClientFacade().drawDestinationCards();
+    }
+
+
+
     /*
     adds designated DestinationCard to the user's destinations
     @pre: in!=null
@@ -116,7 +118,7 @@ public class GamePresenter implements Observer{
     public void claimRoute(Route in){
         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
         String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
-        ServerProxy.getServerProxy().claimRoute(token, id, in);
+        ClientFacade.getClientFacade().sendClaimRoute(id,ClientModel.SINGLETON.getCurrentPlayer().getPlayerID(),in);
 //        CommandList temp = ServerProxy.getServerProxy().claimRoute(token, id, in);
 //        temp.execute();
     }

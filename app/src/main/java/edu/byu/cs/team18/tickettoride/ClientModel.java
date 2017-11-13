@@ -8,6 +8,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import edu.byu.cs.team18.tickettoride.Common.*;
+import edu.byu.cs.team18.tickettoride.States.IState;
 
 
 public class ClientModel extends Observable{
@@ -23,6 +24,7 @@ public class ClientModel extends Observable{
     private Route currentRoute;
     private Route lastRoute;
     private Date latestDate;
+    private IState state;
 
     private PollerAsyncTask poller = new PollerAsyncTask();
 
@@ -176,6 +178,11 @@ public class ClientModel extends Observable{
 
     }
 
+    public void sendClaimRoute(String gameID, String playerID, Route route)
+    {
+        state.claimRoute(route);
+    }
+
     public void updateChatHistory(ChatHistory chatHistory)
     {
         getCurrentGame().getChatHistory().getHistory().addAll(chatHistory.getHistory());
@@ -206,5 +213,27 @@ public class ClientModel extends Observable{
     public Route getLastRoute(){
         return lastRoute;
 
+    }
+
+    public IState getState() {
+        return state;
+    }
+
+    public void setState(IState state) {
+        this.state = state;
+    }
+
+    public void drawFaceUp(int index)
+    {
+        state.drawFaceUp(index);
+    }
+
+    public void drawTrainCard()
+    {
+        state.drawFromDeck();
+    }
+    public void drawDestinationCards()
+    {
+        state.drawDestinationCards();
     }
 }

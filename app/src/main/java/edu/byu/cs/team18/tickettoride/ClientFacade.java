@@ -126,6 +126,11 @@ public class ClientFacade implements IClient {
         ClientModel.SINGLETON.claimRoute(gameID, playerID, route);
     }
 
+    public void sendClaimRoute(String gameID, String playerID, Route route)
+    {
+        ClientModel.SINGLETON.claimRoute(gameID, playerID, route);
+    }
+
     @Override
     public void updateTrainHand(TrainCard card1, TrainCard card2)
     {
@@ -229,4 +234,18 @@ public class ClientFacade implements IClient {
         return "";
     }
 
+
+    public void drawFaceUp(int index)
+    {
+        ClientModel.SINGLETON.drawFaceUp(index);
+    }
+
+    public void drawTrainCard()
+    {
+        ClientModel.SINGLETON.drawTrainCard();
+    }
+    public void drawDestinationCards()
+    {
+        ClientModel.SINGLETON.drawDestinationCards();
+    }
 }
