@@ -66,16 +66,26 @@ public class GamePresenter implements Observer{
     @post: none
      */
     public void drawCard(){
-      ClientFacade.getClientFacade().drawTrainCard();
+      if(!ClientFacade.getClientFacade().drawTrainCard())
+        {
+            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT);
+        }
 //        CommandList temp = ServerProxy.getServerProxy().drawTrainCard(token,id);
 //        temp.execute();
     }
     public void drawFaceUpCard(int in){
-        ClientFacade.getClientFacade().drawFaceUp(in);
+
+        if(!ClientFacade.getClientFacade().drawFaceUp(in))
+        {
+            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT);
+        }
     }
     public void drawDestinationCards()
     {
-        ClientFacade.getClientFacade().drawDestinationCards();
+        if(!ClientFacade.getClientFacade().drawDestinationCards())
+        {
+            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT);
+        }
     }
 
 
@@ -118,7 +128,10 @@ public class GamePresenter implements Observer{
     public void claimRoute(Route in){
         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
         String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
-        ClientFacade.getClientFacade().sendClaimRoute(id,ClientModel.SINGLETON.getCurrentPlayer().getPlayerID(),in);
+        if(!ClientFacade.getClientFacade().sendClaimRoute(in))
+        {
+            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT);
+        }
 //        CommandList temp = ServerProxy.getServerProxy().claimRoute(token, id, in);
 //        temp.execute();
     }

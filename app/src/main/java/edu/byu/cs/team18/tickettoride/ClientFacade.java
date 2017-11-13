@@ -126,9 +126,9 @@ public class ClientFacade implements IClient {
         ClientModel.SINGLETON.claimRoute(gameID, playerID, route);
     }
 
-    public void sendClaimRoute(String gameID, String playerID, Route route)
+    public boolean sendClaimRoute(Route route)
     {
-        ClientModel.SINGLETON.claimRoute(gameID, playerID, route);
+        return ClientModel.SINGLETON.sendClaimRoute(route);
     }
 
     @Override
@@ -235,17 +235,17 @@ public class ClientFacade implements IClient {
     }
 
 
-    public void drawFaceUp(int index)
+    public boolean drawFaceUp(int index)
     {
-        ClientModel.SINGLETON.drawFaceUp(index);
+        return ClientModel.SINGLETON.drawFaceUp(index);
     }
 
-    public void drawTrainCard()
+    public boolean drawTrainCard()
     {
-        ClientModel.SINGLETON.drawTrainCard();
+        return ClientModel.SINGLETON.drawTrainCard();
     }
-    public void drawDestinationCards()
+    public boolean drawDestinationCards()
     {
-        ClientModel.SINGLETON.drawDestinationCards();
+        return ClientModel.SINGLETON.drawDestinationCards();
     }
 }

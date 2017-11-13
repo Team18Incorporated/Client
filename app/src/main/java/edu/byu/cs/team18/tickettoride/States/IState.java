@@ -10,11 +10,11 @@ public interface IState {
 
     //public IState getSingleton();
 
-    public void claimRoute(Route route);
+    public boolean claimRoute(Route route);
 
-    public void drawFaceUp(int index);
+    public boolean drawFaceUp(int index);
 
-    public void drawFromDeck();
+    public boolean drawFromDeck();
 
-    public void drawDestinationCards();
+    public boolean drawDestinationCards();
 }

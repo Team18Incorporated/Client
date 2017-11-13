@@ -13,28 +13,30 @@ public class DrawCardState implements IState {
     public static DrawCardState SINGLETON = new DrawCardState();
 
     @Override
-    public void claimRoute(Route route) {
-
+    public boolean claimRoute(Route route) {
+        return false;
     }
 
     @Override
-    public void drawFaceUp(int index) {
+    public boolean drawFaceUp(int index) {
         //add implementation
         ServerProxy.getServerProxy().drawFromFaceUp(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID(), index);
         ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
+        return true;
     }
 
     @Override
-    public void drawFromDeck() {
+    public boolean drawFromDeck() {
         //add implementation
         ServerProxy.getServerProxy().drawTrainCard(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID());
         ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
+        return true;
     }
 
     @Override
-    public void drawDestinationCards() {
-
+    public boolean drawDestinationCards() {
+        return false;
     }
 }

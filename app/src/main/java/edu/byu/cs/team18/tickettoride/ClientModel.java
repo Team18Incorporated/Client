@@ -178,9 +178,9 @@ public class ClientModel extends Observable{
 
     }
 
-    public void sendClaimRoute(String gameID, String playerID, Route route)
+    public boolean sendClaimRoute(Route route)
     {
-        state.claimRoute(route);
+       return state.claimRoute(route);
     }
 
     public void updateChatHistory(ChatHistory chatHistory)
@@ -223,17 +223,17 @@ public class ClientModel extends Observable{
         this.state = state;
     }
 
-    public void drawFaceUp(int index)
+    public boolean drawFaceUp(int index)
     {
-        state.drawFaceUp(index);
+        return state.drawFaceUp(index);
     }
 
-    public void drawTrainCard()
+    public boolean drawTrainCard()
     {
-        state.drawFromDeck();
+        return state.drawFromDeck();
     }
-    public void drawDestinationCards()
+    public boolean drawDestinationCards()
     {
-        state.drawDestinationCards();
+        return state.drawDestinationCards();
     }
 }
