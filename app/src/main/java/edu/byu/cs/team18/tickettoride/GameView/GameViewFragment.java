@@ -246,7 +246,7 @@ public class GameViewFragment extends Fragment {
         destinationDeckButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                drawDestionCards();
+                drawDestinationCards();
             }
         });
         setDestinationNum();
@@ -360,8 +360,8 @@ public class GameViewFragment extends Fragment {
         destinationDeckButton.setText("DD: "+GamePresenter.SINGLETON.getDestinationNum());
     }
 
-    private void drawDestionCards()
+    private void drawDestinationCards()
     {
-
+        GamePresenter.SINGLETON.drawDestinationCards();
     }
 }
