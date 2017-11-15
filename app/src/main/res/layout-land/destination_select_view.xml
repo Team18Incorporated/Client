@@ -39,8 +39,7 @@
         android:layout_marginBottom="33dp"
         android:id="@+id/textView"
         android:layout_above="@+id/destination_recyclerView"
-        android:paddingTop="100dp"
-        android:paddingLeft="100dp"
+        android:paddingLeft="60dp"
         android:textSize="16sp"
         android:textColor="@android:color/black" />
 
@@ -52,6 +51,7 @@
         android:layout_alignBaseline="@+id/textView"
         android:layout_alignBottom="@+id/textView"
         android:layout_toEndOf="@+id/textView"
+        android:layout_above="@+id/destination_recyclerView"
         android:textSize="18sp"
         android:textColor="@android:color/black" />
 

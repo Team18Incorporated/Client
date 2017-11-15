@@ -2,6 +2,11 @@
 *.apk
 *.ap_
 
+gradle.properties
+build.gradle
+gradle/wrapper/gradle-wrapper.properties
+
+
 # Files for the ART/Dalvik VM
 *.dex
 

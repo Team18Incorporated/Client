@@ -13,6 +13,7 @@ import edu.byu.cs.team18.tickettoride.ChatFragment;
 import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.DestinationSelectFragment;
+import edu.byu.cs.team18.tickettoride.DestinationViewFragment;
 import edu.byu.cs.team18.tickettoride.GameHistoryFragment;
 import edu.byu.cs.team18.tickettoride.LobbyActivity;
 import edu.byu.cs.team18.tickettoride.R;
@@ -72,6 +73,11 @@ public class GameActivity extends AppCompatActivity {
         TrainCardSelectFragment fragment= new TrainCardSelectFragment();
         manager.beginTransaction().add(R.id.latice,fragment).commit();
     }
+    public void viewDestinationCards()
+    {
+        DestinationViewFragment fragment= new DestinationViewFragment();
+        manager.beginTransaction().add(R.id.latice,fragment).commit();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,6 +101,9 @@ public class GameActivity extends AppCompatActivity {
                 break;
             case R.id.players:
                 openPlayers();
+                break;
+            case R.id.viewDestinations:
+                viewDestinationCards();
                 break;
             case R.id.exit:
                 closeGame();
