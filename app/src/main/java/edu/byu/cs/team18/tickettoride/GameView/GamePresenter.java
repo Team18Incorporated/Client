@@ -132,6 +132,11 @@ public class GamePresenter implements Observer{
         {
             Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT);
         }
+        else
+        {
+            //NEEDS TESTING
+            view.getGameActivity().claimRouteCardSelect();
+        }
 //        CommandList temp = ServerProxy.getServerProxy().claimRoute(token, id, in);
 //        temp.execute();
     }

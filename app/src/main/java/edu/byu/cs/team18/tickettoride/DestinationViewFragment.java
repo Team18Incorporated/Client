@@ -1,23 +1,38 @@
 package edu.byu.cs.team18.tickettoride;
 
+import android.support.v4.app.Fragment;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
+
 /**
  * Created by dasolomo on 11/3/17.
  */
 
-public class DestinationViewFragment {//extends Fragment {
+public class DestinationViewFragment extends Fragment {
 
-   /* private RecyclerView destinationsRV;
+    private RecyclerView destinationsRV;
     private DestinationCardAdapter destinationAdapter;
     private RecyclerView.LayoutManager cardSelectLayoutManager;
-    private TextView numCanDiscard;
     private Button backButton;
     private View view;
-    private ArrayList<DestinationCard> cardsRecieved;
-    private  ArrayList<DestinationCard> discard = new ArrayList<>();
-    private boolean hasStarted=false;
+    private ArrayList<DestinationCard> cards;
 
 
-    public DestinationSelectFragment() {
+
+    public DestinationViewFragment() {
     }
 
     @Override
@@ -29,25 +44,15 @@ public class DestinationViewFragment {//extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.destination_select_view, container, false);
+        view = inflater.inflate(R.layout.destination_card_view, container, false);
         initiateView();
 
 
-        //refreshView();
-        numCanDiscard=(TextView) view.findViewById(R.id.numCardText);
-        if(hasStarted)
-        {
-            numCanDiscard.setText("2");
-        }
-        else
-        {
-            numCanDiscard.setText("1");
-        }
-        readyButton = (Button) view.findViewById(R.id.ready_Button);
-        readyButton.setOnClickListener(new View.OnClickListener() {
+        backButton = (Button) view.findViewById(R.id.destination_back_Button);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onReadyButtonClicked();
+                onBackButtonClicked();
             }
         });
 
@@ -57,80 +62,24 @@ public class DestinationViewFragment {//extends Fragment {
         destinationsRV.setLayoutManager(cardSelectLayoutManager);
         destinationsRV.setHasFixedSize(true);
 
-        destinationAdapter = new DestinationCardAdapter(cardsRecieved);
+        destinationAdapter = new DestinationCardAdapter(cards);
 
         destinationsRV.setAdapter(destinationAdapter);
 
-        DestinationSelectPresenter.instance.setView(this);
+        DestinationViewPresenter.instance.setView(this);
 
         return view;
     }
 
     private void initiateView()
     {
-
-        cardsRecieved=(ArrayList) DSPInterface.instance.getCards();
-        hasStarted=DSPInterface.instance.checkStartStatus();
-
+        cards=(ArrayList) DestinationViewPresenter.instance.getDestinationCards();
     }
 
 
-    private void onReadyButtonClicked()
+    private void onBackButtonClicked()
     {
-        int numChecked=0;
-        for(DestinationCard c: cardsRecieved)
-        {
-            if(c.isChecked())
-            {
-                numChecked++;
-            }
-        }
-
-        if(hasStarted)
-        {
-            if(numChecked>2)
-            {
-                Toast.makeText(getActivity(), "You can't discard that many cards.", Toast.LENGTH_LONG).show();
-            }
-            else
-            {
-                for(DestinationCard c : cardsRecieved)
-                {
-                    if(c.isChecked())
-                    {
-                        discard.add(c);
-                        cardsRecieved.remove(c);
-                    }
-                    DSPInterface.instance.readyButtonClicked(cardsRecieved, discard);
-                }
-            }
-        }
-        else if(numChecked>0)
-        {
-            if(numChecked>1)
-            {
-                Toast.makeText(getActivity(), "You can't discard that many cards.", Toast.LENGTH_LONG).show();
-            }
-            else
-            {
-                for(DestinationCard c : cardsRecieved)
-                {
-                    if(c.isChecked())
-                    {
-                        discard.add(c);
-                        cardsRecieved.remove(c);
-                        DSPInterface.instance.readyButtonClicked(cardsRecieved, discard);
-                    }
-                }
-
-            }
-        }
-        else {
-
-            ClientFacade.getClientFacade().updateDestinationHand(cardsRecieved);
-        }
         getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
-
     }
 
 
@@ -169,21 +118,7 @@ public class DestinationViewFragment {//extends Fragment {
             endCity.setText(card.getEndCity().getCityName());
             points.setText(Integer.toString(card.getPoints()));
 
-            discardBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-                                                      @Override
-                                                      public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-                                                          if(buttonView.isChecked())
-                                                          {
-                                                              card.setChecked(true);
-                                                          }
-                                                          else
-                                                          {
-                                                              card.setChecked(false);
-                                                          }
-                                                      }
-                                                  }
-            );
+            discardBox.setVisibility(View.INVISIBLE);
 
         }
 
@@ -201,15 +136,15 @@ public class DestinationViewFragment {//extends Fragment {
         }
 
         @Override
-        public DestinationSelectFragment.destinationsViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+        public DestinationViewFragment.destinationsViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
         {
             LayoutInflater inflater= LayoutInflater.from(getActivity());
             View view= inflater.inflate(R.layout.destinationcard_view, parent, false);
-            return new DestinationSelectFragment.destinationsViewHolder(view);
+            return new DestinationViewFragment.destinationsViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(DestinationSelectFragment.destinationsViewHolder holder, int position) {
+        public void onBindViewHolder(DestinationViewFragment.destinationsViewHolder holder, int position) {
             if(cardList.size()>0) {
                 holder.bindObject(cardList.get(position));
             }
@@ -220,6 +155,6 @@ public class DestinationViewFragment {//extends Fragment {
         public int getItemCount() {
             return cardList.size();
         }
-    }*/
+    }
 }
 

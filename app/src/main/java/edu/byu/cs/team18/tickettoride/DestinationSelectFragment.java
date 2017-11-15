@@ -115,10 +115,15 @@ public class DestinationSelectFragment extends Fragment {
                     if(c.isChecked())
                     {
                         discard.add(c);
-                        cardsRecieved.remove(c);
                     }
-                    DSPInterface.instance.readyButtonClicked(cardsRecieved, discard);
+
                 }
+                for (DestinationCard c : discard)
+                {
+                    cardsRecieved.remove(c);
+                }
+
+                DSPInterface.instance.readyButtonClicked(cardsRecieved, discard);
                             }
         }
         else if(numChecked>0)
@@ -134,10 +139,14 @@ public class DestinationSelectFragment extends Fragment {
                     if(c.isChecked())
                     {
                         discard.add(c);
-                        cardsRecieved.remove(c);
-                        DSPInterface.instance.readyButtonClicked(cardsRecieved, discard);
                     }
                 }
+                for (DestinationCard c : discard)
+                {
+                    cardsRecieved.remove(c);
+                }
+
+                DSPInterface.instance.readyButtonClicked(cardsRecieved, discard);
 
             }
         }
