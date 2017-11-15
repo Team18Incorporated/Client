@@ -78,8 +78,6 @@ public class GamePresenter implements Observer{
         ClientFacade.getClientFacade().drawDestinationCards();
     }
 
-
-
     /*
     adds designated DestinationCard to the user's destinations
     @pre: in!=null
@@ -90,15 +88,7 @@ public class GamePresenter implements Observer{
     }
     /*
     uses model to determine route pressed and selects
-    @pre: pos !=null
-    @post:none
-     */
-    public void selectRoute(Point pos){
-        //Todo: connect to model
-    }
-    /*
-    uses model to determine route pressed and selects
-    @pre: iv!= null && iv is a car image
+    @pre: in!= null && iv is a car image
     @post:none
      */
     public void selectRoute(Route in){
@@ -135,7 +125,6 @@ public class GamePresenter implements Observer{
         int out = in.getNumTrainPieces();
         return out;
     }
-
 
     public String getCurrentPlayerColor()
     {

@@ -51,7 +51,6 @@ public class ChatPresenter implements Observer {
         ClientModel.SINGLETON.observerRegister(this);
     }
 
-
     /**
      * <p>Checks to see if the user's chat message can be sent or not, i.e., whether or not it is invalid.
      * Displays a toast to the user if the message is not valid</p>

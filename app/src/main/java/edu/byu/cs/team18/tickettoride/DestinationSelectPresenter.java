@@ -26,12 +26,6 @@ public class DestinationSelectPresenter {
         view=viewIn;
     }
 
-
-
-
-
-
-
     public List<DestinationCard> getCards()
     {
         return ClientModel.SINGLETON.getCurrentPlayer().getDestinationCardChoices();
