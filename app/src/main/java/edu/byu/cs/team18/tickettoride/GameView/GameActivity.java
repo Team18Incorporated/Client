@@ -62,6 +62,12 @@ public class GameActivity extends AppCompatActivity {
         manager.beginTransaction().add(R.id.latice,fragment).commit();
     }
 
+    public void claimRouteCardSelect()
+    {
+        TrainCardSelectFragment fragment= new TrainCardSelectFragment();
+        manager.beginTransaction().add(R.id.latice,fragment).commit();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_game, menu);

@@ -35,11 +35,9 @@ public class GameViewFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private GameActivity activity;
     private View view;
-    //private ImageButton hand;
     private ImageButton deck;
     private ImageButton hand;
 
-    //private ImageButton destinationDeck;
     private Button testButton;
     private Button destinationDeckButton;
     private Button claim;

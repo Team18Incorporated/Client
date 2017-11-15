@@ -14,17 +14,18 @@ public class StartTurnState implements IState {
     public static StartTurnState SINGLETON = new StartTurnState();
 
     @Override
-    public void claimRoute(Route route) {
+    public boolean claimRoute(Route route) {
         ServerProxy.getServerProxy().claimRoute(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID(), route);
         ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
+        return true;
     }
 
     @Override
-    public void drawFaceUp(int index) {
+    public boolean drawFaceUp(int index) {
         //add implementation
         TrainCard card = ClientModel.SINGLETON.getCurrentGame().getVisibleCards().get(index);
-        if (card.getColor().getColor().equals("rainbow"))
+        if (card.getColor().getColor().equals("wild"))
         {
             //is that right? rainbow?
             ServerProxy.getServerProxy().drawFromFaceUp(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
@@ -37,21 +38,24 @@ public class StartTurnState implements IState {
                 ClientModel.SINGLETON.getCurrentGame().getGameID(), index);
             ClientModel.SINGLETON.setState(DrawCardState.SINGLETON);
         }
+        return true;
     }
 
     @Override
-    public void drawFromDeck() {
+    public boolean drawFromDeck() {
         //add implementation
         ServerProxy.getServerProxy().drawTrainCard(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID());
         ClientModel.SINGLETON.setState(DrawCardState.SINGLETON);
+        return true;
     }
 
     @Override
-    public void drawDestinationCards() {
+    public boolean drawDestinationCards() {
         //add implementation
         ServerProxy.getServerProxy().drawDestinationCard(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID());
         ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
+        return true;
     }
 }

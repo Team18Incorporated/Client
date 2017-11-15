@@ -11,22 +11,22 @@ public class NotTurnState implements IState {
     public static NotTurnState SINGLETON = new NotTurnState();
 
     @Override
-    public void claimRoute(Route route) {
-
+    public boolean claimRoute(Route route) {
+        return false;
     }
 
     @Override
-    public void drawFaceUp(int index) {
-
+    public boolean drawFaceUp(int index) {
+        return false;
     }
 
     @Override
-    public void drawFromDeck() {
-
+    public boolean drawFromDeck() {
+        return false;
     }
 
     @Override
-    public void drawDestinationCards() {
-
+    public boolean drawDestinationCards() {
+        return false;
     }
 }
