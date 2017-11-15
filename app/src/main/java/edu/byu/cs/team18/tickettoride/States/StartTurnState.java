@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.States;
 
 import edu.byu.cs.team18.tickettoride.ClientModel;
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.Route;
 import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 import edu.byu.cs.team18.tickettoride.ServerProxy;
@@ -15,8 +16,10 @@ public class StartTurnState implements IState {
 
     @Override
     public boolean claimRoute(Route route) {
-        ServerProxy.getServerProxy().claimRoute(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
-                ClientModel.SINGLETON.getCurrentGame().getGameID(), route);
+        AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
+        String gameID = ClientModel.SINGLETON.getCurrentGame().getGameID();
+        ServerProxy.getServerProxy().claimRoute(token,gameID, route);
+        ServerProxy.getServerProxy().endTurn(token,gameID,ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
         ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
         return true;
     }
@@ -30,6 +33,8 @@ public class StartTurnState implements IState {
             //is that right? rainbow?
             ServerProxy.getServerProxy().drawFromFaceUp(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                     ClientModel.SINGLETON.getCurrentGame().getGameID(), index);
+            ServerProxy.getServerProxy().endTurn(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
+                    ClientModel.SINGLETON.getCurrentGame().getGameID(), ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
             ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
         }
         else
@@ -55,6 +60,8 @@ public class StartTurnState implements IState {
         //add implementation
         ServerProxy.getServerProxy().drawDestinationCard(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID());
+        ServerProxy.getServerProxy().endTurn(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
+                ClientModel.SINGLETON.getCurrentGame().getGameID(), ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
         ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
         return true;
     }
