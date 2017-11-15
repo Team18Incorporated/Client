@@ -15,8 +15,12 @@
         android:orderInCategory="105"
         android:title="Players" />
     <item
-        android:id="@+id/exit"
+        android:id="@+id/viewDestinations"
         android:orderInCategory="106"
+        android:title="Your Destination Cards" />
+    <item
+        android:id="@+id/exit"
+        android:orderInCategory="107"
         android:title="Exit" />
     <item
         android:id="@+id/chat"
