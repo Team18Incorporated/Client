@@ -14,6 +14,7 @@ import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.DestinationSelectFragment;
 import edu.byu.cs.team18.tickettoride.GameHistoryFragment;
+import edu.byu.cs.team18.tickettoride.LobbyActivity;
 import edu.byu.cs.team18.tickettoride.R;
 
 import static edu.byu.cs.team18.tickettoride.R.drawable.map;
@@ -61,7 +62,11 @@ public class GameActivity extends AppCompatActivity {
         DestinationSelectFragment fragment= new DestinationSelectFragment();
         manager.beginTransaction().add(R.id.latice,fragment).commit();
     }
-
+    public void closeGame(){
+        GamePresenter.SINGLETON.clearView();
+        Intent intent = new Intent(this, LobbyActivity.class);
+        startActivity(intent);
+    }
     public void claimRouteCardSelect()
     {
         TrainCardSelectFragment fragment= new TrainCardSelectFragment();
@@ -90,6 +95,9 @@ public class GameActivity extends AppCompatActivity {
                 break;
             case R.id.players:
                 openPlayers();
+                break;
+            case R.id.exit:
+                closeGame();
             default:
         }
         return true;
