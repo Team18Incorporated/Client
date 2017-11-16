@@ -25,6 +25,7 @@ public class RegisterFragment extends Fragment {
     private String mReEnterPassword = "";
     private EditText mReEnterPasswordField;
     private Button mSubmitButton;
+    private String server = "192.168.2.172";
 
 
 
@@ -121,6 +122,30 @@ public class RegisterFragment extends Fragment {
             public void onClick(View v) {
                 //Should create a login request object to be sent to the server proxy.
                 RegisterPresenter.getRegisterPresenter().presentRegister(mUsername, mPassword, mReEnterPassword, getActivity());
+            }
+        });
+        final EditText serverAddress = (EditText) v.findViewById(R.id.server);
+        serverAddress.addTextChangedListener(new TextWatcher(){
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){
+                //blank intentionally
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count){
+                server = s.toString();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //Blank on purpose.
+            }
+        });
+        Button setServer = (Button) v.findViewById(R.id.setServer);
+        setServer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RegisterPresenter.getRegisterPresenter().setServer(server);
             }
         });
         RegisterPresenter.getRegisterPresenter().setView(this);

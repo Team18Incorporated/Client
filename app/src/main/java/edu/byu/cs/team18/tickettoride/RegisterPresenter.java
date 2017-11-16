@@ -32,6 +32,10 @@ public class RegisterPresenter implements Observer{
         return registerPresenter;
     }
 
+    public void setServer(String in){
+        ClientCommunicator.getSingleton().setServer(in);
+    }
+
     public void setView(RegisterFragment viewIn){
         view = viewIn;
         ClientModel.SINGLETON.observerRegister(this);

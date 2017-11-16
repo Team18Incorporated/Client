@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -56,13 +58,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LobbyActivity.class);
         startActivity(intent);
     }
-  /*
-    @Override
-    protected void onResume() {
-
-
-    }
-    */
 
 }
 

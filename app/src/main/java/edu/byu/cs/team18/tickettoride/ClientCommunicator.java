@@ -34,6 +34,14 @@ public class ClientCommunicator {
     private static String URL_PREFIX = "http://" + SERVER_HOST + ":" + SERVER_PORT;
 
     private Object returnObject;
+    /*
+    sets server host
+    @pre: address is a valid IP address
+    @post: none
+     */
+    public void setServer(String address){
+        SERVER_HOST = address;
+    }
 
     public Object send(String url, Object command, Class<?> klass){
         HttpURLConnection connection = openConnection("/"+url, HTTP_POST, true);

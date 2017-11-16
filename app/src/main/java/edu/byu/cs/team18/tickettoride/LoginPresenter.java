@@ -80,6 +80,10 @@ public class LoginPresenter implements Observer{
         }
     }
 
+    public void setServer(String in){
+        ClientCommunicator.getSingleton().setServer(in);
+    }
+
     @Override
     public void update(Observable observable, Object o) {
         if (o!=null && o instanceof User){

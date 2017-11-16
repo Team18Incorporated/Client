@@ -22,6 +22,7 @@ public class LoginFragment extends Fragment {
     private EditText mPasswordField;
     private String mPassword = "";
     private Button mSubmitButton;
+    private String server = "192.168.2.172";
 
     public EditText getUsernameField() {
         return mUsernameField;
@@ -114,6 +115,30 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
                 //Should create a login request object to be sent to the server proxy.
                 LoginPresenter.getLoginPresenter().presentLogin(mUsername,mPassword,getActivity());
+            }
+        });
+        final EditText serverAddress = (EditText) v.findViewById(R.id.server);
+        serverAddress.addTextChangedListener(new TextWatcher(){
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){
+                //blank intentionally
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count){
+                server = s.toString();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //Blank on purpose.
+            }
+        });
+        Button setServer = (Button) v.findViewById(R.id.setServer);
+        setServer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginPresenter.getLoginPresenter().setServer(server);
             }
         });
 
