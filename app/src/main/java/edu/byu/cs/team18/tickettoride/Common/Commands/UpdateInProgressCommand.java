@@ -35,4 +35,9 @@ public class UpdateInProgressCommand implements ICommand{
 
     @Override
     public void execute(){}
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
+    }
 }

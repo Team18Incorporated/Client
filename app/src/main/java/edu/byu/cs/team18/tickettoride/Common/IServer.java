@@ -103,4 +103,6 @@ public interface IServer {
 	public void sendChat(AuthToken authToken, ChatMessage chatMessage, String gameID);
 
 	public CommandList getHistory(AuthToken token, String gameID, Date date);
+
+	public void endTurn(AuthToken token, String gameID, String playerID);
 }

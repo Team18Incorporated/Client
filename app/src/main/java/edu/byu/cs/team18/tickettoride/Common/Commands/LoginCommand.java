@@ -42,4 +42,9 @@ public class LoginCommand implements ICommand{
 
     @Override
     public void execute(){}
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
+    }
 }

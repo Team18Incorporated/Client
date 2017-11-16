@@ -22,6 +22,8 @@ public class DrawCardState implements IState {
         //add implementation
         ServerProxy.getServerProxy().drawFromFaceUp(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID(), index);
+        ServerProxy.getServerProxy().endTurn(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
+                ClientModel.SINGLETON.getCurrentGame().getGameID(), ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
         ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
         return true;
     }
@@ -31,6 +33,8 @@ public class DrawCardState implements IState {
         //add implementation
         ServerProxy.getServerProxy().drawTrainCard(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID());
+        ServerProxy.getServerProxy().endTurn(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
+                ClientModel.SINGLETON.getCurrentGame().getGameID(), ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
         ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
         return true;
     }

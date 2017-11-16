@@ -13,9 +13,11 @@ import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 
 public class UpdateFaceUpCommand implements ICommand {
     private List<TrainCard> list;
-
+    private final String className;
     public UpdateFaceUpCommand(List<TrainCard> list) {
+
         this.list = list;
+        className=getClass().getName();
     }
 
     @Override
@@ -36,5 +38,9 @@ public class UpdateFaceUpCommand implements ICommand {
         return "Changes made to Face Up Cards";
     }
 
+    @Override
+    public String getClassName() {
+        return getClass().getName();
+    }
 
 }

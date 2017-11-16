@@ -14,10 +14,16 @@ public class SendBackDestinationsCommand implements ICommand {
     private AuthToken authToken;
     private String gameID;
     private List<DestinationCard> list;
+    private String className;
 
     @Override
     public String getSuffix() {
         return "InGameCommands.SendBackDestinations";
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 
     @Override
@@ -31,6 +37,7 @@ public class SendBackDestinationsCommand implements ICommand {
         this.authToken = authToken;
         this.gameID = gameID;
         this.list = list;
+        className=getClass().getName();
     }
 
     public AuthToken getAuthToken() {

@@ -4,13 +4,14 @@ import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 /**
- * Created by abram on 10/20/2017.
+ * Created by abram on 11/15/2017.
  */
 
-public class DrawDestinationCardCommand implements ICommand{
+public class EndTurnCommand implements ICommand {
 
-    private AuthToken authToken;
+    private AuthToken token;
     private String gameID;
+    private String playerID;
     private String className;
 
     @Override
@@ -20,27 +21,28 @@ public class DrawDestinationCardCommand implements ICommand{
 
     @Override
     public String getSuffix() {
-        return "InGameCommands.DrawDestinationCard";
+        return "EndTurn";
     }
 
     @Override
-    public void execute()
-    {
-        //To be done on the server
+    public void execute() {
+
     }
 
-    public DrawDestinationCardCommand(AuthToken authToken, String gameID) {
-        this.authToken = authToken;
-        this.gameID = gameID;
+    public EndTurnCommand(AuthToken t, String g, String p)
+    {
+        token = t;
+        gameID = g;
+        playerID = p;
         className=getClass().getName();
     }
 
-    public AuthToken getAuthToken() {
-        return authToken;
+    public AuthToken getToken() {
+        return token;
     }
 
-    public void setAuthToken(AuthToken authToken) {
-        this.authToken = authToken;
+    public void setToken(AuthToken token) {
+        this.token = token;
     }
 
     public String getGameID() {
@@ -49,5 +51,13 @@ public class DrawDestinationCardCommand implements ICommand{
 
     public void setGameID(String gameID) {
         this.gameID = gameID;
+    }
+
+    public String getPlayerID() {
+        return playerID;
+    }
+
+    public void setPlayerID(String playerID) {
+        this.playerID = playerID;
     }
 }

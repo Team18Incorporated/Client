@@ -13,7 +13,7 @@ public class UpdateGameHistoryCommand implements ICommand {
     private AuthToken authToken;
     private String gameID;
     private Date date;
-
+    private String className;
 
 
     @Override
@@ -32,6 +32,8 @@ public class UpdateGameHistoryCommand implements ICommand {
         this.authToken = authToken;
         this.gameID = gameID;
         this.date=date;
+        className=getClass().getName();
+
     }
 
     public AuthToken getAuthToken() {
@@ -48,5 +50,10 @@ public class UpdateGameHistoryCommand implements ICommand {
 
     public void setGameID(String gameID) {
         this.gameID = gameID;
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

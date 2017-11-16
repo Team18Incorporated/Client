@@ -22,7 +22,8 @@ public class CommandList implements ICommand{
     {
         for(int i = 0; i < list.size(); i++)
         {
-            list.get(i).execute();
+            if(list.get(i)!=null)
+                list.get(i).execute();
         }
     }
 
@@ -38,7 +39,14 @@ public class CommandList implements ICommand{
         this.list = list;
     }
 
+    public CommandList(){}
+
     public Date getDate() {
         return date;
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

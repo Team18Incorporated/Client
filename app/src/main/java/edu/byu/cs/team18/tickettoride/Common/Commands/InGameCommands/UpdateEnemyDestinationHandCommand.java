@@ -13,6 +13,7 @@ public class UpdateEnemyDestinationHandCommand implements ICommand {
 
     private String playerID;
     private int size;
+    private String className;
 
     @Override
     public String getSuffix() {
@@ -52,5 +53,11 @@ public class UpdateEnemyDestinationHandCommand implements ICommand {
     public UpdateEnemyDestinationHandCommand(String playerID, int size) {
         this.playerID = playerID;
         this.size = size;
+        className=getClass().getName();
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

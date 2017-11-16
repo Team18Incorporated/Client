@@ -16,10 +16,16 @@ public class ClaimRouteCommand implements ICommand {
     private String gameID;
     private String playerID;
     private Route route;
+    private String className;
 
     @Override
     public String getSuffix() {
         return "InGameCommands.ClaimRoute";
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 
     public ClaimRouteCommand(AuthToken authToken, String gameID, String playerID, Route route) {
@@ -27,6 +33,7 @@ public class ClaimRouteCommand implements ICommand {
         this.gameID = gameID;
         this.playerID = playerID;
         this.route = route;
+        className=getClass().getName();
     }
 
     public ClaimRouteCommand(AuthToken authToken, String gameID, Route route){

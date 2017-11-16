@@ -11,6 +11,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 public class UpdateChatHistoryCommand implements ICommand {
 
     private ChatHistory history;
+    private String className;
     //private String gameID;
 
     @Override
@@ -26,6 +27,7 @@ public class UpdateChatHistoryCommand implements ICommand {
 
     public UpdateChatHistoryCommand(ChatHistory history /* , String gameID*/) {
         this.history = history;
+        className=getClass().getName();
        // this.gameID = gameID;
     }
 
@@ -35,6 +37,11 @@ public class UpdateChatHistoryCommand implements ICommand {
 
     public void setHistory(ChatHistory history) {
         this.history = history;
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 
 //    public String getGameID() {

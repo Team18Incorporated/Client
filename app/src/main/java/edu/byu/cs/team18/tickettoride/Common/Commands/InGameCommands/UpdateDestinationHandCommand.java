@@ -12,7 +12,8 @@ import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
 
 public class UpdateDestinationHandCommand implements ICommand {
 
-    List<DestinationCard> list;
+    private List<DestinationCard> list;
+    private String  className;
 
     @Override
     public String getSuffix() {
@@ -27,6 +28,7 @@ public class UpdateDestinationHandCommand implements ICommand {
 
     public UpdateDestinationHandCommand(java.util.List<DestinationCard> list) {
         this.list = list;
+        className=getClass().getName();
     }
 
     public java.util.List<DestinationCard> getList() {
@@ -35,5 +37,10 @@ public class UpdateDestinationHandCommand implements ICommand {
 
     public void setList(java.util.List<DestinationCard> list) {
         this.list = list;
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

@@ -9,6 +9,7 @@ import java.util.Observer;
 
 import edu.byu.cs.team18.tickettoride.Common.*;
 import edu.byu.cs.team18.tickettoride.States.IState;
+import edu.byu.cs.team18.tickettoride.States.NotTurnState;
 
 
 public class ClientModel extends Observable{
@@ -24,7 +25,7 @@ public class ClientModel extends Observable{
     private Route currentRoute;
     private Route lastRoute;
     private Date latestDate;
-    private IState state;
+    private IState state = NotTurnState.SINGLETON;
 
     private PollerAsyncTask poller = new PollerAsyncTask();
 
@@ -65,6 +66,11 @@ public class ClientModel extends Observable{
     }
 
     public Date getLatestDate(){
+
+        if(latestDate==null)
+        {
+            latestDate=new Date();
+        }
         return latestDate;
     }
 

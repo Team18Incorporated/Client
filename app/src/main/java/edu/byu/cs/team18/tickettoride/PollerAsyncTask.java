@@ -25,14 +25,18 @@ public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
 
                     if(ClientModel.SINGLETON.getCurrentGame()!=null)
                     {
-                        /*WILL NEED LATER
+
 
                         Date date = ClientModel.SINGLETON.getLatestDate();
                         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
 
                         CommandList cl =ServerProxy.getServerProxy().getHistory(token, ClientModel.SINGLETON.getCurrentGame().getGameID(), date);
-                        cl.execute();
-                        ClientModel.SINGLETON.setLatestDate(cl.getDate());*/
+                        if(cl!=null)
+                        {
+                            cl.execute();
+                            ClientModel.SINGLETON.setLatestDate(cl.getDate());
+                        }
+
                     }
                     else
                     {

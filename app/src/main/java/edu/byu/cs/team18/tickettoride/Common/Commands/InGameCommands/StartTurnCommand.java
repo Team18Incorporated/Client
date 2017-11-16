@@ -8,7 +8,14 @@ import edu.byu.cs.team18.tickettoride.States.StartTurnState;
  * Created by abram on 11/13/2017.
  */
 
-public class StartGameCommand implements ICommand {
+public class StartTurnCommand implements ICommand {
+    private String className;
+
+
+    public StartTurnCommand()
+    {
+        className=getClass().getName();
+    }
 
     public void execute()
     {
@@ -17,6 +24,11 @@ public class StartGameCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "StartGame";
+        return "StartTurn";
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

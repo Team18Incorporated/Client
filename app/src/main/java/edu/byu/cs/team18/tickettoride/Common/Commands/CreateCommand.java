@@ -43,5 +43,10 @@ public class CreateCommand implements ICommand{
     }
 
     @Override
+    public String getClassName() {
+        return getClass().getName();
+    }
+
+    @Override
     public void execute(){}
 }
