@@ -11,6 +11,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 public class UpdateEnemyTrainHandCommand implements ICommand {
     private String playerID;
     private int size;
+    private String  className;
 
 
     @Override
@@ -52,5 +53,11 @@ public class UpdateEnemyTrainHandCommand implements ICommand {
     public UpdateEnemyTrainHandCommand(String playerID, int size) {
         this.playerID = playerID;
         this.size = size;
+        className=getClass().getName();
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

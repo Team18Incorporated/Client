@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,9 +16,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import com.google.gson.JsonIOException;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+
 import com.google.gson.JsonSyntaxException;
 
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
@@ -26,8 +28,8 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 public class ClientCommunicator {
     private static ClientCommunicator SINGLETON;
-    private static Gson gson = new Gson();
-    private static String SERVER_HOST = "192.168.2.25";//""67.205.155.130";
+    private  Gson  gson =null;
+    private static String SERVER_HOST = "192.168.2.170";//""67.205.155.130";
     private static String SERVER_PORT = "8080";
     private static String HTTP_POST = "POST";
     private static String HTTP_GET = "GET";
@@ -42,6 +44,16 @@ public class ClientCommunicator {
         result = returnResult(connection, klass);
 
         return result;
+    }
+
+    private ClientCommunicator()
+    {
+
+        {
+            GsonBuilder builder = new GsonBuilder();
+            builder.registerTypeAdapter(ICommand.class, new ICommandDeserializer<ICommand>());
+            gson = builder.create();
+        }
     }
 
     public static ClientCommunicator getSingleton(){
@@ -144,5 +156,6 @@ public class ClientCommunicator {
 
 
     }
+
 
 }

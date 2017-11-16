@@ -10,6 +10,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 public class UpdateEnemyScoreCommand implements ICommand {
     private String playerID;
     private int points;
+    private String className;
 
 
     @Override
@@ -27,6 +28,7 @@ public class UpdateEnemyScoreCommand implements ICommand {
     public UpdateEnemyScoreCommand(String playerID, int points) {
         this.playerID = playerID;
         this.points = points;
+        className=getClass().getName();
     }
 
     public String getPlayerID() {
@@ -43,5 +45,10 @@ public class UpdateEnemyScoreCommand implements ICommand {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

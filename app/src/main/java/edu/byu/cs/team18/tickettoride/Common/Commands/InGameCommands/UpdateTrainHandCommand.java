@@ -13,6 +13,7 @@ public class UpdateTrainHandCommand implements ICommand {
 
     private TrainCard card1;
     private TrainCard card2;
+    private String className;
 
 
     @Override
@@ -30,6 +31,7 @@ public class UpdateTrainHandCommand implements ICommand {
     public UpdateTrainHandCommand(TrainCard card1, TrainCard card2) {
         this.card1 = card1;
         this.card2 = card2;
+        className=getClass().getName();
     }
 
     public TrainCard getCard1() {
@@ -51,5 +53,10 @@ public class UpdateTrainHandCommand implements ICommand {
     public String toString()
     {
         return ClientModel.SINGLETON.getCurrentPlayer().getPlayerName()+" drew a "+ card1.getColor()+" card, and a "+card2.getColor()+" from the deck.";
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

@@ -14,6 +14,12 @@ public class DrawFromFaceUpCommand implements ICommand {
     private AuthToken authToken;
     private String gameID;
     private int card;
+    private String className;
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
+    }
 
     @Override
     public String getSuffix() {
@@ -32,6 +38,7 @@ public class DrawFromFaceUpCommand implements ICommand {
         this.card = card;
         this.gameID = gameID;
         this.authToken = authToken;
+        className=getClass().getName();
     }
 
     public String getGameID() {

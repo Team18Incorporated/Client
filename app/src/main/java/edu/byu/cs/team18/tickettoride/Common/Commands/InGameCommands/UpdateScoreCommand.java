@@ -14,6 +14,7 @@ import edu.byu.cs.team18.tickettoride.Common.PlayerInfo;
 public class UpdateScoreCommand implements ICommand {
 
     private int points;
+    private String className;
 
 
     @Override
@@ -39,6 +40,7 @@ public class UpdateScoreCommand implements ICommand {
 
     public UpdateScoreCommand(int points) {
         this.points = points;
+        className=getClass().getName();
     }
 
     public int getPoints() {
@@ -47,5 +49,10 @@ public class UpdateScoreCommand implements ICommand {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

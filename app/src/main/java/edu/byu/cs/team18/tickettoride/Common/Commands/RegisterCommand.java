@@ -43,4 +43,9 @@ public class RegisterCommand implements ICommand{
 
     @Override
     public void execute(){}
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
+    }
 }

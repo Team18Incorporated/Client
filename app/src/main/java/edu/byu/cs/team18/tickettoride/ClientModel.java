@@ -66,6 +66,11 @@ public class ClientModel extends Observable{
     }
 
     public Date getLatestDate(){
+
+        if(latestDate==null)
+        {
+            latestDate=new Date();
+        }
         return latestDate;
     }
 

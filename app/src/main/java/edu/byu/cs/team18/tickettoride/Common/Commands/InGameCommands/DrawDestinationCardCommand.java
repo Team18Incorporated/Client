@@ -11,6 +11,12 @@ public class DrawDestinationCardCommand implements ICommand{
 
     private AuthToken authToken;
     private String gameID;
+    private String className;
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
+    }
 
     @Override
     public String getSuffix() {
@@ -26,6 +32,7 @@ public class DrawDestinationCardCommand implements ICommand{
     public DrawDestinationCardCommand(AuthToken authToken, String gameID) {
         this.authToken = authToken;
         this.gameID = gameID;
+        className=getClass().getName();
     }
 
     public AuthToken getAuthToken() {

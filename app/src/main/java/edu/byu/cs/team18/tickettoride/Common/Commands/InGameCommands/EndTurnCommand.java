@@ -12,6 +12,12 @@ public class EndTurnCommand implements ICommand {
     private AuthToken token;
     private String gameID;
     private String playerID;
+    private String className;
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
+    }
 
     @Override
     public String getSuffix() {
@@ -28,6 +34,7 @@ public class EndTurnCommand implements ICommand {
         token = t;
         gameID = g;
         playerID = p;
+        className=getClass().getName();
     }
 
     public AuthToken getToken() {

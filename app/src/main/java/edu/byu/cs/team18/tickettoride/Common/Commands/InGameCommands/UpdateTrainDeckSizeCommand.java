@@ -10,6 +10,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 public class UpdateTrainDeckSizeCommand implements ICommand {
 
     private int size;
+    private String className;
 
     @Override
     public String getSuffix() {
@@ -26,6 +27,7 @@ public class UpdateTrainDeckSizeCommand implements ICommand {
 
     public UpdateTrainDeckSizeCommand( int size) {
         this.size = size;
+        className=getClass().getName();
     }
 
 
@@ -35,5 +37,10 @@ public class UpdateTrainDeckSizeCommand implements ICommand {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

@@ -9,6 +9,13 @@ import edu.byu.cs.team18.tickettoride.States.StartTurnState;
  */
 
 public class StartTurnCommand implements ICommand {
+    private String className;
+
+
+    public StartTurnCommand()
+    {
+        className=getClass().getName();
+    }
 
     public void execute()
     {
@@ -18,5 +25,10 @@ public class StartTurnCommand implements ICommand {
     @Override
     public String getSuffix() {
         return "StartTurn";
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }

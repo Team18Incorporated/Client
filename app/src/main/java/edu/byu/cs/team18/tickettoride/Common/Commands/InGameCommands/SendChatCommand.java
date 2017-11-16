@@ -14,6 +14,7 @@ public class SendChatCommand implements ICommand {
     private ChatMessage message;
     private AuthToken authToken;
     private String gameID;
+    private String className;
 
     @Override
     public String getSuffix() {
@@ -27,10 +28,17 @@ public class SendChatCommand implements ICommand {
         //The server will do this.
     }
 
+    @Override
+    public String getClassName() {
+        return getClass().getName();
+    }
+
     public SendChatCommand(ChatMessage message, AuthToken token, String gameID) {
         this.message = message;
         this.authToken = token;
         this.gameID=gameID;
+        className=getClass().getName();
+        System.out.println(className);
     }
 
     public ChatMessage getMessage() {

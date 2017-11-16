@@ -8,6 +8,8 @@ public interface ICommand {
 
     public String getSuffix();
 
+    public String getClassName();
+
     public void execute();
 
 }

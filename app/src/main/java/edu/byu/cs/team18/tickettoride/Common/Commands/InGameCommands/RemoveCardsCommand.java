@@ -15,11 +15,18 @@ public class RemoveCardsCommand implements ICommand {
     private String color;
     private int length;
     private ArrayList<TrainCard> discard = new ArrayList<>();
+    private String className;
 
     public  RemoveCardsCommand(Route route)
     {
         color= route.getColor().getColor();
         length=route.getLength();
+        className=getClass().getName();
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 
 

@@ -12,11 +12,17 @@ import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
  */
 
 public class ShowDestinationChoicesCommand implements ICommand {
-    List<DestinationCard> list;
+    private List<DestinationCard> list;
+    private String className;
 
     @Override
     public String getSuffix() {
         return "InGameCommands.ShowDestinationChoices";
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 
     @Override
@@ -27,6 +33,7 @@ public class ShowDestinationChoicesCommand implements ICommand {
 
     public ShowDestinationChoicesCommand(List<DestinationCard> list) {
         this.list = list;
+        className=getClass().getName();
     }
 
     public List<DestinationCard> getList() {

@@ -10,9 +10,11 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 public class UpdatePlayerTurnCommand implements ICommand {
     private int playerIndex;
+    private String className;
 
     public UpdatePlayerTurnCommand(int playerIndex) {
         this.playerIndex = playerIndex;
+        className=getClass().getName();
     }
 
     @Override
@@ -28,5 +30,10 @@ public class UpdatePlayerTurnCommand implements ICommand {
     public String toString()
     {
         return ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(playerIndex).getPlayerName()+"'s turn";
+    }
+
+    @Override
+    public String getClassName() {
+        return getClass().getName();
     }
 }
