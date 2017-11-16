@@ -12,7 +12,7 @@ import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 public class UpdateTrainHandCommand implements ICommand {
 
     private TrainCard card1;
-    private TrainCard card2;
+
     private String className;
 
 
@@ -25,12 +25,11 @@ public class UpdateTrainHandCommand implements ICommand {
     @Override
     public void execute()
     {
-        ClientFacade.getClientFacade().updateTrainHand(card1, card2);
+        ClientFacade.getClientFacade().updateTrainHand(card1);
     }
 
     public UpdateTrainHandCommand(TrainCard card1, TrainCard card2) {
         this.card1 = card1;
-        this.card2 = card2;
         className=getClass().getName();
     }
 
@@ -42,17 +41,11 @@ public class UpdateTrainHandCommand implements ICommand {
         this.card1 = card1;
     }
 
-    public TrainCard getCard2() {
-        return card2;
-    }
 
-    public void setCard2(TrainCard card2) {
-        this.card2 = card2;
-    }
 
     public String toString()
     {
-        return ClientModel.SINGLETON.getCurrentPlayer().getPlayerName()+" drew a "+ card1.getColor()+" card, and a "+card2.getColor()+" from the deck.";
+        return ClientModel.SINGLETON.getCurrentPlayer().getPlayerName()+" drew a "+ card1.getColor()+" card from the deck.";
     }
 
     @Override

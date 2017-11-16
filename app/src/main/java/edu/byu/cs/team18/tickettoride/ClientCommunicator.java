@@ -59,7 +59,7 @@ public class ClientCommunicator {
 
         {
             GsonBuilder builder = new GsonBuilder();
-            builder.registerTypeAdapter(ICommand.class, new ICommandDeserializer<ICommand>());
+            builder.registerTypeAdapter(ICommand.class, new ICommandAdapter<ICommand>());
             gson = builder.create();
         }
     }

@@ -132,10 +132,9 @@ public class ClientFacade implements IClient {
     }
 
     @Override
-    public void updateTrainHand(TrainCard card1, TrainCard card2)
+    public void updateTrainHand(TrainCard card1)
     {
         ClientModel.SINGLETON.getCurrentPlayer().getHand().add(card1);
-        ClientModel.SINGLETON.getCurrentPlayer().getHand().add(card2);
     }
 
     @Override

@@ -67,24 +67,36 @@ public class GamePresenter implements Observer{
      */
     public void drawCard(){
       if(!ClientFacade.getClientFacade().drawTrainCard())
-        {
-            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT);
-        }
-//        CommandList temp = ServerProxy.getServerProxy().drawTrainCard(token,id);
-//        temp.execute();
+      {
+          Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
+      }
+      else
+      {
+          ServerProxy.getServerProxy().drawTrainCard(ClientModel.SINGLETON.getCurrentUser().getAuthToken(), ClientModel.SINGLETON.getCurrentGame().getGameID());
+      }
+
+
     }
     public void drawFaceUpCard(int in){
 
         if(!ClientFacade.getClientFacade().drawFaceUp(in))
         {
-            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT);
+            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            ServerProxy.getServerProxy().drawFromFaceUp(ClientModel.SINGLETON.getCurrentUser().getAuthToken(), ClientModel.SINGLETON.getCurrentGame().getGameID(), in);
         }
     }
     public void drawDestinationCards()
     {
         if(!ClientFacade.getClientFacade().drawDestinationCards())
         {
-            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT);
+            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            ServerProxy.getServerProxy().drawDestinationCard(ClientModel.SINGLETON.getCurrentUser().getAuthToken(), ClientModel.SINGLETON.getCurrentGame().getGameID());
         }
     }
 
@@ -120,7 +132,7 @@ public class GamePresenter implements Observer{
         String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
         if(!ClientFacade.getClientFacade().sendClaimRoute(in))
         {
-            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT);
+            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
         }
         else
         {

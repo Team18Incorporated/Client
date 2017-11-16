@@ -19,6 +19,7 @@ public class StartTurnCommand implements ICommand {
 
     public void execute()
     {
+
         ClientModel.SINGLETON.setState(StartTurnState.SINGLETON);
     }
 
