@@ -114,6 +114,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Should create a login request object to be sent to the server proxy.
+                LoginPresenter.getLoginPresenter().setServer(server);
                 LoginPresenter.getLoginPresenter().presentLogin(mUsername,mPassword,getActivity());
             }
         });

@@ -28,12 +28,12 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 public class ClientCommunicator {
     private static ClientCommunicator SINGLETON;
-    private  Gson  gson =null;
-    private static String SERVER_HOST = "192.168.2.170";//""67.205.155.130";
-    private static String SERVER_PORT = "8080";
-    private static String HTTP_POST = "POST";
-    private static String HTTP_GET = "GET";
-    private static String URL_PREFIX = "http://" + SERVER_HOST + ":" + SERVER_PORT;
+    private Gson  gson = null;
+    private String SERVER_HOST = "10.34.244.147";//""67.205.155.130";
+    private String SERVER_PORT = "8080";
+    private String HTTP_POST = "POST";
+    private String HTTP_GET = "GET";
+    private String URL_PREFIX = "http://" + SERVER_HOST + ":" + SERVER_PORT;
 
     private Object returnObject;
     /*
@@ -43,6 +43,7 @@ public class ClientCommunicator {
      */
     public void setServer(String address){
         SERVER_HOST = address;
+        URL_PREFIX = "http://" + SERVER_HOST + ":" + SERVER_PORT;
     }
 
     public Object send(String url, Object command, Class<?> klass){
