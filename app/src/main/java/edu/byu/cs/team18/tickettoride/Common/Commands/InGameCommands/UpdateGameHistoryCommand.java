@@ -12,7 +12,8 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 public class UpdateGameHistoryCommand implements ICommand {
     private AuthToken authToken;
     private String gameID;
-    private Date date;
+    //private Date date;
+    private int index;
     private String className;
 
 
@@ -28,10 +29,10 @@ public class UpdateGameHistoryCommand implements ICommand {
     }
 
 
-    public UpdateGameHistoryCommand(AuthToken authToken, String gameID, Date date) {
+    public UpdateGameHistoryCommand(AuthToken authToken, String gameID, int index) {
         this.authToken = authToken;
         this.gameID = gameID;
-        this.date=date;
+        this.index=index;
         className=getClass().getName();
 
     }

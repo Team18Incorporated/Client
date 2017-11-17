@@ -27,14 +27,16 @@ public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
                     {
 
 
-                        Date date = ClientModel.SINGLETON.getLatestDate();
+                        //Date date = ClientModel.SINGLETON.getLatestDate();
+                        int index = ClientModel.SINGLETON.getCommandIndex();
                         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
 
-                        CommandList cl =ServerProxy.getServerProxy().getHistory(token, ClientModel.SINGLETON.getCurrentGame().getGameID(), date);
+                        CommandList cl =ServerProxy.getServerProxy().getHistory(token, ClientModel.SINGLETON.getCurrentGame().getGameID(),index);
                         if(cl!=null)
                         {
                             cl.execute();
-                            ClientModel.SINGLETON.setLatestDate(cl.getDate());
+                            //ClientModel.SINGLETON.setLatestDate(cl.getDate());
+                            ClientModel.SINGLETON.setCommandIndex(cl.getIndex());
                         }
 
                     }

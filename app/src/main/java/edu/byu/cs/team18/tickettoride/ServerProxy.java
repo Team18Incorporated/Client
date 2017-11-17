@@ -202,10 +202,10 @@ public class ServerProxy implements IServer {
     }
 
     @Override
-    public CommandList getHistory(AuthToken token, String gameID, Date date)
+    public CommandList getHistory(AuthToken token, String gameID, int index)//Date date)
     {
         return (CommandList)ClientCommunicator.getSingleton()
-                .sendCmd(new UpdateGameHistoryCommand(token, gameID, date),CommandList.class);
+                .sendCmd(new UpdateGameHistoryCommand(token, gameID, index),CommandList.class);
     }
 
     @Override

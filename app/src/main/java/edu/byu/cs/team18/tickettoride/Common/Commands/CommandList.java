@@ -10,6 +10,7 @@ import java.util.List;
 public class CommandList implements ICommand{
     private List<ICommand> list;
     private Date date;
+    private int index;
 
     @Override
     public String getSuffix() {
@@ -48,5 +49,9 @@ public class CommandList implements ICommand{
     @Override
     public String getClassName() {
         return getClass().getName();
+    }
+
+    public int getIndex() {
+        return index;
     }
 }

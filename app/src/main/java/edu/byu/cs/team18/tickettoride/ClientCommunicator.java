@@ -30,7 +30,7 @@ public class ClientCommunicator {
     private static ClientCommunicator SINGLETON;
 
     private Gson  gson = null;
-    private String SERVER_HOST = "10.34.244.147";//""67.205.155.130";
+    private String SERVER_HOST = "192.168.2.23";//"10.34.244.147";//""67.205.155.130";
     private String SERVER_PORT = "8080";
     private String HTTP_POST = "POST";
     private String HTTP_GET = "GET";

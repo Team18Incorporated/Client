@@ -21,7 +21,7 @@ public class EndTurnCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "EndTurn";
+        return "InGameCommands.EndTurn";
     }
 
     @Override

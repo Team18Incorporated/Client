@@ -70,10 +70,10 @@ public class GamePresenter implements Observer{
       {
           Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
       }
-      else
+      /*else
       {
           ServerProxy.getServerProxy().drawTrainCard(ClientModel.SINGLETON.getCurrentUser().getAuthToken(), ClientModel.SINGLETON.getCurrentGame().getGameID());
-      }
+      }*/
 
 
     }
@@ -83,10 +83,10 @@ public class GamePresenter implements Observer{
         {
             Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
         }
-        else
+        /*else
         {
             ServerProxy.getServerProxy().drawFromFaceUp(ClientModel.SINGLETON.getCurrentUser().getAuthToken(), ClientModel.SINGLETON.getCurrentGame().getGameID(), in);
-        }
+        }*/
     }
     public void drawDestinationCards()
     {
@@ -94,10 +94,10 @@ public class GamePresenter implements Observer{
         {
             Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_LONG).show();
         }
-        else
+        /*else
         {
             ServerProxy.getServerProxy().drawDestinationCard(ClientModel.SINGLETON.getCurrentUser().getAuthToken(), ClientModel.SINGLETON.getCurrentGame().getGameID());
-        }
+        }*/
     }
 
     /*

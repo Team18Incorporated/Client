@@ -26,6 +26,7 @@ public class ClientModel extends Observable{
     private Route lastRoute;
     private Date latestDate;
     private IState state = NotTurnState.SINGLETON;
+    private int commandIndex=-1;
 
     private PollerAsyncTask poller = new PollerAsyncTask();
 
@@ -253,5 +254,13 @@ public class ClientModel extends Observable{
             }
         }
         return sortedScores;
+    }
+
+    public int getCommandIndex() {
+        return commandIndex;
+    }
+
+    public void setCommandIndex(int commandIndex) {
+        this.commandIndex = commandIndex;
     }
 }
