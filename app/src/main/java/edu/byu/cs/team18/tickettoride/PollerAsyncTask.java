@@ -52,7 +52,7 @@ public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
 
 
                 }
-            }, 500, 10*100);
+            }, 1000, 1500);
         return null;
     }
 }

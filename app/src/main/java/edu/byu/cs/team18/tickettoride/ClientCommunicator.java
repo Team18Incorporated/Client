@@ -29,7 +29,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 public class ClientCommunicator {
     private static ClientCommunicator SINGLETON;
     private  Gson  gson =null;
-    private static String SERVER_HOST = "192.168.2.170";//""67.205.155.130";
+    private static String SERVER_HOST = "192.168.2.23";//""67.205.155.130";
     private static String SERVER_PORT = "8080";
     private static String HTTP_POST = "POST";
     private static String HTTP_GET = "GET";
