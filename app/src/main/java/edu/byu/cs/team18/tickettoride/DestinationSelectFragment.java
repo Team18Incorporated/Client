@@ -122,9 +122,9 @@ public class DestinationSelectFragment extends Fragment {
                 {
                     cardsRecieved.remove(c);
                 }
-
                 DSPInterface.instance.readyButtonClicked(cardsRecieved, discard);
-                            }
+                getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+            }
         }
         else if(numChecked>0)
         {
@@ -147,15 +147,13 @@ public class DestinationSelectFragment extends Fragment {
                 }
 
                 DSPInterface.instance.readyButtonClicked(cardsRecieved, discard);
-
+                getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
             }
         }
         else {
-
             ClientFacade.getClientFacade().updateDestinationHand(cardsRecieved);
+            getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
         }
-        getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
-
     }
 
 

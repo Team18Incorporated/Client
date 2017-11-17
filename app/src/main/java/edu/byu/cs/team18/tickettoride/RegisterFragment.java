@@ -121,6 +121,7 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Should create a login request object to be sent to the server proxy.
+                RegisterPresenter.getRegisterPresenter().setServer(server);
                 RegisterPresenter.getRegisterPresenter().presentRegister(mUsername, mPassword, mReEnterPassword, getActivity());
             }
         });

@@ -228,13 +228,13 @@ public class GameViewFragment extends Fragment {
         });
         setFaceUpCards();
 
-        testButton=(Button) view.findViewById(R.id.oldtest_button);
+        /*testButton=(Button) view.findViewById(R.id.oldtest_button);
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GamePresenter.SINGLETON.incrementTest();
             }
-        });
+        });*/
 
         initializeRoutes();
         trainDeckSize=(TextView)view.findViewById(R.id.numTrainDeck);
@@ -261,7 +261,7 @@ public class GameViewFragment extends Fragment {
 
     private void initializeRoutes(){
         ArrayList<Route> routes = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList();
-        for (int i=0; i<22; i++){
+        for (int i=0; i<100; i++){
             Route temp = routes.get(i);
             ArrayList<Integer> segments = new ArrayList<>();
             for (int j=0; j<temp.getLength(); j++){

@@ -8,7 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
+import java.util.List;
+
+import edu.byu.cs.team18.tickettoride.Common.PlayerInfo;
 import edu.byu.cs.team18.tickettoride.GameView.GameActivity;
 import edu.byu.cs.team18.tickettoride.GameView.GamePresenter;
 
@@ -41,6 +45,37 @@ public class GameOverFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_game_over, container, false);
+
+        List<PlayerInfo> players = ClientModel.SINGLETON.getScores();
+        for (int i=0; i<players.size(); i++){
+            PlayerInfo player = players.get(i);
+            //set player's name
+            int id = getResources().getIdentifier("PlayerName"+(i+1), "id", this.getContext().getPackageName());
+            TextView temp = (TextView) view.findViewById(id);
+            temp.setText(player.getPlayerName());
+            // set score
+            id = getResources().getIdentifier("PlayerScore"+(i+1), "id", this.getContext().getPackageName());
+            temp = (TextView) view.findViewById(id);
+            temp.setText(player.getPoints());
+            // set routes
+            id = getResources().getIdentifier("PlayerRoutes"+(i+1), "id", this.getContext().getPackageName());
+            temp = (TextView) view.findViewById(id);
+            temp.setText(player.getDestinationsCompleted());
+            // set cars
+            id = getResources().getIdentifier("PlayerCars"+(i+1), "id", this.getContext().getPackageName());
+            temp = (TextView) view.findViewById(id);
+            int cars = 45-player.getNumTrainPieces();
+            temp.setText(cars);
+            // set penalties
+            id = getResources().getIdentifier("PlayerPenalties"+(i+1), "id", this.getContext().getPackageName());
+            temp = (TextView) view.findViewById(id);
+            temp.setText(player.getPenalties());
+            // set longest route
+            id = getResources().getIdentifier("PlayerLongestRoute"+(i+1), "id", this.getContext().getPackageName());
+            temp = (TextView) view.findViewById(id);
+            if (player.hasLongestRoute()){temp.setVisibility(View.VISIBLE);}
+        }
+
         Button exit = (Button) view.findViewById(R.id.exit);
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
