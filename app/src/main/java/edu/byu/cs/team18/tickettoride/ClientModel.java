@@ -81,15 +81,14 @@ public class ClientModel extends Observable{
         echo(in);
     }
 
-    public ClientGame getCurrentGame() {
-        return currentGame;
-    }
-
-
     public void setTrainDeckSize(int i)
     {
         currentGame.setNumTrainDeck(i);
         echo(null);
+    }
+
+    public ClientGame getCurrentGame() {
+        return currentGame;
     }
 
     public void setCurrentGame(ClientGame currentGame) {
@@ -241,5 +240,18 @@ public class ClientModel extends Observable{
     public boolean drawDestinationCards()
     {
         return state.drawDestinationCards();
+    }
+
+    public List<PlayerInfo> getScores(){
+        List<PlayerInfo> sortedScores = new ArrayList<>();
+        List<PlayerInfo> players = currentGame.getPlayerList();
+        for (int i=0; i<players.size(); i++){
+            for (int j=0; j<=sortedScores.size(); j++){
+                if (j==sortedScores.size() || sortedScores.get(j).getPoints()<players.get(i).getPoints()){
+                    sortedScores.add(j,players.get(i));
+                }
+            }
+        }
+        return sortedScores;
     }
 }

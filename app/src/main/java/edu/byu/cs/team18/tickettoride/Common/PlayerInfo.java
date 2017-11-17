@@ -10,6 +10,9 @@ public class PlayerInfo {
     private int numTrainCards;
     private int numDestinationCards;
     private int points;
+    private int penalties = -1;
+    private int destinationsCompleted = -1;
+    private boolean hasLongestRoute = false;
     private int numTrainPieces;
 
     public PlayerInfo(Player player)
@@ -47,6 +50,12 @@ public class PlayerInfo {
         return points;
     }
 
+    public int getPenalties() {return penalties;}
+
+    public int getDestinationsCompleted(){return destinationsCompleted;}
+
+    public boolean hasLongestRoute(){return hasLongestRoute;}
+
     public int getNumTrainPieces(){return numTrainPieces;}
 
     public void setNumTrainCards(int numTrainCards) {
@@ -60,6 +69,12 @@ public class PlayerInfo {
     public void setPoints(int points) {
         this.points = points;
     }
+
+    public void setPenalties(int in) {penalties = in;}
+
+    public void setDestinationsCompleted(int in){destinationsCompleted = in;}
+
+    public void setLongestRoute (boolean in){hasLongestRoute = in;}
 
     public void setNumTrainPieces(int pieces){numTrainPieces = pieces;}
 
