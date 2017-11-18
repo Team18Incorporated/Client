@@ -13,7 +13,8 @@ public class UpdateTrainDeckSizeCommand implements ICommand {
     private String className;
 
     @Override
-    public String getSuffix() {
+    public String getSuffix()
+    {
         String suffix = this.getClass().toString();
         return suffix.substring(0,suffix.length() - 7);
     }
