@@ -159,29 +159,55 @@ public class ClientFacade implements IClient {
     @Override
     public void updateEnemyDestinationHand(String playerID, int size)
     {
-        for(int i = 0; i < ClientModel.SINGLETON.getCurrentGame().getPlayerList().size(); i++)
-        {
-            if(ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).getPlayerID().equals(playerID))
-            {
-                ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).setNumDestinationCards(size);
-                return;
-            }
+        PlayerInfo player = findPlayer(playerID);
+        if (player!=null){
+            player.setNumDestinationCards(size);
         }
     }
 
     @Override
     public void updateEnemyScore(String playerID, int points)
     {
+        PlayerInfo player = findPlayer(playerID);
+        if (player!=null){
+            player.setPoints(points);
+        }
+    }
+
+    private PlayerInfo findPlayer(String playerID){
         for(int i = 0; i < ClientModel.SINGLETON.getCurrentGame().getPlayerList().size(); i++)
         {
             if(ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).getPlayerID().equals(playerID))
             {
-                ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i).setPoints(points);
-                return;
+                return ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(i);
             }
+        }
+        return null;
+    }
+
+    @Override
+    public void awardLongestRoute(String playerID) {
+        PlayerInfo player = findPlayer(playerID);
+        if (player!=null){
+            player.setLongestRoute(true);
         }
     }
 
+    @Override
+    public void setPlayerCompletedDestinations(String playerID, int complete) {
+        PlayerInfo player = findPlayer(playerID);
+        if (player!=null){
+            player.setDestinationsCompleted(complete);
+        }
+    }
+
+    @Override
+    public void setPlayerPenalties(String playerID, int penalties) {
+        PlayerInfo player = findPlayer(playerID);
+        if (player!=null){
+            player.setPenalties(penalties);
+        }
+    }
 
     @Override
     public void showDestinationCardChoices(List<DestinationCard> list)
