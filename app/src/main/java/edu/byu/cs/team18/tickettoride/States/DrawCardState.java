@@ -13,7 +13,7 @@ public class DrawCardState implements IState {
     public static DrawCardState SINGLETON = new DrawCardState();
 
     @Override
-    public boolean claimRoute(Route route) {
+    public boolean claimRouteCheck() {
         return false;
     }
 

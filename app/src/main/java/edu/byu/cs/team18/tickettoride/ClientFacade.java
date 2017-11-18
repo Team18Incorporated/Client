@@ -126,9 +126,9 @@ public class ClientFacade implements IClient {
         ClientModel.SINGLETON.claimRoute(gameID, playerID, route);
     }
 
-    public boolean sendClaimRoute(Route route)
+    public boolean claimRouteCheck()
     {
-        return ClientModel.SINGLETON.sendClaimRoute(route);
+        return ClientModel.SINGLETON.claimRouteCheck();
     }
 
     @Override
