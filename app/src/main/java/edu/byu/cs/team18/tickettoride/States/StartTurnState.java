@@ -15,12 +15,12 @@ public class StartTurnState implements IState {
     public static StartTurnState SINGLETON = new StartTurnState();
 
     @Override
-    public boolean claimRoute(Route route) {
-        AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
-        String gameID = ClientModel.SINGLETON.getCurrentGame().getGameID();
-        ServerProxy.getServerProxy().claimRoute(token,gameID, route);
-        ServerProxy.getServerProxy().endTurn(token,gameID,ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
-        ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
+    public boolean claimRouteCheck() {
+//        AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
+//        String gameID = ClientModel.SINGLETON.getCurrentGame().getGameID();
+//        ServerProxy.getServerProxy().claimRoute(token,gameID, route);
+//        ServerProxy.getServerProxy().endTurn(token,gameID,ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
+//        ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
         return true;
     }
 

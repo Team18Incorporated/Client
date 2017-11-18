@@ -10,7 +10,7 @@ public interface IState {
 
     //public IState getSingleton();
 
-    public boolean claimRoute(Route route);
+    public boolean claimRouteCheck();
 
     public boolean drawFaceUp(int index);
 

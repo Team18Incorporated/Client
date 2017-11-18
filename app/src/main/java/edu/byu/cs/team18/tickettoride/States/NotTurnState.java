@@ -11,7 +11,7 @@ public class NotTurnState implements IState {
     public static NotTurnState SINGLETON = new NotTurnState();
 
     @Override
-    public boolean claimRoute(Route route) {
+    public boolean claimRouteCheck() {
         return false;
     }
 

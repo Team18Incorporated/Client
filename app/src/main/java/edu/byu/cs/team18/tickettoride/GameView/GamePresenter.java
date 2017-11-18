@@ -130,7 +130,7 @@ public class GamePresenter implements Observer{
     public void claimRoute(Route in){
         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
         String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
-        if(!ClientFacade.getClientFacade().sendClaimRoute(in))
+        if(!ClientFacade.getClientFacade().claimRouteCheck())
         {
             Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
         }

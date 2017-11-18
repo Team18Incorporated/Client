@@ -150,7 +150,7 @@ public class TrainCardSelectFragment extends Fragment  implements
         }
         else
         {
-            Toast.makeText(getContext(), "You have not selected a sufficient number of cards or the correct color", Toast.LENGTH_LONG);
+            Toast.makeText(getContext(), "You have not selected a sufficient number of cards or the correct color.", Toast.LENGTH_LONG);
         }
     }
 

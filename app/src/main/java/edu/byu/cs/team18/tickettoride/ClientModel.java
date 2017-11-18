@@ -184,9 +184,9 @@ public class ClientModel extends Observable{
 
     }
 
-    public boolean sendClaimRoute(Route route)
+    public boolean claimRouteCheck()
     {
-       return state.claimRoute(route);
+        return state.claimRouteCheck();
     }
 
     public void updateChatHistory(ChatHistory chatHistory)
