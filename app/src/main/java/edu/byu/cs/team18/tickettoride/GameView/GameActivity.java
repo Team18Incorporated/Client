@@ -95,9 +95,9 @@ public class GameActivity extends AppCompatActivity {
         Intent intent;
         // go back to main activity //
         switch(item.getItemId()) {
-            case R.id.drawDestinations:
+           /* case R.id.drawDestinations:
                 openDestination();
-                break;
+                break;*/
             case R.id.chat:
                 openChat();
                 break;

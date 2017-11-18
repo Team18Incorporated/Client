@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -155,9 +156,9 @@ public class ServerProxy implements IServer {
 	* @post returns a list of commands to be executed on the client.
 	 */
     @Override
-    public void claimRoute(AuthToken authToken, String gameID, Route route)
+    public void claimRoute(AuthToken authToken, String gameID, Route route, ArrayList<Integer> discard)
     {
-        ClientCommunicator.getSingleton().sendCmd(new ClaimRouteCommand(authToken,gameID,route), CommandList.class);
+        ClientCommunicator.getSingleton().sendCmd(new ClaimRouteCommand(authToken,gameID,route, discard), CommandList.class);
     }
 
     /*
