@@ -19,10 +19,11 @@ public class CardColor {
 
     @Override
     public boolean equals(Object obj) {
-        boolean out = false;
-        if (obj instanceof CardColor && ((CardColor) obj).getColor().equals(color)){
-            out = true;
+        CardColor color= (CardColor) obj;
+        if(((CardColor) obj).getColor().equals(color))
+        {
+            return true;
         }
-        return out;
+        return false;
     }
 }

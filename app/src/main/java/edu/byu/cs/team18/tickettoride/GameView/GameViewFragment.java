@@ -184,7 +184,7 @@ public class GameViewFragment extends Fragment {
                 if (claimable){
                     GamePresenter.SINGLETON.claimRoute(ClientModel.SINGLETON.getCurrentRoute());
                     ClientModel.SINGLETON.setLastRoute(ClientModel.SINGLETON.getCurrentRoute());
-                    ClientModel.SINGLETON.setCurrentRoute(null);
+                    //ClientModel.SINGLETON.setCurrentRoute(null);
                 }
             }
         });

@@ -270,6 +270,7 @@
         android:id="@+id/green_spinner"
         android:layout_width="40dp"
         android:layout_above="@+id/imageView5"
-        android:layout_alignStart="@+id/done_button" />
+        android:layout_toRightOf="@id/blue_spinner"
+        android:layout_marginLeft="30dp"/>
 
 </RelativeLayout>

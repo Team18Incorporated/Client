@@ -67,7 +67,7 @@ public class Route {
         if (!city1.equals(route.city1)) return false;
         if (!city2.equals(route.city2)) return false;
         if (!color.equals(route.color)) return false;
-        return ownerID != null ? ownerID.equals(route.ownerID) : route.ownerID == null;
+        return true;
 
     }
 

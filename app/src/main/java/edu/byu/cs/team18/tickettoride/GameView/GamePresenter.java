@@ -175,7 +175,7 @@ public class GamePresenter implements Observer{
     }
 
 
-    public void incrementTest()
+    /*public void incrementTest()
     {
         if(testStep==0)
         {
@@ -284,7 +284,7 @@ public class GamePresenter implements Observer{
         }
 
         
-    }
+    }*/
 
     @Override
     public void update(Observable observable, Object o) {

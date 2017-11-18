@@ -56,6 +56,7 @@ public class TrainCardSelectFragment extends Fragment  implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        route=TrainCardSelectPresenter.SINGLETON.getRoute();
         view =inflater.inflate(R.layout.card_color_select, container, false);
         doneButton=(Button)view.findViewById(R.id.done_button);
         doneButton.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +86,9 @@ public class TrainCardSelectFragment extends Fragment  implements
         createSpinnerLists();
 
         createSpinners();
-        
+
+        TrainCardSelectPresenter.SINGLETON.setView(this);
+
         return view;
     }
 
@@ -161,7 +164,7 @@ public class TrainCardSelectFragment extends Fragment  implements
         }
         else
         {
-            Toast.makeText(getContext(), "You have not selected a sufficient number of cards or the correct color.", Toast.LENGTH_LONG);
+            Toast.makeText(getActivity(), "Bad Card Selection", Toast.LENGTH_SHORT).show();
         }
     }
 

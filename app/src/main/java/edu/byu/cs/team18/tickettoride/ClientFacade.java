@@ -135,6 +135,13 @@ public class ClientFacade implements IClient {
     public void updateTrainHand(TrainCard card1)
     {
         ClientModel.SINGLETON.getCurrentPlayer().getHand().add(card1);
+        for(PlayerInfo p :ClientModel.SINGLETON.getCurrentGame().getPlayerList())
+        {
+            if(p.getPlayerID().equals(ClientModel.SINGLETON.getCurrentPlayer().getPlayerID()))
+            {
+                p.setNumTrainCards(p.getNumTrainCards()+1);
+            }
+        }
     }
 
     @Override

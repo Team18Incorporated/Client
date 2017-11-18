@@ -32,6 +32,7 @@ public class TrainCardSelectPresenter {
     private int numWhite=0;
     private int numOrange=0;
     private int numWild=0;
+    private TrainCardSelectFragment view;
 
     public static TrainCardSelectPresenter SINGLETON = new TrainCardSelectPresenter();
 
@@ -39,6 +40,18 @@ public class TrainCardSelectPresenter {
 
 
     private TrainCardSelectPresenter(){}
+
+    public Route getRoute()
+    {
+        Route route =ClientModel.SINGLETON.getCurrentRoute();
+        ClientModel.SINGLETON.setCurrentRoute(null);
+        return route;
+    }
+
+    public void setView(TrainCardSelectFragment view)
+    {
+        this.view=view;
+    }
 
     public ArrayList<Integer> getCardLists()
     {
@@ -114,6 +127,7 @@ public class TrainCardSelectPresenter {
                 + orangeSelected + wildSelected;
         String color = route.getColor().getColor();
         int length = route.getLength();
+        boolean canDo= false;
         switch (color)
         {
             case "any":
@@ -121,212 +135,227 @@ public class TrainCardSelectPresenter {
                 {
                     if(!checkTotal(redSelected+wildSelected, total))
                     {
-                        return false;
+                        canDo= false;
                     }
-                    return true;
+                    else
+                        canDo= true;
                 }
                 else if(blackSelected + wildSelected == length)
                 {
                     if(!checkTotal(blackSelected+wildSelected, total))
                     {
-                        return false;
+                        canDo= false;
                     }
-                    return true;
-                }
+                    else
+                        canDo= true;                }
                 else if(blueSelected + wildSelected == length)
                 {
                     if(!checkTotal(blueSelected+wildSelected, total))
                     {
-                        return false;
+                        canDo= false;
                     }
-                    return true;
-                }
+                    else
+                        canDo= true;                }
                 else if(greenSelected + wildSelected == length)
                 {
                     if(!checkTotal(greenSelected+wildSelected, total))
                     {
-                        return false;
+                        canDo=false;
                     }
-                    return true;
-                }
+                    else
+                        canDo= true;                }
                 else if(yellowSelected + wildSelected == length)
                 {
                     if(!checkTotal(yellowSelected+wildSelected, total))
                     {
-                        return false;
+                        canDo= false;
                     }
-                    return true;
-                }
+                    else
+                        canDo= true;                }
                 else if(purpleSelected + wildSelected == length)
                 {
                     if(!checkTotal(purpleSelected+wildSelected, total))
                     {
-                        return false;
+                        canDo= false;
                     }
-                    return true;
-                }
+                    else
+                        canDo= true;                }
                 else if(whiteSelected + wildSelected == length)
                 {
                     if(!checkTotal(whiteSelected+wildSelected, total))
                     {
-                        return false;
+                        canDo= false;
                     }
-                    return true;
-                }
+                    else
+                        canDo= true;                }
                 else if(orangeSelected + wildSelected == length)
                 {
                     if(!checkTotal(orangeSelected+wildSelected, total))
                     {
-                        return false;
+                        canDo= false;
                     }
-                    return true;
-                }
+                    else
+                        canDo= true;                }
                 else
                 {
-                    return false;
+                    canDo= false;
                 }
+                break;
 
             case "red":
                 if(!checkTotal(redSelected+wildSelected, total))
                 {
-                    return false;
+                    canDo= false;
                 }
                 if(redSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else if(redSelected+wildSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else
                 {
-                    return false;
+                    canDo= false;
                 }
+                break;
 
             case "black":
                 if(!checkTotal(blackSelected+wildSelected, total))
                 {
-                    return false;
+                    canDo= false;
                 }
                 if(blackSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else if(blackSelected+wildSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else
                 {
-                    return false;
+                    canDo= false;
                 }
+                break;
 
             case "blue":
                 if(!checkTotal(blueSelected+wildSelected, total))
                 {
-                    return false;
+                    canDo= false;
                 }
                 if(blueSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else if(blueSelected+wildSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else
                 {
-                    return false;
+                    canDo= false;
                 }
+                break;
+
             case "green":
                 if(!checkTotal(greenSelected+wildSelected, total))
                 {
-                    return false;
+                    canDo= false;
                 }
                 if(greenSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else if(greenSelected+wildSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else
                 {
-                    return false;
+                    canDo= false;
                 }
+                break;
+
             case "yellow":
                 if(!checkTotal(yellowSelected+wildSelected, total))
                 {
-                    return false;
+                    canDo= false;
                 }
                 if(yellowSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else if(yellowSelected+wildSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else
                 {
-                    return false;
+                    canDo= false;
                 }
+                break;
+
             case "purple":
                 if(!checkTotal(purpleSelected+wildSelected, total))
                 {
-                    return false;
+                    canDo= false;
                 }
                 if(purpleSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else if(purpleSelected+wildSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else
                 {
-                    return false;
+                    canDo= false;
                 }
+                break;
+
             case "white":
                 if(!checkTotal(whiteSelected+wildSelected, total))
                 {
-                    return false;
+                    canDo= false;
                 }
                 if(whiteSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else if(whiteSelected+wildSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else
                 {
-                    return false;
+                    canDo= false;
                 }
+                break;
+
             case "orange":
                 if(!checkTotal(orangeSelected+wildSelected, total))
                 {
-                    return false;
+                    canDo= false;
                 }
                 if(orangeSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else if(orangeSelected+wildSelected==length)
                 {
-                    return true;
+                    canDo= true;
                 }
                 else
                 {
-                    return false;
+                    canDo= false;
                 }
+                break;
 
         }
-        return false;
+        return canDo;
     }
 
 
@@ -335,6 +364,8 @@ public class TrainCardSelectPresenter {
 
         ServerProxy.getServerProxy().claimRoute(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID(),route, numSelectedCards);
+        view.getActivity().getSupportFragmentManager().beginTransaction().remove(view).commit();
+
     }
 
 
