@@ -96,7 +96,7 @@ public class GamePresenter implements Observer{
         }
         else
         {
-            ServerProxy.getServerProxy().drawDestinationCard(ClientModel.SINGLETON.getCurrentUser().getAuthToken(), ClientModel.SINGLETON.getCurrentGame().getGameID());
+            ClientModel.SINGLETON.drawDestinationCards();
         }
     }
 
