@@ -26,6 +26,7 @@ public class TrainCardSelectFragment extends Fragment  implements
         AdapterView.OnItemSelectedListener {
 
     private Route route;
+    private TextView city1text, city2text, colortext, lengthtext;
     //private TextView numRed,numBlack,numBlue,numGreen,numYellow,numPurple,numWhite,numOrange,numWild;
     private Spinner redSpinner,blackSpinner,blueSpinner,greenSpinner,yellowSpinner,purpleSpinner,whiteSpinner,orangeSpinner,wildSpinner;
     private Button doneButton;
@@ -70,6 +71,16 @@ public class TrainCardSelectFragment extends Fragment  implements
                 onCancelButtonClicked();
             }
         });
+
+        city1text= (TextView)view.findViewById(R.id.route_city1_text);
+        city1text.setText(route.getCity1().getCityName());
+        city2text=(TextView)view.findViewById(R.id.route_city2_text);
+        city2text.setText(route.getCity2().getCityName());
+        colortext=(TextView)view.findViewById(R.id.route_color_text);
+        colortext.setText(route.getColor().getColor());
+        lengthtext=(TextView)view.findViewById(R.id.route_length_text);
+        lengthtext.setText(Integer.toString(route.getLength()));
+
 
         createSpinnerLists();
 

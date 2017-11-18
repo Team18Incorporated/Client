@@ -332,10 +332,13 @@ public class TrainCardSelectPresenter {
 
     public void claimRoute(Route route, ArrayList<Integer> numSelectedCards)
     {
-        ArrayList<TrainCard> cardsToDiscard;  //WE SHOULD RETURN THE CARDS USED TO THE SERVER,
-        // WILL NEED CHANGES IN THE CLAIM ROUTE METHODS FROM HERE TO THE SERVER PROXY AND POSSIBLY THE SERVER ITSELF
 
         ServerProxy.getServerProxy().claimRoute(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
-                ClientModel.SINGLETON.getCurrentGame().getGameID(),route);
+                ClientModel.SINGLETON.getCurrentGame().getGameID(),route, numSelectedCards);
     }
+
+
+
+
+
 }

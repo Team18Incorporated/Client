@@ -1,5 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
+import java.util.ArrayList;
+
 import edu.byu.cs.team18.tickettoride.ClientFacade;
 import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
@@ -16,6 +18,7 @@ public class ClaimRouteCommand implements ICommand {
     private String gameID;
     private String playerID;
     private Route route;
+    private ArrayList<Integer> discard;
     private String className;
 
     @Override
@@ -28,18 +31,16 @@ public class ClaimRouteCommand implements ICommand {
         return getClass().getName();
     }
 
-    public ClaimRouteCommand(AuthToken authToken, String gameID, String playerID, Route route) {
+    public ClaimRouteCommand(AuthToken authToken, String gameID, Route route, ArrayList<Integer> discard) {
         this.authToken = authToken;
         this.gameID = gameID;
-        this.playerID = playerID;
         this.route = route;
+        this.discard=discard;
         className=getClass().getName();
     }
 
-    public ClaimRouteCommand(AuthToken authToken, String gameID, Route route){
-        this.authToken = authToken;
-        this.gameID = gameID;
-        this.route = route;
+    public ClaimRouteCommand(){
+
     }
 
     //To be implemented differently on the server.
@@ -56,6 +57,13 @@ public class ClaimRouteCommand implements ICommand {
         return name + " claimed route: " + route.getCity1().getCityName() + ", " + route.getCity2().getCityName() + ".";
     }
 
+    public ArrayList<Integer> getDiscard() {
+        return discard;
+    }
+
+    public void setDiscard(ArrayList<Integer> discard) {
+        this.discard = discard;
+    }
 
     public AuthToken getAuthToken() {
         return authToken;
