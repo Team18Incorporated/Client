@@ -94,10 +94,10 @@ public class GamePresenter implements Observer{
         {
             Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_LONG).show();
         }
-        else
-        {
-            ClientModel.SINGLETON.drawDestinationCards();
-        }
+//        else
+//        {
+//            ClientModel.SINGLETON.drawDestinationCards();
+//        }
     }
 
     /*
