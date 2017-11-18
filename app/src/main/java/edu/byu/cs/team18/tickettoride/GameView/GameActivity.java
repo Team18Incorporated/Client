@@ -15,6 +15,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.DestinationSelectFragment;
 import edu.byu.cs.team18.tickettoride.DestinationViewFragment;
 import edu.byu.cs.team18.tickettoride.GameHistoryFragment;
+import edu.byu.cs.team18.tickettoride.GameOverFragment;
 import edu.byu.cs.team18.tickettoride.LobbyActivity;
 import edu.byu.cs.team18.tickettoride.R;
 
@@ -67,6 +68,10 @@ public class GameActivity extends AppCompatActivity {
         GamePresenter.SINGLETON.clearView();
         Intent intent = new Intent(this, LobbyActivity.class);
         startActivity(intent);
+    }
+    public void endGame(){
+        GameOverFragment fragment = new GameOverFragment();
+        manager.beginTransaction().add(R.id.latice,fragment).commit();
     }
     public void claimRouteCardSelect()
     {
