@@ -38,6 +38,6 @@ public class DestinationSelectPresenter {
 
     public void readyButtonClicked(List<DestinationCard> cards, List<DestinationCard> discard)
     {
-        ClientModel.SINGLETON.getCurrentGame().getCurrentPlayer().setDestinationCards((ArrayList)cards);
+        ClientModel.SINGLETON.getCurrentGame().getCurrentPlayer().getDestinationCards().addAll(cards);
     }
 }

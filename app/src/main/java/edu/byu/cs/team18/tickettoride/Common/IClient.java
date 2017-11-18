@@ -121,6 +121,27 @@ public interface IClient {
     public void updateEnemyScore(String playerID, int score);
 
     /*
+    awards longest route to designated player
+    * @pre playerID matches a player in the model's current game.
+    * @post payer displays longest route
+     */
+    public void awardLongestRoute(String playerID);
+
+    /*
+    set's the number of completed routes for playerID
+    * @pre playerID matches a player in the model's current game, complete>=0
+    * @post payer displays number of completed routes
+     */
+    public void setPlayerCompletedDestinations(String playerID, int complete);
+
+    /*
+    sets number of penalties to player
+    * @pre playerID matches a player in the model's current game, penalties>=0
+    * @post payer displays number of penalties
+     */
+    public void setPlayerPenalties(String playerID, int penalties);
+
+    /*
 	* @pre 0 < authToken&&gameID < 10000
 	* @post returns a command that will display the destination card choices taken from the deck.
      */
