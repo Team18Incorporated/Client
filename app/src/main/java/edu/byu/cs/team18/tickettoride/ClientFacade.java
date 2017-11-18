@@ -280,4 +280,12 @@ public class ClientFacade implements IClient {
     {
         return ClientModel.SINGLETON.drawDestinationCards();
     }
+
+    public void lastRound(){
+
+    }
+
+    public void incrementTurn(int turn){
+        ClientModel.SINGLETON.updatePlayerTurn(turn);
+    }
 }

@@ -159,4 +159,8 @@ public interface IClient {
      */
     public void updateChatHistory(ChatHistory chatHistory);
 
+    public void lastRound();
+
+    public void incrementTurn(int turn);
+
 }
