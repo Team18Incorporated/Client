@@ -1,5 +1,6 @@
 package edu.byu.cs.team18.tickettoride;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
@@ -147,7 +148,7 @@ public class ClientFacade implements IClient {
     @Override
     public void updateDestinationHand(List<DestinationCard> list)
     {
-        ClientModel.SINGLETON.getCurrentPlayer().getDestinationCards().addAll(list);
+        ClientModel.SINGLETON.getCurrentPlayer().setDestinationCards((ArrayList)list);
     }
 
     @Override

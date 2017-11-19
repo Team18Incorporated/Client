@@ -81,7 +81,7 @@ public class City {
 
         City city = (City) o;
 
-        return cityName.equals(city.cityName);
+        return this.cityName.equals(city.cityName);
 
     }
 
