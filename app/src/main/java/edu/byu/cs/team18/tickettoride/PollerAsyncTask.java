@@ -37,6 +37,7 @@ public class PollerAsyncTask extends AsyncTask<Void,Void,Void> {
                             cl.execute();
                             //ClientModel.SINGLETON.setLatestDate(cl.getDate());
                             ClientModel.SINGLETON.setCommandIndex(cl.getIndex());
+                            ClientModel.SINGLETON.addToGameHistory(cl.getList());
                         }
 
                     }

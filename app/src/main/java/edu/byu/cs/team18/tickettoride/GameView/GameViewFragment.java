@@ -63,6 +63,7 @@ public class GameViewFragment extends Fragment {
     public void refreshView(){
 
         trainDeckSize.setText(Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumTrainDeck()));
+        destinationDeckButton.setText("DD:"+Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumDestinationDeck()));
         Route temp = ClientModel.SINGLETON.getCurrentRoute();
         if(temp != null) {
             for (Integer car : temp.getSegments()) {
@@ -82,27 +83,33 @@ public class GameViewFragment extends Fragment {
     }
 
     public void setRouteColor (Route in){
-        ArrayList<Integer> segments = in.getSegments();
-        PlayerInfo player = ClientModel.SINGLETON.getCurrentGame().getPlayer(in.getOwnerID());
-        for (int i=0; i<segments.size(); i++){
-            ImageView temp = (ImageView) view.findViewById(segments.get(i));
-            switch (player.getColor()){
-                case RED:
-                    temp.setImageResource(R.drawable.car_red);
-                    break;
-                case BLUE:
-                    temp.setImageResource(R.drawable.car_blue);
-                    break;
-                case BLACK:
-                    temp.setImageResource(R.drawable.car_black);
-                    break;
-                case GREEN:
-                    temp.setImageResource(R.drawable.car_green);
-                    break;
-                case YELLOW:
-                    temp.setImageResource(R.drawable.car_yellow);
+        final ArrayList<Integer> segments = in.getSegments();
+        final PlayerInfo player = ClientModel.SINGLETON.getCurrentGame().getPlayer(in.getOwnerID());
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0; i<segments.size(); i++){
+                    ImageView temp = (ImageView) view.findViewById(segments.get(i));
+                    switch (player.getColor()){
+                        case RED:
+                            temp.setImageResource(R.drawable.car_red);
+                            break;
+                        case BLUE:
+                            temp.setImageResource(R.drawable.car_blue);
+                            break;
+                        case BLACK:
+                            temp.setImageResource(R.drawable.car_black);
+                            break;
+                        case GREEN:
+                            temp.setImageResource(R.drawable.car_green);
+                            break;
+                        case YELLOW:
+                            temp.setImageResource(R.drawable.car_yellow);
+                    }
+                }
             }
-        }
+        });
+
     }
 
     @Override

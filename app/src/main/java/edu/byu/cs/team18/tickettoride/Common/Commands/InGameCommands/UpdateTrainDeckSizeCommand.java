@@ -44,4 +44,9 @@ public class UpdateTrainDeckSizeCommand implements ICommand {
     public String getClassName() {
         return getClass().getName();
     }
+
+    public String toString()
+    {
+        return "There are now "+ Integer.toString(size) + "card(s) in the Train Card Deck";
+    }
 }

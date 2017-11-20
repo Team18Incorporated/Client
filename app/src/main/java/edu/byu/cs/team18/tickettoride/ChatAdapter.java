@@ -30,6 +30,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder>{
         holder.getName().setText(chatHistory.getHistory().get(position).getPlayerName()+" - ");
         holder.getMessage().setText(chatHistory.getHistory().get(position).getMessage());
         holder.getDate().setText(chatHistory.getHistory().get(position).getTime().toString());
+
+
     }
 
     @Override
@@ -43,7 +45,13 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder>{
     }
 
     public void swap (ChatHistory ch){
-        chatHistory=ch;
+        if (ch != null){
+            chatHistory.clear();
+            chatHistory.addAll(ch);
+        }
+        else{
+            chatHistory = ch;
+        }
         notifyDataSetChanged();
     }
 }

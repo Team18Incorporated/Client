@@ -108,7 +108,8 @@
         android:layout_marginEnd="60dp"
         android:paddingLeft="30dp"
         android:textStyle="normal|bold"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:text="0"
@@ -120,7 +121,8 @@
         android:layout_marginEnd="60dp"
         android:id="@+id/numRedText"
         android:textStyle="normal|bold"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="0"
@@ -132,7 +134,8 @@
         android:layout_marginEnd="60dp"
         android:id="@+id/numBlueText"
         android:textStyle="normal|bold"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
 
 
     <TextView
@@ -145,7 +148,8 @@
         android:layout_marginEnd="60dp"
         android:id="@+id/numGreenText"
         android:textStyle="normal|bold"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="0"
@@ -157,7 +161,8 @@
         android:layout_marginEnd="60dp"
         android:id="@+id/numYellowText"
         android:textStyle="normal|bold"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="0"
@@ -169,7 +174,8 @@
         android:layout_marginEnd="60dp"
         android:id="@+id/numPurpleText"
         android:textStyle="normal|bold"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="0"
@@ -181,7 +187,8 @@
         android:layout_marginEnd="60dp"
         android:id="@+id/numWhiteText"
         android:textStyle="normal|bold"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="0"
@@ -193,7 +200,8 @@
         android:layout_marginEnd="60dp"
         android:id="@+id/numOrangeText"
         android:textStyle="normal|bold"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="0"
@@ -205,7 +213,8 @@
         android:layout_marginEnd="61dp"
         android:id="@+id/numWildText"
         android:textStyle="normal|bold"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
 
 
 

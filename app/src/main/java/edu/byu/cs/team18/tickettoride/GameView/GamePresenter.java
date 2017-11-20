@@ -81,7 +81,7 @@ public class GamePresenter implements Observer{
 
         if(!ClientFacade.getClientFacade().drawFaceUp(in))
         {
-            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), "Can't do that now.", Toast.LENGTH_SHORT).show();
         }
         /*else
         {
@@ -166,6 +166,10 @@ public class GamePresenter implements Observer{
         int index =ClientModel.SINGLETON.getCurrentGame().getPlayerTurn();
         ArrayList<PlayerInfo> playerList = (ArrayList)ClientModel.SINGLETON.getCurrentGame().getPlayerList();
         String returnStr =playerList.get(index).getPlayerName()+" - "+playerList.get(index).getColorString();
+        if(ClientModel.SINGLETON.getLastRound())
+        {
+            returnStr += " - last round";
+        }
         return returnStr;
     }
 

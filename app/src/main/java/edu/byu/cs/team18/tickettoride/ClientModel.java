@@ -8,6 +8,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 import edu.byu.cs.team18.tickettoride.Common.*;
+import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
+import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 import edu.byu.cs.team18.tickettoride.States.IState;
 import edu.byu.cs.team18.tickettoride.States.NotTurnState;
 
@@ -27,6 +29,7 @@ public class ClientModel extends Observable{
     private Date latestDate;
     private IState state = NotTurnState.SINGLETON;
     private int commandIndex=-1;
+    private boolean lastRound=false;
 
     private PollerAsyncTask poller = new PollerAsyncTask();
 
@@ -204,6 +207,7 @@ public class ClientModel extends Observable{
 
     public void updateChatHistory(ChatHistory chatHistory)
     {
+        getCurrentGame().getChatHistory().clear();
         getCurrentGame().getChatHistory().getHistory().addAll(chatHistory.getHistory());
         echo(null);
     }
@@ -277,7 +281,31 @@ public class ClientModel extends Observable{
         this.commandIndex = commandIndex;
     }
 
-    public void deathRattle(){
+
+    public void deathRattle() {
         echo("endgame");
+    }
+    public void lastRound()
+    {
+        lastRound=true;
+        echo(lastRound);
+    }
+
+    public boolean getLastRound(){
+        return lastRound;
+    }
+
+    public void addToGameHistory(List<ICommand> list)
+    {
+        currentGame.addToGameHistory(list);
+    }
+    public void addToGameHistory(ICommand command)
+    {
+        currentGame.addToGameHistory(command);
+    }
+
+    public ArrayList<ICommand> getGameHistory()
+    {
+        return currentGame.getGameHistory();
     }
 }

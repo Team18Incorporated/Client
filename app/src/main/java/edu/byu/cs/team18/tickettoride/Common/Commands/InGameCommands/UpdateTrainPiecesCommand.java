@@ -35,17 +35,15 @@ public class UpdateTrainPiecesCommand implements ICommand {
         {
             ClientModel.SINGLETON.getCurrentPlayer().setNumTrainPieces(pieces);
         }
-        else
+        PlayerInfo player=null;
+        for(PlayerInfo p : ClientModel.SINGLETON.getCurrentGame().getPlayerList())
         {
-            PlayerInfo player=null;
-            for(PlayerInfo p : ClientModel.SINGLETON.getCurrentGame().getPlayerList())
-            {
-                if (p.getPlayerID().equals(playerID))
-                {
-                 player=p;
-                }
-            }
-            player.setNumTrainPieces(pieces);
+            if (p.getPlayerID().equals(playerID))
+             {
+               player=p;
+             }
         }
+        player.setNumTrainPieces(pieces);
     }
+
 }

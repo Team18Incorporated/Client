@@ -2,6 +2,7 @@ package edu.byu.cs.team18.tickettoride.States;
 
 import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Route;
+import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 import edu.byu.cs.team18.tickettoride.ServerProxy;
 
 /**
@@ -20,6 +21,11 @@ public class DrawCardState implements IState {
     @Override
     public boolean drawFaceUp(int index) {
         //add implementation
+        TrainCard card = ClientModel.SINGLETON.getCurrentGame().getVisibleCards().get(index);
+        if(card.getColor().getColor().equals("wild"))
+        {
+            return false;
+        }
         ServerProxy.getServerProxy().drawFromFaceUp(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID(), index);
         ServerProxy.getServerProxy().endTurn(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
