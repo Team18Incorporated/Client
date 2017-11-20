@@ -3,6 +3,7 @@ package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 import java.util.List;
 
 import edu.byu.cs.team18.tickettoride.ClientFacade;
+import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
 
@@ -24,6 +25,15 @@ public class UpdateDestinationHandCommand implements ICommand {
     public void execute()
     {
         ClientFacade.getClientFacade().updateDestinationHand(list);
+        //ClientModel.SINGLETON.getCurrentGame().addToGameHistory(this);
+    }
+
+    @Override
+    public String toString()
+    {
+        String name = ClientModel.SINGLETON.getCurrentPlayer().getPlayerName();
+        int size = ClientModel.SINGLETON.getCurrentPlayer().getDestinationCards().size();
+        return name + " drew destinations! " + name + " has " + size + " destination cards!";
     }
 
     public UpdateDestinationHandCommand(java.util.List<DestinationCard> list) {

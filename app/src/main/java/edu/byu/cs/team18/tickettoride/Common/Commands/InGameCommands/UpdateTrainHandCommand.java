@@ -26,6 +26,7 @@ public class UpdateTrainHandCommand implements ICommand {
     public void execute()
     {
         ClientFacade.getClientFacade().updateTrainHand(card1);
+        //ClientModel.SINGLETON.getCurrentGame().addToGameHistory(this);
     }
 
     public UpdateTrainHandCommand(TrainCard card1, TrainCard card2) {
@@ -42,10 +43,12 @@ public class UpdateTrainHandCommand implements ICommand {
     }
 
 
-
+    @Override
     public String toString()
     {
-        return "You drew a "+ card1.getColor().getColor()+" card from the deck.";
+        String name = ClientModel.SINGLETON.getCurrentPlayer().getPlayerName();
+        int size = ClientModel.SINGLETON.getCurrentPlayer().getHand().size();
+        return name + " now has " + size + " train cards.";
     }
 
     @Override
