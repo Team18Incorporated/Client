@@ -241,6 +241,11 @@ public class ClientFacade implements IClient {
         }
     }
 
+    @Override
+    public void endgame() {
+        ClientModel.SINGLETON.deathRattle();
+    }
+
     public void updatePlayerTurn(int index)
     {
         ClientModel.SINGLETON.updatePlayerTurn(index);

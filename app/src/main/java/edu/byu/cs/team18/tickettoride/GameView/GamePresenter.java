@@ -300,6 +300,9 @@ public class GamePresenter implements Observer{
                 GameActivity ga =(GameActivity)view.getActivity();
                 ga.showDestinationCardChoices();
             }
+            else if (o instanceof String && o.equals("endgame")){
+                view.getGameActivity().closeGame();
+            }
         }
 
         updateView();
