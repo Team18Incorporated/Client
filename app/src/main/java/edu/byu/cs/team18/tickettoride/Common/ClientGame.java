@@ -17,7 +17,7 @@ public class ClientGame {
     private int numDestinationDeck;
     private int playerTurn;
     private ChatHistory chatHistory;
-    private ArrayList<ICommand> gameHistory;
+    private ArrayList<ICommand> gameHistory= new ArrayList<>();
     private boolean startStatus;
     int starttest=0;
 
@@ -140,4 +140,5 @@ public class ClientGame {
         }
         return out;
     }
+
 }

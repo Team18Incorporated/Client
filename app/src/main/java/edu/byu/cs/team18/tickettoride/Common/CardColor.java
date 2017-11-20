@@ -19,8 +19,8 @@ public class CardColor {
 
     @Override
     public boolean equals(Object obj) {
-        CardColor color= (CardColor) obj;
-        if(((CardColor) obj).getColor().equals(color))
+        CardColor ccolor= (CardColor) obj;
+        if(ccolor.getColor().equals(color))
         {
             return true;
         }

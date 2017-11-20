@@ -9,7 +9,8 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 public class IncrementTurnCommand implements ICommand {
 
-    int turn;
+    private int turn;
+    private String className = getClass().getName();
     @Override
     public String getSuffix() {
         return "InGameCommands.LastRoundCommand";

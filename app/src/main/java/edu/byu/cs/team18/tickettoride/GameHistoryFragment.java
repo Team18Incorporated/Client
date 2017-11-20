@@ -10,7 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
+import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 /**
  * Created by abram on 10/30/2017.
@@ -18,7 +21,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 
 public class GameHistoryFragment extends Fragment {
     private RecyclerView recyclerView;
-    private CommandList commandList;
+    private ArrayList<ICommand> commandList;
     private GameHistoryAdapter gameHistoryAdapter;
     private View view;
 
@@ -31,14 +34,29 @@ public class GameHistoryFragment extends Fragment {
         getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
     }
 
-    public void refreshView(){
+    public void refreshView()
+    {
+        commandList=GameHistoryPresenter.SINGELTON.getCommandList();
 
+        if(commandList.size()>0)
+        {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    gameHistoryAdapter.notifyDataSetChanged();
+                    gameHistoryAdapter.swap(commandList);
+                }
+            });
+
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_history, container, false);
+        GameHistoryPresenter.SINGELTON.setView(this);
+        commandList=GameHistoryPresenter.SINGELTON.getCommandList();
         recyclerView = (RecyclerView) view.findViewById(R.id.history_recycler_view);
         gameHistoryAdapter = new GameHistoryAdapter(getContext(), commandList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -62,14 +80,6 @@ public class GameHistoryFragment extends Fragment {
 
     public void setRecyclerView(RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
-    }
-
-    public CommandList getCommandList() {
-        return commandList;
-    }
-
-    public void setCommandList(CommandList commandList) {
-        this.commandList = commandList;
     }
 
     public GameHistoryAdapter getGameHistoryAdapter() {

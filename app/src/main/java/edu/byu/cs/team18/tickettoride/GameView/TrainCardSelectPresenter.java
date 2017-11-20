@@ -6,6 +6,7 @@ import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Route;
 import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 import edu.byu.cs.team18.tickettoride.ServerProxy;
+import edu.byu.cs.team18.tickettoride.States.NotTurnState;
 
 /**
  * Created by Solomons on 11/14/2017.
@@ -361,11 +362,10 @@ public class TrainCardSelectPresenter {
 
     public void claimRoute(Route route, ArrayList<Integer> numSelectedCards)
     {
-
         ServerProxy.getServerProxy().claimRoute(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID(),route, numSelectedCards);
+        ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
         view.getActivity().getSupportFragmentManager().beginTransaction().remove(view).commit();
-
     }
 
 
