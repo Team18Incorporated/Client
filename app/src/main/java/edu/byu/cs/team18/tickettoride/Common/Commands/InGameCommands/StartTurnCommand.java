@@ -32,4 +32,10 @@ public class StartTurnCommand implements ICommand {
     public String getClassName() {
         return getClass().getName();
     }
+
+    @Override
+    public String toString()
+    {
+        return "Your turn started";
+    }
 }

@@ -34,7 +34,7 @@ public class GameHistoryAdapter extends RecyclerView.Adapter<GameHistoryViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return commandList.size();
     }
 
     public GameHistoryAdapter(Context c, ArrayList<ICommand> commandList)
