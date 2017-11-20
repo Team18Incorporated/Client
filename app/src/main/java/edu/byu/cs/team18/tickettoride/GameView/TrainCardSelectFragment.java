@@ -170,6 +170,7 @@ public class TrainCardSelectFragment extends Fragment  implements
 
     private void onCancelButtonClicked()
     {
+        TrainCardSelectPresenter.SINGLETON.clearLists();
         getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
     }
 

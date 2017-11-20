@@ -371,6 +371,18 @@ public class TrainCardSelectPresenter {
 
 
 
-
+    public void clearLists()
+    {
+        numBlack=0;
+        numBlue=0;
+        numGreen=0;
+        numOrange=0;
+        numPurple=0;
+        numRed=0;
+        numWhite=0;
+        numWild=0;
+        numYellow=0;
+    }
+    )
 
 }
