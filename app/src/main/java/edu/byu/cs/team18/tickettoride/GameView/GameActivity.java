@@ -52,7 +52,7 @@ public class GameActivity extends AppCompatActivity {
     }
     public void openHistory(){
         GameHistoryFragment fragment = new GameHistoryFragment();
-        fragment.setCommandList(new CommandList(ClientModel.SINGLETON.getCurrentGame().getGameHistory()));
+        //fragment.setCommandList(new CommandList(ClientModel.SINGLETON.getCurrentGame().getGameHistory()));
         manager.beginTransaction().add(R.id.latice,fragment).commit();
     }
     public void openPlayers(){
