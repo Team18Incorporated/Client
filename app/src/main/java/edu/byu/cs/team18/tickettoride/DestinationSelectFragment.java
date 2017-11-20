@@ -152,6 +152,7 @@ public class DestinationSelectFragment extends Fragment {
         }
         else {
             ClientFacade.getClientFacade().updateDestinationHand(cardsRecieved);
+            DSPInterface.instance.readyButtonClicked(cardsRecieved, discard);
             getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
         }
     }

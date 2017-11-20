@@ -386,5 +386,4 @@ public class TrainCardSelectPresenter {
         numYellow=0;
     }
 
-
 }
