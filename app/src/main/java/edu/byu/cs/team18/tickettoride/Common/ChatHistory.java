@@ -27,4 +27,12 @@ public class ChatHistory {
     public void setHistory(List<ChatMessage> history) {
         this.history = history;
     }
+
+    public void clear(){
+        history.clear();
+    }
+
+    public void addAll(ChatHistory ch){
+        history.addAll(ch.getHistory());
+    }
 }
