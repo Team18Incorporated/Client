@@ -365,6 +365,7 @@ public class TrainCardSelectPresenter {
         ServerProxy.getServerProxy().claimRoute(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
                 ClientModel.SINGLETON.getCurrentGame().getGameID(),route, numSelectedCards);
         ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
+        ServerProxy.getServerProxy().endTurn(ClientModel.SINGLETON.getCurrentUser().getAuthToken(), ClientModel.SINGLETON.getCurrentGame().getGameID(), ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
         view.getActivity().getSupportFragmentManager().beginTransaction().remove(view).commit();
     }
 
