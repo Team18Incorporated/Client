@@ -45,7 +45,7 @@ public class UpdateTrainHandCommand implements ICommand {
 
     public String toString()
     {
-        return ClientModel.SINGLETON.getCurrentPlayer().getPlayerName()+" drew a "+ card1.getColor()+" card from the deck.";
+        return "You drew a "+ card1.getColor().getColor()+" card from the deck.";
     }
 
     @Override

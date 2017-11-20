@@ -1,6 +1,7 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import edu.byu.cs.team18.tickettoride.ClientFacade;
+import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 /**
@@ -24,5 +25,11 @@ public class IncrementTurnCommand implements ICommand {
     @Override
     public String getClassName() {
         return getClass().getName();
+    }
+
+
+    public String toString()
+    {
+        return "It's "+ ClientModel.SINGLETON.getCurrentGame().getPlayerList().get(turn).getPlayerName()+"'s turn.";
     }
 }
