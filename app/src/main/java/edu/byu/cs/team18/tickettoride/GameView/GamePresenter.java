@@ -81,7 +81,7 @@ public class GamePresenter implements Observer{
 
         if(!ClientFacade.getClientFacade().drawFaceUp(in))
         {
-            Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), "Can't do that now.", Toast.LENGTH_SHORT).show();
         }
         /*else
         {
