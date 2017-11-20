@@ -166,6 +166,10 @@ public class GamePresenter implements Observer{
         int index =ClientModel.SINGLETON.getCurrentGame().getPlayerTurn();
         ArrayList<PlayerInfo> playerList = (ArrayList)ClientModel.SINGLETON.getCurrentGame().getPlayerList();
         String returnStr =playerList.get(index).getPlayerName()+" - "+playerList.get(index).getColorString();
+        if(ClientModel.SINGLETON.getLastRound())
+        {
+            returnStr += " - last round";
+        }
         return returnStr;
     }
 

@@ -1,5 +1,6 @@
 package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
+import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 /**
@@ -15,7 +16,7 @@ public class LastRoundCommand implements ICommand {
 
     @Override
     public void execute() {
-
+        ClientModel.SINGLETON.lastRound();
     }
 
     @Override

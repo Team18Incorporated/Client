@@ -286,6 +286,10 @@ public class ClientModel extends Observable{
         echo(lastRound);
     }
 
+    public boolean getLastRound(){
+        return lastRound;
+    }
+
     public void addToGameHistory(List<ICommand> list)
     {
         currentGame.addToGameHistory(list);
