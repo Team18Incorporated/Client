@@ -151,8 +151,8 @@ public class TrainCardSelectFragment extends Fragment  implements
                 blueSelected, greenSelected, yellowSelected, purpleSelected, whiteSelected, orangeSelected, wildSelected))
         {
             ArrayList<Integer> numCardsList= new ArrayList<>();
-            numCardsList.add(redSelected);
             numCardsList.add(blackSelected);
+            numCardsList.add(redSelected);
             numCardsList.add(blueSelected);
             numCardsList.add(greenSelected);
             numCardsList.add(yellowSelected);

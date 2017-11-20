@@ -61,7 +61,8 @@ public class TrainCardSelectPresenter {
         ArrayList<TrainCard> trainCards = ClientModel.SINGLETON.getCurrentPlayer().getHand();
 
         for(int i=0; i<trainCards.size(); i++) {
-            if (trainCards.get(i).getColor().getColor().equals("red")) {
+            if (trainCards.get(i).getColor().getColor().equals("red"))
+            {
                 numRed++;
             }
             else if(trainCards.get(i).getColor().getColor().equals("black"))
@@ -366,6 +367,7 @@ public class TrainCardSelectPresenter {
                 ClientModel.SINGLETON.getCurrentGame().getGameID(),route, numSelectedCards);
         ClientModel.SINGLETON.setState(NotTurnState.SINGLETON);
         ServerProxy.getServerProxy().endTurn(ClientModel.SINGLETON.getCurrentUser().getAuthToken(), ClientModel.SINGLETON.getCurrentGame().getGameID(), ClientModel.SINGLETON.getCurrentPlayer().getPlayerID());
+        clearLists();
         view.getActivity().getSupportFragmentManager().beginTransaction().remove(view).commit();
     }
 
@@ -383,6 +385,6 @@ public class TrainCardSelectPresenter {
         numWild=0;
         numYellow=0;
     }
-    )
+
 
 }
