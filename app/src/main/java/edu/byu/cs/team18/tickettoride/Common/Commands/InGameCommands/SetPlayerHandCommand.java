@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
+import edu.byu.cs.team18.tickettoride.Common.PlayerInfo;
 import edu.byu.cs.team18.tickettoride.Common.TrainCard;
 
 /**
@@ -35,5 +36,14 @@ public class SetPlayerHandCommand implements ICommand {
     @Override
     public void execute() {
         ClientModel.SINGLETON.getCurrentPlayer().setHand(hand);
+
+        String currentPlayer= ClientModel.SINGLETON.getCurrentPlayer().getPlayerID();
+        for(PlayerInfo pi :ClientModel.SINGLETON.getCurrentGame().getPlayerList())
+        {
+            if(pi.getPlayerID().equals(currentPlayer))
+            {
+                pi.setNumTrainCards(hand.size());
+            }
+        }
     }
 }
