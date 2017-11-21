@@ -264,8 +264,9 @@ public class ClientModel extends Observable{
         List<PlayerInfo> sortedScores = new ArrayList<>();
         List<PlayerInfo> players = currentGame.getPlayerList();
         for (int i=0; i<players.size(); i++){
-            for (int j=0; j<=sortedScores.size(); j++){
-                if (j==sortedScores.size() || sortedScores.get(j).getPoints()<players.get(i).getPoints()){
+            int size = sortedScores.size();
+            for (int j=0; j<=size; j++){
+                if (j==size || sortedScores.get(j).getPoints()<players.get(i).getPoints()){
                     sortedScores.add(j,players.get(i));
                 }
             }
@@ -286,9 +287,6 @@ public class ClientModel extends Observable{
         echo("show endgame");
     }
 
-    public void deathRattle() {
-        echo("endgame");
-    }
     public void lastRound()
     {
         lastRound=true;

@@ -246,10 +246,6 @@ public class ClientFacade implements IClient {
         ClientModel.SINGLETON.endGame();
     }
 
-    public void closeGame() {
-        ClientModel.SINGLETON.deathRattle();
-    }
-
     public void updatePlayerTurn(int index)
     {
         ClientModel.SINGLETON.updatePlayerTurn(index);
