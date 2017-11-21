@@ -69,7 +69,7 @@ public class GameOverFragment extends Fragment {
             // set penalties
             id = getResources().getIdentifier("PlayerPenalties"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);
-            temp.setText(player.getPenalties());
+            temp.setText(Integer.toString(player.getPenalties()));
             // set longest route
             id = getResources().getIdentifier("PlayerLongestRoute"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);

@@ -288,7 +288,7 @@ public class ClientModel extends Observable{
     public void lastRound()
     {
         lastRound=true;
-        echo(lastRound);
+       // echo("lastRound");
     }
 
     public boolean getLastRound(){
