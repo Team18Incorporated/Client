@@ -23,6 +23,10 @@
         android:orderInCategory="107"
         android:title="Exit" />
     <item
+        android:id="@+id/forfeit"
+        android:orderInCategory="108"
+        android:title="Forfeit" />
+    <item
         android:id="@+id/chat"
         android:orderInCategory="103"
         android:title="Chat" />

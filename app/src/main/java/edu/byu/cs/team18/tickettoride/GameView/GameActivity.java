@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import edu.byu.cs.team18.tickettoride.ChatFragment;
+import edu.byu.cs.team18.tickettoride.ClientCommunicator;
+import edu.byu.cs.team18.tickettoride.ClientFacade;
 import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.DestinationSelectFragment;
@@ -18,6 +20,7 @@ import edu.byu.cs.team18.tickettoride.GameHistoryFragment;
 import edu.byu.cs.team18.tickettoride.GameOverFragment;
 import edu.byu.cs.team18.tickettoride.LobbyActivity;
 import edu.byu.cs.team18.tickettoride.R;
+import edu.byu.cs.team18.tickettoride.ServerProxy;
 
 import static edu.byu.cs.team18.tickettoride.R.drawable.map;
 
@@ -112,6 +115,8 @@ public class GameActivity extends AppCompatActivity {
                 break;
             case R.id.exit:
                 closeGame();
+            case R.id.forfeit:
+                ClientFacade.getClientFacade().endgame();
             default:
         }
         return true;
