@@ -281,6 +281,10 @@ public class ClientModel extends Observable{
         this.commandIndex = commandIndex;
     }
 
+    public void endGame()
+    {
+        echo("show endgame");
+    }
 
     public void deathRattle() {
         echo("endgame");

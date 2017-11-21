@@ -243,7 +243,7 @@ public class ClientFacade implements IClient {
 
     @Override
     public void endgame() {
-        ClientModel.SINGLETON.deathRattle();
+        ClientModel.SINGLETON.endGame();
     }
 
     public void closeGame() {
