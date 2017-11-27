@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class GameMap {
 
-    ArrayList< Route> routeList = new ArrayList<>();
+    ArrayList<Route> routeList = new ArrayList<>();
     ArrayList<City> cityList= new ArrayList<>();
 
     public GameMap()
