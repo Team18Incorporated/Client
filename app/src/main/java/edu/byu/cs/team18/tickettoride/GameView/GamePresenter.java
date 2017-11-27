@@ -135,14 +135,23 @@ public class GamePresenter implements Observer{
             Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
             return;
         }
+        Route rBefore = null;
+        if(in.getID()>0)
+        {
+           rBefore = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList().get(in.getID() - 1);
+        }
 
-        Route rBefore = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList().at(in.getID() - 1);
-        Route rAfter = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList().at(in.getID() + 1);
+        Route rAfter = null;
+
+        if(in.getID()<99)
+        {
+            rAfter = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList().get(in.getID() + 1);
+        }
 
 
         if(ClientModel.SINGLETON.getCurrentGame().getPlayerList().size() <= 3)
         {
-            if(in.almostEquals(rBefore))
+            if(rBefore!=null && in.almostEquals(rBefore))
             {
                 if (rBefore.getOwnerID() != null)
                 {
@@ -150,7 +159,7 @@ public class GamePresenter implements Observer{
                     return;
                 }
             }
-            else if(in.almostEquals(rAfter))
+            else if(rAfter!=null && in.almostEquals(rAfter))
             {
                 if(rAfter.getOwnerID() != null)
                 {
@@ -159,7 +168,7 @@ public class GamePresenter implements Observer{
                 }
             }
         }
-        else if(in.almostEquals(rBefore))
+        else if(rBefore!=null && in.almostEquals(rBefore))
         {
             if(rBefore.getOwnerID().equals(in.getOwnerID()))
             {
@@ -167,7 +176,7 @@ public class GamePresenter implements Observer{
                 return;
             }
         }
-        else if(in.almostEquals(rAfter))
+        else if(rAfter!=null && in.almostEquals(rAfter))
         {
             if(rAfter.getOwnerID().equals(in.getOwnerID()))
             {
