@@ -133,12 +133,49 @@ public class GamePresenter implements Observer{
         if(!ClientFacade.getClientFacade().claimRouteCheck())
         {
             Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
+            return;
         }
-        else
+
+        Route rBefore = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList().at(in.getID() - 1);
+        Route rAfter = ClientModel.SINGLETON.getCurrentGame().getMap().getRouteList().at(in.getID() + 1);
+
+
+        if(ClientModel.SINGLETON.getCurrentGame().getPlayerList().size() <= 3)
         {
-            //NEEDS TESTING
-            view.getGameActivity().claimRouteCardSelect();
+            if(in.almostEquals(rBefore))
+            {
+                if (rBefore.getOwnerID() != null)
+                {
+                    Toast.makeText(view.getContext(), "Can't claim twin routes in 2 or 3-player games.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+            else if(in.almostEquals(rAfter))
+            {
+                if(rAfter.getOwnerID() != null)
+                {
+                    Toast.makeText(view.getContext(), "Can't claim twin routes in 2 or 3-player games.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
         }
+        else if(in.almostEquals(rBefore))
+        {
+            if(rBefore.getOwnerID().equals(in.getOwnerID()))
+            {
+                Toast.makeText(view.getContext(), "Can't claim both routes.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+        else if(in.almostEquals(rAfter))
+        {
+            if(rAfter.getOwnerID().equals(in.getOwnerID()))
+            {
+                Toast.makeText(view.getContext(), "Can't claim both routes.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+        view.getGameActivity().claimRouteCardSelect();
 //        CommandList temp = ServerProxy.getServerProxy().claimRoute(token, id, in);
 //        temp.execute();
     }

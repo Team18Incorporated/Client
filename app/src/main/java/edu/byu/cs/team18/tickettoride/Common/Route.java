@@ -32,6 +32,14 @@ public class Route {
 
     }
 
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
     public City getCity1() {
         return city1;
     }
@@ -72,6 +80,12 @@ public class Route {
 
     }
 
-
+    public boolean almostEquals(Route route)
+    {
+        if (length != route.length) return false;
+        if (!city1.equals(route.city1)) return false;
+        if (!city2.equals(route.city2)) return false;
+        return true;
+    }
 
 }
