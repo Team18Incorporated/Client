@@ -12,11 +12,11 @@
         app:srcCompat="@drawable/map"
         android:layout_alignParentStart="true"
         android:id="@+id/mapView"
-        android:layout_alignParentTop="true" 
+        android:layout_alignParentTop="true"
         android:paddingRight="85dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"/>
-    
+
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
         android:paddingRight="45dp"
         android:text="##"
         android:id="@+id/numTrainDeck"/>
-    
+
     <ImageView
         android:id="@+id/nfaceUpCard1"
         android:layout_width="20dp"
