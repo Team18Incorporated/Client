@@ -115,6 +115,17 @@ public class ClientModel extends Observable{
 
     public void setJoinedGamesList(GameList joinedGamesList) {
         this.joinedGamesList = joinedGamesList;
+        if(currentLobby!=null)
+        {
+            for(GameInfo gi : joinedGamesList.getList())
+            {
+                if(gi.getGameID().equals(currentLobby.getGameID()))
+                {
+                    setCurrentLobby(gi);
+                }
+            }
+        }
+
         echo(joinedGamesList);
     }
 
