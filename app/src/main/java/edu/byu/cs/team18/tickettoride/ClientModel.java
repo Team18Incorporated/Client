@@ -218,7 +218,8 @@ public class ClientModel extends Observable{
 
     public void updateChatHistory(ChatHistory chatHistory)
     {
-        getCurrentGame().getChatHistory().getHistory().addAll(chatHistory.getHistory());
+        //getCurrentGame().getChatHistory().getHistory().addAll(chatHistory.getHistory());
+        getCurrentGame().setChatHistory(chatHistory);
         echo(null);
     }
 
