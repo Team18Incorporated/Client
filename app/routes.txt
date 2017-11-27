@@ -2,8 +2,8 @@ Atlanta Raleigh any 2
 Atlanta Raleigh any 2
 Atlanta Charleston any 2
 Atlanta Miami blue 5
-Atlanta NewOrleans yellow 4
 Atlanta NewOrleans orange 4
+Atlanta NewOrleans yellow 4
 Atlanta Nashville any 1
 Boston Montreal any 2
 Boston Montreal any 2
