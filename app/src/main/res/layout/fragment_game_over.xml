@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="edu.byu.cs.team18.tickettoride.GameOverFragment">
 
     <TextView
@@ -33,7 +34,7 @@
         android:id="@+id/routesHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/PlayerScore1"
+        android:layout_above="@+id/playerScore1"
         android:layout_alignEnd="@+id/gameOverText"
         android:layout_marginEnd="22dp"
         android:text="Routes" />
@@ -58,48 +59,48 @@
         android:text="Penalties" />
 
     <TextView
-        android:id="@+id/PlayerName1"
+        android:id="@+id/playerName1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/playerHeader" />
 
     <TextView
-        android:id="@+id/PlayerScore1"
+        android:id="@+id/playerScore1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/scoreHeader"
         android:layout_below="@+id/scoreHeader" />
 
     <TextView
-        android:id="@+id/PlayerRoutes1"
+        android:id="@+id/playerRoutes1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/routesHeader"
         android:layout_below="@+id/routesHeader" />
 
     <TextView
-        android:id="@+id/PlayerCars1"
+        android:id="@+id/playerCars1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/carsHeader"
         android:layout_below="@+id/carsHeader" />
 
     <TextView
-        android:id="@+id/PlayerPenalties1"
+        android:id="@+id/playerPenalties1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/penaltiesHeader"
         android:layout_below="@+id/penaltiesHeader" />
 
     <TextView
-        android:id="@+id/PlayerLongestRoute1"
+        android:id="@+id/playerLongestRoute1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/PlayerName1"
-        android:layout_alignBottom="@+id/PlayerName1"
+        android:layout_alignBaseline="@+id/playerName1"
+        android:layout_alignBottom="@+id/playerName1"
         android:layout_marginStart="18dp"
-        android:layout_toEndOf="@+id/PlayerName1"
+        android:layout_toEndOf="@+id/playerName1"
         android:text="Longest Route!"
         android:visibility="invisible" />
 
@@ -108,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/PlayerName1" />
+        android:layout_below="@+id/playerName1" />
 
     <TextView
         android:id="@+id/playerScore2"
@@ -116,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/playerName2"
         android:layout_alignBottom="@+id/playerName2"
-        android:layout_alignStart="@+id/PlayerScore1" />
+        android:layout_alignStart="@+id/playerScore1" />
 
     <TextView
         android:id="@+id/playerRoutes2"
@@ -124,7 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/playerScore2"
         android:layout_alignBottom="@+id/playerScore2"
-        android:layout_alignStart="@+id/PlayerRoutes1" />
+        android:layout_alignStart="@+id/playerRoutes1" />
 
     <TextView
         android:id="@+id/playerCars2"
@@ -132,7 +133,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/playerRoutes2"
         android:layout_alignBottom="@+id/playerRoutes2"
-        android:layout_alignStart="@+id/PlayerCars1" />
+        android:layout_alignStart="@+id/playerCars1" />
 
     <TextView
         android:id="@+id/playerPenalties2"
@@ -140,14 +141,14 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/playerCars2"
         android:layout_alignBottom="@+id/playerCars2"
-        android:layout_alignStart="@+id/PlayerPenalties1" />
+        android:layout_alignStart="@+id/playerPenalties1" />
 
     <TextView
         android:id="@+id/playerLongestRoute2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/PlayerLongestRoute1"
-        android:layout_below="@+id/PlayerLongestRoute1"
+        android:layout_alignStart="@+id/playerLongestRoute1"
+        android:layout_below="@+id/playerLongestRoute1"
         android:text="Longest Route!"
         android:visibility="invisible" />
 

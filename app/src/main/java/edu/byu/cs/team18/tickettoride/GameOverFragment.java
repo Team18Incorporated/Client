@@ -50,28 +50,28 @@ public class GameOverFragment extends Fragment {
         for (int i=0; i<players.size(); i++){
             PlayerInfo player = players.get(i);
             //set player's name
-            int id = getResources().getIdentifier("PlayerName"+(i+1), "id", this.getContext().getPackageName());
+            int id = getResources().getIdentifier("playerName"+(i+1), "id", this.getContext().getPackageName());
             TextView temp = (TextView) view.findViewById(id);
             temp.setText(player.getPlayerName());
             // set score
-            id = getResources().getIdentifier("PlayerScore"+(i+1), "id", this.getContext().getPackageName());
+            id = getResources().getIdentifier("playerScore"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);
-            temp.setText(player.getPoints());
+            temp.setText(Integer.toString(player.getPoints()));
             // set routes
-            id = getResources().getIdentifier("PlayerRoutes"+(i+1), "id", this.getContext().getPackageName());
+            id = getResources().getIdentifier("playerRoutes"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);
-            temp.setText(player.getDestinationsCompleted());
+            temp.setText(Integer.toString(player.getDestinationsCompleted()));
             // set cars
-            id = getResources().getIdentifier("PlayerCars"+(i+1), "id", this.getContext().getPackageName());
+            id = getResources().getIdentifier("playerCars"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);
             int cars = 45-player.getNumTrainPieces();
-            temp.setText(cars);
+            temp.setText(Integer.toString(cars));
             // set penalties
-            id = getResources().getIdentifier("PlayerPenalties"+(i+1), "id", this.getContext().getPackageName());
+            id = getResources().getIdentifier("playerPenalties"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);
             temp.setText(Integer.toString(player.getPenalties()));
             // set longest route
-            id = getResources().getIdentifier("PlayerLongestRoute"+(i+1), "id", this.getContext().getPackageName());
+            id = getResources().getIdentifier("playerLongestRoute"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);
             if (player.hasLongestRoute()){temp.setVisibility(View.VISIBLE);}
         }
