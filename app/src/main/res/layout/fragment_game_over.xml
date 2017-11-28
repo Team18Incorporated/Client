@@ -22,21 +22,13 @@
         android:text="Player" />
 
     <TextView
-        android:id="@+id/scoreHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gameOverText"
-        android:layout_toStartOf="@+id/gameOverText"
-        android:text="Score" />
-
-    <TextView
         android:id="@+id/routesHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/playerScore1"
         android:layout_alignEnd="@+id/gameOverText"
         android:layout_marginEnd="22dp"
-        android:text="Routes" />
+        android:text="Route Points" />
 
     <TextView
         android:id="@+id/carsHeader"
@@ -46,7 +38,7 @@
         android:layout_alignBottom="@+id/penaltiesHeader"
         android:layout_marginStart="36dp"
         android:layout_toEndOf="@+id/routesHeader"
-        android:text="Cars" />
+        android:text="Destination Points" />
 
     <TextView
         android:id="@+id/penaltiesHeader"
@@ -100,7 +92,7 @@
         android:layout_alignBottom="@+id/playerName1"
         android:layout_marginStart="18dp"
         android:layout_toEndOf="@+id/playerName1"
-        android:text="Longest Route!"
+        android:text="Longest Route! +10 points"
         android:visibility="invisible" />
 
     <TextView
@@ -148,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/playerLongestRoute1"
         android:layout_below="@+id/playerLongestRoute1"
-        android:text="Longest Route!"
+        android:text="Longest Route! +10 points"
         android:visibility="invisible" />
 
     <TextView
@@ -192,7 +184,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/playerLongestRoute2"
         android:layout_below="@+id/playerLongestRoute2"
-        android:text="Longest Route!"
+        android:text="Longest Route! +10 points"
         android:visibility="invisible" />
 
     <TextView
@@ -241,7 +233,7 @@
         android:layout_alignBaseline="@+id/playerScore4"
         android:layout_alignBottom="@+id/playerScore4"
         android:layout_alignStart="@+id/playerLongestRoute3"
-        android:text="Longest Route!"
+        android:text="Longest Route! +10 points"
         android:visibility="invisible" />
 
     <TextView
@@ -288,7 +280,7 @@
         android:layout_alignBaseline="@+id/playerScore5"
         android:layout_alignBottom="@+id/playerScore5"
         android:layout_alignStart="@+id/playerLongestRoute4"
-        android:text="Longest Route!"
+        android:text="Longest Route! +10 points"
         android:visibility="invisible" />
 
     <Button
@@ -299,5 +291,14 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="6dp"
         android:text="Exit" />
+
+    <TextView
+        android:id="@+id/scoreHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score"
+        android:layout_below="@+id/gameOverText"
+        android:layout_toStartOf="@+id/routesHeader"
+        android:layout_marginEnd="37dp" />
 
 </RelativeLayout>

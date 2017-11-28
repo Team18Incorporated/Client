@@ -49,6 +49,10 @@ public class GameOverFragment extends Fragment {
         List<PlayerInfo> players = ClientModel.SINGLETON.getScores();
         for (int i=0; i<players.size(); i++){
             PlayerInfo player = players.get(i);
+
+            int totalpoints=player.getPoints()+player.getDestinationsCompleted()+ player.getPenalties();
+            if(player.hasLongestRoute())
+                totalpoints+=10;
             //set player's name
             int id = getResources().getIdentifier("playerName"+(i+1), "id", this.getContext().getPackageName());
             TextView temp = (TextView) view.findViewById(id);
@@ -56,16 +60,16 @@ public class GameOverFragment extends Fragment {
             // set score
             id = getResources().getIdentifier("playerScore"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);
-            temp.setText(Integer.toString(player.getPoints()));
+            temp.setText(Integer.toString(totalpoints));
             // set routes
             id = getResources().getIdentifier("playerRoutes"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);
-            temp.setText(Integer.toString(player.getDestinationsCompleted()));
+            temp.setText(Integer.toString(player.getPoints()));
             // set cars
             id = getResources().getIdentifier("playerCars"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);
             int cars = 45-player.getNumTrainPieces();
-            temp.setText(Integer.toString(cars));
+            temp.setText(Integer.toString(player.getDestinationsCompleted()));
             // set penalties
             id = getResources().getIdentifier("playerPenalties"+(i+1), "id", this.getContext().getPackageName());
             temp = (TextView) view.findViewById(id);
