@@ -135,6 +135,11 @@ public class GamePresenter implements Observer{
             Toast.makeText(view.getContext(), "Not your turn.", Toast.LENGTH_SHORT).show();
             return;
         }
+        if(ClientModel.SINGLETON.getCurrentPlayer().getNumTrainPieces() < in.getLength())
+        {
+            Toast.makeText(view.getContext(), "You don't have enough train pieces to claim that.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Route rBefore = null;
         if(in.getID()>0)
         {
