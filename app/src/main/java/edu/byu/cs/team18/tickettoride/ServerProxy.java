@@ -14,6 +14,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawDestina
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawFromFaceUpCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawTrainCardCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.EndTurnCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ForfeitCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.SendBackDestinationsCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.SendChatCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
@@ -213,5 +214,10 @@ public class ServerProxy implements IServer {
     public void endTurn(AuthToken token, String gameID, String playerID)
     {
         ClientCommunicator.getSingleton().sendCmd(new EndTurnCommand(token, gameID, playerID), EndTurnCommand.class);
+    }
+
+    @Override
+    public void forfeit(AuthToken token, String gameID){
+        ClientCommunicator.getSingleton().sendCmd(new ForfeitCommand(token,gameID), ForfeitCommand.class);
     }
 }

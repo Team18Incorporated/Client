@@ -79,7 +79,7 @@ NewYork Washington black 2
 NewYork Washington orange 2
 NewYork Pittsburgh white 2
 NewYork Pittsburgh green 2
-Oklahoma SantaFe blue 3
+OklahomaCity SantaFe blue 3
 Phoenix SantaFe any 3
 Pittsburgh Washington any 2
 Pittsburgh Raleigh any 2

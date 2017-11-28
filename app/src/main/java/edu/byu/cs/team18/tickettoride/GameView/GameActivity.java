@@ -116,6 +116,8 @@ public class GameActivity extends AppCompatActivity {
             case R.id.exit:
                 closeGame();
             case R.id.forfeit:
+                ServerProxy.getServerProxy().forfeit(ClientModel.SINGLETON.getCurrentUser().getAuthToken(),
+                        ClientModel.SINGLETON.getCurrentGame().getGameID());
                 ClientFacade.getClientFacade().endgame();
             default:
         }

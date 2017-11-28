@@ -106,4 +106,6 @@ public interface IServer {
 	public CommandList getHistory(AuthToken token, String gameID, int index);
 
 	public void endTurn(AuthToken token, String gameID, String playerID);
+
+	public void forfeit(AuthToken token, String gameID);
 }
