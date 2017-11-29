@@ -128,6 +128,7 @@ public class GamePresenter implements Observer{
     Claims designated route for currentPlayer;
      */
     public void claimRoute(Route in){
+        if(in == null){return;}
         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
         String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
         if(!ClientFacade.getClientFacade().claimRouteCheck())
