@@ -69,6 +69,7 @@ public class GameActivity extends AppCompatActivity {
     }
     public void closeGame(){
         GamePresenter.SINGLETON.clearView();
+        ClientModel.SINGLETON.clearCurrentGame();
         Intent intent = new Intent(this, LobbyActivity.class);
         startActivity(intent);
     }
