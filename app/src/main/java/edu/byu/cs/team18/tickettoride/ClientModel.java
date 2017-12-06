@@ -239,8 +239,20 @@ public class ClientModel extends Observable{
 
 
     public void showDestinationChoices(List<DestinationCard> list) {
-        getCurrentPlayer().setDestinationCardChoices(list);
-        echo(list);
+        boolean alreadyReceivedCards=false;
+        for(DestinationCard dc : list)
+        {
+            if(currentPlayer.getDestinationCards().contains(dc))
+            {
+                alreadyReceivedCards=true;
+            }
+        }
+        if(!alreadyReceivedCards)
+        {
+            getCurrentPlayer().setDestinationCardChoices(list);
+            echo(list);
+        }
+        
     }
 
     public void setLastRoute(Route route){
