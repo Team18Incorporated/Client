@@ -20,9 +20,8 @@ public class DrawCardState implements IState {
 
     @Override
     public boolean drawFaceUp(int index) {
-        //add implementation
         TrainCard card = ClientModel.SINGLETON.getCurrentGame().getVisibleCards().get(index);
-        if(card.getColor().getColor().equals("wild"))
+        if(card==null || card.getColor().getColor().equals("wild"))
         {
             return false;
         }

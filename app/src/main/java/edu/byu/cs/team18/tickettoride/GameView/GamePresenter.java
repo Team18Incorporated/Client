@@ -101,14 +101,6 @@ public class GamePresenter implements Observer{
     }
 
     /*
-    adds designated DestinationCard to the user's destinations
-    @pre: in!=null
-    @post: none
-     */
-    public void addDestination(DestinationCard in){
-        //todo: connect to model
-    }
-    /*
     uses model to determine route pressed and selects
     @pre: in!= null && iv is a car image
     @post:none
@@ -128,6 +120,7 @@ public class GamePresenter implements Observer{
     Claims designated route for currentPlayer;
      */
     public void claimRoute(Route in){
+        if(in == null){return;}
         AuthToken token = ClientModel.SINGLETON.getCurrentUser().getAuthToken();
         String id = ClientModel.SINGLETON.getCurrentGame().getGameID();
         if(!ClientFacade.getClientFacade().claimRouteCheck())

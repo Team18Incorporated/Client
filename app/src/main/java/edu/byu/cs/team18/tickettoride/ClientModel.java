@@ -100,6 +100,8 @@ public class ClientModel extends Observable{
         echo(currentGame);
     }
 
+    public void clearCurrentGame(){currentGame = null;}
+
     public GameList getJoinableGamesList() {
         return joinableGamesList;
     }

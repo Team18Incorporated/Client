@@ -28,6 +28,7 @@ public class StartTurnState implements IState {
     public boolean drawFaceUp(int index) {
         //add implementation
         TrainCard card = ClientModel.SINGLETON.getCurrentGame().getVisibleCards().get(index);
+        if (card==null) return false;
         if (card.getColor().getColor().equals("wild"))
         {
             //is that right? rainbow?
