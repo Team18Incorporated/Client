@@ -124,41 +124,47 @@ public class GameViewFragment extends Fragment {
      */
     public void setFaceUpCards(){
         ArrayList<TrainCard> temp = ClientModel.SINGLETON.getCurrentGame().getVisibleCards();
-        faceUpCard1.setImageResource(pickGraphic(temp.get(0).getColor()));
-        faceUpCard2.setImageResource(pickGraphic(temp.get(1).getColor()));
-        faceUpCard3.setImageResource(pickGraphic(temp.get(2).getColor()));
-        faceUpCard4.setImageResource(pickGraphic(temp.get(3).getColor()));
-        faceUpCard5.setImageResource(pickGraphic(temp.get(4).getColor()));
+        faceUpCard1.setImageResource(pickGraphic(temp.get(0)));
+        faceUpCard2.setImageResource(pickGraphic(temp.get(1)));
+        faceUpCard3.setImageResource(pickGraphic(temp.get(2)));
+        faceUpCard4.setImageResource(pickGraphic(temp.get(3)));
+        faceUpCard5.setImageResource(pickGraphic(temp.get(4)));
     }
-    public int pickGraphic(CardColor color){
+    public int pickGraphic(TrainCard card){
         int out = R.drawable.card_rainbow;
-        switch (color.getColor()){
-            case "black":
-                out = R.drawable.card_black;
-                break;
-            case "blue":
-                out = R.drawable.card_blue;
-                break;
-            case "green":
-                out = R.drawable.card_green;
-                break;
-            case "orange":
-                out = R.drawable.card_orange;
-                break;
-            case "purple":
-                out = R.drawable.card_purple;
-                break;
-            case "wild":
-                out = R.drawable.card_rainbow;
-                break;
-            case "red":
-                out = R.drawable.card_red;
-                break;
-            case "white":
-                out = R.drawable.card_white;
-                break;
-            case "yellow":
-                out = R.drawable.card_yellow;
+        if (card==null){
+            out = R.drawable.card_empty;
+        }
+        else {
+            CardColor color = card.getColor();
+            switch (color.getColor()) {
+                case "black":
+                    out = R.drawable.card_black;
+                    break;
+                case "blue":
+                    out = R.drawable.card_blue;
+                    break;
+                case "green":
+                    out = R.drawable.card_green;
+                    break;
+                case "orange":
+                    out = R.drawable.card_orange;
+                    break;
+                case "purple":
+                    out = R.drawable.card_purple;
+                    break;
+                case "wild":
+                    out = R.drawable.card_rainbow;
+                    break;
+                case "red":
+                    out = R.drawable.card_red;
+                    break;
+                case "white":
+                    out = R.drawable.card_white;
+                    break;
+                case "yellow":
+                    out = R.drawable.card_yellow;
+            }
         }
         return out;
     }
