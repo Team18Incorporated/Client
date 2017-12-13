@@ -31,6 +31,9 @@ public class ClientModel extends Observable{
     private int commandIndex=-1;
     private boolean lastRound=false;
 
+    private boolean serverDown = false;
+    private IState prev;
+
     private PollerAsyncTask poller = new PollerAsyncTask();
 
     private ClientModel (){
@@ -268,6 +271,7 @@ public class ClientModel extends Observable{
     }
 
     public void setState(IState state) {
+        this.prev = this.state;
         this.state = state;
     }
 
@@ -335,4 +339,24 @@ public class ClientModel extends Observable{
     {
         return currentGame.getGameHistory();
     }
+
+    public boolean ServerDown(){
+        return serverDown;
+    }
+
+    public void setServerDown(){
+        serverDown = true;
+    }
+
+    public void setServerUp(){
+        serverDown = false;
+    }
+
+    public void addServerDownCommand(ICommand command){
+        //change state
+        if(prev != null)
+            state = prev;
+
+    }
+
 }

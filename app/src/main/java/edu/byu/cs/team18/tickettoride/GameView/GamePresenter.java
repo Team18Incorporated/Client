@@ -222,6 +222,10 @@ public class GamePresenter implements Observer{
         return Integer.toString(ClientModel.SINGLETON.getCurrentGame().getNumDestinationDeck());
     }
 
+    public void ServerDown(){
+        Toast.makeText(view.getContext(), "Server Down, Try Again.", Toast.LENGTH_SHORT).show();
+    }
+
 
 
     /*public void incrementTest()
