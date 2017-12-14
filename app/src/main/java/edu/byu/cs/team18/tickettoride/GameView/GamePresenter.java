@@ -223,7 +223,7 @@ public class GamePresenter implements Observer{
     }
 
     public void ServerDown(){
-        Toast.makeText(view.getContext(), "Server Down.", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(view.getContext(), "Server Down.", Toast.LENGTH_LONG).show();
     }
 
 
