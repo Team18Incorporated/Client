@@ -1,4 +1,4 @@
-package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound;
+package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import java.util.Date;
 
@@ -20,7 +20,7 @@ public class UpdateGameHistoryCommand implements ICommand {
     @Override
 
     public String getSuffix() {
-        return "IngameCommands.Inbound.UpdateGameHistory";
+        return "IngameCommands.UpdateGameHistory";
     }
 
     @Override

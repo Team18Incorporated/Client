@@ -19,7 +19,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.SendChatCom
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound.ShowDestinationChoicesCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound.UpdateChatHistoryCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound.UpdateFaceUpCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound.UpdateGameHistoryCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateGameHistoryCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.JoinCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
