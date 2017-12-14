@@ -190,8 +190,12 @@ public class JoinedGamesFragment extends Fragment {
         {
             this.gameInfo=gameInfo;
 
-            gameName.setText(gameInfo.getGameName());
-            numPlayers.setText(Integer.toString(gameInfo.getNumPlayers()));
+            if(gameInfo!=null)
+            {
+                gameName.setText(gameInfo.getGameName());
+                numPlayers.setText(Integer.toString(gameInfo.getNumPlayers()));
+            }
+
         }
 
 

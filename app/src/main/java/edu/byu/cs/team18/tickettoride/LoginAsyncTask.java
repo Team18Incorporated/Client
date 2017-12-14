@@ -30,8 +30,8 @@ public class LoginAsyncTask extends AsyncTask<LoginCommand,Void,User> {
     }
 
     protected User doInBackground(LoginCommand... params){
-        AuthToken token = ServerProxy.getServerProxy().userLogin(params[0].getUsername(), params[0].getPassword());
-        return new User(token,params[0].getUsername());
+        User user = ServerProxy.getServerProxy().userLogin(params[0].getUsername(), params[0].getPassword());
+        return user;
     }
 
     protected void onProgressUpdate(){

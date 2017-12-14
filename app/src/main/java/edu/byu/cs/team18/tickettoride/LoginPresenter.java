@@ -69,9 +69,9 @@ public class LoginPresenter implements Observer{
         {
             /*LoginCommand loginCommand = new LoginCommand(username, password);
             new LoginAsyncTask(A).execute(loginCommand);*/
-            AuthToken token = ServerProxy.getServerProxy().userLogin(username,password);
-            if (token!=null) {
-                ClientFacade.getClientFacade().updateUser(new User(token, username));
+            User user = ServerProxy.getServerProxy().userLogin(username,password);
+            if (user!=null) {
+                ClientFacade.getClientFacade().updateUser(user);
             }
             else
             {

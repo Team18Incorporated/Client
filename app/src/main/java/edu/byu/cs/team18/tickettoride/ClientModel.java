@@ -252,7 +252,7 @@ public class ClientModel extends Observable{
             getCurrentPlayer().setDestinationCardChoices(list);
             echo(list);
         }
-        
+
     }
 
     public void setLastRoute(Route route){

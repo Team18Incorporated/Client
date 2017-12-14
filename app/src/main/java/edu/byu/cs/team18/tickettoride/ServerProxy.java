@@ -35,6 +35,7 @@ import edu.byu.cs.team18.tickettoride.Common.IServer;
 import edu.byu.cs.team18.tickettoride.Common.Route;
 import edu.byu.cs.team18.tickettoride.Common.StartedGameResult;
 import edu.byu.cs.team18.tickettoride.Common.TrainCard;
+import edu.byu.cs.team18.tickettoride.Common.User;
 
 /**
  * Created by abram on 10/9/2017.
@@ -63,9 +64,9 @@ public class ServerProxy implements IServer {
 	 * @Post: 0 < int authToken < 10000 || exception
 	 */
     @Override
-    public AuthToken userLogin(String user, String password)
+    public User userLogin(String user, String password)
     {
-        return (AuthToken) ClientCommunicator.getSingleton().sendCmd(new LoginCommand(user, password), AuthToken.class);
+        return (User) ClientCommunicator.getSingleton().sendCmd(new LoginCommand(user, password), User.class);
     }
     /*
      * Registers a new user and logs them in. Returns authToken
