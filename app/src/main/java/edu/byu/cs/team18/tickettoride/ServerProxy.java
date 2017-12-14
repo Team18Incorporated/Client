@@ -189,10 +189,10 @@ public class ServerProxy implements IServer {
     }
 
     @Override
-    public void sendBackDestinations(AuthToken authToken, String gameID, List<DestinationCard> list)
+    public void sendBackDestinations(AuthToken authToken, String gameID, List<DestinationCard> list, List<DestinationCard> discardlist)
     {
        ClientCommunicator.getSingleton()
-                .sendCmd(new SendBackDestinationsCommand(authToken,gameID,list), CommandList.class);
+                .sendCmd(new SendBackDestinationsCommand(authToken,gameID,list, discardlist), CommandList.class);
     }
 
     @Override

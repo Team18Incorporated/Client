@@ -247,7 +247,7 @@ public class ClientModel extends Observable{
 
     public void showDestinationChoices(List<DestinationCard> list) {
         boolean alreadyReceivedCards=false;
-        for(DestinationCard dc : list)
+       for(DestinationCard dc : list)
         {
             if(currentPlayer.getDestinationCards().contains(dc))
             {
