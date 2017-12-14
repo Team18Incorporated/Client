@@ -52,7 +52,7 @@ public class ClientCommunicator {
         HttpURLConnection connection = openConnection("/"+url, HTTP_POST, true);
         if(ClientModel.SINGLETON != null && ClientModel.SINGLETON.ServerDown())
             if(command instanceof ICommand)
-                ClientModel.SINGLETON.addServerDownCommand();
+                ClientModel.SINGLETON.addServerDownCommand((ICommand) command);
         sendToServerCommunicator(connection, command);
         Object result = null;
         result = returnResult(connection, klass);

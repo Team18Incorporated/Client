@@ -10,6 +10,10 @@ import java.util.Observer;
 import edu.byu.cs.team18.tickettoride.Common.*;
 import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawDestinationCardCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawFromFaceUpCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawTrainCardCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.EndTurnCommand;
 import edu.byu.cs.team18.tickettoride.States.IState;
 import edu.byu.cs.team18.tickettoride.States.NotTurnState;
 
@@ -352,10 +356,10 @@ public class ClientModel extends Observable{
         serverDown = false;
     }
 
-    public void addServerDownCommand(){
+    public void addServerDownCommand(ICommand command){
         //change state
         if(state == null) return;
-        if(prev != null)
+        if(prev != null && (command instanceof EndTurnCommand))
             state = prev;
 
     }
