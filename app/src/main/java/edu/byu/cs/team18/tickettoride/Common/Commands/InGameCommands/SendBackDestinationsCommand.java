@@ -14,6 +14,7 @@ public class SendBackDestinationsCommand implements ICommand {
     private AuthToken authToken;
     private String gameID;
     private List<DestinationCard> list;
+    private List<DestinationCard> discardlist;
     private String className;
 
     @Override
@@ -33,10 +34,11 @@ public class SendBackDestinationsCommand implements ICommand {
     }
 
 
-    public SendBackDestinationsCommand(AuthToken authToken, String gameID, List<DestinationCard> list) {
+    public SendBackDestinationsCommand(AuthToken authToken, String gameID, List<DestinationCard> list, List<DestinationCard> discardlist) {
         this.authToken = authToken;
         this.gameID = gameID;
         this.list = list;
+        this.discardlist=discardlist;
         className=getClass().getName();
     }
 
