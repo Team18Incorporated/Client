@@ -14,6 +14,7 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawDestina
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawFromFaceUpCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.DrawTrainCardCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.EndTurnCommand;
+import edu.byu.cs.team18.tickettoride.GameView.GamePresenter;
 import edu.byu.cs.team18.tickettoride.States.IState;
 import edu.byu.cs.team18.tickettoride.States.NotTurnState;
 
@@ -36,6 +37,7 @@ public class ClientModel extends Observable{
     private boolean lastRound=false;
 
     private boolean serverDown = false;
+    private boolean dontUpdateState = false;
     private IState prev;
 
     private PollerAsyncTask poller = new PollerAsyncTask();
@@ -275,8 +277,7 @@ public class ClientModel extends Observable{
     }
 
     public void setState(IState state) {
-        this.prev = this.state;
-        this.state = state;
+        if(!dontUpdateState) this.state = state;
     }
 
     public boolean drawFaceUp(int index)
@@ -350,18 +351,23 @@ public class ClientModel extends Observable{
 
     public void setServerDown(){
         serverDown = true;
+        dontUpdateState = true;
     }
 
     public void setServerUp(){
         serverDown = false;
+        dontUpdateState = false;
     }
 
     public void addServerDownCommand(ICommand command){
         //change state
         if(state == null) return;
         if(prev != null &&
-                (command instanceof DrawFromFaceUpCommand || command instanceof DrawTrainCardCommand || command instanceof DrawDestinationCardCommand))
-            state = prev;
+                (command instanceof DrawFromFaceUpCommand || command instanceof DrawTrainCardCommand || command instanceof DrawDestinationCardCommand)){
+
+            dontUpdateState = true;
+            echo("server down");
+        }
 
     }
 

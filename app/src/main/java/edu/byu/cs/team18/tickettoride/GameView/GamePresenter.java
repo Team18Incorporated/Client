@@ -355,6 +355,9 @@ public class GamePresenter implements Observer{
             else if (o instanceof String && o.equals("show endgame")){
                 view.getGameActivity().endGame();
             }
+            else if (o instanceof String && o.equals("server down")){
+                this.ServerDown();
+            }
         }
 
         updateView();
