@@ -8,6 +8,7 @@ import edu.byu.cs.team18.tickettoride.Common.Route;
 
 public class NotTurnState implements IState {
     private NotTurnState(){}
+    private IState prev;
     public static NotTurnState SINGLETON = new NotTurnState();
 
     @Override
@@ -29,4 +30,5 @@ public class NotTurnState implements IState {
     public boolean drawDestinationCards() {
         return false;
     }
+
 }

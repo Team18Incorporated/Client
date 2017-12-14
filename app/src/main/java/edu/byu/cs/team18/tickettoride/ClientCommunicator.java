@@ -50,6 +50,9 @@ public class ClientCommunicator {
 
     public Object send(String url, Object command, Class<?> klass){
         HttpURLConnection connection = openConnection("/"+url, HTTP_POST, true);
+        if(ClientModel.SINGLETON != null && ClientModel.SINGLETON.ServerDown())
+            if(command instanceof ICommand)
+                ClientModel.SINGLETON.addServerDownCommand();
         sendToServerCommunicator(connection, command);
         Object result = null;
         result = returnResult(connection, klass);
@@ -83,10 +86,10 @@ public class ClientCommunicator {
             result.setRequestMethod(requestMethod);
             result.setDoOutput(sendingSomthingToServer);
             result.connect();
-        } catch (MalformedURLException e) {
+            ClientModel.SINGLETON.setServerUp();
+        } catch (Exception e){
             System.out.print(e.toString());
-        } catch (IOException e) {
-            System.out.print(e.toString());
+            ClientModel.SINGLETON.setServerDown();
         }
 
         return result;

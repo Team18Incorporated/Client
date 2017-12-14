@@ -34,8 +34,12 @@ import edu.byu.cs.team18.tickettoride.Common.GameList;
 import edu.byu.cs.team18.tickettoride.Common.IServer;
 import edu.byu.cs.team18.tickettoride.Common.Route;
 import edu.byu.cs.team18.tickettoride.Common.StartedGameResult;
-import edu.byu.cs.team18.tickettoride.Common.TrainCard;
+
+
 import edu.byu.cs.team18.tickettoride.Common.User;
+
+
+
 
 /**
  * Created by abram on 10/9/2017.
@@ -221,4 +225,5 @@ public class ServerProxy implements IServer {
     public void forfeit(AuthToken token, String gameID){
         ClientCommunicator.getSingleton().sendCmd(new ForfeitCommand(token,gameID), ForfeitCommand.class);
     }
+
 }
