@@ -14,7 +14,7 @@ public class UpdateDestinationDeckSizeCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "IngameCommands.Inbound.UpdateDestinationDeckSize";
+        return "InGameCommands.UpdateDestinationDeckSize";
     }
 
     @Override

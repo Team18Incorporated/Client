@@ -14,7 +14,7 @@ public class IncrementTurnCommand implements ICommand {
     private String className = getClass().getName();
     @Override
     public String getSuffix() {
-        return "IngameCommands.Inbound.LastRoundCommand";
+        return "InGameCommands.LastRoundCommand";
     }
 
     @Override

@@ -17,7 +17,7 @@ public class ShowDestinationChoicesCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "IngameCommands.Inbound.ShowDestinationChoices";
+        return "InGameCommands.ShowDestinationChoices";
     }
 
     @Override
