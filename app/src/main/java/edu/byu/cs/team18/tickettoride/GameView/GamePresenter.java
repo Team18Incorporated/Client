@@ -223,7 +223,7 @@ public class GamePresenter implements Observer{
     }
 
     public void ServerDown(){
-        Toast.makeText(view.getContext(), "Server Down, Try Again.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(view.getContext(), "Server Down.", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -354,6 +354,9 @@ public class GamePresenter implements Observer{
             }
             else if (o instanceof String && o.equals("show endgame")){
                 view.getGameActivity().endGame();
+            }
+            else if (o instanceof String && o.equals("server down")){
+                this.ServerDown();
             }
         }
 
