@@ -3,7 +3,9 @@ package edu.byu.cs.team18.tickettoride;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.byu.cs.team18.tickettoride.Common.AuthToken;
 import edu.byu.cs.team18.tickettoride.Common.ChatHistory;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
 import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
 import edu.byu.cs.team18.tickettoride.Common.ClientGame;
 import edu.byu.cs.team18.tickettoride.Common.GameInfo;
@@ -286,7 +288,7 @@ public class ClientFacade implements IClient {
     }
 
     public void lastRound(){
-        ClientModel.SINGLETON.lastRound();
+
     }
 
     public void incrementTurn(int turn){

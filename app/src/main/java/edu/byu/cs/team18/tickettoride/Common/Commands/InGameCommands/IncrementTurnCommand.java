@@ -1,4 +1,4 @@
-package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound;
+package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import edu.byu.cs.team18.tickettoride.ClientFacade;
 import edu.byu.cs.team18.tickettoride.ClientModel;

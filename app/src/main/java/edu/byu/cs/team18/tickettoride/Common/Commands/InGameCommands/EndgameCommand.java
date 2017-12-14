@@ -1,4 +1,4 @@
-package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound;
+package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
