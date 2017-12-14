@@ -20,7 +20,7 @@ public class UpdateGameHistoryCommand implements ICommand {
     @Override
 
     public String getSuffix() {
-        return "IngameCommands.UpdateGameHistory";
+        return "InGameCommands.UpdateGameHistory";
     }
 
     @Override
