@@ -359,7 +359,8 @@ public class ClientModel extends Observable{
     public void addServerDownCommand(ICommand command){
         //change state
         if(state == null) return;
-        if(prev != null && (command instanceof EndTurnCommand))
+        if(prev != null &&
+                (command instanceof DrawFromFaceUpCommand || command instanceof DrawTrainCardCommand || command instanceof DrawDestinationCardCommand))
             state = prev;
 
     }
