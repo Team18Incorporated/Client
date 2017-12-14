@@ -1,4 +1,4 @@
-package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound;
+package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import java.util.ArrayList;
 
@@ -32,12 +32,11 @@ public class RemoveCardsCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "IngameCommands.Inbound.RemoveCards";
+        return "InGameCommands.RemoveCards";
     }
 
     @Override
     public void execute() {
-        //todo: move implementation to clientFacade
         ArrayList<TrainCard> hand =ClientModel.SINGLETON.getCurrentPlayer().getHand();
        /* int numFound=0;
         for(TrainCard card : hand)

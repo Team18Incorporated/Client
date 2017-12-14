@@ -1,4 +1,4 @@
-package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound;
+package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class UpdateDestinationHandCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "IngameCommands.Inbound.UpdateDestinationHand";
+        return "InGameCommands.UpdateDestinationHand";
     }
 
     @Override

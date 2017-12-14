@@ -125,7 +125,8 @@ public class ClientCommunicator {
     }
 
     private void sendToServerCommunicator(HttpURLConnection connection,
-                                          Object objectToSend) {
+                                          Object objectToSend)
+    {
         PrintWriter printWriter = null;
         try {
             printWriter = new PrintWriter(connection.getOutputStream());

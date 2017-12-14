@@ -1,4 +1,4 @@
-package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound;
+package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 
 import edu.byu.cs.team18.tickettoride.ClientFacade;
@@ -17,7 +17,7 @@ public class UpdateEnemyDestinationHandCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "IngameCommands.Inbound.UpdateEnemyDestinationHand";
+        return "InGameCommands.UpdateEnemyDestinationHand";
     }
 
     @Override

@@ -1,4 +1,4 @@
-package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound;
+package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class ShowDestinationChoicesCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "IngameCommands.Inbound.ShowDestinationChoices";
+        return "InGameCommands.ShowDestinationChoices";
     }
 
     @Override

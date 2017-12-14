@@ -1,32 +1,36 @@
-package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound;
+package edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands;
 
 import edu.byu.cs.team18.tickettoride.ClientFacade;
-import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.Commands.ICommand;
 
 /**
  * Created by abram on 10/20/2017.
  */
 
-public class UpdateDestinationDeckSizeCommand implements ICommand {
+public class UpdateTrainDeckSizeCommand implements ICommand {
+
     private int size;
     private String className;
 
     @Override
-    public String getSuffix() {
-        return "IngameCommands.Inbound.UpdateDestinationDeckSize";
+    public String getSuffix()
+    {
+        String suffix = this.getClass().toString();
+        return suffix.substring(0,suffix.length() - 7);
     }
 
     @Override
     public void execute()
     {
-        ClientFacade.getClientFacade().updateDestinationDeckSize(size);
+        ClientFacade.getClientFacade().updateTrainDeckSize( size);
     }
 
-    public UpdateDestinationDeckSizeCommand(int size) {
+
+    public UpdateTrainDeckSizeCommand( int size) {
         this.size = size;
         className=getClass().getName();
     }
+
 
     public int getSize() {
         return size;
@@ -39,5 +43,10 @@ public class UpdateDestinationDeckSizeCommand implements ICommand {
     @Override
     public String getClassName() {
         return getClass().getName();
+    }
+
+    public String toString()
+    {
+        return "There are now "+ Integer.toString(size) + "card(s) in the Train Card Deck";
     }
 }

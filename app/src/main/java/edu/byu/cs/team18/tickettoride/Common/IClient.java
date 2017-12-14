@@ -3,6 +3,9 @@ package edu.byu.cs.team18.tickettoride.Common;
 
 import java.util.List;
 
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateFaceUpCommand;
+
 public interface IClient {
 
 
