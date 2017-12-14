@@ -1,39 +1,20 @@
 package edu.byu.cs.team18.tickettoride.GameView;
 
-import android.graphics.Point;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
 import edu.byu.cs.team18.tickettoride.ClientFacade;
 import edu.byu.cs.team18.tickettoride.ClientModel;
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
-import edu.byu.cs.team18.tickettoride.Common.ChatHistory;
-import edu.byu.cs.team18.tickettoride.Common.ChatMessage;
-import edu.byu.cs.team18.tickettoride.Common.Commands.CommandList;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ClaimRouteCommand;
-//import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.RemoveCardsCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.RemoveCardsCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateChatHistoryCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateEnemyScoreCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateEnemyTrainHandCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateFaceUpCommand;
-//import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdatePlayerTurnCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdatePlayerTurnCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateScoreCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateTrainDeckSizeCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateTrainHandCommand;
-import edu.byu.cs.team18.tickettoride.Common.DestinationCard;
+//import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound.RemoveCardsCommand;
+//import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound.UpdatePlayerTurnCommand;
 import edu.byu.cs.team18.tickettoride.Common.Player;
 import edu.byu.cs.team18.tickettoride.Common.PlayerInfo;
 import edu.byu.cs.team18.tickettoride.Common.Route;
 import edu.byu.cs.team18.tickettoride.Common.TrainCard;
-import edu.byu.cs.team18.tickettoride.ServerProxy;
 
 /**
  * Created by Antman 537 on 10/25/2017.

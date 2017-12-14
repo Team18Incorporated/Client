@@ -2,7 +2,6 @@ package edu.byu.cs.team18.tickettoride;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import edu.byu.cs.team18.tickettoride.Common.AuthToken;
@@ -17,10 +16,10 @@ import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.EndTurnComm
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ForfeitCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.SendBackDestinationsCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.SendChatCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.ShowDestinationChoicesCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateChatHistoryCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateFaceUpCommand;
-import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.UpdateGameHistoryCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound.ShowDestinationChoicesCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound.UpdateChatHistoryCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound.UpdateFaceUpCommand;
+import edu.byu.cs.team18.tickettoride.Common.Commands.InGameCommands.Inbound.UpdateGameHistoryCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.JoinCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.LoginCommand;
 import edu.byu.cs.team18.tickettoride.Common.Commands.RegisterCommand;
