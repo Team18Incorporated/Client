@@ -18,7 +18,7 @@ public class UpdateDestinationHandCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "InGameCommands.UpdateDestinationHand";
+        return "IngameCommands.Inbound.UpdateDestinationHand";
     }
 
     @Override

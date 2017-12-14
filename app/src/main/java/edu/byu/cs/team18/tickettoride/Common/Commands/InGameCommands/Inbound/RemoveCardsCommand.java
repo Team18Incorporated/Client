@@ -32,7 +32,7 @@ public class RemoveCardsCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "InGameCommands.RemoveCards";
+        return "IngameCommands.Inbound.RemoveCards";
     }
 
     @Override

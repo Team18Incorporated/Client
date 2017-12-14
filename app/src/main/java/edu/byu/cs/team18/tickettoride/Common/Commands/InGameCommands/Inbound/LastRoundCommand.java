@@ -12,7 +12,7 @@ public class LastRoundCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "InGameCommands.LastRoundCommand";
+        return "IngameCommands.Inbound.LastRoundCommand";
     }
 
     @Override

@@ -16,7 +16,7 @@ public class UpdateChatHistoryCommand implements ICommand {
 
     @Override
     public String getSuffix() {
-        return "InGameCommands.UpdateChatHistory";
+        return "IngameCommands.Inbound.UpdateChatHistory";
     }
 
     @Override
