@@ -352,8 +352,9 @@ public class ClientModel extends Observable{
         serverDown = false;
     }
 
-    public void addServerDownCommand(ICommand command){
+    public void addServerDownCommand(){
         //change state
+        if(state == null) return;
         if(prev != null)
             state = prev;
 

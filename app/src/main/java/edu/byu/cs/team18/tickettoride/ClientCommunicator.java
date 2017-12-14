@@ -50,9 +50,9 @@ public class ClientCommunicator {
 
     public Object send(String url, Object command, Class<?> klass){
         HttpURLConnection connection = openConnection("/"+url, HTTP_POST, true);
-        if(ClientModel.SINGLETON.ServerDown())
+        if(ClientModel.SINGLETON != null && ClientModel.SINGLETON.ServerDown())
             if(command instanceof ICommand)
-                ClientModel.SINGLETON.addServerDownCommand((ICommand) command);
+                ClientModel.SINGLETON.addServerDownCommand();
         sendToServerCommunicator(connection, command);
         Object result = null;
         result = returnResult(connection, klass);
